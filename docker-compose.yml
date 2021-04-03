@@ -2,6 +2,7 @@ version: '3'
 
 services:
     banco:
+        container_name: bancopg
         image: postgres:9.4
         restart: always
         tty: true
@@ -9,6 +10,8 @@ services:
             - .pgdata:/var/lib/postgresql/data
         environment:
             - POSTGRES_PASSWORD=root
-            - POSTGRES_DB=managefile
+            - POSTGRES_DB=managefile            
         ports:
             - "5433:5432"
+        expose:
+            - "5433"
