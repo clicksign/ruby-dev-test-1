@@ -8,9 +8,10 @@ Realizar um fork deste repositório.
 
 ===============
 
-Para iniciar o banco de dados será necessário rodar o comando `docker-compose start`
+## Implementação proposta
 
+1. Primeiramente iniciar o banco de dados com o comando `docker-compose start`.
 
-Dir
-    Dir2 [parent=1]
-        -File
+2. Em seguinda iniciar a API com o comando `rails s`.
+
+3. Testar com alguma ferramenta de requesição de API.

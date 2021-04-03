@@ -14,7 +14,7 @@ module Api
 				if dir.save
 					render json: {message: "saved"}, status: :ok
 				else
-					render json: {message: "error on create"}, status: :error
+					render json: {message: "error on create", error: dir.errors}, status: :bad_request
 				end
 			end
 
@@ -24,13 +24,13 @@ module Api
 					dir.destroy
 					render json: {message: "saved"}, status: :ok
 				else
-					render json: {message: "error on destroy"}, status: :error
+					render json: {message: "error on destroy"}, status: :bad_request
 				end
 			end
 
 			def search
 				dirs = Directory.where(name: params[:name])
-				render json: {result: dirs}, status: :ok
+				render json: {bla: params, result: dirs}, status: :ok
 			end
 
 			def directory_params

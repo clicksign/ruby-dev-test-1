@@ -6,6 +6,9 @@ Rails.application.routes.draw do
           get :list, action: :list
           post :create, action: :create
           delete :destroy, action: :destroy
+          get :search, action: :search          
+        end
+        namespace :the_file do
           get :search, action: :search
         end
   	  end
