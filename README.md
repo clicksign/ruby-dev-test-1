@@ -5,3 +5,12 @@ Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco
 A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
 
 Realizar um fork deste repositório.
+
+===============
+
+Para iniciar o banco de dados será necessário rodar o comando `docker-compose start`
+
+
+Dir
+    Dir2 [parent=1]
+        -File
