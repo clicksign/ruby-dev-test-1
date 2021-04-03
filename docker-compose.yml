@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    banco:
+        image: postgres:9.4
+        restart: always
+        tty: true
+        volumes:
+            - .pgdata:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=managefile
+        ports:
+            - "5433:5432"
