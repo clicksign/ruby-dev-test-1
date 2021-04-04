@@ -1,30 +1,16 @@
 module Api
 	module V1
 		class DirectoryController < ApplicationController
-			def list
-				dirs = Directory.all
-				render json: {data: dirs}, status: :ok
-			end         
+						
+			def tree 
 
-			def create
-				dir = Directory.create(
-					:name => params[:name],
-					:parent_id => params[:parent_id] ? params[:parent_id] : nil
-				)
-				if dir.save
-					render json: {message: "saved"}, status: :ok
-				else
-					render json: {message: "error on create", errors: dir.errors}, status: :bad_request
+				data = []
+				r = Directory.find_by(name: params[:name])
+				if r
+					data = r.tree
 				end
-			end
-
-			def destroy
-				dir = Directory.find(name: params[:name])
-				if dir.destroy
-					render json: {message: "saved"}, status: :ok
-				else
-					render json: {message: "error on destroy", errors: dir.errors}, status: :bad_request
-				end
+				
+				render json: {data: data}, status: :ok
 			end
 
 			def search
@@ -34,7 +20,7 @@ module Api
 
 			def directory_params
 				params.permit(:name, :parent_id)
-			end
+			end			
 		end
 	end
 end
