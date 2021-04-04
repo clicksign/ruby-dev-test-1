@@ -9,7 +9,8 @@ Rails.application.routes.draw do
           get :search, action: :search          
         end
         namespace :the_file do
-          get :search, action: :search
+          get  :search, action: :search
+          post :create, action: :create
         end
   	  end
   end

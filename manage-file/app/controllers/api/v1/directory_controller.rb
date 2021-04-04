@@ -14,17 +14,16 @@ module Api
 				if dir.save
 					render json: {message: "saved"}, status: :ok
 				else
-					render json: {message: "error on create", error: dir.errors}, status: :bad_request
+					render json: {message: "error on create", errors: dir.errors}, status: :bad_request
 				end
 			end
 
 			def destroy
 				dir = Directory.find(name: params[:name])
-				if dir
-					dir.destroy
+				if dir.destroy
 					render json: {message: "saved"}, status: :ok
 				else
-					render json: {message: "error on destroy"}, status: :bad_request
+					render json: {message: "error on destroy", errors: dir.errors}, status: :bad_request
 				end
 			end
 
