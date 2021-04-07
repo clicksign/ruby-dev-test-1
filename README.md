@@ -10,7 +10,7 @@ Realizar um fork deste repositório.
 
 ## Implementação
 
-Para implementar o proposto, usei o docker para virtualizar o banco de dados para persistência com a aplicação, e acabei adotando a API do Rails.
+Para implementar o proposto, usei o docker para virtualizar o banco de dados para persistência com a aplicação, e acabei adotando a API do Rails. Tenho efetuado basicamente o principio de upload de arquivo para armazenar em banco de dados. Tive o foco na criação de diretórios e arquivo de forma que possa montar a estrura de diretórios conforme o caminho informado, e também é possível visualizar a árvore estrutural de forma recursiva percorrendo os objetos.
 
 1. Primeiramente iniciar o banco de dados com o comando `docker-compose start`.
 
