@@ -8,7 +8,7 @@ Realizar um fork deste repositório.
 
 ===============
 
-## Implementação proposta
+## Implementação
 
 Para implementar o proposto, usei o docker para virtualizar o banco de dados para persistência com a aplicação, e acabei adotando a API do Rails.
 
