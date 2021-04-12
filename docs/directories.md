@@ -3,7 +3,6 @@
 - [Creating a directory](#creating-a-directory)
 - [Updating a directory](#updating-a-directory)
 - [Deleting a directory](#deleting-a-directory)
-- [Show a directory](#show-a-directory)
 
 ## Listing all directories with files
 
@@ -28,7 +27,7 @@ If you send parent_id param and directory is not found, it will return a 404 wit
 
 ## Updating a directory
 
-- perform a PATCH request to `/api/v1/directories/<directory_id>`
+- perform a PUT request to `/api/v1/directories/<directory_id>`
   - param: `name` is required
   - param: `parent_id` is optional
 
@@ -45,9 +44,3 @@ params: {
 ## Deleting a directory
 
 - perform a DELETE request to `/api/v1/directories/<directory_id>`
-
-## Show a directory
-
-This method shows a directory with all subdirectories
-
-- perform a GET request to `/api/v1/directories/<directory_id>`
