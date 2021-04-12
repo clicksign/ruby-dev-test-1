@@ -4,7 +4,7 @@ A simple app for file and directories management
 
 ## Table of contents
 
-- [Requeriments](#requirements)
+- [Requirements](#requirements)
 - [Setup](#setup)
 - [Tests](#tests)
 - [Using the API](docs/index.md)
