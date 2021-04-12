@@ -9,7 +9,11 @@ module Api
 
       def create
         @directory = Directory.new(directory_params)
-        response.status = 422 unless @directory.save
+        if @directory.save
+          response.status = 201
+        else
+          response.status = 422
+        end
       end
 
       def update
