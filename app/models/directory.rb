@@ -1,4 +1,6 @@
 class Directory < ApplicationRecord
+  include AttachmentExtended
+  
   has_ancestry
   has_many_attached :files
 

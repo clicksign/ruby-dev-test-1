@@ -4,7 +4,7 @@ module Api
       before_action :set_directory, only: %i[update destroy]
 
       def index
-        @directories = Directory.arrange_serializable
+        @directories = Directory.recursive_serialized_with_files
       end
 
       def create
