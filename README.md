@@ -1,24 +1,46 @@
-# README
+# File App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple app for file and directories management
 
-Things you may want to cover:
+## Table of contents
 
-* Ruby version
+- [Requeriments](#requirements)
+- [Setup](#setup)
+- [Tests](#tests)
+- [Using the API](docs/index.md)
 
-* System dependencies
+### Requirements
 
-* Configuration
+- [Ruby](https://www.ruby-lang.org/pt/downloads/) (>= 3.0)
 
-* Database creation
+or you can use docker
 
-* Database initialization
+- [docker](https://www.docker.com/products/docker-desktop)
+- [docker-compose](https://docs.docker.com/compose/install/)
 
-* How to run the test suite
+If you are on a unix system, you can install docker with a simple command: `curl -fsSL https://get.docker.com | sh`
 
-* Services (job queues, cache servers, search engines, etc.)
+### Setup
 
-* Deployment instructions
+#### Using docker?
 
-* ...
+- Run `docker-compose up` in the root directory of the project
+- Run `docker-compose run app rails db:create db:setup` (needed just in the first time)
+
+#### Not using docker?
+
+- Ensure you have Ruby installed
+- Run `bundle exec rails db:create db:setup` (needed just once)
+- Run `bundle exec puma -C config/puma.rb` to start the app
+
+## Tests
+
+### Using docker?
+
+- Run `docker-compose run app rspec`
+- **OR**, if you have `make` installed just run `make test`
+
+### Not using docker?
+
+- Ensure you have Ruby and PostgreSQL installed
+- Run `bundle exec rspec`
