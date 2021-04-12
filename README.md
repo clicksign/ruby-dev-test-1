@@ -11,7 +11,7 @@ A simple app for file and directories management
 
 ### Requirements
 
-- [Ruby](https://www.ruby-lang.org/pt/downloads/) (>= 3.0)
+- [Ruby](https://www.ruby-lang.org/pt/downloads/) (Version 3.0.1)
 
 or you can use docker
 
