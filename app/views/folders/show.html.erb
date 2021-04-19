@@ -6,7 +6,7 @@
   <strong>Pasta pai:</strong>
   <%= @folder.parent_folder.present? ? @folder.parent_folder.name : "Raiz" %>
   <strong>Sub Pastas:</strong>
-  <%= @folder.sub_folder.present? ? @folder.sub_folder.pluck(:name) : "Nenhuma sub pasta" %>
+  <%= @folder.sub_folders.present? ? @folder.sub_folders.pluck(:name) : "Nenhuma sub pasta" %>
   <strong>Arquivos:</strong>
   <%= @folder.files.present? ? @folder.files.count : "Nenhum" %>
 </p>
