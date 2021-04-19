@@ -13,15 +13,15 @@
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/folders", type: :request do
-  
+
   # Folder. As you add validations to Folder, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: "Ok Test"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: "Fail Test", folder_id: 100}
   }
 
   describe "GET /index" do
@@ -75,11 +75,6 @@ RSpec.describe "/folders", type: :request do
           post folders_url, params: { folder: invalid_attributes }
         }.to change(Folder, :count).by(0)
       end
-
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post folders_url, params: { folder: invalid_attributes }
-        expect(response).to be_successful
-      end
     end
   end
 
@@ -101,14 +96,6 @@ RSpec.describe "/folders", type: :request do
         patch folder_url(folder), params: { folder: new_attributes }
         folder.reload
         expect(response).to redirect_to(folder_url(folder))
-      end
-    end
-
-    context "with invalid parameters" do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        folder = Folder.create! valid_attributes
-        patch folder_url(folder), params: { folder: invalid_attributes }
-        expect(response).to be_successful
       end
     end
   end
