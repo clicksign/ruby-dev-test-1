@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Folder, type: :model do
   describe "associations" do
     it { is_expected.to belong_to(:parent_folder).optional }
+    it { is_expected.to have_many(:sub_folder) }
   end
 
   describe "validations" do

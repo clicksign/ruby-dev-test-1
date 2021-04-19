@@ -4,6 +4,8 @@ class Folder < ApplicationRecord
 
   belongs_to :parent_folder, class_name: "Folder",
     foreign_key: "folder_id", optional: true
+  has_many :sub_folder, class_name: "Folder",
+    foreign_key: "folder_id", dependent: :destroy
 
   validates :name, presence: true
   validate :folder_exists
