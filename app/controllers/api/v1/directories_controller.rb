@@ -25,6 +25,8 @@ class Api::V1::DirectoriesController < ApplicationController
   end
 
   def destroy
+    @directory.destroy!
+    head :no_content
   end
 
   private
@@ -32,9 +34,8 @@ class Api::V1::DirectoriesController < ApplicationController
   def set_directory
     begin
       @directory = Directory.find(params[:id])
-      return
     rescue ActiveRecord::RecordNotFound
-      render json: { error: 'Diretório não existe!' }, status: :not_found
+      render json: { error: 'Diretório não existe!' }, status: :no_content
     end
   end
 

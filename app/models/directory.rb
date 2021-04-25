@@ -8,4 +8,12 @@ class Directory < ApplicationRecord
              optional: true
 
   validates_presence_of :name
+
+  before_destroy :clean_subdirectories
+
+  private
+
+  def clean_subdirectories
+    directories.destroy_all
+  end
 end

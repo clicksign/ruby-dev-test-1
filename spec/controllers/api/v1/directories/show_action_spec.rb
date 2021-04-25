@@ -16,7 +16,7 @@ describe Api::V1::DirectoriesController, type: :controller do
     context 'when directory is invalid' do
       before { get :show, params: invalid_params } 
 
-      it { expect(response.status).to eq 404 }
+      it { expect(response.status).to eq 204 }
     end
   end
 end
