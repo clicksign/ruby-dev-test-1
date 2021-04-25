@@ -27,7 +27,14 @@ class Api::V1::DirectoriesController < ApplicationController
   private
 
   def set_directory
-    @directory = Directory.find(params[:id])
+    respond_to do |format|
+      begin
+        @directory = Directory.find(params[:id])
+        return
+      rescue ActiveRecord::RecordNotFound
+        format.json { render 'api/v1/directories/show_failure', status: :not_found }
+      end
+    end
   end
 
   def directory_params
