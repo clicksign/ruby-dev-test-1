@@ -1,4 +1,6 @@
 class Api::V1::DirectoriesController < ApplicationController
+  before_action :ser_directory, only: %i[show]
+
   def index
     @directories = Directory.all.where(directory_id: nil)
   end
@@ -15,7 +17,16 @@ class Api::V1::DirectoriesController < ApplicationController
     end
   end
 
+  def show
+    byebug
+    @directory.update(directory_params)
+  end
+
   private
+
+  def set_directory
+    @directory = Directory.find(params[:id])
+  end
 
   def directory_params
     params.permit(:name, :directory_id)
