@@ -1,5 +1,5 @@
 class Api::V1::DirectoriesController < ApplicationController
-  before_action :set_directory, only: %i[show]
+  before_action :set_directory, only: %i[show update]
 
   def index
     @directories = Directory.all.where(directory_id: nil)
@@ -18,6 +18,10 @@ class Api::V1::DirectoriesController < ApplicationController
   end
 
   def show
+  end
+
+  def update
+    @directory.update(directory_params)
   end
 
   private
