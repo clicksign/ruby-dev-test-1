@@ -10,9 +10,9 @@ class Api::V1::DirectoriesController < ApplicationController
       @directory = Directory.create(directory_params)
 
       if @directory.save
-        format.json { render 'api/v1/directories/create_success' } 
+        format.json { render 'api/v1/directories/create/success' } 
       else
-        format.json { render 'api/v1/directories/create_failure', status: :unprocessable_entity }
+        format.json { render 'api/v1/directories/create/failure', status: :unprocessable_entity }
       end
     end
   end
