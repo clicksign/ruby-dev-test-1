@@ -1,5 +1,5 @@
 class Api::V1::DirectoriesController < ApplicationController
-  before_action :set_directory, only: %i[show update]
+  before_action :set_directory, only: %i[show update destroy]
 
   def index
     @directories = Directory.all.where(directory_id: nil)
@@ -24,16 +24,17 @@ class Api::V1::DirectoriesController < ApplicationController
     @directory.update(directory_params)
   end
 
+  def destroy
+  end
+
   private
 
   def set_directory
-    respond_to do |format|
-      begin
-        @directory = Directory.find(params[:id])
-        return
-      rescue ActiveRecord::RecordNotFound
-        format.json { render 'api/v1/directories/show_failure', status: :not_found }
-      end
+    begin
+      @directory = Directory.find(params[:id])
+      return
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: 'Diretório não existe!' }, status: :not_found
     end
   end
 
