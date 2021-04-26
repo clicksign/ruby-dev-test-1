@@ -1,5 +1,6 @@
 class Archive < ApplicationRecord
-  has_many_attached :files
+  has_one_attached :file
+  # has_one_attached :file, service: :s3
 
   belongs_to :directory
 

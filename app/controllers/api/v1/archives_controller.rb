@@ -42,6 +42,6 @@ class Api::V1::ArchivesController < ApplicationController
   end
 
   def archive_params
-    params.permit(:name, :directory_id)
+    params.permit(:name, :directory_id, :file)
   end
 end
