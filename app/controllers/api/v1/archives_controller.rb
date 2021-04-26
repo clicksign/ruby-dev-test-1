@@ -1,5 +1,5 @@
 class Api::V1::ArchivesController < ApplicationController
-  before_action :set_archive, only: %i[update]
+  before_action :set_archive, only: %i[show update]
 
   def create
     respond_to do |format|
@@ -11,6 +11,9 @@ class Api::V1::ArchivesController < ApplicationController
         format.json { render 'api/v1/archives/create/failure', status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
   end
 
   def update
@@ -29,7 +32,7 @@ class Api::V1::ArchivesController < ApplicationController
     begin
       @archive = Archive.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      render json: { error: 'Archive doenst exist!' }, status: :no_content
+      render json: { error: 'Archive not found', status: 204 }
     end
   end
 

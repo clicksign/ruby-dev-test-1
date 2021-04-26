@@ -41,7 +41,7 @@ class Api::V1::DirectoriesController < ApplicationController
     begin
       @directory = Directory.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      render json: { error: 'Directory doenst exist!' }, status: :no_content
+      render json: { error: 'Directory not found', status: 204 }
     end
   end
 
