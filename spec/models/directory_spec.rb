@@ -6,6 +6,7 @@ RSpec.describe Directory, type: :model do
   describe 'When associations are valid' do
     it { is_expected.to belong_to(:directory)}
     it { is_expected.to have_many(:directories)}
+    it { is_expected.to have_many(:archives)}
   end
 
   describe 'When validations are present in model' do
