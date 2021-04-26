@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_26_015820) do
+ActiveRecord::Schema.define(version: 2021_04_26_025238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_04_26_015820) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "directory_id"
+    t.index ["directory_id"], name: "index_archives_on_directory_id"
   end
 
   create_table "directories", force: :cascade do |t|
