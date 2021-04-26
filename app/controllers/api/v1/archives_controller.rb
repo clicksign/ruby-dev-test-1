@@ -1,5 +1,5 @@
 class Api::V1::ArchivesController < ApplicationController
-  before_action :set_archive, only: %i[show update]
+  before_action :set_archive, only: %i[show update destroy]
 
   def create
     respond_to do |format|
@@ -24,6 +24,11 @@ class Api::V1::ArchivesController < ApplicationController
         format.json { render 'api/v1/archives/update/failure', status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @archive.destroy!
+    head :no_content
   end
 
   private
