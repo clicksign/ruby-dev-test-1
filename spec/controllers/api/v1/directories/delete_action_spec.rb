@@ -12,6 +12,7 @@ describe Api::V1::DirectoriesController, type: :controller do
         delete :destroy, params: valid_params
       end
 
+      it { expect(response.status).to eq 204 }
       it { expect(Directory.find_by(id: main_directory.id)).to be_nil }
       it { expect(Directory.all.first).to be_nil }
     end
