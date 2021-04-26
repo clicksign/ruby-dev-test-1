@@ -1,5 +1,5 @@
 class Directory < ApplicationRecord
-  has_many :archives
+  has_many :archives, dependent: :destroy
 
   has_many :directories,
            class_name: 'Directory',
@@ -18,12 +18,7 @@ class Directory < ApplicationRecord
   private
 
   def clean_subdirectories
-    if directories.any?
-      directories.each do |directory|
-        directory.archives.destroy_all if directory.archives.any?
-        directory.destroy
-      end
-    end
+    directories.destroy_all if directories.any?
   end
 
   def is_a_valid_directory?
