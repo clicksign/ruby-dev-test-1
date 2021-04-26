@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Directory, type: :model do
+  subject(:directory) { FactoryBot.create(:directory) }
+
   describe 'When associations are valid' do
     it { is_expected.to belong_to(:directory)}
     it { is_expected.to have_many(:directories)}
@@ -16,18 +18,17 @@ RSpec.describe Directory, type: :model do
 
   describe '#clean_subdirectories' do
     context 'when the main directory has subdirectories' do
-      let(:directory) { FactoryBot.create(:directory) }
-      let(:subdirectory) { FactoryBot.create(:directory, directory_id: directory.id) }
+      let(:subdirectory) { FactoryBot.create(:directory, directory_id: subject.id) }
 
-      before { [directory, subdirectory, directory.reload] }
+      before { [subject, subdirectory, subject.reload] }
 
       it 'should have subdirectories' do
-        expect(directory.directories.count).to eq 1
+        expect(subject.directories.count).to eq 1
       end
 
       it 'should be deleted all subdirectories' do
-        directory.send(:clean_subdirectories)
-        expect(directory.directories.count).to eq 0
+        subject.send(:clean_subdirectories)
+        expect(subject.directories.count).to eq 0
       end
     end
   end
