@@ -18,7 +18,12 @@ class Directory < ApplicationRecord
   private
 
   def clean_subdirectories
-    directories.destroy_all
+    if directories.any?
+      directories.each do |directory|
+        directory.archives.destroy_all if directory.archives.any?
+        directory.destroy
+      end
+    end
   end
 
   def is_a_valid_directory?
