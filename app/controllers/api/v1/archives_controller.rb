@@ -1,8 +1,4 @@
 class Api::V1::ArchivesController < ApplicationController
-  def index
-    @archives = Archive.all.where(directory_id: params[:directory_id])
-  end
-
   def create
     respond_to do |format|
       @archive = Archive.create(archive_params)
