@@ -1,4 +1,6 @@
 class Directory < ApplicationRecord
+  has_many :archives
+
   has_many :directories,
            class_name: 'Directory',
            foreign_key: :directory_id
