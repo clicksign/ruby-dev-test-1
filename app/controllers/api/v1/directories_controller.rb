@@ -10,7 +10,7 @@ class Api::V1::DirectoriesController < ApplicationController
       @directory = Directory.create(directory_params)
 
       if @directory.save
-        format.json { render 'api/v1/directories/create/success' } 
+        format.json { render 'api/v1/directories/create/success' }
       else
         format.json { render 'api/v1/directories/create/failure', status: :unprocessable_entity }
       end
@@ -21,7 +21,13 @@ class Api::V1::DirectoriesController < ApplicationController
   end
 
   def update
-    @directory.update(directory_params)
+    respond_to do |format|
+      if @directory.update(directory_params)
+        format.json { render 'api/v1/directories/update/success' }
+      else
+        format.json { render 'api/v1/directories/update/failure', status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -35,7 +41,7 @@ class Api::V1::DirectoriesController < ApplicationController
     begin
       @directory = Directory.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      render json: { error: 'Diretório não existe!' }, status: :no_content
+      render json: { error: 'Directory doenst exist!' }, status: :no_content
     end
   end
 

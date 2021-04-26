@@ -7,7 +7,9 @@ class Directory < ApplicationRecord
              class_name: 'Directory',
              optional: true
 
-  validates_presence_of :name
+  validates_presence_of :name, allow_bank: false
+
+  validate :is_a_valid_directory?, if: :directory_id?
 
   before_destroy :clean_subdirectories
 
@@ -15,5 +17,9 @@ class Directory < ApplicationRecord
 
   def clean_subdirectories
     directories.destroy_all
+  end
+
+  def is_a_valid_directory?
+    errors.add(:directory_id, 'is invalid') unless Directory.exists?(self.directory_id)
   end
 end
