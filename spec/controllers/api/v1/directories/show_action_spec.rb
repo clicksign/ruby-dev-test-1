@@ -12,11 +12,5 @@ describe Api::V1::DirectoriesController, type: :controller do
       it { expect(response.status).to eq 200 }
       it { expect(assigns(:directory)).to eq directory }
     end
-
-    context 'when directory is invalid' do
-      before { get :show, params: invalid_params } 
-
-      it { expect(response.status).to eq 204 }
-    end
   end
 end
