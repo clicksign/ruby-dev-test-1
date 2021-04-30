@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: ruby-dev-test-1_development
+
+test:
+  <<: *default
+  database: ruby-dev-test-1_test
+
+production:
+  <<: *default
+  database: ruby-dev-test-1_production
+  username: ruby-dev-test-1
+  password: <%= ENV['RUBY-DEV-TEST-1_DATABASE_PASSWORD'] %>
