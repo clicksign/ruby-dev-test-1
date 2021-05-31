@@ -11,8 +11,11 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'sqlite3', '~> 1.4'
 
 group :development, :test do
+  gem 'factory_bot_rails', '6.1.0'
+  gem 'ffaker', '2.18.0'
   gem 'pry-byebug', '3.9.0'
   gem 'pry-rails', '0.3.9'
+  gem 'rspec-rails', '5.0.1'
 end
 
 group :development do
