@@ -5,6 +5,7 @@ ruby '2.6.6'
 
 gem 'ancestry', '4.0.0'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'dotenv-rails', '2.7.6'
 gem 'jsonapi-serializer', '2.2.0'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'

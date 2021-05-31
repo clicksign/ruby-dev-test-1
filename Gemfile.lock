@@ -70,6 +70,10 @@ GEM
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -184,6 +188,7 @@ PLATFORMS
 DEPENDENCIES
   ancestry (= 4.0.0)
   bootsnap (>= 1.4.4)
+  dotenv-rails (= 2.7.6)
   factory_bot_rails (= 6.1.0)
   ffaker (= 2.18.0)
   jsonapi-serializer (= 2.2.0)
