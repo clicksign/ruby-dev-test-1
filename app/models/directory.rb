@@ -5,6 +5,6 @@ class Directory < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :ancestry }
 
   before_validation do
-    assign_attributes(ancestry: '1') if ancestry.blank?
+    assign_attributes(ancestry: '1') if ancestry.blank? && name != 'root'
   end
 end
