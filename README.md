@@ -1,7 +1,13 @@
-# ruby-dev-test-1
+# RUBY DEV TEST 1
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+app that simulates a filesystem _creating/deleting_ directories, subdirectories and files.
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+## Requirements
+* Ruby 2.6.6
 
-Realizar um fork deste repositório.
+## Setup
+* Run `bundle exec rails db:setup`
+* Run `bundle exec rails server`
+
+## Tests
+* Run `bundle exec rspec`
