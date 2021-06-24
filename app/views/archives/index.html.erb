@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Archives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>File</th>
+      <th>Directory</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @archives.each do |archive| %>
+      <tr>
+        <td><%= archive.name %></td>
+        <td><%= archive.description %></td>
+        <td><%= archive.file %></td>
+        <td><%= archive.directory_id %></td>
+        <td><%= link_to 'Show', archive %></td>
+        <td><%= link_to 'Edit', edit_archive_path(archive) %></td>
+        <td><%= link_to 'Destroy', archive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Archive', new_archive_path %>

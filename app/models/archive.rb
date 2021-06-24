@@ -1,5 +1,5 @@
 class Archive < ApplicationRecord
   belongs_to :directory
 
-  mount_uploader :file, PhotoUploader
+  mount_uploader :file, FileUploader
 end
