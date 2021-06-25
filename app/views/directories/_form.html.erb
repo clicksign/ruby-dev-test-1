@@ -10,18 +10,19 @@
       </ul>
     </div>
   <% end %>
-
+  <br>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label 'Select directory (optional)' %>
     <%= form.select :directory_id, options_for_select(Directory.all.map{|d|[d.title, d.id]}) %>
   </div>
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>
+  <br>
 <% end %>

@@ -10,28 +10,29 @@
       </ul>
     </div>
   <% end %>
-
+  <br>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :file %>
     <%= form.file_field :file %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label 'Select directory' %>
     <%= form.select :directory_id, options_for_select(Directory.all.map{|d|[d.title, d.id]}, :include_blank => 'name of your blank prompt') %>
   </div>
-
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>
+  <br>
 <% end %>

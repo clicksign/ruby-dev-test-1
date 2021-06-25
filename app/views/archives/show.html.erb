@@ -3,7 +3,7 @@
 
 <center>
   <h2>Archive details</h2>
-
+  <hr>
   <p>
     <strong>Name:</strong>
     <%= @archive.name %>
@@ -25,6 +25,6 @@
 
   </p>
 
-  <%= link_to 'Edit', edit_archive_path(@archive) %> |
-  <%= link_to 'Back', archives_path %>
+  <%= link_to '<<< BACK', archives_path %> | 
+  <%= link_to 'Edit', edit_archive_path(@archive) %>
 </center>

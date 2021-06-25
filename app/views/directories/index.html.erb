@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<center>
 <h1>Directories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Directory</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @directories.each do |directory| %>
+  <%= link_to '+ NEW DIRECTORY', new_directory_path %>
+  <hr><br>
+  <table>
+    <thead>
       <tr>
-        <td><%= directory.title %></td>
-        <td><%= directory.directory_id %></td>
-        <td><%= link_to 'Show', directory %></td>
-        <td><%= link_to 'Edit', edit_directory_path(directory) %></td>
-        <td><%= link_to 'Destroy', directory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Directory</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @directories.each do |directory| %>
+        <tr>
+          <td><%= directory.title %></td>
+          <td><%= directory.atop_directory.title if directory.atop_directory %></td>
+          <td><%= link_to 'Show', directory %></td>
+          <td><%= link_to 'Edit', edit_directory_path(directory) %></td>
+          <td><%= link_to 'Destroy', directory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Directory', new_directory_path %>
+  <br>
+
+</center>
