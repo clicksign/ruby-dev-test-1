@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @archive.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @archive.description %>
-</p>
+<center>
+  <h2>Archive details</h2>
 
-<p>
-  <strong>File:</strong>
-  <%= @archive.file %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @archive.name %>
+  </p>
 
-<p>
-  <strong>Directory:</strong>
-  <%= @archive.directory_id %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @archive.description %>
+  </p>
 
-<%= link_to 'Edit', edit_archive_path(@archive) %> |
-<%= link_to 'Back', archives_path %>
+  <p>
+    <strong>File:</strong>
+    <%= @archive.file %>
+  </p>
+
+  <p>
+    <strong>Directory:</strong>
+    <%= link_to @archive.directory.title, directory_path(@archive.directory) %>
+
+  </p>
+
+  <%= link_to 'Edit', edit_archive_path(@archive) %> |
+  <%= link_to 'Back', archives_path %>
+</center>

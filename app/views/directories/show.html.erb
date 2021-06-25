@@ -1,14 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @directory.title %>
-</p>
+<center>
+  <h2>Directory details</h2>
+  <p>
+    <strong>Title:</strong>
+    <%= @directory.title %>
+  </p>
+  <% if @directory.directory_id.present? %>
+    <p>
+      <strong>Belongs to directory:</strong>
+      <%= @directory.atop_directory.title %>
+    </p>
+  <% else %>
+    <p>It does not belong to another directory.</p>
+  <% end %>
 
-<p>
-  <strong>Directory:</strong>
-  <%= @directory.directory_id %>
-</p>
+  <%= link_to 'Edit', edit_directory_path(@directory) %> |
+  <%= link_to 'Back', directories_path %>
+</center>
 
-<%= link_to 'Edit', edit_directory_path(@directory) %> |
-<%= link_to 'Back', directories_path %>
+<hr>
+
+<% if @directory.archives.present? %>
+  <h3>Archives in this directory</h3>
+  <% @directory.archives.each do |archive| %>
+    <tr>
+      <td><%= archive.name %></td>
+      <td><%= link_to 'Show', archive %></td>
+    </tr>
+    <br>
+  <% end %>
+<% end %>
+
+<% if @directory.subdirectories.present? %>
+  <h3>Subdirectories in this directory</h3>
+  <% @directory.subdirectories.each do |subdirectory| %>
+    <tr>
+      <td><%= subdirectory.title %></td>
+      <td><%= link_to 'Show', subdirectory %></td>
+    </tr>
+    <br>
+  <% end %>
+<% end %>

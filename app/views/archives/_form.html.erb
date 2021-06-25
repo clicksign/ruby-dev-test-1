@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :directory_id %>
-    <%= form.text_field :directory_id %>
+    <%= form.label 'Select directory' %>
+    <%= form.select :directory_id, options_for_select(Directory.all.map{|d|[d.title, d.id]}, :include_blank => 'name of your blank prompt') %>
   </div>
 
   <div class="actions">

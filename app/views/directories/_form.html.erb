@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :directory_id %>
-    <%= form.text_field :directory_id %>
+    <%= form.label 'Select directory (optional)' %>
+    <%= form.select :directory_id, options_for_select(Directory.all.map{|d|[d.title, d.id]}) %>
   </div>
 
   <div class="actions">
