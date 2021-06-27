@@ -50,7 +50,6 @@ gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
 # API Serializer
 gem 'active_model_serializers'
-gem 'fast_jsonapi'
 
 # Authorization
 gem 'devise'
