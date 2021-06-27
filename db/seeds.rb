@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+root_directories = FactoryBot.create_list(:directory, 5)
+
+root_directories.sample(3).each do |root_directory|
+  FactoryBot.create(:subdirectory, directory: root_directory)
+end
