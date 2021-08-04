@@ -22,6 +22,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard'
+  gem 'guard-rspec'
   gem 'listen', '~> 3.3'
 end
 
