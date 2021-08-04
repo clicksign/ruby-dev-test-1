@@ -1,0 +1,1 @@
+ENV["COLLATE_SYMBOLS"]= 'false'
