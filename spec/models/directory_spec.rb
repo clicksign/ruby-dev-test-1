@@ -20,6 +20,12 @@ RSpec.describe Directory, type: :model do
       bad_root = FactoryBot.build_stubbed(:directory)
       expect(bad_root).not_to be_valid
     end
+    it "refuses an attempt to update both name and parent in one go" do
+      node = FactoryBot.create(:directory)
+      node2 = FactoryBot.create(:directory, parent: node)
+      node3 = FactoryBot.create(:directory, parent: node2)
+      expect { node3.update(name: 'its a me', parent: node) }.to throw_symbol(:abort)
+    end
   end
   context "with a populated tree" do
     let!(:root) { FactoryBot.create(:directory, name: 'root') }
