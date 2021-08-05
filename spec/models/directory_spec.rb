@@ -20,6 +20,12 @@ RSpec.describe Directory, type: :model do
       bad_root = FactoryBot.build_stubbed(:directory)
       expect(bad_root).not_to be_valid
     end
+    it "refuses an attempt to update both name and parent in one go" do
+      node = FactoryBot.create(:directory)
+      node2 = FactoryBot.create(:directory, parent: node)
+      node3 = FactoryBot.create(:directory, parent: node2)
+      expect { node3.update(name: 'its a me', parent: node) }.to throw_symbol(:abort)
+    end
   end
   context "with a populated tree" do
     let!(:root) { FactoryBot.create(:directory, name: 'root') }
@@ -46,6 +52,21 @@ RSpec.describe Directory, type: :model do
       grandchild_2.destroy
       expect(root.descendants).not_to include(great_grandchild_1, great_grandchild_2)
       expect(Directory.count).to eq(4)
+    end
+  end
+  context "with name already taken" do
+    let!(:root) { FactoryBot.create(:directory, name: 'root') }
+    let!(:child_1) { FactoryBot.create(:directory, name: 'child1', parent: root) }
+    it "renames a conflicting newly created node to name(2)" do
+      child_11 = FactoryBot.create(:directory, name: 'child1', parent: root)
+      expect(child_11.name).to eq('child1(2)')
+    end
+    it "renames a conflicting moved node to name(2)" do
+      child_11 = FactoryBot.create(:directory, name: 'child1', parent: child_1)
+      expect(root.children.where(name: 'child1').count).to eq(1)
+      child_11.update(parent: root)
+      expect(root.children.where(name: 'child1').count).to eq(1)
+      expect(root.children.where(name: 'child1(2)').count).to eq(1)
     end
   end
 end
