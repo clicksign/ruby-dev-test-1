@@ -41,5 +41,11 @@ RSpec.describe Directory, type: :model do
       expect(great_grandchild_2.name_ancestors(and_self: true)).to eq('root/child2/grandchild2/great_grandchild2')
       expect(great_grandchild_1.name_ancestors).to eq('root/child2/grandchild2')
     end
+    it "destroys nodes of deleted nodes" do
+      expect(root.descendants).to include(great_grandchild_1, great_grandchild_2)
+      grandchild_2.destroy
+      expect(root.descendants).not_to include(great_grandchild_1, great_grandchild_2)
+      expect(Directory.count).to eq(4)
+    end
   end
 end
