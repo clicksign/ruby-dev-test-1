@@ -33,6 +33,3 @@ sub-directories, recursively I suppose.
 * There's no API to find a node by it's 'nice name'. That is, find_method('root/home/me').
 
 Ultimately, time constraints meant I had to focus on other challenges. This was fun though.
-
-## Setup
-TODO
