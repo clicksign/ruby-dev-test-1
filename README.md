@@ -21,8 +21,18 @@ to use a gem rather than spend considerable time in what would essentially be a 
 The ancestry gem was chosen as the materialised path pattern matches seamlessly with the file system structure. Using the gem
 meant navigating its own callback structure in order to ensure that our validations and callbacks were successful.
 
-Initially an auto-rename method was used to enforce unique naming amongst siblings. Given the open ended nature of the task
-and the myriad of possible implementations, I later chose to let go of it and simply enforce unique naming.
+Interesting functionality that is currently missing includes: 
+
+* Possibility of merging directories. This would have to deal with both files and
+sub-directories, recursively I suppose.
+* Right now we rename folders to 'name' + (2). Finding out the highest count that matches some regexp and then updating to name(count+1) would be interesting.
+```regexp
+/\((?<count>\d+)\)\z/
+```
+* Attached files are not forced to have unique names.
+* There's no API to find a node by it's 'nice name'. That is, find_method('root/home/me').
+
+Ultimately, time constraints meant I had to focus on other challenges. This was fun though.
 
 ## Setup
 TODO
