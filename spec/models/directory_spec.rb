@@ -91,8 +91,5 @@ RSpec.describe Directory, type: :model do
       root.destroy
       expect(ActiveStorage::Attachment.count).to eq(0)
     end
-    it "refuses an attachment with non unique name" do
-      pending
-    end
   end
 end
