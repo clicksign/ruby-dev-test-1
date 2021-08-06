@@ -26,6 +26,11 @@ RSpec.describe Directory, type: :model do
       node3 = FactoryBot.create(:directory, parent: node2)
       expect { node3.update(name: 'its a me', parent: node) }.to throw_symbol(:abort)
     end
+    it "allows us to update root's name" do
+      node = FactoryBot.create(:directory, name: 'foo')
+      node.update!(name: 'bar')
+      expect(node.name).to eq('bar')
+    end
   end
   context "with a populated tree" do
     let!(:root) { FactoryBot.create(:directory, name: 'root') }
@@ -39,7 +44,7 @@ RSpec.describe Directory, type: :model do
       expect(root.children).to include(child_1, child_2)
     end
     it "updates a node's children when we move them around" do
-      grandchild_2.update(parent: root)
+      grandchild_2.update!(parent: root)
       expect(root.children).to include(grandchild_2)
       expect(child_2.children).not_to include(grandchild_2)
     end
@@ -64,9 +69,17 @@ RSpec.describe Directory, type: :model do
     it "renames a conflicting moved node to name(2)" do
       child_11 = FactoryBot.create(:directory, name: 'child1', parent: child_1)
       expect(root.children.where(name: 'child1').count).to eq(1)
-      child_11.update(parent: root)
+      child_11.update!(parent: root)
       expect(root.children.where(name: 'child1').count).to eq(1)
       expect(root.children.where(name: 'child1(2)').count).to eq(1)
+    end
+  end
+  context "when dealing with attachments" do
+    let(:root) { FactoryBot.create(:directory) }
+    it "correctly deals with single attached file" do
+      expect(root.files.attached?).to be_falsey
+      root.files.attach(io: File.open('spec/fixtures/files/test.txt'), filename: 'test_file')
+      expect(root.files.attached?).to be_truthy
     end
   end
 end

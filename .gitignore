@@ -30,3 +30,6 @@
 
 # Rspec data
 spec/examples.txt
+
+# Test data
+storage/
