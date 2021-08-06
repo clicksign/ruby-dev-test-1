@@ -1,7 +1,28 @@
-# ruby-dev-test-1
+# Solution to ruby-dev-test-1
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+## The proposed test was
+>Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão >conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+>
+>A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+>
+>Realizar um fork deste repositório.
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+Freely translated as
+>Develop the model layer of a file system persisted in a SQL database where it's possible to create directories and files. The directories may contain sub-directories and files. The content of the files may be persisted as blob, s3 or even in disk.
+>
+>The solution must be primarily written in Ruby with the Ruby on Rails framework.
+>
+>Fork this repository.
 
-Realizar um fork deste repositório.
+## Comments
+In order to deal with the hierarchical nature of a file system I explored several alternatives. These included
+implementing a simple adjacency list or a nested set structure. After checking with the test proposer, I decided
+to use a gem rather than spend considerable time in what would essentially be a flawed implementation of a known solution.
+The ancestry gem was chosen as the materialised path pattern matches seamlessly with the file system structure. Using the gem
+meant navigating its own callback structure in order to ensure that our validations and callbacks were successful.
+
+Initially an auto-rename method was used to enforce unique naming amongst siblings. Given the open ended nature of the task
+and the myriad of possible implementations, I later chose to let go of it and simply enforce unique naming.
+
+## Setup
+TODO
