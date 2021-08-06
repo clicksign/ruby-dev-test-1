@@ -76,10 +76,23 @@ RSpec.describe Directory, type: :model do
   end
   context "when dealing with attachments" do
     let(:root) { FactoryBot.create(:directory) }
+    let(:child_1) { FactoryBot.create(:directory, parent: root) }
     it "correctly deals with single attached file" do
       expect(root.files.attached?).to be_falsey
       root.files.attach(io: File.open('spec/fixtures/files/test.txt'), filename: 'test_file')
       expect(root.files.attached?).to be_truthy
+    end
+    it "purges files when the directory is destroyed, including dependants" do
+      expect(root.files.attached?).to be_falsey
+      expect(child_1.files.attached?).to be_falsey
+      root.files.attach(io: File.open('spec/fixtures/files/test.txt'), filename: 'test_file')
+      child_1.files.attach(io: File.open('spec/fixtures/files/test.txt'), filename: 'test_file_too')
+      expect(ActiveStorage::Attachment.count).to eq(2)
+      root.destroy
+      expect(ActiveStorage::Attachment.count).to eq(0)
+    end
+    it "refuses an attachment with non unique name" do
+      pending
     end
   end
 end
