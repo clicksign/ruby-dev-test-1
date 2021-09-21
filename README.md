@@ -1,8 +1,26 @@
-# ruby-dev-test-1
+# clicksing
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+Teste para empresa ClickSing
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+## Dependências
 
-Realizar um fork deste repositório.
+- Ruby 3.0.2
+- Rails 6.1.4
+- Postgres >=10.10
+
+## Setup
+
+1. `cd clicksign`
+2. `bundle install`
+3. `rails db:create db:migrate`
+4. `rspec spec/`
+5. `rails s`
+
+## Após isso o servidor estará rodando em localhost:3000
+
+## Desenvolvimento
+
+- Seguido padrões de código, utilizando o rubocop.
+- Todas as funcionalidades solictadas no teste foram testadas e tudo esta ocorrendo conforme esperado.
+- Verificação da qualidade de código com rubycritic e rubocop.
 
