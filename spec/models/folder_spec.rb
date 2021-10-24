@@ -4,4 +4,5 @@ RSpec.describe Folder, type: :model do
   it { should validate_presence_of(:name) }
   it { should have_many(:child_folders) }
   it { should belong_to(:parent_folder).optional(true) }
+  it { should have_many_attached(:archives) }
 end
