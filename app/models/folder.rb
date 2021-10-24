@@ -8,4 +8,8 @@ class Folder < ApplicationRecord
   has_many_attached :archives
 
   validates :name, presence: true
+
+  def is_root_folder?
+    !parent_folder.present?
+  end
 end
