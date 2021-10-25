@@ -12,7 +12,7 @@ Realizar um fork deste repositório.
 unit tests
 
 * Poros With dynamic attributes
-- it's not that easy to keep poros without dynamic attributes, since the database can change overtime it's better with dynamic attributes
+- it's not that easy to keep poros without dynamic attributes, since the database can change overtime it's better with dynamic attributes, so the codebase don't start having methods without abc metrics size
 
-* Absence of dry validation
+* Add dry validation
 - The use o dry validation is highly recommended because it can make the system as a whole have less bugs and be more scalable, with errors happening in the begining of the stack call
