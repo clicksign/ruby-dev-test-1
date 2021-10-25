@@ -61,6 +61,17 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Bullet gem configs
+  config.after_initialize do
+    Bullet.enable        = true
+    Bullet.alert         = false
+    Bullet.bullet_logger = true
+    Bullet.console       = false
+    # Bullet.growl         = false
+    Bullet.rails_logger  = true
+    Bullet.add_footer    = false
+  end
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
