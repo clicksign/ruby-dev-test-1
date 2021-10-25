@@ -1,0 +1,34 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.7
+  # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+  # to ignore them, so only the ones explicitly set in this file are enabled.
+  DisabledByDefault: true
+  SuggestExtensions: false
+  Exclude:
+    - '**/tmp/**/*'
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - 'actionpack/lib/action_dispatch/journey/parser.rb'
+    - 'config/**/*'
+    - 'bin/**'
+    - 'db/**'
+    - 'Gemfile'
+    - 'spec/rails_helper.rb'
+    - 'config.ru'
+    - 'Rakefile'
+    - 'spec/spec_helper.rb'
+
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/LineLength:
+  Max: 90
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
