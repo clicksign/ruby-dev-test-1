@@ -31,7 +31,16 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.2'
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 2.19'
+  # rspec-rails is a testing framework for Rails 5+.
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+  # RuboCop is a Ruby code style checking and code formatting tool.
+  gem 'rubocop', '~> 1.22', '>= 1.22.2'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
