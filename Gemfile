@@ -35,6 +35,11 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
   # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
   gem 'faker', '~> 2.19'
+  # Pry is a runtime developer console and IRB alternative with powerful introspection capabilities.
+  # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution.
+  gem 'pry-byebug', '~> 3.9'
+  # Use Pry as your rails console
+  gem 'pry-rails', '~> 0.3.9'
   # rspec-rails is a testing framework for Rails 5+.
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
   # RuboCop is a Ruby code style checking and code formatting tool.
