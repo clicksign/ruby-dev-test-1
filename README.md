@@ -8,25 +8,25 @@ Realizar um fork deste repositório.
 
 
 # How to build this project:
-`docker-compose build`
-`docker-compose run web bundle exec rails db:create`
-`docker-compose run web bundle exec rails db:migrate`
+- `docker-compose build`
+- `docker-compose run web bundle exec rails db:create`
+- `docker-compose run web bundle exec rails db:migrate`
 
 # How to run tests (rspec):
-`docker-compose run web bundle exec rspec`
+- `docker-compose run web bundle exec rspec`
 
 # How to run the linter (rubocop):
-`docker-compose run web bundle exec rubocop`
+- `docker-compose run web bundle exec rubocop`
 
 # How to start:
-`docker-compose up -d`
+- `docker-compose up -d`
 
 # How to access the bash inside the app container:
-`docker-compose run web bash`
+- `docker-compose run web bash`
 
 # Tip: How to attach inside Docker:
-`docker attach --detach-keys="ctrl-a" ruby-dev-test-1_web_1`
-To exit from the attach without stoping the server, press "ctrl + A".
+- `docker attach --detach-keys="ctrl-a" ruby-dev-test-1_web_1`
+- To exit from the attach without stoping the server, press "ctrl + A".
 
 # Ports in the localhost:
 - database: `5432`
