@@ -23,7 +23,7 @@ pt-BR:
   save: "Gravar %{resource}"
   create: "Criar %{resource}"
   edit: "Editar"
-  show: "Detalhes"
+  show: "Abrir"
   destroy: "Apagar"
   are_you_sure: "Você tem certeza?"
   are_you_read: "Declaro que li e estou ciente da mensagem e que não quero mais que ela seja exibida para mim."

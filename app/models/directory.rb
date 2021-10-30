@@ -11,4 +11,9 @@ class Directory < ApplicationRecord
         return true if (self.files.size < 1 and self.subdirectories.size < 1)
         false
     end
+
+    def unfold
+        return true if self.ref_directory_id
+        false
+    end
 end

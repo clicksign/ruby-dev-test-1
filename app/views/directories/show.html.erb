@@ -41,7 +41,8 @@
 <br/>
 
 <%= link_to t('edit'), edit_directory_path(@directory) %> |
-<%= link_to t('back'), directories_path %>
+<%= link_to t('back'), @directory.unfold ? directory_path(@directory.class.find(@directory.ref_directory_id)) : directories_path %>
+<br/>
 <br/>
 <%= link_to t('new_directory'), directory_new_sub_directory_path(@directory) %>
 <%= link_to t('forms.upload'), new_directory_file_upload_path(@directory) %>
