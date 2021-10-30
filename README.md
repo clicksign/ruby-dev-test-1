@@ -6,6 +6,28 @@ A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on 
 
 Realizar um fork deste repositório.
 
+### Instruções
+- Faça checkout para branch do PR
+- bundle install
+
+// **ATENÇÂO**
+
+
+// **Lembre se configurar o arquivo database.yml com as suas credenciais**
+
+- run `rails db:create db:migrate` 
+- run `rails s`
+- Verificar os requisitos solicitados
+
+### Versões, Gems
+- Ruby 2.4.9p362 (2019-10-02 revision 67824) [x86_64-linux]
+- Rails 5.2.0
+- PostgreSQL 10.18
+- rails-i18n
+- image_processing
+
+// **Lembre se configurar o arquivo config/storage.yml com as suas credenciais da amazon S3**
+- aws-sdk-s3
 
 Observações:
 
@@ -18,13 +40,17 @@ poppler ou muPDF => PDF previews
 obs.2)O Active Storage configura defininindo em Rails.application.config.active_storage.service para onde deve ser apontado.
 
 Todas as configurações que o Active Storage precisa para utilizar o Amazon S3 devem ser colocadas em config/storage.yml .
-E devem ser removido os comentários(=begin,=end) em config/enviroments/production.rb para utilizar em produção e remover o "config.active_storage.service = :local" já definido :
-"
-=begin
-#To use the S3 service in production, you add the following to
-# Store files on Amazon S3.
-config.active_storage.service = :amazon
-=end
 
-"
+E devem ser removido os comentários(=begin,=end) em config/enviroments/production.rb para utilizar em produção e remover o 
+```config.active_storage.service = :local``` 
+
+já definido :
+
+
+```
+=begin
+    config.active_storage.service = :amazon
+=end
+```
+
 

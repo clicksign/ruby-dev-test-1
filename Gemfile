@@ -18,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'rails-i18n'
 
+gem 'font-awesome-sass', '~> 5.13.0'
+
 gem "image_processing", ">= 1.2"
 
 gem "aws-sdk-s3", require: false

@@ -3,4 +3,4 @@
 <%= render 'form', directory: @directory %>
 
 <%= link_to t('show'), @directory %> |
-<%= link_to t('back'), directories_path %>
+<%= link_to t('back'), directory_path(@directory) %>

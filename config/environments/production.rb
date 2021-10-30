@@ -41,8 +41,9 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
   
-  =begin
   #To use the S3 service in production, you add the following to
+  # Apague o comentário abaixo se deseja usar o S3
+  =begin
   # Store files on Amazon S3.
   config.active_storage.service = :amazon
   =end
