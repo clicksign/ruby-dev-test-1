@@ -10,11 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+   
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, value:t('name') %>
     <%= form.text_field :name %>
   </div>
+  
+  <%= form.hidden_field :ref_directory_id, value: (@directory_ref ? @directory_ref.id : nil ) %>
 
   <div class="actions">
     <%= form.submit %>

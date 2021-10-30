@@ -1,19 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @directory.name %>
-</p>
+<h1><%= @directory.name %></h1>
+<br/>
+<table>
+  <thead>
+    <tr>
+      <th><p><%= t('name') %></p></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_directory_path(@directory) %> |
-<%= link_to 'Back', directories_path %>
-<%= link_to 'Upload Files', new_directory_file_upload_path(@directory) %>
+  <tbody>
+    <% @directory.subdirectories.each do |directory| %>
+      <tr>
+        <td><%= directory.name %></td>
+        <td><%= link_to t('show'), directory %></td>
+        <td><%= link_to t('edit'), edit_directory_path(directory) %></td>
+        <td><%= link_to t('destroy'), directory, method: :delete, data: { confirm: t('are_you_sure') } %></td>
+      </tr>
+    <% end %>
+    
+    <% @directory.files.each do |file| %>
+      <tr>
+        <td><%= link_to file.filename, url_for(file) %></td>
+        <td><%= link_to t('forms.download'), rails_blob_path(file, disposition: "attachment") %></td>
+        <td><%= link_to t('destroy'), directory_file_upload_path(@directory,file), method: :delete, data: { confirm: t('are_you_sure') } %></td>
+      </tr>
+    <% end %>
+
+    <% if @directory.no_result? %>
+      <tr>
+        <td><p>Sem resultados</p></td>
+      </tr>
+    <% end %>
+     
+    
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to t('edit'), edit_directory_path(@directory) %> |
+<%= link_to t('back'), directories_path %>
+<br/>
+<%= link_to t('new_directory'), directory_new_sub_directory_path(@directory) %>
+<%= link_to t('forms.upload'), new_directory_file_upload_path(@directory) %>
  
  
-<h5>Files</h5>
- 
-<ul>
- <% @directory.files.each do |file| %>
-    <li><%= link_to file.filename, url_for(file) %></li>
- <% end %>
-</ul>

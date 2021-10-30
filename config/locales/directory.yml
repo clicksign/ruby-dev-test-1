@@ -1,0 +1,15 @@
+pt-BR:
+  models_and_attributes: &models_and_attributes
+    models:
+      directory:
+        one: Diretório
+        other: Diretórios
+    attributes:
+      directory:
+        name: Nome
+  activerecord:
+    <<: *models_and_attributes
+  activemodel:
+    <<: *models_and_attributes
+  mail_form:
+    <<: *models_and_attributes

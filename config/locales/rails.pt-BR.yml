@@ -1,0 +1,339 @@
+pt-BR:
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+      month_year: '%m/%Y'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+
+    formats:
+      long: '%d de %B de %Y, %H:%M'
+      short: '%d/%m/%Y'
+      default: ! '%d/%m/%Y'
+
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: deve ser aceito
+      blank: é um campo obrigatório
+      confirmation: não está de acordo com a confirmação
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: é um campo obrigatório
+      invalid: não é válido
+      invalid_date: data inválida
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já está sendo utilizado
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      required: é um campo obrigatório
+      restrict_dependent_destroy:
+        has_many: "Existem registros em: %{record}"
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      default: ! '%d/%m/%Y %H:%M'
+      long: ! '%d de %B de %Y, %H:%M'
+      short: ! '%d de %B, %H:%M'
+      shorter: ! 'Em %d/%m/%Y às %H:%M'
+      date: ! '%d/%m/%Y'
+      date_time: '%d/%m/%Y %H:%M'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+  boolean:
+    "true": Sim
+    "false": Não
+  forms:
+    answer:
+      accept: Aceitar Resposta
+      denie: Recusar Resposta
+    editar: Editar
+    excluir: Excluir
+    copiar: Copiar
+    confirmar_aceite: Você tem certeza que deseja aceitar?
+    confirmar_exclusao: Você tem certeza que deseja excluir?
+    confirmar_envio: Você tem certeza que deseja enviar?
+    confirmar_devolucao: Você tem certeza que deseja devolver?
+    confirmar_recusar: Você tem certeza que deseja recusar?
+    confirmacao: Confirmação
+    confirmar: Confirmar
+    falha_salvar: Falha ao salvar
+    falha_excluir: Falha ao excluir
+    download: Download
+    upload: Salvar Arquivos
+    salvar: Salvar
+    voltar: Voltar
+    novo: Criar Novo
+    nova: Criar Nova
+    validate: Validar
+    approve: Aprovar
+    filtros: Filtros
+    adicionar: Adicionar
+    inserir: Inserir
+    buscar: Buscar
+    nenhum_registro: Nenhum registro encontrado
+    selecionar: Selecionar
+    exibir: Exibir
+    clear_filter: Limpar Filtros
+    not_required: Campo não obrigatório.
+    verify: Verificar
+    legend: Legenda
+    approve: Aprovar
+    validate: Validar
+    repprove: Reprovar
+    approved: Aprovado
+    repproved: Reprovado
+    waiting: Aguardando
+    sent: Enviar
+    delete: Excluir
+    to_monitor: Salvar
+    back: Voltar
+    created_at: Data
+    create: Criar
+    close: Fechar
+    total: Total
+    finish: Finalizar
+    responder: Responder
+    print: Imprimir
+    reports:
+      users: 'Relatório de Usuários'
+    time_lapse: Plano de Integridade
+    registered_fragilities: Fragilidades Cadastradas
+  notice:
+    salvo: ' salvo com sucesso.'
+    salva: ' salva com sucesso.'
+    alterado: ' alterado com sucesso.'
+    alterada: ' alterada com sucesso.'
+    devolvida: ' devolvida com sucesso.'
+    devolvido: ' devolvido com sucesso.'
+    excluido: ' excluído.'
+    excluida: ' excluída.'
+    erro_excluir: Não foi possível excluir
+    aprovada: 'aprovada com sucesso.'
+    sent: ' enviado(a) com sucesso'
+    file_deleted: Arquivo apagado
+  alert:
+    general_error: 'Não foi realizar a operação. Entre em contato com a COTIC da CGE.'
+  app:
+    title: AVIA
+    subtitle: Plano de Ação para Sanar Fragilidades
+    integrity_program: Programa de Integridade
+    monitoring_program: Programa de Monitoramento
+    admin: E-mail Administrativo
+    audity: Programa de Auditoria
+    service_orders: Ordens de Serviço
+    env:
+      stage:
+        apresentacao: Apresentação
+        homologacao: Homologação
+        treinamento: Treinamento
+        localhost: Local
+  pdf:
+    not_found: PDF Indisponível
+    found: PDF Disponível
+
+# KAMINARI
+  views:
+    pagination:
+        next: ">>"
+        last: Último
+        first: Primeiro
+        previous: "<<"
+        truncate: "..."
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Total: %{total}"
+      one_page:
+        display_entries: "Total: %{count}"
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Pr&oacute;ximo &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page_html:
+        zero:  "Nenhum registro encontrado"
+        one:   "Apenas 1 registro encontrado"
+        other: "Mostrando todos os %{count} registros encontrados"
+      multi_page: "Mostrando registros %{from} até %{to} de %{count} no total"
+      multi_page_html: "Mostrando registros %{from} até %{to} de %{count} no total"

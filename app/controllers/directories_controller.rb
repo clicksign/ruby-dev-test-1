@@ -1,9 +1,10 @@
 class DirectoriesController < ApplicationController
   before_action :set_directory, only: %i[ show edit update destroy ]
+  before_action :set_directory_ref, only: %i[ new create ]
 
   # GET /directories or /directories.json
   def index
-    @directories = Directory.all
+    @directories = Directory.borders
   end
 
   # GET /directories/1 or /directories/1.json
@@ -22,7 +23,7 @@ class DirectoriesController < ApplicationController
   # POST /directories or /directories.json
   def create
     @directory = Directory.new(directory_params)
-
+    
     respond_to do |format|
       if @directory.save
         format.html { redirect_to @directory, notice: "Directory was successfully created." }
@@ -37,7 +38,7 @@ class DirectoriesController < ApplicationController
   # PATCH/PUT /directories/1 or /directories/1.json
   def update
     respond_to do |format|
-      if @directory.update(directory_params)
+      if @directory.update(directory_params.except(:ref_directory_id))
         format.html { redirect_to @directory, notice: "Directory was successfully updated." }
         format.json { render :show, status: :ok, location: @directory }
       else
@@ -62,8 +63,12 @@ class DirectoriesController < ApplicationController
       @directory = Directory.find(params[:id])
     end
 
+    def set_directory_ref
+      @directory_ref = Directory.find(params[:directory_id]) if params[:directory_id]
+    end
+
     # Only allow a list of trusted parameters through.
     def directory_params
-      params.require(:directory).permit(:name)
+      params.require(:directory).permit(:name,:ref_directory_id)
     end
 end

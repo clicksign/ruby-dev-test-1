@@ -1,0 +1,75 @@
+pt-BR:
+  name: Nome
+  directories: Diretórios
+  Directories: Diretórios
+  directory: Diretório
+  Directory: Diretório
+  new_directory: Nova pasta
+  ransack:
+    asc: ascendente
+    desc: descendente
+    predicates:
+      cont: contém
+      not_cont: não contém
+      start: começa com
+      end: termina com
+      gt: maior que
+      lt: menor que
+  index: "Listar %{resource}"
+  new:
+    register: 'Novo Registro de %{resource}'
+    female: "Criar Nova %{resource}"
+    male: "Criar Novo %{resource}"
+  save: "Gravar %{resource}"
+  create: "Criar %{resource}"
+  edit: "Editar"
+  show: "Detalhes"
+  destroy: "Apagar"
+  are_you_sure: "Você tem certeza?"
+  are_you_read: "Declaro que li e estou ciente da mensagem e que não quero mais que ela seja exibida para mim."
+  not_info: "Não informado"
+  all_subscribers: "Total de inscritos"
+  download_csv: "Baixar CSV"
+  download_certificate: "Baixar Certificados"
+  import_csv: "Importar CSV"
+  import: 'Importar'
+  cancel: "Cancelar"
+  back: "Voltar"
+  print: "Imprimir"
+  options: "Opções"
+  select: "-- Selecione --"
+  register: "Registro"
+  search: "Buscar"
+  buttons:
+    add: "Adicionar"
+    remove: "Remover"
+  errors:
+    messages:
+      already_confirmed: já foi confirmado
+      confirmation_period_expired: "É necessário ser confirmado dentro do período %{period}, por favor requisite um novo usuário."
+      expired: expirou, por favor solicite uma nova
+      not_found: não encontrado
+      not_locked: não foi bloqueado
+      not_saved:
+        one: "Não foi possível executar sua solicitação"
+        other: "Não foi possível salvar %{resource}: %{count} erros."
+  models_and_attributes: &models_and_attributes
+    simple_form:
+      labels:
+        user:
+          name: "Nome"
+          password: "Senha"
+          reset_password_token: "Nova senha"
+    attributes:
+      general: &general
+        id: Registro
+        description: Descrição
+    diretory:
+      one: Diretório
+      other: Diretórios    
+  activerecord:
+    <<: *models_and_attributes
+  activemodel:
+    <<: *models_and_attributes
+  mail_form:
+    <<: *models_and_attributes
