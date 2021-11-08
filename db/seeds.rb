@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+root = Folder.create(title: 'root')
+subfolder = root.subfolders.create(title: 'subfolder')
+
+5.times do
+  items = root.items.create(name: "file #{rand(1..99)}")
+end
