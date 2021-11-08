@@ -9,3 +9,19 @@
   background-size: cover
   padding-top: 9/16 * 100%
   border-radius: 4px
+  overflow: hidden
+  position: relative
+  transition: .2s
+
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: inherit
+    transition: inherit
+
+  &:hover:before
+    transform: scale(1.2)
