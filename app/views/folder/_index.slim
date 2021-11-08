@@ -1,0 +1,9 @@
+.folder
+  .folder__title
+    i data-feather="folder"
+    span = folder.title
+  .folder__items
+    - folder.subfolders.each do |folder|
+      = render 'folder/index', folder: folder
+    - folder.items.each do |item|
+      = render 'folder/item', item: item

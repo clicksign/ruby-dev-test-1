@@ -1,0 +1,28 @@
+/// @group components
+/// @name folder
+
+.folder
+  display: flex
+  padding: $s
+  border: 1px solid rgba(black, .1)
+  flex-direction: column
+
+.folder__title
+  display: flex
+  
+  > *
+    align-self: center
+
+  span
+    margin-left: $s
+
+.folder__items
+  display: grid
+  grid-gap: $s
+  grid-template-columns: repeat(3, minmax(0, 1fr))
+  margin-top: $s
+
+.folder__wrapper
+  margin: 2em auto
+  display: flex
+  flex-direction: column
