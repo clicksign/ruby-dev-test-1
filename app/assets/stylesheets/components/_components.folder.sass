@@ -4,8 +4,15 @@
 .folder
   display: flex
   padding: $s
-  border: 1px solid rgba(black, .1)
+  border: 1px solid rgba($bluegrey, .3)
   flex-direction: column
+  background-color: white
+  border-radius: 4px
+  transition: .2s
+
+  & &:hover
+    background-color: rgba($base-grey, .5)
+    border-color: $bluegrey
 
 .folder__title
   display: flex
@@ -14,7 +21,7 @@
     align-self: center
 
   span
-    margin-left: $s
+    margin-left: $s / 2
 
 .folder__items
   display: grid

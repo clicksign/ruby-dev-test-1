@@ -1,2 +1,2 @@
 .item
-  .item__thumb style="background-image: url(#{url_for(item.file)})"
+  .item__thumb style=("background-image: url(#{url_for(item.file)})" if item.file.attached?)
