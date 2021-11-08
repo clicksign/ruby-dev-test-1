@@ -7,8 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 root = Folder.create(title: 'root')
-subfolder = root.subfolders.create(title: 'subfolder')
 
-5.times do
-  items = root.items.create(name: "file #{rand(1..99)}")
+n_folders = 3
+n_items = 3
+
+(1..n_folders).each do |s|
+  subfolder = root.subfolders.create(title: s)
+  
+  (1..n_items).each do |i|
+    url = URI.parse("https://picsum.photos/200/300")
+    filename = i
+    item = subfolder.items.create(name: filename)
+    item.file.attach(io: URI.open(url), filename: filename)
+  end
 end
