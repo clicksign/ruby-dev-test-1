@@ -8,18 +8,18 @@
 
 root = Folder.create(title: 'root')
 
-n_folders = 3
-n_items = 4
+n_folders = 6
+n_items = 9
 
 (1..n_folders).each do |s|
   subfolder = root.subfolders.create(title: s)
-  puts "pasta #{s}"
+  puts "→ pasta #{s}"
 
   (1..n_items).each do |i|
     url = URI.parse("https://picsum.photos/160/90")
     filename = i
     item = subfolder.items.create(name: filename)
     item.file.attach(io: URI.open(url), filename: filename)
-    puts "↳ arquivo #{i}"
+    puts "  ↳ arquivo #{i}"
   end
 end
