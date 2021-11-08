@@ -1,0 +1,8 @@
+# ========================================
+#   #itcss.yml
+#   This file is automatically updated by itcsscli.
+# ========================================
+---
+stylesheets_directory: app/assets/stylesheets
+stylesheets_import_file: application.css
+extension: sass
