@@ -1,3 +1,7 @@
+.header
+  .container
+    = image_tag 'clickfile-logo.svg', class: 'header__logo'
+
 .container
   .folder__wrapper
     = render 'folder/index', folder: Folder.first

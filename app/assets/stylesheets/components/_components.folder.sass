@@ -16,6 +16,10 @@
 
 .folder__title
   display: flex
+  margin-bottom: $s
+
+  // .folder:hover > &
+  //   margin-bottom: $s
   
   > *
     align-self: center
@@ -27,7 +31,13 @@
   display: grid
   grid-gap: $s
   grid-template-columns: repeat(3, minmax(0, 1fr))
-  margin-top: $s
+  transition: .2s
+  
+  // max-height: 0
+  // overflow: hidden
+
+  // .folder:hover > &
+  //   max-height: 999em 
 
 .folder__wrapper
   margin: 2em auto

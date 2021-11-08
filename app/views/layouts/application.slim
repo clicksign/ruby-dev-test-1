@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Clicksign
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+
+    link rel="icon" type="image/png" href="#{image_path('favicon.png')}"
+
+    = javascript_include_tag 'https://unpkg.com/feather-icons'
+
+  body
+    = yield
