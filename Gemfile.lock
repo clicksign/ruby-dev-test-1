@@ -149,6 +149,7 @@ GEM
     rb-readline (0.5.5)
     regexp_parser (2.1.1)
     rexml (3.2.5)
+    ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -224,6 +225,7 @@ DEPENDENCIES
   pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.5)
+  ruby-progressbar
   sass-rails (>= 6)
   selenium-webdriver
   slim-rails
