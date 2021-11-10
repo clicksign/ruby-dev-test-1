@@ -11,6 +11,23 @@ Realizar um fork deste repositório.
 
 <img width="1920" alt="Screen Shot 2021-11-08 at 17 24 04" src="https://user-images.githubusercontent.com/8906380/140813659-4aa5adbb-a3d9-40cb-b7a0-0c1d944e2de4.png">
 
+## Instruções
+```console
+$ git clone git@github.com:kandebonfim/ruby-dev-test-1.git
+$ cd ruby-dev-test-1/
+$ bundler
+  ↳ Caso o comando não esteja disponível: gem install bundler
+$ yarn --check-files
+  ↳ Caso o comando não esteja disponível: npm install -g yarn
+$ rails db:setup
+  ↳ alias de rails db:drop db:create db:migrate db:seed
+```
+
+> Para repopular o banco com novas pastas e arquivos, basta rodar:
+```console
+$ rails db:drop db:create db:migrate db:seed
+```
+
 ## Modelo de dados
 
 Criei uma app Rails (6.0.3) na raiz do projeto e optei por mudar o adapter da database de `sqlite3` para `pg`. Depois de pensar um pouco no modelo de dados resolvi  trabalhar com 2 models: `Folder` e `Item`.
