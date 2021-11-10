@@ -2,16 +2,51 @@
 /// @name item
 
 .item
+  position: relative
+  overflow: hidden
+  border-radius: 4px
+  transition: .2s
+
+.item__title
+  position: absolute
+  width: 100%
+  padding: .8em 1em
+  font-size: .6em
+  background-color: rgba(black, .6)
+  color: white
+  box-sizing: border-box
+  bottom: -50%
+  transition: inherit
+  display: flex
+  justify-content: space-between
+
+  .item:hover &
+    bottom: 0%
+
+  svg
+    width: 1.6em
+    height: 1.6em
+    padding: .4em
+    cursor: pointer
+    border-radius: 50%
+    border: 1px solid rgba(white, .5)
+    transition: inherit
+
+    &:hover
+      background-color: #F44336
+      border-color: #F44336
+      transform: scale(1.1)
+
+  > *
+    align-self: center
 
 .item__thumb
   background-color: $base-grey
   background-position: center
   background-size: cover
   padding-top: 9/16 * 100%
-  border-radius: 4px
-  overflow: hidden
   position: relative
-  transition: .2s
+  transition: inherit
 
   &:before
     content: ""

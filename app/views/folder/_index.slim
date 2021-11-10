@@ -6,4 +6,8 @@
     - folder.subfolders.each do |folder|
       = render 'folder/index', folder: folder
     - folder.items.each do |item|
-      = render 'folder/item', item: item
+      .item
+        .item__thumb style=("background-image: url(#{url_for(item.file)})" if item.file.attached?)
+        .item__title 
+          span Arquivo 1
+          i data-feather="trash"
