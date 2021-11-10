@@ -21,11 +21,14 @@ $ yarn --check-files
   ↳ Caso o comando não esteja disponível: npm install -g yarn
 $ rails db:setup
   ↳ alias de rails db:drop db:create db:migrate db:seed
+$ rails s
 ```
+
+A aplicação estará rodando em `http://localhost:3000/`
 
 > Para repopular o banco com novas pastas e arquivos, basta rodar:
 ```console
-$ rails db:drop db:create db:migrate db:seed
+$ rails db:drop db:setup
 ```
 
 ## Modelo de dados
