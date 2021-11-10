@@ -9,9 +9,11 @@
 # Create main root folder
 root = Folder.create(title: 'Pasta Raiz')
 
-# Set scraping parameters
+# Number of folders and items
 n_folders = 7
 n_items = 4
+
+# Image scrapping parameters
 thumb_width = 400
 thumb_ratio = 9 / 16.to_f
 thumb_height = (thumb_width * thumb_ratio).to_i
