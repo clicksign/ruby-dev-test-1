@@ -1,14 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @folder.name %>
-</p>
+<h1><%= @folder.name %></h1>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @folder.parent_id %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_folder_path(@folder) %> |
-<%= link_to 'Back', folders_path %>
+  <tbody>
+    <% @folders.each do |folder| %>
+      <tr>
+        <td><%= folder.name %></td>
+        <td><%= link_to 'Show', folder %></td>
+        <td><%= link_to 'Edit', edit_folder_path(folder) %></td>
+        <td><%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% @docs.each do |doc| %>
+      <tr>
+        <td><%= doc.filename %></td>
+        <td><%= link_to 'Show', doc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', back_folder_path(@folder) %>

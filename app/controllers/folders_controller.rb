@@ -3,11 +3,13 @@ class FoldersController < ApplicationController
 
   # GET /folders or /folders.json
   def index
-    @folders = Folder.all
+    @folders = Folder.root
   end
 
   # GET /folders/1 or /folders/1.json
   def show
+    @folders = Folder.children(params[:id])
+    @docs = @folder.documents
   end
 
   # GET /folders/new
