@@ -2,4 +2,4 @@
 
 <%= render 'form', folder: @folder %>
 
-<%= link_to 'Back', folders_path %>
+<%= link_to 'Back', folders_path(params[:parent_id]) %>

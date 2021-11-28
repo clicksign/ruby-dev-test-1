@@ -13,13 +13,10 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :parent_id %>
-    <%= form.number_field :parent_id %>
-  </div>
+  <%= form.hidden_field :parent_id, value: params[:parent_id] %>
 
   <div class="actions">
     <%= form.submit %>
