@@ -51,10 +51,14 @@ class FoldersController < ApplicationController
 
   # DELETE /folders/1 or /folders/1.json
   def destroy
-    @folder.destroy
     respond_to do |format|
-      format.html { redirect_to folders_url, notice: "Folder was successfully destroyed." }
-      format.json { head :no_content }
+      if @folder.destroy
+        format.html { redirect_to folders_url, notice: "Folder was successfully destroyed." }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to folders_url, alert: "Folder was not destroyed. #{@folder.errors.messages[:base].first if @folder.errors.messages[:base].present?}." }
+        format.json { render json: @folder.errors, status: :unprocessable_entity }
+      end
     end
   end
 
