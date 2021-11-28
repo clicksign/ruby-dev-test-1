@@ -20,10 +20,17 @@
         <td><%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% @docs.each do |doc| %>
+      <tr>
+        <td><%= doc.filename %></td>
+        <td><%= link_to 'Show', doc %></td>
+        <td><%= link_to 'Destroy', folder_document_upload_path(@folder, doc), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Folder', new_folder_path %>
-<%#= link_to 'New Document', new_folder_document_upload_path(@folder) %>
+<%= link_to 'New Folder', new_folder_path(parent_id: @folder.id) %>
+<%= link_to 'New Document', new_folder_document_upload_path(folder_id: @folder) %>

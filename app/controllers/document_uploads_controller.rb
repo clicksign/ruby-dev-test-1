@@ -5,9 +5,15 @@ class DocumentUploadsController < ApplicationController
   end
 
   def create
-    @bucket = Bucket.find(params[:bucket_id])
-    @bucket.files.attach(params[:bucket][:files])
-    redirect_to bucket_path(@bucket)
+    @folder = Folder.find(params[:folder_id])
+    @folder.documents.attach(params[:folder][:documents])
+    redirect_to folder_path(@folder)
+  end
+
+  def destroy
+    @folder = Folder.find(params[:folder_id])
+    @folder.documents.find(params[:id]).purge
+    redirect_to folder_path(@folder)
   end
 
   private 

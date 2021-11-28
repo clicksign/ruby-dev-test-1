@@ -13,11 +13,8 @@ class Folder < ApplicationRecord
     throw(:abort) if errors.present?
   end
 
-  before_create :ensure_document_name_is_unique, prepend: true do
-    throw(:abort) if errors.present?
-  end
-
-  scope :root , -> { first_or_create(name: "/", parent_id: nil).children }
+  scope :root_subfolders , -> { first_or_create(name: "/", parent_id: nil).children }
+  scope :root_folder , -> { first_or_create(name: "/", parent_id: nil) }
   scope :child_folders , ->(folder_id) { where(parent_id: folder_id) }
   
   private

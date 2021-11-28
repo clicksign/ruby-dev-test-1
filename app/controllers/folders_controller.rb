@@ -3,7 +3,9 @@ class FoldersController < ApplicationController
 
   # GET /folders or /folders.json
   def index
-    @folders = Folder.root
+    @folders = Folder.root_subfolders
+    @folder = Folder.root_folder
+    @docs = @folder.documents
   end
 
   # GET /folders/1 or /folders/1.json
