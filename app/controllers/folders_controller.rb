@@ -8,7 +8,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/1 or /folders/1.json
   def show
-    @folders = Folder.children(params[:id])
+    @folders = Folder.child_folders(params[:id])
     @docs = @folder.documents
   end
 
