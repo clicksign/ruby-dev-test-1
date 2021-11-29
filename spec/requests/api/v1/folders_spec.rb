@@ -76,7 +76,7 @@ RSpec.describe 'Handle folders' do
       end
 
       it 'should return http status 200' do
-        expect(response).to 
+        expect(response).to have_http_status(:success)
       end
     end
   end
@@ -87,6 +87,25 @@ RSpec.describe 'Handle folders' do
       expect { 
         delete "/api/v1/folders/#{folder.id}"
       }.to change(Folder, :count).by(-1)
+    end
+  end
+
+  describe "create folder" do
+    let!(:new_folder) { FactoryBot.build(:folder) }
+    before do 
+      post("/api/v1/folders",
+        params: {
+          folder: {
+            name: new_folder["name"],
+            parent_folder_id: new_folder["parent_folder_id"],
+            files: new_folder["files"]
+          }
+        }
+      )
+    end
+
+    it "should create a new folder" do
+      expect(response).to have_http_status(:created)
     end
   end
 
