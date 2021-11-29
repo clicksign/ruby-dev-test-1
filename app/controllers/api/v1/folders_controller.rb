@@ -28,10 +28,7 @@ class Api::V1::FoldersController < ApplicationController
     end
 
     def destroy
-        unless @folder.destroy
-            render json: @folder.errors, status: :unprocessable_entity
-        end
-        render json: nil, status: :no_content
+        @folder.destroy
     end
 
     private
