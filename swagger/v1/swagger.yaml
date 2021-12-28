@@ -1,0 +1,135 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/repositories":
+    get:
+      summary: list of repositories
+      tags:
+      - Repository
+      parameters:
+      - name: tipo
+        in: query
+        type: string
+        schema:
+          type: string
+          enum:
+          - Folder
+          - Archive
+        required: false
+      responses:
+        '200':
+          description: repositories found
+    post:
+      summary: creating a repository
+      tags:
+      - Repository
+      parameters: []
+      responses:
+        '200':
+          description: created repository
+        '400':
+          description: uncreated repository
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                repository:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - Folder
+                        - Archive
+                      origin_id:
+                        type: string
+                        format: uuid
+                    required:
+                    - name
+                    - type
+  "/repositories/{id}":
+    get:
+      summary: search for a repository
+      tags:
+      - Repository
+      parameters:
+      - name: id
+        in: path
+        format: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: repository found
+        '404':
+          description: repository not found
+    patch:
+      summary: updating a repository
+      tags:
+      - Repository
+      parameters:
+      - name: id
+        in: path
+        format: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: updated repository
+        '400':
+          description: repository not updated
+        '404':
+          description: repository not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                  - Folder
+                  - Archive
+                origin_id:
+                  type: string
+                  format: uuid
+              required:
+              - name
+              - type
+    delete:
+      summary: deleting a repository
+      tags:
+      - Repository
+      parameters:
+      - name: id
+        in: path
+        format: uuid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleted repository
+        '400':
+          description: undeleted repository
+        '404':
+          description: repository not found
+servers:
+- url: https://{localhost}
+  variables:
+    defaultHost:
+      default: localhost:3000

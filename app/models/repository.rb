@@ -10,9 +10,11 @@ class Repository < ApplicationRecord
 
   validate :origin_folder
 
+  scope :by_type, ->(type) { where(type: type) if type.present? }
+
   private
 
   def origin_folder
-    errors.add(:origin, 'The source cannot be a file.') if origin.type == 'Archive'
+    errors.add(:origin, 'The source cannot be a file.') if origin.&type == 'Archive'
   end
 end

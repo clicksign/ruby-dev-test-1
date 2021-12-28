@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :repository do
     name { Faker::Food.spice }
-    association :origin, factory: :repository
 
     trait :folder do
       initialize_with { Folder.new(attributes) }
