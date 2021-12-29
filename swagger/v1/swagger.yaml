@@ -53,6 +53,13 @@ paths:
                       origin_id:
                         type: string
                         format: uuid
+                      storage_attributes:
+                        type: object
+                        items:
+                          properties:
+                            document:
+                              type: string
+                              format: binary
                     required:
                     - name
                     - type
@@ -107,6 +114,13 @@ paths:
                 origin_id:
                   type: string
                   format: uuid
+                storage_attributes:
+                  type: object
+                  items:
+                    properties:
+                      document:
+                        type: string
+                        format: binary
               required:
               - name
               - type

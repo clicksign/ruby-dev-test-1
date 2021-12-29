@@ -48,7 +48,13 @@ class RepositoriesController < ApplicationController
   end
 
   def repository_params
-    %i[id type name origin_id]
+    [
+      :id,
+      :type,
+      :name,
+      :origin_id,
+      { storage_attributes: {} }
+    ]
   end
 
   def crud_repository_params

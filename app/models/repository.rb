@@ -5,6 +5,9 @@ class Repository < ApplicationRecord
 
   belongs_to :origin, class_name: 'Repository', optional: true
 
+  has_one :storage, dependent: :destroy
+  accepts_nested_attributes_for :storage
+
   validates :name, presence: true
   validates :type, presence: true
 
@@ -15,6 +18,6 @@ class Repository < ApplicationRecord
   private
 
   def origin_folder
-    errors.add(:origin, 'The source cannot be a file.') if origin.&type == 'Archive'
+    errors.add(:origin, 'The source cannot be a file.') if origin&.type == 'Archive'
   end
 end

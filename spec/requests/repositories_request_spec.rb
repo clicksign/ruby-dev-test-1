@@ -9,7 +9,14 @@ path_doc_id = "#{path_doc}/{id}"
 properties = {
   name: { type: :string },
   type: { type: :string, enum: %w[Folder Archive] },
-  origin_id: { type: :string, format: 'uuid' }
+  origin_id: { type: :string, format: 'uuid' },
+  storage_attributes: {
+    type: :object, items: {
+      properties: {
+        document: { type: :string, format: 'binary' }
+      }
+    }
+  },
 }
 
 RSpec.describe 'Repositories', type: :request do
