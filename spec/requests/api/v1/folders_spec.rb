@@ -1,10 +1,25 @@
 require 'rails_helper'
 
+RSpec.describe 'Validation CRUD with the folders' do
 
+  describe "create a new folder with request" do
+    let!(:new_folder) { FactoryBot.build(:folder) }
+    before do 
+      post("/api/v1/folders",
+        params: {
+          name: new_folder["name"],
+          parent_folder_id: new_folder["parent_folder_id"],
+          files: new_folder["files"]
+        }
+      )
+    end
 
-RSpec.describe 'Handle folders' do
+    it "should possible to create a new folder" do
+      expect(response).to have_http_status(:created)
+    end
+  end
   
-  describe 'get all folders', type: :request do 
+  describe 'get all folders existents', type: :request do 
     let!(:folders) { FactoryBot.create_list(:folder, 10) }
     
     before { get '/api/v1/folders' }
@@ -18,12 +33,12 @@ RSpec.describe 'Handle folders' do
     end
   end
 
-  describe 'show folder', type: :request do
+  describe 'show specific folder', type: :request do
     let!(:requested_folder) { FactoryBot.create(:folder) }
 
     before { get "/api/v1/folders/#{requested_folder.id}" }
     
-    it 'should return the requested folder' do
+    it 'should return the requisited folder' do
       expect(response.body).to eq(requested_folder.to_json)
     end
       
@@ -32,17 +47,15 @@ RSpec.describe 'Handle folders' do
     end
   end
 
-  describe "update folder", type: :request do 
+  describe "update specific folder", type: :request do 
     let!(:requested_folder) { FactoryBot.create(:folder) }
 
-    describe "rename folder" do
+    describe "rename a folder" do
       before do 
         put(
           "/api/v1/folders/#{requested_folder.id}", 
           params: { 
-            folder: { 
-              name: 'Documents' 
-            }
+            name: 'Documents' 
           } 
         )
       end
@@ -60,15 +73,13 @@ RSpec.describe 'Handle folders' do
       end
     end
 
-    describe "move folder" do
+    describe "move a folder to new folder with sucess" do
       let!(:new_folder) { FactoryBot.create(:folder) }
       before do
         put(
           "/api/v1/folders/#{requested_folder.id}",
           params: {
-            folder: {
               parent_folder_id: new_folder.id
-            }
           }
         )
       end
@@ -77,38 +88,19 @@ RSpec.describe 'Handle folders' do
         expect(JSON.parse(response.body)["parent_folder_id"]).to eq(new_folder.id)
       end
 
-      it 'should return http status 200' do
+      it 'should return sucess with status 200' do
         expect(response).to have_http_status(:success)
       end
     end
   end
 
-  describe "delete folder" do    
-    it "destroys the requested folder" do
+  describe "delete folder with request" do    
+    it "destroys a specific folder" do
       folder = Folder.create!(name: "Test")
       expect { 
         delete "/api/v1/folders/#{folder.id}"
       }.to change(Folder, :count).by(-1)
     end
-  end
-
-  describe "create folder" do
-    let!(:new_folder) { FactoryBot.build(:folder) }
-    before do 
-      post("/api/v1/folders",
-        params: {
-          folder: {
-            name: new_folder["name"],
-            parent_folder_id: new_folder["parent_folder_id"],
-            files: new_folder["files"]
-          }
-        }
-      )
-    end
-
-    it "should create a new folder" do
-      expect(response).to have_http_status(:created)
-    end
-  end
+  end  
 
 end
