@@ -16,4 +16,8 @@ Realizar um fork deste repositório.
 
 ## Após isso o servidor estará rodando em localhost:3000
 
+## Postman Link
+
+https://www.getpostman.com/collections/2e733a26e25587c6cd65
+
 
