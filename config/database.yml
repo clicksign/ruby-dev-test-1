@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  username: "postgres"
+  password: "postgres"
+
+development:
+  <<: *default
+  database: ruby-dev-test-1-development
+
+test:
+  <<: *default
+  database: ruby-dev-test-1-test
+
+production:
+  <<: *default
+  database: ruby-dev-test-1-production
