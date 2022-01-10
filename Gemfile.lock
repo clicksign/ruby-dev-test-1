@@ -271,6 +271,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activestorage
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner-active_record

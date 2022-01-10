@@ -5,6 +5,7 @@ ruby '3.0.2'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
+gem 'activestorage'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.7'
