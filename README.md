@@ -16,7 +16,8 @@ Realizar um fork deste repositório.
 
 ## Após isso o servidor estará rodando em localhost:3000
 
-## Postman Link
+## Postman JSON link
 
-https://www.postman.com/workspace/Public-Workspace~4b9904fa-2f10-4298-8481-fc9e98a530f4/collection/15932068-ff61f7e0-a72d-4d37-b98a-f1216cc27fd0
+https://www.getpostman.com/collections/2e733a26e25587c6cd65
+
 
