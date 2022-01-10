@@ -1,8 +1,11 @@
 require "simplecov"
 SimpleCov.start "rails" do
   add_filter [
-               "app/controllers/concern"
-             ]
+    "app/controllers/concern",
+    "app/channels",
+    "app/job",
+    "app/mailers"
+  ]
 end
 
 RSpec.configure do |config|

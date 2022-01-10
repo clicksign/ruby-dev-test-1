@@ -1,46 +1,53 @@
-module Api::V1
-  class DirectoriesController < ApplicationController
-    before_action :load_directory, only: [:show, :update, :destroy]
+module Api
+  module V1
+    class DirectoriesController < ApplicationController
+      before_action :load_directory, only: %i[show update destroy]
 
-    def index
-      @directories = Directory.all
-    end
+      def index
+        @directories = Directory.all
+      end
 
-    def create
-      @directory = Directory.new
-      @directory.attributes = directory_params
-      save_directory!
-    end
+      def create
+        @directory = Directory.new
+        @directory.attributes = directory_params
+        save_directory!
+      end
 
-    def show; end
+      def show; end
 
-    def update
-      @directory.attributes = directory_params
-      save_directory!
-    end
+      def update
+        @directory.attributes = directory_params
+        save_directory!
+      end
 
-    def destroy
-      @directory.destroy!
-    rescue
-      render_error(fields: @directory.errors.messages)
-    end
+      def destroy
+        @directory.destroy!
+      rescue StandardError
+        render_error(fields: @directory.errors.messages)
+      end
 
-    private
+      def upload_file
+        @directory.files.attach(params[:files])
+      end
 
-    def load_directory
-      @directory = Directory.with_attached_files.includes(:subdirectories).find(params[:id])
-    end
+      private
 
-    def directory_params
-      return {} unless params.has_key?(:directory)
-      params.require(:directory).permit(:id, :name, :parent_id, files: [])
-    end
+      def load_directory
+        @directory = Directory.find(params[:id])
+      end
 
-    def save_directory!
-      @directory.save!
-      render :show
-    rescue
-      render_error(fields: @directory.errors.messages)
+      def directory_params
+        return {} unless params.key?(:directory)
+
+        params.require(:directory).permit(:id, :name, :parent_id, files: [])
+      end
+
+      def save_directory!
+        @directory.save!
+        render :show
+      rescue StandardError
+        render_error(fields: @directory.errors.messages)
+      end
     end
   end
 end

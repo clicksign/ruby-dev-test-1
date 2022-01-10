@@ -1,18 +1,17 @@
 module RequestAPI
-
   def body_json(symbolize_keys: false)
     json = JSON.parse(response.body)
     symbolize_keys ? json.deep_symbolize_keys : json
-  rescue
-    return {}
+  rescue StandardError
+    {}
   end
 end
 
 def auth_header(merge_with: {})
   header = {
-              'Content-Type' => 'application/json',
-              'Accept' => 'application/json'
-            }
+    "Content-Type" => "application/json",
+    "Accept" => "application/json"
+  }
   header.merge(merge_with)
 end
 
