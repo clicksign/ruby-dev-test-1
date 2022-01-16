@@ -45,33 +45,103 @@ RSpec.describe Folder, type: :model do
       end
     end
     context "with files" do
-      it "test files parent relation"
       it "test files children relation" do
-        # folder = FactoryBot.create(:folder)
-        # file2 = FactoryBot.create(:pdf_file, name: "file2")
-        # file1 = FactoryBot.create(:image_file, name: "file1")
+        folder = FactoryBot.create(:folder)
+        image_file = "image.png"
+        pdf_file = "file.pdf"
         
-        # folder.files << file1
-        # folder.files << file2
+        folder.files.attach(io: File.open("spec/files/#{image_file}"), filename: image_file)
+        folder.files.attach(io: File.open("spec/files/#{pdf_file}"), filename: pdf_file)
         
-        # folder.save
-        # folder.reload
+        folder.save
+        folder.reload
 
-        # expect(folder.files.count).to eq(2)
-        # expect(folder.files.first).to eq(file1)
-        # expect(folder.files.last).to eq(file2)
+        expect(folder.files.count).to eq(2)
+        expect(folder.files.first.blob.filename).to eq(image_file)
+        expect(folder.files.last.blob.filename).to eq(pdf_file)
       end
     end
   end
   describe "Actions" do
     describe "with file" do
-      it "rename"
-      it "delete"
+      it "rename" do
+        folder = FactoryBot.create(:folder_with_children)
+        
+        folder.files.first.rename("new_name.pdf")
+        folder.save
+        folder.reload
+
+        expect(folder.files.first.blob.filename).to eq("new_name.pdf")
+      end
+      it "delete" do
+        folder = FactoryBot.create(:folder_with_children)
+        
+        folder.files.first.destroy!
+        folder.save
+        folder.reload
+
+        expect(folder.files.count).to eq(1)
+      end
+      it "move" do
+        folder = FactoryBot.create(:folder_with_children)
+        folder2 = FactoryBot.create(:folder, name: "folder2")
+
+        file_to_move = folder.files.first
+        file_to_move.move(folder2)
+        
+        folder.save
+        folder.reload
+        folder2.reload
+
+        expect(folder.files.count).to eq(1)
+        expect(folder2.files.count).to eq(1)
+        expect(folder2.files.first.blob.filename).to eq(file_to_move.blob.filename)
+      end
     end
     describe "with folder" do
-      it "rename"
-      it "delete (should be cascade)"
+      it "rename" do
+        folder = FactoryBot.create(:folder_with_children)
+        
+        folder.folders.first.rename("new_name")
+        folder.save
+        folder.reload
+
+        expect(folder.folders.first.name).to eq("new_name")
+      end
+      it "delete (should be cascade)" do
+        folder = FactoryBot.create(:folder_with_children)
+        child_folder = folder.folders.first
+
+        child_folder.files.attach(io: File.open("spec/files/file.pdf"), filename: "file.pdf")
+        
+        child_folder.save
+        child_folder.reload
+        child_folder.destroy!
+
+        expect(folder.folders.count).to eq(1)
+        expect(ActiveStorage::Attachment.exists?(id=3)).to eq(false)
+      end
+      it "move" do
+        folder = FactoryBot.create(:folder_with_children)
+        folder2 = FactoryBot.create(:folder, name: "folder2")
+
+        folder_to_move = folder.folders.first
+        folder_to_move.move(folder2)
+        
+        folder.save
+        folder.reload
+        folder2.reload
+
+        expect(folder.folders.count).to eq(1)
+        expect(folder2.folders.count).to eq(1)
+        expect(folder2.folders.first.name).to eq(folder_to_move.name)
+        expect(folder_to_move.parent).to eq(folder2)
+      end
     end
-    it "get childrens with the all custom method"
+    it "get children method" do
+      folder = FactoryBot.create(:folder_with_children)
+
+      expect(folder.children.count).to eq(4)
+    end
   end
 end
