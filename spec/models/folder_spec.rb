@@ -143,17 +143,18 @@ RSpec.describe Folder, type: :model do
         expect(folder2.folders.first.name).to eq(folder_to_move.name)
         expect(folder_to_move.parent).to eq(folder2)
       end
-      it "get path" do
+      it "get path method" do
         folder = FactoryBot.create(:folder_with_children)
         child_folder = folder.folders.first
 
         expect(child_folder.path).to eq("#{folder.name}/#{child_folder.name}")
       end
+      it "get children method" do
+        folder = FactoryBot.create(:folder_with_children)
+  
+        expect(folder.children.count).to eq(4)
+      end
     end
-    it "get children method" do
-      folder = FactoryBot.create(:folder_with_children)
-
-      expect(folder.children.count).to eq(4)
-    end
+    
   end
 end
