@@ -11,6 +11,10 @@ Rails.configuration.to_prepare do
     def move(folder)
       self.update(record_id: folder.id)
     end
+
+    def path
+      "#{self.record.path}/#{self.blob.filename}"
+    end
   end
 
   # Include the extension module in the ActiveStorage::Attachment model

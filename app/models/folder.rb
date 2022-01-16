@@ -20,4 +20,12 @@ class Folder < ApplicationRecord
     def children
         self.folders + self.files
     end
+
+    def path
+        if self.parent
+            "#{self.parent.path}/#{self.name}"
+        else
+            self.name
+        end
+    end
 end

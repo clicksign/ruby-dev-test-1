@@ -97,6 +97,12 @@ RSpec.describe Folder, type: :model do
         expect(folder2.files.count).to eq(1)
         expect(folder2.files.first.blob.filename).to eq(file_to_move.blob.filename)
       end
+      it "get path" do
+        folder = FactoryBot.create(:folder_with_children)
+        child_file = folder.files.first
+
+        expect(child_file.path).to eq("#{folder.name}/#{child_file.blob.filename}")
+      end
     end
     describe "with folder" do
       it "rename" do
@@ -136,6 +142,12 @@ RSpec.describe Folder, type: :model do
         expect(folder2.folders.count).to eq(1)
         expect(folder2.folders.first.name).to eq(folder_to_move.name)
         expect(folder_to_move.parent).to eq(folder2)
+      end
+      it "get path" do
+        folder = FactoryBot.create(:folder_with_children)
+        child_folder = folder.folders.first
+
+        expect(child_folder.path).to eq("#{folder.name}/#{child_folder.name}")
       end
     end
     it "get children method" do
