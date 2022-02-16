@@ -2,7 +2,7 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: %i[ show edit update destroy ]
 
   def index
-    @folders = Folder.all
+    @folders = Folder.where(ref_id: nil)
   end
 
   def show
