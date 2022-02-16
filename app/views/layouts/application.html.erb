@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubyDevTest1</title>
+    <title>FileKong - Perfeito para roubar seus Bitcoins</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar" style="background-color: #183C99;">
+      <div class="w-100 d-flex justify-content-center">
+        <h1 class="title">FileKong</h1>
+      </div>
+    </nav><br><br><br>
+
+    <div class="content w-100 d-flex justify-content-center">
+      <%= yield %>
+    <div>
   </body>
 </html>
