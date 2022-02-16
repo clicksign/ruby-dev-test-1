@@ -1,0 +1,17 @@
+<%= form_with(model: folder) do |form| %>
+  <% if folder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+
+      <ul>
+        <% folder.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
