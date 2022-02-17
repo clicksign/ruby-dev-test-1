@@ -1,5 +1,8 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  # Filters
+  add_filter %w[app/jobs app/mailers app/views app/channels app/controllers]
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
