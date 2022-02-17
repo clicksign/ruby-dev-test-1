@@ -4,6 +4,8 @@
   <%= render 'table'%>
 
 &nbsp;&nbsp;&nbsp; <!-- desculpe voce ter que ver isso XD -->
-<%= link_to 'Nova Pasta', new_folder_path(current_folder: @directory) %> &nbsp;|&nbsp;
-<%= link_to 'Upload de Arquivo', :back %> &nbsp;|&nbsp;
-<%= link_to 'Voltar', :back %><br>
+<%= link_to 'Nova Pasta', new_folder_path(current_folder: @folder) %> &nbsp;|&nbsp;
+<%= link_to 'Upload de Arquivo', :back %>
+<% if !@folder.ref.nil? %>
+  &nbsp;|&nbsp; <%= link_to 'Voltar', folder_path(@folder.ref.id) %><br>
+<% end %>

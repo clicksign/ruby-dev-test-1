@@ -1,7 +1,8 @@
-<%= form_with(model: folder) do |form| %>
+<%= form_with model: folder, url: folders_path(current_folder: params[:current_folder]), method: :post, :html => {:class => "form-horizontal center"} do |form| %>
+
   <% if folder.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+      <h2>Houve um erro ao criar sua pasta:</h2>
 
       <ul>
         <% folder.errors.each do |error| %>
@@ -11,7 +12,15 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label "Nome da Pasta", class: "col-md-5 control-label" %>
+    <div class="col-md-10">
+      <%= form.text_field :folder_name, class: "form-control" %>
+    </div>
+  </div><br>
+
+  <div>
+    <%= form.submit "Criar Pasta", class: "btn btn-default btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'Voltar', folder_path(params[:current_folder]) %>
   </div>
 <% end %>
