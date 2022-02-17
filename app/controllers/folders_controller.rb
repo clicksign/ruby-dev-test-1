@@ -6,6 +6,7 @@ class FoldersController < ApplicationController
   end
 
   def show
+    @folders = @folder.subfolders.order(created_at: :desc)
   end
 
   def new

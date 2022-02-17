@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_folder_path(@folder) %> |
-<%= link_to 'Back', folders_path %>
+  <% @path = @folder.path %>
+  <%= render 'table'%>
+
+&nbsp;&nbsp;&nbsp; <!-- desculpe voce ter que ver isso XD -->
+<%= link_to 'Nova Pasta', new_folder_path(current_folder: @directory) %> &nbsp;|&nbsp;
+<%= link_to 'Upload de Arquivo', :back %> &nbsp;|&nbsp;
+<%= link_to 'Voltar', :back %><br>
