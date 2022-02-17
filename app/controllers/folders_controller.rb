@@ -2,7 +2,7 @@ class FoldersController < ApplicationController
   before_action :set_folder, only: %i[ show edit update destroy ]
 
   def index
-    @folders = Folder.where(ref_id: nil)
+    @folders = Folder.where(ref_id: nil).order(created_at: :desc)
   end
 
   def show
