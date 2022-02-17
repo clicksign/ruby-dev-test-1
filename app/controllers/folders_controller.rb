@@ -17,11 +17,15 @@ class FoldersController < ApplicationController
   end
 
   def create
-    @folder = Folder.new(folder_params)
+    @folder = Folder.new(
+      name: folder_params[:folder_name],
+      path: "#{current_folder.path}/#{folder_params[:folder_name]}",
+      ref_id: current_folder.id
+    )
 
     respond_to do |format|
       if @folder.save
-        format.html { redirect_to folder_url(@folder), notice: "Folder was successfully created." }
+        format.html { redirect_to folder_url(@folder) }
         format.json { render :show, status: :created, location: @folder }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,7 +61,11 @@ class FoldersController < ApplicationController
       @folder = Folder.find(params[:id])
     end
 
+    def current_folder
+      @current_folder = Folder.find(params[:current_folder].to_i)
+    end
+
     def folder_params
-      params.fetch(:folder, {})
+      params.require(:folder).permit(:folder_name)
     end
 end
