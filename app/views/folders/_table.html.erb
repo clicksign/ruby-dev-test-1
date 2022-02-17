@@ -1,0 +1,24 @@
+<div>
+  <h3><%= @path %></h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">Nome</th>
+        <th scope="col">&nbsp;</th>
+        <th scope="col">Data da criação</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @folders.each do |folder| %>
+        <tr>
+          </a><td><%= link_to(image_tag('folder.png', witdh: '70', height: '70'), folder)%> </td>
+          <td><h5><%= link_to(folder.name, folder) %></h5></td>
+          <td>&nbsp;</td>
+          <td><h8><%=folder.created_at.strftime('%d/%m/%y') %></h8></td>
+        </a>
+      <% end %>
+    </tbody>
+  </table>
+</div>
