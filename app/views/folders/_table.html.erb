@@ -13,11 +13,13 @@
     <tbody>
       <% @folders.each do |folder| %>
         <tr>
-          </a><td><%= link_to(image_tag('folder.png', witdh: '70', height: '70'), folder)%> </td>
+          <td><%= link_to(image_tag('folder.png', witdh: '70', height: '70'), folder)%> </td>
           <td><h5><%= link_to(folder.name, folder) %></h5></td>
           <td>&nbsp;</td>
           <td><h8><%=folder.created_at.strftime('%d/%m/%y') %></h8></td>
-        </a>
+          <% folder.files.each do |file| %>
+            <%=  link_to file.filename, url_for(file)%>
+          <% end %>
       <% end %>
     </tbody>
   </table>

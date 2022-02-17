@@ -1,6 +1,6 @@
 class FoldersController < ApplicationController
   before_action :set_folder, only: :show
-
+  require 'pry'
   def index
     @folders = Folder.where(ref_id: nil).order(created_at: :desc)
   end
@@ -11,6 +11,18 @@ class FoldersController < ApplicationController
 
   def new
     @folder = Folder.new
+  end
+
+  def new_file
+    # binding.pry
+    @folder = current_folder
+  end
+
+  def new_file_upload
+    # binding.pry
+    @file = current_folder
+    @file.files.attach(folder_params[:files])
+    redirect_to folder_path(@file.id)
   end
 
   def create
@@ -42,6 +54,6 @@ class FoldersController < ApplicationController
     end
 
     def folder_params
-      params.require(:folder).permit(:folder_name)
+      params.require(:folder).permit(:folder_name, :files)
     end
 end

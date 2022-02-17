@@ -1,0 +1,10 @@
+<div>
+  <h5> Selecione o arquivo para fazer upload <%= @folder.name %></h5><br>
+ 
+  <%= form_with model: @folder, url: file_upload_uploading_path(current_folder: params[:current_folder]),
+                method: :post, local: true do |f| %>
+    <%= f.file_field :files, multiple: true %><br/><br/>
+    <%= f.submit 'Upload', class: "btn btn-default btn-primary" %>&nbsp;&nbsp;
+    <%= link_to 'Voltar', folder_path(@folder.ref.id) %>
+  <% end %>
+</div>
