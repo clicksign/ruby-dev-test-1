@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Created at</th>
+      <th>Last modified</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @folders.each do |folder| %>
+      <tr>
+        <%= render folder %>
+      </tr>
+    <% end %>
+
+    <% @documents.each do |document| %>
+      <tr>
+        <%= render 'document', document: document %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

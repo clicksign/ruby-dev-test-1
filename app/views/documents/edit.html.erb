@@ -1,0 +1,9 @@
+<h1>Editing document</h1>
+
+<%= render "form", document: @document, folder_id: @document.folder_id %>
+
+<br>
+
+<div>
+  <%= link_to "Back", link_to_back_folder(@document.folder_id) %>
+</div>

@@ -1,0 +1,9 @@
+<h1>New document</h1>
+
+<%= render "form", document: @document, folder_id: params[:folder_id] %>
+
+<br>
+
+<div>
+  <%= link_to "Back", link_to_back_folder(params[:folder_id]) %>
+</div>

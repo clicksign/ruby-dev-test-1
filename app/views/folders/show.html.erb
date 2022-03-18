@@ -2,20 +2,9 @@
 
 <h1><%= "/#{link_to('...', folders_path)}/#{link_to_parent_folder(@folder)}/#{@folder.name}".html_safe %></h1>
 
-<table>
-  <thead>
-    <%= render 'header' %>
-  </thead>
-
-  <tbody>
-    <% @subfolders.each do |folder| %>
-      <tr>        
-        <%= render folder %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'table' %>
 
 <br>
 
-<%= link_to "New folder", new_folder_path(parent_folder_id: @folder.id) %>
+<%= link_to "New folder", new_folder_path(parent_folder_id: @folder.id) %> |
+<%= link_to "New document", new_document_path(folder_id: @folder.id) %>

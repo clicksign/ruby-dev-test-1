@@ -4,12 +4,14 @@ class FoldersController < ApplicationController
   # GET /folders or /folders.json
   def index
     @folders = Folder.root_folders
+    @documents = Document.root_documents
   end
 
   # GET /folders/1 or /folders/1.json
   def show
     @folder = Folder.find_by_id(params[:id])
-    @subfolders = @folder.subfolders
+    @folders = @folder.subfolders
+    @documents = @folder.documents
   end
 
   # GET /folders/new
@@ -49,10 +51,11 @@ class FoldersController < ApplicationController
 
   # DELETE /folders/1 or /folders/1.json
   def destroy
+    parent_folder = @folder.parent_folder
     @folder.destroy
 
     respond_to do |format|
-      format.html { redirect_to folders_url, notice: 'Folder was successfully destroyed.' }
+      format.html { redirect_to custom_redirect_url(parent_folder), status: :see_other, notice: 'Folder was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,7 +70,7 @@ class FoldersController < ApplicationController
     params.require(:folder).permit(:name, :parent_folder_id)
   end
 
-  def custom_redirect_url(parent_folder = nil)
-    parent_folder.present? ? folder_url(parent_folder) : folders_url
+  def custom_redirect_url(folder = nil)
+    folder.present? ? folder_url(folder) : folders_url
   end
 end

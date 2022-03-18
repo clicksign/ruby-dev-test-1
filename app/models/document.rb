@@ -5,6 +5,7 @@ class Document < ApplicationRecord
   belongs_to :folder, required: false
 
   default_scope { order(:name) }
+  scope :root_documents, -> { where(folder_id: nil) }
 
   enum origin: { blob: 1, s3: 2, local: 3 }
 end
