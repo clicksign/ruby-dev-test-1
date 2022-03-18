@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @folder %>
+<h1><%= "/#{link_to('...', folders_path)}/#{link_to_parent_folder(@folder)}/#{@folder.name}".html_safe %></h1>
 
-<div>
-  <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
-  <%= link_to "Back to folders", folders_path %>
+<table>
+  <thead>
+    <%= render 'header' %>
+  </thead>
 
-  <%= button_to "Destroy this folder", @folder, method: :delete %>
-</div>
+  <tbody>
+    <% @subfolders.each do |folder| %>
+      <tr>        
+        <%= render folder %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New folder", new_folder_path(parent_folder_id: @folder.id) %>

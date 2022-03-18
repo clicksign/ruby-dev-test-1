@@ -1,10 +1,9 @@
 <h1>Editing folder</h1>
 
-<%= render "form", folder: @folder %>
+<%= render "form", folder: @folder, parent_folder_id: @folder.parent_folder_id %>
 
 <br>
 
 <div>
-  <%= link_to "Show this folder", @folder %> |
-  <%= link_to "Back to folders", folders_path %>
+  <%= link_to "Back", link_to_back_folder(@folder.parent_folder_id) %>
 </div>

@@ -16,10 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :parent_folder_id, style: "display: block" %>
-    <%= form.number_field :parent_folder_id %>
-  </div>
+  <%= form.hidden_field :parent_folder_id, value: parent_folder_id  %>
 
   <div>
     <%= form.submit %>

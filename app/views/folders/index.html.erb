@@ -1,14 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Folders</h1>
+<h1>/</h1>
 
-<div id="folders">
-  <% @folders.each do |folder| %>
-    <%= render folder %>
-    <p>
-      <%= link_to "Show this folder", folder %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <%= render 'header' %>
+  </thead>
+
+  <tbody>
+    <% @folders.each do |folder| %>
+      <tr>        
+        <%= render folder %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 
 <%= link_to "New folder", new_folder_path %>
