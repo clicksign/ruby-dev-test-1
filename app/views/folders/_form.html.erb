@@ -2,23 +2,17 @@
   <%= form.hidden_field :parent_folder_id  %>
 
   <% if folder.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
-
-      <ul>
-        <% folder.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <p class="text-danger">
+      <%= "#{pluralize(folder.errors.count, 'Error')}: #{folder.errors.full_messages.join(', ')}" %>
+    </p>
   <% end %>
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-4">
+    <%= form.submit 'Save', class: 'btn btn-success' %>
   </div>
 <% end %>

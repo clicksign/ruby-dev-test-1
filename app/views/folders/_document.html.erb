@@ -1,7 +1,10 @@
+<td><%= image_tag 'file.png', width: 25, height: 25 %></td>
 <td><%= link_to document.filename.to_s.truncate(100), document, title: document.filename, target: '_blank' %></td>
 <td>file</td>
 <td><%= format_datetime(document.created_at) %></td>
 <td></td>
-<td colspan="2">
-  <%= button_to 'Destroy', folder_document_path(@folder, document), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+<td>
+  <div class="btn-group">
+    <%= button_to 'Destroy', folder_document_path(@folder, document), class: 'btn btn-danger', method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+  </div>
 </td>

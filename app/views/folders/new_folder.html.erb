@@ -1,9 +1,9 @@
-<h1>New folder</h1>
+<h2>New folder</h2>
 
 <%= render 'form', folder: @folder %>
 
 <br>
 
 <div>
-  <%= link_to 'Back', folder_path(@folder.parent_folder) %>
+  <%= link_to 'Back', folder_path(@folder.parent_folder), class: 'btn btn-secondary' %>
 </div>

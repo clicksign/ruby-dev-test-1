@@ -1,8 +1,11 @@
+<td><%= image_tag 'folder.png', width: 25, height: 25 %></td>
 <td><%= link_to folder.name, folder %></td>
 <td>folder</td>
 <td><%= format_datetime(folder.created_at) %></td>
 <td><%= format_datetime(folder.updated_at) %></td>
 <td>
-  <%= link_to 'Edit', edit_folder_path(folder) %>
-  <%= button_to 'Destroy', folder_path(folder), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+  <div class="btn-group">
+    <%= link_to 'Edit', edit_folder_path(folder), class: 'btn btn-warning', style: 'margin-right: 5px' %>
+    <%= button_to 'Destroy', folder_path(folder), class: 'btn btn-danger', method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+  </div>
 </td>

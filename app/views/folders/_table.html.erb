@@ -1,31 +1,35 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Created at</th>
-      <th>Last modified</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td colspan="4">
-        <%= link_to('...', folder_path(@folder.parent_folder), title: 'Parent folder') if @folder.parent_folder.present? %>
-      </td>
-    </tr>
-
-    <% @folders.each do |folder| %>
+<div class="table-responsive">
+  <table class="table table-sm table-hover">
+    <thead>
       <tr>
-        <%= render folder %>
+        <th></th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Created at</th>
+        <th>Last modified</th>
+        <th></th>
       </tr>
-    <% end %>
+    </thead>
 
-    <% @documents.each do |document| %>
+    <tbody>
       <tr>
-        <%= render 'document', document: document %>
+        <td></td>
+        <td colspan="5">
+          <%= link_to('...', folder_path(@folder.parent_folder), title: 'Parent folder') if @folder.parent_folder.present? %>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+
+      <% @folders.each do |folder| %>
+        <tr>
+          <%= render folder %>
+        </tr>
+      <% end %>
+
+      <% @documents.each do |document| %>
+        <tr>
+          <%= render 'document', document: document %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
