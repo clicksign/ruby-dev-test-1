@@ -1,0 +1,9 @@
+<h1>New folder</h1>
+
+<%= render 'form', folder: @folder %>
+
+<br>
+
+<div>
+  <%= link_to 'Back', folder_path(@folder.parent_folder) %>
+</div>

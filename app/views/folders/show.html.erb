@@ -1,10 +1,9 @@
 <p style="color: green"><%= notice %></p>
-
-<h1><%= "/#{link_to('...', folders_path)}/#{link_to_parent_folder(@folder)}/#{@folder.name}".html_safe %></h1>
+<p style="color: red"><%= alert %></p>
 
 <%= render 'table' %>
 
 <br>
 
-<%= link_to "New folder", new_folder_path(parent_folder_id: @folder.id) %> |
-<%= link_to "New document", new_document_path(folder_id: @folder.id) %>
+<%= link_to "New folder", new_folder_folder_path(@folder) %> |
+<%= link_to "New document", new_folder_document_path(@folder) %>

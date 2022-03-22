@@ -1,8 +1,7 @@
-<td><%= link_to document.name, document %></td>
+<td><%= link_to document.filename.to_s.truncate(100), document, title: document.filename, target: '_blank' %></td>
 <td>file</td>
 <td><%= format_datetime(document.created_at) %></td>
-<td><%= format_datetime(document.updated_at) %></td>
+<td></td>
 <td colspan="2">
-  <%= link_to 'Edit', edit_document_path(document) %>
-  <%= link_to "Destroy", document, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
+  <%= button_to 'Destroy', folder_document_path(@folder, document), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
 </td>

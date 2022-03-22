@@ -2,7 +2,7 @@
 <td>folder</td>
 <td><%= format_datetime(folder.created_at) %></td>
 <td><%= format_datetime(folder.updated_at) %></td>
-<td colspan="2">
+<td>
   <%= link_to 'Edit', edit_folder_path(folder) %>
-  <%= link_to "Destroy", folder, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %>
+  <%= button_to 'Destroy', folder_path(folder), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
 </td>

@@ -3,20 +3,20 @@ class FoldersController < ApplicationController
 
   # GET /folders or /folders.json
   def index
-    @folders = Folder.root_folders
-    @documents = Document.root_documents
+    @folder = Folder.root_folder
+    @folders = @folder.subfolders.order(:name)
+    @documents = @folder.documents.order(:filename)
   end
 
   # GET /folders/1 or /folders/1.json
   def show
-    @folder = Folder.find_by_id(params[:id])
-    @folders = @folder.subfolders
-    @documents = @folder.documents
+    @folders = @folder.subfolders.order(:name)
+    @documents = @folder.documents.order(:filename)
   end
 
-  # GET /folders/new
-  def new
-    @folder = Folder.new
+  # GET /folders/new_folder
+  def new_folder
+    @folder = Folder.new(parent_folder_id: params[:id])
   end
 
   # GET /folders/1/edit
@@ -27,10 +27,10 @@ class FoldersController < ApplicationController
     @folder = Folder.new(folder_params)
     respond_to do |format|
       if @folder.save
-        format.html { redirect_to custom_redirect_url(@folder.parent_folder), notice: 'Folder was successfully created.' }
+        format.html { redirect_to folder_url(@folder.parent_folder), notice: 'Folder was successfully created.' }
         format.json { render :show, status: :created, location: @folder }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new_folder, status: :unprocessable_entity }
         format.json { render json: @folder.errors, status: :unprocessable_entity }
       end
     end
@@ -40,7 +40,7 @@ class FoldersController < ApplicationController
   def update
     respond_to do |format|
       if @folder.update(folder_params)
-        format.html { redirect_to custom_redirect_url(@folder.parent_folder), notice: 'Folder was successfully updated.' }
+        format.html { redirect_to folder_url(@folder.parent_folder), notice: 'Folder was successfully updated.' }
         format.json { render :show, status: :ok, location: @folder }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,11 +51,13 @@ class FoldersController < ApplicationController
 
   # DELETE /folders/1 or /folders/1.json
   def destroy
-    parent_folder = @folder.parent_folder
     @folder.destroy
 
     respond_to do |format|
-      format.html { redirect_to custom_redirect_url(parent_folder), status: :see_other, notice: 'Folder was successfully destroyed.' }
+      format.html do
+        redirect_to folder_url(@folder.parent_folder_id), status: :see_other,
+                                                          notice: 'Folder was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -68,9 +70,5 @@ class FoldersController < ApplicationController
 
   def folder_params
     params.require(:folder).permit(:name, :parent_folder_id)
-  end
-
-  def custom_redirect_url(folder = nil)
-    folder.present? ? folder_url(folder) : folders_url
   end
 end

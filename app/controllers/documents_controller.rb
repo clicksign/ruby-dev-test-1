@@ -1,63 +1,27 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: %i[edit update destroy]
+  before_action :set_folder
 
-  # GET /documents/new
-  def new
-    @document = Document.new
-  end
+  # GET /folders/:id/documents/new
+  def new; end
 
-  # GET /documents/1/edit
-  def edit; end
-
-  # POST /documents or /documents.json
+  # POST /folders/:id/documents or /folders/:id/documents.json
   def create
-    @document = Document.new(document_params)
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to custom_redirect_url(@document.folder), notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
+    if @folder.documents.attach(params[:folder][:documents])
+      redirect_to folder_url(@folder), notice: 'Document was successfully created.'
+    else
+      redirect_to folder_url(@folder), alert: "Errors: #{@folder.errors.full_messages.join(', ')}"
     end
   end
 
-  # PATCH/PUT /documents/1 or /documents/1.json
-  def update
-    respond_to do |format|
-      if @document.update(document_params)
-        format.html { redirect_to custom_redirect_url(@document.folder), notice: 'Document was successfully updated.' }
-        format.json { render :show, status: :ok, location: @document }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /documents/1 or /documents/1.json
+  # DELETE /folders/:id/documents/1 or /folders/:id/documents/1.json
   def destroy
-    folder = @document.folder
-    @document.destroy
-
-    respond_to do |format|
-      format.html { redirect_to custom_redirect_url(folder), status: :see_other, notice: 'Document was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @folder.documents.find(params[:id]).purge
+    redirect_to folder_url(@folder), notice: 'Document was successfully destroyed.'
   end
 
   private
 
-  def set_document
-    @document = Document.find(params[:id])
-  end
-
-  def document_params
-    params.require(:document).permit(:name, :folder_id, :origin)
-  end
-
-  def custom_redirect_url(folder = nil)
-    folder.present? ? folder_url(folder) : folders_url
+  def set_folder
+    @folder = Folder.find(params[:folder_id])
   end
 end
