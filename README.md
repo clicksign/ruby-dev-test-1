@@ -23,4 +23,10 @@ Criar subdiretório:
 
   subfolder2 = Folder.create(name: 'abacaxi')
   folder << subfolder2
-  ```
+```
+
+Rodar testes:
+
+```
+  rspec
+```
