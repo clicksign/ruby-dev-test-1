@@ -5,3 +5,22 @@ Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco
 A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
 
 Realizar um fork deste repositório.
+
+Instruções:
+
+Criar diretório:
+
+```
+ folder = Folder.create(name: 'frutas')
+```
+
+Criar subdiretório:
+
+```
+  folder = Folder.create(name: 'frutas')
+  folder.subfolders.create(name: 'pera)
+  folder.subfolders
+
+  subfolder2 = Folder.create(name: 'abacaxi')
+  folder << subfolder2
+  ```
