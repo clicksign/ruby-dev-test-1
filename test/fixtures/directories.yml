@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folder: one
+  sub_folder: one
+
+two:
+  folder: two
+  sub_folder: two

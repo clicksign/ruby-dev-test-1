@@ -1,0 +1,2 @@
+class SubFolder < ApplicationRecord
+end

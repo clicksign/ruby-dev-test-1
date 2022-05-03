@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sub folders</h1>
+
+<div id="sub_folders">
+  <% @sub_folders.each do |sub_folder| %>
+    <%= render sub_folder %>
+    <p>
+      <%= link_to "Show this sub folder", sub_folder %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sub folder", new_sub_folder_path %>
