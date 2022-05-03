@@ -1,7 +1,13 @@
 <div id="<%= dom_id folder %>">
-  <p>
-    <strong>Name:</strong>
-    <%= folder.name %>
-  </p>
+
+    <div class="d-block">
+      <i class="bi-folder-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+    </div>
+    <div class="d-block">
+      <%= link_to folder.name, folder, class: "btn btn-light" %>
+      <%= render "sub_folders/folder_name", folder: folder %>
+      
+    </div>
+
 
 </div>

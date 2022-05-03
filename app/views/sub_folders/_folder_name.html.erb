@@ -1,0 +1,14 @@
+<div id="sub_folder">
+
+
+
+	<div class="d-block">
+      <i class="bi-folder-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+    </div>
+    <div class="d-block">   
+	<% folder.sub_folders.each do |subfolder| %>
+		<%= subfolder.name%>
+	<% end %>
+    </div>
+
+</div>

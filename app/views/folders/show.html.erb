@@ -3,7 +3,8 @@
 <%= render @folder %>
 
 <div>
-  <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
+  <%= link_to "Edit this folder", edit_folder_path(@folder) %>
+  <%= link_to "New sub folder", edit_folder_path(@folder) %> 
   <%= link_to "Back to folders", folders_path %>
 
   <%= button_to "Destroy this folder", @folder, method: :delete %>
