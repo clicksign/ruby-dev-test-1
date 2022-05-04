@@ -31,7 +31,8 @@
         
 
 
-        <%= form_with(model: @sub_folder) do |form| %>
+
+         <%= form_with(model: @sub_folder) do |form| %>
           <% if @sub_folder.errors.any? %>
             <div style="color: red">
               <h2><%= pluralize(@sub_folder.errors.count, "error") %> prohibited this sub_folder from being saved:</h2>
@@ -47,15 +48,18 @@
           <div>
             <%= form.label :name, style: "display: block" %>
             <%= form.text_field :name %>
-            <%= form.text_field :folder_id_form_url, value: @folder.id if @folder.present?%>
+             <%= form.text_field :folder_id_form_url, value: @folder.id if @folder.present?%>
           </div>
 
-
-      </div>
-      <div class="modal-footer">
-        <%= form.submit class:"btn btn-primary" %>
-      </div>
+          <div>
+            <%= form.submit %>
+          </div>
         <% end %>
+
+
+
+
+
 
     </div>
   </div>

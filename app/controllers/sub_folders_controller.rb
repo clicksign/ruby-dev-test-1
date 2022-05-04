@@ -1,6 +1,8 @@
 class SubFoldersController < ApplicationController
   before_action :set_sub_folder, only: %i[ show edit update destroy ]
 
+  include SubFolderConcern
+
   # GET /sub_folders or /sub_folders.json
   def index
     @sub_folders = SubFolder.all
@@ -23,12 +25,18 @@ class SubFoldersController < ApplicationController
   def create
     @sub_folder = SubFolder.new(sub_folder_params)
 
-
     respond_to do |format|
       if @sub_folder.save
-        debugger
-        format.html { redirect_to sub_folder_url(@sub_folder), notice: "Sub folder was successfully created." }
-        format.json { render :show, status: :created, location: @sub_folder }
+        if there_is_a_folder?(sub_folder_params)
+          @folder = create_sub_folder_into_a_folder(sub_folder_params)
+
+          format.html { redirect_to folder_url(@folder), notice: "Sub folder was successfully created." }
+          format.json { render :show, status: :created, location: @folder }
+        else
+          format.html { redirect_to sub_folder_url(@sub_folder), notice: "Sub folder was successfully created." }
+          format.json { render :show, status: :created, location: @sub_folder }
+        end
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @sub_folder.errors, status: :unprocessable_entity }
