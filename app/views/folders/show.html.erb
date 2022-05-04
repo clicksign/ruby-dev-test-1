@@ -5,8 +5,6 @@
 
   <div>
     <%= link_to "Edit this folder", edit_folder_path(@folder) %>
-    <%= link_to "New sub folder", new_folder_path(@folder) %> 
-    <%= link_to "Back to folders", folders_path, "data-turbo-frame": "_top" %>
 
     <%= button_to "Destroy this folder", @folder, method: :delete %>
   </div>

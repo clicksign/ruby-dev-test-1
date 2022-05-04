@@ -1,7 +1,12 @@
 <div id="<%= dom_id sub_folder %>">
-  <p>
-    <strong>Name:</strong>
-    <%= sub_folder.name %>
-  </p>
+
+  <div class="d-block">
+      <i class="bi-folder-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+    </div>
+    <div class="d-block">   
+       <%= link_to sub_folder.name, edit_sub_folder_path(sub_folder) %> 
+    </div>
+    <br>
+  
 
 </div>

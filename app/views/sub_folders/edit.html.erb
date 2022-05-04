@@ -1,10 +1,12 @@
 <h1>Editing sub folder</h1>
 
-<%= render "form", sub_folder: @sub_folder %>
+<%= turbo_frame_tag "sub_folder" do %>
+  <%= render "form", sub_folder: @sub_folder %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this sub folder", @sub_folder %> |
-  <%= link_to "Back to sub folders", sub_folders_path %>
-</div>
+  <div>
+    <%= link_to "Show this sub folder", @sub_folder %> |
+    <%= link_to "Back to sub folders", sub_folders_path, "data-turbo-frame": "_top" %>
+  </div>
+<% end %>

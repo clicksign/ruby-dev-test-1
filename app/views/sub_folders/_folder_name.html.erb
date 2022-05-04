@@ -6,9 +6,7 @@
       <i class="bi-folder-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
     </div>
     <div class="d-block">   
-	
-		<%= subfolder.name%>
-	
+    	<%= link_to subfolder.name , edit_sub_folder_path(subfolder) %> 
     </div>
     <br>
     <% end %>
