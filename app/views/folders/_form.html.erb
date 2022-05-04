@@ -1,7 +1,7 @@
 <%= form_with(model: folder) do |form| %>
   <% if folder.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+      <h3><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h3>
 
       <ul>
         <% folder.errors.each do |error| %>
