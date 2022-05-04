@@ -6,7 +6,10 @@
     </div>
     <div class="d-block">
       <%= link_to folder.name, folder, class: "btn btn-light" %>
-      <%= render "sub_folders/folder_name", folder: folder %>
+      <% if is_show_page_display_sub_folder?(@page_name) %>
+        <%= render "sub_folders/folder_name", folder: folder %>
+      <% end %>
+      
       
     </div>
 

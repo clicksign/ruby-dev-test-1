@@ -4,11 +4,13 @@ class FoldersController < ApplicationController
   # GET /folders or /folders.json
   def index
     @folders = Folder.all
+    @page_name = "index"
   end
 
   # GET /folders/1 or /folders/1.json
   def show
     @sub_folder = SubFolder.new
+    @page_name = "show"
   end
 
   # GET /folders/new
@@ -18,6 +20,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/1/edit
   def edit
+    @page_name = "edit"
   end
 
   # POST /folders or /folders.json
