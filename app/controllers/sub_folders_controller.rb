@@ -65,6 +65,6 @@ class SubFoldersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sub_folder_params
-      params.require(:sub_folder).permit(:name)
+      params.require(:sub_folder).permit(:name, :folder_id)
     end
 end
