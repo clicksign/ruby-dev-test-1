@@ -1,12 +1,12 @@
 <h3>Sub folders</h3>
 
 <div id="sub_folders">
+  <div  class="row" >
   <% @sub_folders.each do |sub_folder| %>
-    <%= render sub_folder %>
-    <p>
+    <div class="col-sm-3 text-center ">
+      <%= render sub_folder %>
+    </div>   
       <%= link_to "Show this sub folder", sub_folder %>
-    </p>
   <% end %>
+  </div>
 </div>
-
-<%= link_to "New sub folder", new_sub_folder_path %>

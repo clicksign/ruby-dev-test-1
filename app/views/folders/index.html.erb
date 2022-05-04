@@ -1,12 +1,12 @@
 <h3>Folders</h3>
-
 <div id="folders">
-  <% @folders.each do |folder| %>
-    <%= render folder %>
-    <p>
-      <%= link_to "Show this folder", folder %>
-    </p>
-  <% end %>
-</div>
+  
+  <div  class="row" >
+    <% @folders.each do |folder| %>
+    <div class="col-sm-3 text-center ">
+      <%= render folder %>
+    </div>
+    <% end %>
+  </div>
 
-<%= link_to "New folder", new_folder_path %>
+</div>

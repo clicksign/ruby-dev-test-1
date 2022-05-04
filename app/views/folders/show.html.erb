@@ -1,5 +1,13 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success bi-new" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  folder
+</button>
+
 <%= turbo_frame_tag "folder" do %>
-  <%= render @folder %>
+
+
+    <%= render @folder %>
+  
 
   <div>
     <%= link_to "Edit this folder", edit_folder_path(@folder) %>
@@ -10,10 +18,7 @@
 
 <br>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  New sub folder
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
