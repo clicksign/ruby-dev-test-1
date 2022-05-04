@@ -1,12 +1,11 @@
 <h3>Editing folder</h3>
 
-<%= turbo_frame_tag "folder" do %>
   <%= render "form", folder: @folder %>
 
   <br>
 
   <div>
     <%= link_to "Show this folder", @folder %> |
-    <%= link_to "Back to folders", folders_path, "data-turbo-frame": "_top" %>
+    <%= link_to "Back to folders", folders_path %>
   </div>
-<% end %>
+
