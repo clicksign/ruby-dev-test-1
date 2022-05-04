@@ -1,11 +1,40 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @folder %>
+<%= turbo_frame_tag "folder" do %>
+  <%= render @folder %>
 
-<div>
-  <%= link_to "Edit this folder", edit_folder_path(@folder) %>
-  <%= link_to "New sub folder", edit_folder_path(@folder) %> 
-  <%= link_to "Back to folders", folders_path %>
+  <div>
+    <%= link_to "Edit this folder", edit_folder_path(@folder) %>
+    <%= link_to "New sub folder", new_folder_path(@folder) %> 
+    <%= link_to "Back to folders", folders_path, "data-turbo-frame": "_top" %>
 
-  <%= button_to "Destroy this folder", @folder, method: :delete %>
+    <%= button_to "Destroy this folder", @folder, method: :delete %>
+  </div>
+<% end %>
+
+<br>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
