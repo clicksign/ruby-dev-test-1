@@ -23,8 +23,10 @@ class SubFoldersController < ApplicationController
   def create
     @sub_folder = SubFolder.new(sub_folder_params)
 
+
     respond_to do |format|
       if @sub_folder.save
+        debugger
         format.html { redirect_to sub_folder_url(@sub_folder), notice: "Sub folder was successfully created." }
         format.json { render :show, status: :created, location: @sub_folder }
       else
@@ -65,6 +67,6 @@ class SubFoldersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sub_folder_params
-      params.require(:sub_folder).permit(:name, :folder_id)
+      params.require(:sub_folder).permit(:name, :folder_id_form_url)
     end
 end

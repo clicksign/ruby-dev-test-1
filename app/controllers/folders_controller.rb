@@ -8,6 +8,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/1 or /folders/1.json
   def show
+    @sub_folder = SubFolder.new
   end
 
   # GET /folders/new
