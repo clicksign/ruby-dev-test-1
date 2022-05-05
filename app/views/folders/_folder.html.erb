@@ -51,8 +51,27 @@
       
      
     </div>
+
     <div class="d-block">
       <%= link_to folder.name, folder, class: "btn btn-light" %>
+
+      <ul>
+      <% folder.documents.each do |file| %>
+        <li>
+          <% if file.representable? %>
+            <%= image_tag file.representation(resize_to_limit: [100, 100]) %>
+          <% else %>
+            <%= link_to rails_blob_path(file, disposition: "attachment") do %>
+              <%= image_tag "placeholder.png", alt: "Download file" %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+
+
+
       <% if is_show_page_display_sub_folder?(@page_name) %>
         <%= render "sub_folders/folder_name", folder: folder %>
       <% end %>
