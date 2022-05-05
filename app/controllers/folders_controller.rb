@@ -40,8 +40,10 @@ class FoldersController < ApplicationController
 
   # PATCH/PUT /folders/1 or /folders/1.json
   def update
+    debugger
     respond_to do |format|
       if @folder.update(folder_params)
+
         format.html { redirect_to folder_url(@folder), notice: "Folder was successfully updated." }
         format.json { render :show, status: :ok, location: @folder }
       else
@@ -69,6 +71,6 @@ class FoldersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def folder_params
-      params.require(:folder).permit(:name, :folder_id_form_url, documents:[])
+      params.require(:folder).permit(:name, :id, documents:[])
     end
 end
