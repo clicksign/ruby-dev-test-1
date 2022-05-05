@@ -3,6 +3,51 @@
 
     <div class="d-block">
       <i class="bi-folder-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+
+
+      <!-- Button trigger modal -->
+      <a href="#" class="bi-paperclip" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        Upload files
+      </a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload files</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+
+
+        <%= form_with(model: folder) do |form| %>
+        <% if folder.errors.any? %>
+          <div style="color: red">
+            <h3><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h3>
+
+            <ul>
+              <% folder.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div>
+          <%= form.file_field :documents, multiple: true, value: folder %>
+          <%= form.hidden_field :id, value: folder.id if folder %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+         <%= form.submit class:"btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
       
      
     </div>
