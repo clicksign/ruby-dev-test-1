@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :directories
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api do
+    namespace :v1 do
+      resources :directories do
+        member do
+          post :upload_file
+        end
+      end
+    end
+  end
 end
