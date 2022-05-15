@@ -29,4 +29,5 @@
 /config/master.key
 
 db/schema*
-
+.idea
+/coverage
