@@ -29,7 +29,7 @@ module Api
 
       def update
         if @directory.update(directory_params)
-          render json: "Directory #{@directory.title} was successfully updated."
+          render json: @directory
         else
 
           render json: @directory.errors, status: :unprocessable_entity
@@ -38,8 +38,6 @@ module Api
 
       def destroy
         @directory.destroy
-
-        render json: "Directory #{@directory.title} has been deleted!"
       end
 
       private
