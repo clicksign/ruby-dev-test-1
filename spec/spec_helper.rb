@@ -1,5 +1,7 @@
-require "simplecov"
-SimpleCov.start "rails" do
+# frozen_string_literal: true
+
+require 'simplecov'
+SimpleCov.start 'rails' do
   add_filter %w[app/controllers/concern app/channels app/job app/mailers]
 end
 
@@ -11,5 +13,4 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
 end

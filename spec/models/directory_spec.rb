@@ -1,19 +1,22 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
 include ActiveModel::Model
 
+require 'rails_helper'
+
 RSpec.describe Directory, type: :model do
-  describe "Associations" do
+  describe 'Associations' do
     it { should belong_to(:parent).without_validating_presence }
     it { should have_many(:subdirectories).dependent(:destroy) }
   end
 
-  describe "Validations" do
+  describe 'Validations' do
     it { should validate_presence_of(:title) }
   end
 
-  it "has many files" do
+  it 'has many files' do
     expect(subject.files).to be_an_instance_of(
-                               ActiveStorage::Attached::Many
-                             )
+      ActiveStorage::Attached::Many
+    )
   end
 end

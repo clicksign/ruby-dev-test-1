@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RequestAPI
   def body_json(symbolize_keys: false)
     json = JSON.parse(response.body)
@@ -9,8 +11,8 @@ end
 
 def auth_header(merge_with: {})
   header = {
-    "Content-Type" => "application/json",
-    "Accept" => "application/json"
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json'
   }
   header.merge(merge_with)
 end

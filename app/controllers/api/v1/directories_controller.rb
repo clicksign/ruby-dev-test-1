@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class DirectoriesController < ApplicationController
-      before_action :set_directory, only: %i[ show edit update destroy upload_file ]
+      before_action :set_directory, only: %i[show edit update destroy upload_file]
 
       def index
         @directories = Directory.all
