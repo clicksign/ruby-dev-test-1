@@ -40,10 +40,19 @@ RSpec.describe Folder, type: :model do
 
         before { create_list(:folder, 2, :with_file_attached, parent: folder) }
 
-        it 'should purge attached files and children files' do
+        it "should purge attached files and children's attached files" do
           expect { subject }.to change { Folder.count }.from(5).to(0)
                                                        .and(change { ActiveStorage::Attachment.count }.from(3).to(0))
         end
+      end
+    end
+
+    context 'when there are not subfolders related' do
+      let!(:folder) { create :folder, :with_file_attached }
+
+      it 'should purge attached files' do
+        expect { subject }.to change { Folder.count }.from(1).to(0)
+                                                     .and(change { ActiveStorage::Attachment.count }.from(1).to(0))
       end
     end
   end
