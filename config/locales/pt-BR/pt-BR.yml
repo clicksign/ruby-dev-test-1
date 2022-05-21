@@ -1,0 +1,254 @@
+pt-BR:
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors:
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
+      restrict_dependent_destroy:
+        one: "Não é possível excluir o registro pois existe um %{record} dependente"
+        many: "Não é possível excluir o registro pois existem %{record} dependentes"
+      taken: já está em uso
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      other_than: "deve ser diferente de %{count}"
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Cadastrar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+    generic:
+      status:
+        enabled: Publicado
+        disabled: Não-publicado
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: .
+        format: "%n%"
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      default: ! '%d/%m/%Y - %H:%M'
+      only_time: ! '%Hh%M'
+      only_date: ! '%d/%m/%Y'
+      horary: ! '%H:%M'
+      normal: ! '%d/%m/%Y - %H:%Mh'
+      extend: ! '%d/%m/%Y - %H:%M:%S'
+      full: ! '%a, %d de %B de %Y, %H:%M:%S %z'
+      long: ! '%d de %B de %Y, %H:%M'
+      short: ! '%d de %B, %H:%M'
+    pm: ''
+  services:
+    http_code:
+      200: 'Operação realizada com sucesso'
+      201: 'Criado com sucesso!'
+      401: 'Não autenticado. Verifique se foi informado corretamente as chaves de API no Basic Authentication.'
+      403: 'Não Autorizado. Sua conta não tem permissão para realizar essa ação.'
+      406: 'Não aceito. Algum dado pode ser inválido verifique os dados enviados no body.'
+    credit_card_default_success_msg: 'Pagamento realizado com sucesso.'
+    credit_card_default_failed_msg: 'Ocorreu um erro ao tentar processar seu pagamento!'
+    bank_slip_default_success_msg: 'Boleto gerado com sucesso.'
+    bank_slip_default_failed_msg: 'Ocorreu um erro ao tentar gerar seu boleto!'
+    mercado_pago:
+      status_details:
+        accredited: 'Pronto, seu pagamento foi aprovado!'
+        pending_contingency: 'Estamos processando o pagamento.'
+        pending_review_manual: 'Estamos processando o pagamento.'
+        cc_rejected_bad_filled_card_number: 'Revise o número do cartão.'
+        cc_rejected_bad_filled_date: 'Revise a data de vencimento.'
+        cc_rejected_bad_filled_other: 'Revise os dados.'
+        cc_rejected_bad_filled_security_code: 'Revise o código de segurança do cartão.'
+        cc_rejected_blacklist: 'Não pudemos processar seu pagamento.'
+        cc_rejected_call_for_authorize: 'Você deve autorizar a bandeira do cartão o pagamento do valor ao Mercado Pago.'
+        cc_rejected_card_disabled: 'Ligue para a bandeira do cartão para ativar seu cartão. O telefone está no verso do seu cartão.'
+        cc_rejected_card_error: 'Não conseguimos processar seu pagamento.'
+        cc_rejected_duplicated_payment: 'Você já efetuou um pagamento com esse valor. Caso precise pagar novamente, utilize outro cartão ou outra forma de pagamento.'
+        cc_rejected_high_risk: 'Escolha outra forma de pagamento. Recomendamos meios de pagamento em dinheiro'
+        cc_rejected_insufficient_amount: 'Cartão com saldo insuficiente.'
+        cc_rejected_invalid_installments: 'Esse cartão não processa pagamentos com essa quantidade de parcelas.'
+        cc_rejected_max_attempts: 'Você atingiu o limite de tentativas permitido. Escolha outro cartão ou outra forma de pagamento.'
+        cc_rejected_other_reason: 'Esse cartão não processa o pagamento.'
+  models:
+    coupon_form: Formulario de cupom
+  attributes:
+    coupon_code: Cupom
+    cart_id: Carrinho
+    payment_methods:
+      credit_card: Cartão de crédito
+      bank_slip: Boleto

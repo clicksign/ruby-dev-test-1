@@ -1,0 +1,23 @@
+pt-BR:
+  activerecord:
+    models:
+      archive: Arquivo
+      directory: Pasta
+     
+    attributes:
+      default_attributes: &default_attributes
+        name: Nome
+        created_at: Cadastrado em
+        updated_at: Atualizado em
+
+      direcory:
+        <<: *default_attributes
+        file: Arquivo
+        parent: Diretorio Pai
+
+      archive:
+        <<: *default_attributes
+        file: Arquivo
+        directory: Pasta
+
+     
