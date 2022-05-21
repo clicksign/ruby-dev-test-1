@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ruby Test 1</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body class="bg-light">
+    <header class="shadow-sm">
+      <div class="mb-4 border-bottom py-4 bg-white">
+        <div class="container d-flex justify-content-between align-items-center">
+          Ruby Test Dev
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="py-4 page-header">
+        <div class="container-lg m-auto">
+          <div class="flex-row d-flex justify-content-between align-items-center">
+            <%= yield(:page_header) %>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="container-lg m-auto">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
