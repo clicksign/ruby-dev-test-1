@@ -1,0 +1,20 @@
+<div class="modal <%= class_custom %>" data-controller="directory" id="exampleModal">
+  <%= bootstrap_form_for @directory do |f| %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Criar Pasta</h5>
+          <button type="button" class="btn-close" data-action='directory#closeModal'></button>
+        </div>
+        <div class="modal-body">
+          <%= f.text_field :name, label_class: 'fw-bold' %>
+          <%= f.hidden_field :parent_id, value: @current_directory.present? ? @current_directory.id : nil ,label_class: 'fw-bold' %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-action='directory#closeModal'>Cancelar</button>
+          <button class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+</div>

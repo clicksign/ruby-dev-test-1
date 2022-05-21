@@ -1,0 +1,39 @@
+<% model_class = Directory %>
+<%= content_for :page_header do %>
+  <h3>
+    <%= link_to name_directory_parent(@current_directory), url_directory_parent(@current_directory) if params[:id].present? %> 
+    <%= params[:id].present? ? @current_directory.name : "Inicio" %>
+  </h3>
+  <div class="d-flex">
+    <% if @current_directory.present? %>
+      <button type="button" class="btn btn-primary" data-controller="archive" data-action='archive#openModal'>
+        Adicionar Arquivo
+      </button>
+    <% end %>
+    <%= button_to new_form_directory_path(id: params[:id].present? ? @current_directory.id : nil), method: :post, class: 'btn btn-success mx-2' do %>
+      Criar Pasta
+    <% end %>
+  <div>
+<% end %>
+<div class="table-responsive bg-white p-2 rounded shadow-sm">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="text-left"><%= model_class.human_attribute_name(:name) -%></th>
+        <th class="text-center"><%=t '.actions', default: t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody id="table_directories">
+      <%= render @directories %>
+      <%= render @archives if @current_directory.present? %>
+    </tbody>
+  </table>
+</div>
+
+<%= turbo_frame_tag("new_directory_modal", class: "w-100") do %>
+  <%= render "new_modal", class_custom: "fade" %>
+<% end %>  
+
+<%= turbo_frame_tag("new_archive_modal", class: "w-100") do %>
+  <%= render "upload_modal", class_custom: "fade" %>
+<% end if @current_directory.present? %>  

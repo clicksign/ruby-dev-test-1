@@ -1,0 +1,21 @@
+<div class="modal <%= class_custom %>" data-controller="archive" id="uploadModal">
+  <%= bootstrap_form_for @archive do |f| %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">Adicionar Arquivo</h5>
+          <button type="button" class="btn-close" data-action='archive#closeModal'></button>
+        </div>
+        <div class="modal-body">
+          <%= f.text_field :name, class: "" %>
+          <%= f.file_field :file, class: "mb-0", hide_label: true %>
+          <%= f.hidden_field :directory_id, value: @current_directory.id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-action='archive#closeModal'>Cancelar</button>
+          <button class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+</div>

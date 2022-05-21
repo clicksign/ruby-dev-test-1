@@ -1,0 +1,13 @@
+<% if @directory.errors.present? %>
+  <%= turbo_stream.update 'new_directory_modal' do %>
+    <%= render partial: 'new_modal', locals: { class_custom: "show" } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update 'table_directories' do %>
+    <%= render partial: 'directories/directories' %>
+    <%= render partial: 'archives/archives' %>
+  <% end %>
+  <%= turbo_stream.update 'new_directory_modal' do %>
+    <%= render partial: 'new_modal', locals: { class_custom: "fade" } %>
+  <% end %>
+<% end %>
