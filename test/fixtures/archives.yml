@@ -1,0 +1,11 @@
+archive_1:
+  name: Archive 1
+  directory: folder_1
+
+archive_2:
+  name: Archive 2
+  directory: folder_2
+
+archive_3:
+  name: Archive 3
+  directory: folder_3
