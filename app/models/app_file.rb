@@ -1,5 +1,5 @@
 class AppFile < ApplicationRecord
-  belongs_to :app_folder
+  belongs_to :app_folder, optional: true
   has_one_attached :file_content
 
   validates :file_content, presence: true

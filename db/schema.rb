@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_011748) do
   end
 
   create_table "app_files", force: :cascade do |t|
-    t.bigint "app_folder_id", null: false
+    t.bigint "app_folder_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["app_folder_id"], name: "index_app_files_on_app_folder_id"
