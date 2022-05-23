@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :folder do
-    name { Faker::File.file_name }
+    name { Faker::Internet.domain_word }
 
     transient do
       fixture_file { 'fixture_file.png' }

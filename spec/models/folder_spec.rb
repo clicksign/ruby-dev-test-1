@@ -15,6 +15,10 @@ RSpec.describe Folder, type: :model do
     it { is_expected.to have_many(:children) }
   end
 
+  describe '.from_root' do
+
+  end
+
   describe '.destroy' do
     let(:folder) { create :folder }
 

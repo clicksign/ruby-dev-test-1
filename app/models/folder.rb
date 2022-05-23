@@ -7,4 +7,8 @@ class Folder < ApplicationRecord
   has_many_attached :files
 
   validates :name, presence: true, uniqueness: { scope: :parent_id }
+
+  def self.from_root
+    Folder.where(parent: nil)
+  end
 end
