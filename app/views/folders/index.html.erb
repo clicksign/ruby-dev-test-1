@@ -1,0 +1,24 @@
+<h1>Pastas/Arquivos</h1>
+
+<ul>
+  <% if params[:id].present? %>
+    <li>
+      <%= link_to '.', root_path %>
+    </li>
+    <li>
+      <%= link_to '..', @current_folder.parent.present? ? root_path(id: @current_folder.parent.id) : root_path %>
+    </li>
+  <% end %>
+  <% @folders.each do |folder| %>
+    <li>
+      <%= link_to image_tag("folder.png", height: 24, align: 'middle'), root_path(id: folder.id) %>
+      <%= link_to folder.folder_name || 'Não definido', root_path(id: folder.id) %>
+    </li>
+  <% end %>
+  <% @files.each do |file| %>
+    <li>
+      <%= link_to image_tag("file.png", height: 24, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment') %>
+      <%= link_to file.file_content.filename.to_s || 'Não definido', rails_blob_path(file.file_content, disposition: 'attachment') %>
+    </li>
+  <% end %>
+</ul>
