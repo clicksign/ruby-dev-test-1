@@ -28,6 +28,15 @@ class FoldersController < ApplicationController
 
   private
 
+  def build_breadcrumb_records
+    return [] unless @current_folder
+
+    all_records = []
+    if @current_folder
+    
+    end
+  end
+
   def build_new_app_folder
     @new_app_folder = AppFolder.new(parent_id: params[:id])
   end

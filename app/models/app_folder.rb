@@ -15,6 +15,12 @@ class AppFolder < ApplicationRecord
     parent.root_folder
   end
 
+  def parents
+    return [self.id] unless parent.present?
+
+    parent.parents + [self.id]
+  end
+
   def remove_children
     children.destroy_all
     app_files.destroy_all
