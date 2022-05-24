@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+body>nav {
+  border-bottom: 1px solid #e3e6e8;
+}

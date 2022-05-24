@@ -15,8 +15,61 @@ RSpec.describe Folder, type: :model do
     it { is_expected.to have_many(:children) }
   end
 
-  describe '.from_root' do
+  describe '#from_root' do
+    let!(:no_parent_folders) { create_list :folder, 3, parent: nil }
 
+    before { create_list :folder, 5, parent: no_parent_folders.first }
+
+    it 'should return only folders that have no parent directory' do
+      expect(described_class.from_root).to eq(no_parent_folders)
+    end
+  end
+
+  describe '.is_empty?' do
+    let(:folder) { create :folder }
+
+    subject { folder.is_empty? }
+
+    context 'when there are no files or children directory associated' do
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when folder has files attached' do
+      let(:folder) { create :folder, :with_file_attached }
+
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when folder has children directory associated' do
+      before { create_list :folder, 2, parent: folder }
+
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when it have files and children directory attached' do
+      let(:folder) { create :folder, :with_file_attached }
+
+      before { create_list :folder, 2, parent: folder }
+
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe '.path' do
+    let(:folder) { create :folder }
+
+    subject { folder.path }
+
+    context 'when folder has no parent' do
+      it { is_expected.to eq("/#{folder.name}") }
+    end
+
+    context 'when folder have parent' do
+      let(:parent) { create :folder }
+      let(:folder) { create :folder, parent: parent }
+
+      it { is_expected.to eq("#{parent.path}/#{folder.name}") }
+    end
   end
 
   describe '.destroy' do

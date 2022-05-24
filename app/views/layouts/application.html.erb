@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
     <title>AwesomeFileSystem</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="container-fluid">
+      <ul>
+        <li>
+          <%= image_tag "folders.png" %>
+        </li>
+        <li>
+          Awesome File System
+        </li>
+      </ul>
+    </nav>
+    <main class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>

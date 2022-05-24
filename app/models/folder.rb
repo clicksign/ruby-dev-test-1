@@ -15,4 +15,8 @@ class Folder < ApplicationRecord
   def path
     "#{parent&.path}/#{name}"
   end
+
+  def is_empty?
+    children.empty? && !files.attached?
+  end
 end
