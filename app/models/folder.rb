@@ -11,4 +11,8 @@ class Folder < ApplicationRecord
   def self.from_root
     Folder.where(parent: nil)
   end
+
+  def path
+    "#{parent&.path}/#{name}"
+  end
 end

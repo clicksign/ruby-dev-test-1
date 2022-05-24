@@ -1,1 +1,10 @@
-<h2>Folder: <%= @folder.name %></h2>
+<h2>Índice de <%= @folder.path %></h2>
+
+<%= link_to 'Novo diretório', new_folder_child_path(@folder) %>
+
+<ul>
+  <li><%= link_to('<- Voltar', @folder.parent || folders_path) %></li>
+  <% @folder.children.each do |child| %>
+    <li><%= link_to child.name, folder_path(child) %></li>
+  <% end %>
+</ul>
