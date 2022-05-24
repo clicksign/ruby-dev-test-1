@@ -1,4 +1,11 @@
 <h1>Pastas/Arquivos</h1>
+<%= button_tag 'Criar pasta', type: 'button', onClick: 'toggleFormByName("app_folder_form")' %>
+<%= button_tag 'Enviar arquivo', type: 'button', onClick: 'toggleFormByName("app_file_form")' %>
+<br/>
+<br/>
+<%= render partial: 'notice' %>
+<%= render partial: 'app_folder_form' %>
+<%= render partial: 'app_file_form' %>
 
 <ul>
   <% if params[:id].present? %>
@@ -22,3 +29,18 @@
     </li>
   <% end %>
 </ul>
+
+<script>
+  function toggleFormByName(formName) {
+    var formObject = document.getElementById(formName);
+    var otherForm = formName == 'app_folder_form' ? 'app_file_form' : 'app_folder_form';
+    var otherFormObject = document.getElementById(otherForm);
+    if (formObject.style.display == 'block') {
+      formObject.style.display = 'none';
+    } else {
+      formObject.style.display = 'block';
+      otherFormObject.style.display = 'none';
+    }
+  };
+
+</script>
