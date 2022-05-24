@@ -18,14 +18,18 @@
   <% end %>
   <% @folders.each do |folder| %>
     <li>
-      <%= link_to image_tag("folder.png", height: 24, align: 'middle'), root_path(id: folder.id) %>
+      <%= link_to image_tag("folder.png", height: 18, align: 'middle'), root_path(id: folder.id) %>
       <%= link_to folder.folder_name || 'Não definido', root_path(id: folder.id) %>
+      &nbsp;
+      <%= link_to image_tag("remove.png", height: 16, align: 'middle'), folder_path(folder.id), data: {"turbo-method": :delete} %>
     </li>
   <% end %>
   <% @files.each do |file| %>
     <li>
       <%= link_to image_tag("file.png", height: 24, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment') %>
       <%= link_to file.file_content.filename.to_s || 'Não definido', rails_blob_path(file.file_content, disposition: 'attachment') %>
+      &nbsp;
+      <%= link_to image_tag("remove.png", height: 16, align: 'middle'), app_file_path(file.id), data: {"turbo-method": :delete} %>
     </li>
   <% end %>
 </ul>
@@ -42,5 +46,4 @@
       otherFormObject.style.display = 'none';
     }
   };
-
 </script>

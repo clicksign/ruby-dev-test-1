@@ -13,6 +13,16 @@ class AppFilesController < ApplicationController
     end
   end
 
+  def destroy
+    app_file = AppFile.find(params[:id])
+      
+    if app_file.destroy
+      redirect_to app_file.app_folder.present? ? root_path(id: app_file.app_folder.id) : root_path
+    else
+      redirect_to app_file.app_folder.present? ? root_path(id: app_file.app_folder.id) : root_path, alert: app_file.errors.full_messages.join(', ')
+    end
+  end
+
   private
 
   def app_file_params

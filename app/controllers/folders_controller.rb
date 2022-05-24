@@ -16,6 +16,16 @@ class FoldersController < ApplicationController
     end
   end
 
+  def destroy
+    app_folder = AppFolder.find(params[:id])
+      
+    if app_folder.destroy
+        redirect_to app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path
+    else
+      redirect_to app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path, alert: app_folder.errors.full_messages.join(', ')
+    end
+  end
+
   private
 
   def build_new_app_folder
