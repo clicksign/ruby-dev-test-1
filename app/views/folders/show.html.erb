@@ -1,10 +1,40 @@
-<h2>Índice de "<%= @folder.path %>"</h2>
+<h3>Path "<%= @folder.path %>"</h3>
 
-<%= link_to 'Novo diretório', new_folder_child_path(@folder) %>
+<%= link_to 'Novo diretório', new_folder_child_path(@folder), role: "button" %>
+<hr>
 
+<h3>Upload de Arquivos</h3>
+
+<%= form_for(@folder, html: { id: 'file_upload_form'}) do |f| %>
+  <% if @folder.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@folder.errors.count, "error") %> prohibited
+        this folder from being saved:</h2>
+      <ul>
+        <% @folder.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :files, multiple: true %>
+  </div>
+<% end %>
+<hr>
 <ul>
-  <li><%= link_to('<- Voltar', @folder.parent || folders_path) %></li>
+  <li>
+    <%= link_to(@folder.parent || folders_path) do %>
+      <%= image_tag 'back-arrow.png' %> Voltar
+    <% end %>
+  </li>
   <% @folder.children.each do |child| %>
-    <li><%= link_to child.name, folder_path(child) %></li>
+    <li><%= image_tag folder_icon(child) %> <%= link_to child.name, folder_path(child) %></li>
+  <% end %>
+
+  <% @folder.files.each do |file| %>
+    <li><%= image_tag 'document.png' %> <%= link_to file.blob.filename, url_for(file) %></li>
   <% end %>
 </ul>
+<hr>

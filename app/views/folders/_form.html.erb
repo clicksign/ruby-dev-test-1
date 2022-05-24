@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Nome' %><br />
     <%= f.text_field :name %>
 
     <%= f.hidden_field :parent_id %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= button_tag 'Salvar' %>
   </div>
 <% end %>

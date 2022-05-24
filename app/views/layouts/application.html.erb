@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application" %>
+
+    <%= javascript_include_tag :application, integrity: true %>
   </head>
 
   <body>
