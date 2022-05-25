@@ -7,22 +7,24 @@ class FoldersController < ApplicationController
   end
 
   def create
-    app_folder = AppFolder.new(app_folder_params)
+    app_folder    = AppFolder.new(app_folder_params)
+    redirect_path = app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path
       
     if app_folder.save
-        redirect_to app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path
+        redirect_to redirect_path
     else
-      redirect_to app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path, alert: app_folder.errors.full_messages.join(', ')
+      redirect_to redirect_path, alert: app_folder.errors.full_messages.join(', ')
     end
   end
 
   def destroy
-    app_folder = AppFolder.find(params[:id])
+    app_folder    = AppFolder.find(params[:id])
+    redirect_path = app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path
       
     if app_folder.destroy
-        redirect_to app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path
+        redirect_to redirect_path
     else
-      redirect_to app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path, alert: app_folder.errors.full_messages.join(', ')
+      redirect_to redirect_path, alert: app_folder.errors.full_messages.join(', ')
     end
   end
 
@@ -33,7 +35,8 @@ class FoldersController < ApplicationController
 
     all_records = []
     if @current_folder
-    
+      all_records << @current_folder.id
+
     end
   end
 

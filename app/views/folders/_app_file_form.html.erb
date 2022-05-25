@@ -1,5 +1,8 @@
-<%= form_for @new_app_file, url: app_files_path, html: { multipart: true, id: 'app_file_form', style: 'display:none' } do |f| %>
-  <%= f.file_field :file_content %>
-  <%= f.hidden_field :app_folder_id, value: params[:id] %>
-  <%= f.submit "Enviar", class: "btn btn-primary" %>
-<% end %>
+<div id="app_file_form" style="display:none;">
+  <hr>
+  <%= form_for @new_app_file, url: app_files_path, html: { multipart: true } do |f| %>
+    <%= f.file_field :file_content %>
+    <%= f.hidden_field :app_folder_id, value: params[:id] %>
+    <%= f.submit t('titles.send'), class: 'btn btn-primary' %>
+  <% end %>
+</div>

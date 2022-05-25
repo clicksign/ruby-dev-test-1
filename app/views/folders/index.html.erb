@@ -1,36 +1,37 @@
 <h1>Pastas/Arquivos</h1>
-<%= button_tag 'Criar pasta', type: 'button', onClick: 'toggleFormByName("app_folder_form")' %>
-<%= button_tag 'Enviar arquivo', type: 'button', onClick: 'toggleFormByName("app_file_form")' %>
+<%= button_tag(t('titles.create_folder'), type: 'button', onClick: 'toggleFormByName("app_folder_form")') %>
+<%= button_tag(t('titles.send_file'), type: 'button', onClick: 'toggleFormByName("app_file_form")') %>
 <br/>
 <br/>
 <%= render partial: 'notice' %>
 <%= render partial: 'app_folder_form' %>
 <%= render partial: 'app_file_form' %>
+<hr>
 <%= render partial: 'breadcrumb' %>
 
 <ul>
   <% if params[:id].present? %>
     <li>
-      <%= link_to '.', root_path %>
+      <%= link_to('.', root_path) %>
     </li>
     <li>
-      <%= link_to '..', @current_folder.parent.present? ? root_path(id: @current_folder.parent.id) : root_path %>
+      <%= link_to('..', @current_folder.parent.present? ? root_path(id: @current_folder.parent.id) : root_path) %>
     </li>
   <% end %>
   <% @folders.each do |folder| %>
     <li>
-      <%= link_to image_tag("folder.png", height: 18, align: 'middle'), root_path(id: folder.id) %>
-      <%= link_to folder.folder_name || 'Não definido', root_path(id: folder.id) %>
+      <%= link_to(image_tag('folder.png', height: 18, align: 'middle'), root_path(id: folder.id)) %>
+      <%= link_to(folder.folder_name || t('messages.not_defined'), root_path(id: folder.id)) %>
       &nbsp;
-      <%= link_to image_tag("remove.png", height: 16, align: 'middle'), folder_path(folder.id), data: {"turbo-method": :delete} %>
+      <%= link_to(image_tag('remove.png', height: 16, align: 'middle'), folder_path(folder.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }) %>
     </li>
   <% end %>
   <% @files.each do |file| %>
     <li>
-      <%= link_to image_tag("file.png", height: 24, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment') %>
-      <%= link_to file.file_content.filename.to_s || 'Não definido', rails_blob_path(file.file_content, disposition: 'attachment') %>
+      <%= link_to(image_tag('file.png', height: 24, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
+      <%= link_to(file.file_content.filename.to_s || t('messages.not_defined'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
       &nbsp;
-      <%= link_to image_tag("remove.png", height: 16, align: 'middle'), app_file_path(file.id), data: {"turbo-method": :delete} %>
+      <%= link_to(image_tag('remove.png', height: 16, align: 'middle'), app_file_path(file.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }) %>
     </li>
   <% end %>
 </ul>

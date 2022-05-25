@@ -1,5 +1,8 @@
-<%= form_for @new_app_folder, url: folders_path, html: { multipart: true, id: 'app_folder_form', style: 'display:none' } do |f| %>
-  <%= f.text_field :folder_name %>
-  <%= f.hidden_field :parent_id, value: params[:id] %>
-  <%= f.submit "Criar", class: "btn btn-primary" %>
-<% end %>
+<div id="app_folder_form" style="display:none;">
+  <hr>
+  <%= form_for @new_app_folder, url: folders_path, html: { multipart: true } do |f| %>
+    <%= f.text_field :folder_name %>
+    <%= f.hidden_field :parent_id, value: params[:id] %>
+    <%= f.submit t('titles.create'), class: 'btn btn-primary' %>
+  <% end %>
+</div>
