@@ -1,8 +1,11 @@
 <h1>Pastas/Arquivos</h1>
-<%= button_tag(t('titles.create_folder'), type: 'button', onClick: 'toggleFormByName("app_folder_form")') %>
-<%= button_tag(t('titles.send_file'), type: 'button', onClick: 'toggleFormByName("app_file_form")') %>
+
+<%= button_tag(t('titles.create_folder'), type: 'button', onClick: 'CustomMain.toggleFormByName("app_folder_form")') %>
+<%= button_tag(t('titles.send_file'), type: 'button', onClick: 'CustomMain.toggleFormByName("app_file_form")') %>
+
 <br/>
 <br/>
+
 <%= render partial: 'notice' %>
 <%= render partial: 'app_folder_form' %>
 <%= render partial: 'app_file_form' %>
@@ -28,24 +31,10 @@
   <% end %>
   <% @files.each do |file| %>
     <li>
-      <%= link_to(image_tag('file.png', height: 24, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
+      <%= link_to(image_tag('file.png', height: 18, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
       <%= link_to(file.file_content.filename.to_s || t('messages.not_defined'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
       &nbsp;
       <%= link_to(image_tag('remove.png', height: 16, align: 'middle'), app_file_path(file.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }) %>
     </li>
   <% end %>
 </ul>
-
-<script>
-  function toggleFormByName(formName) {
-    var formObject = document.getElementById(formName);
-    var otherForm = formName == 'app_folder_form' ? 'app_file_form' : 'app_folder_form';
-    var otherFormObject = document.getElementById(otherForm);
-    if (formObject.style.display == 'block') {
-      formObject.style.display = 'none';
-    } else {
-      formObject.style.display = 'block';
-      otherFormObject.style.display = 'none';
-    }
-  };
-</script>
