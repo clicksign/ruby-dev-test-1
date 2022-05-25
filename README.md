@@ -1,7 +1,23 @@
-# ruby-dev-test-1
+# Awesome File System
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+A simple filesystem application.
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+You can see a example deployed on: https://awesomefilesystem.herokuapp.com
 
-Realizar um fork deste repositório.
+* Ruby version
+    - 3.1.2
+* Rails version
+    - 7.0.3
+* Database
+    - The project is default configured with **postgresql** database and **gem pg**
+    - You can change the database adapter on **database.yml**. Remember to add the required dependencies
+
+* Database configuration:
+
+    ````
+    $ rake db:create
+    $ rake db:migrate
+
+* How to run the test suite
+    ````
+    $ rspec
