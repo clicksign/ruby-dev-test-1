@@ -2,27 +2,34 @@ require "test_helper"
 
 class FoldersControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get folders_index_url
+    get folders_url
     assert_response :success
   end
 
-  test "should get create" do
-    get folders_create_url
-    assert_response :success
+  test "should post create" do
+    folder_name = 'Folder name'
+    post folders_path, params: { app_folder: { folder_name: folder_name }}
+    assert_redirected_to(root_path)
+    assert(AppFolder.where(folder_name: folder_name))
   end
 
-  test "should get update" do
-    get folders_update_url
-    assert_response :success
+  test "should patch update" do
+    folder_name = 'Folder name'
+    app_folder  = AppFolder.create(folder_name: folder_name)
+
+    patch folder_url(app_folder), params: { app_folder: { folder_name: 'New folder name' }}
+    assert_redirected_to(root_path)
+    assert_not(AppFolder.exists?(folder_name: folder_name))
   end
 
-  test "should get new" do
-    get folders_new_url
-    assert_response :success
-  end
+  test "should delete destroy" do
+    folder_name = 'Folder name'
+    app_folder  = AppFolder.new(folder_name: folder_name)
 
-  test "should get destroy" do
-    get folders_destroy_url
-    assert_response :success
+    assert(app_folder.save)
+
+    delete folder_url(app_folder)
+    assert_redirected_to(root_path)
+    assert_not(AppFolder.exists?(app_folder.id))
   end
 end
