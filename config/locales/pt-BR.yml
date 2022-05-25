@@ -33,10 +33,16 @@ pt-BR:
   messages:
     confirmation: 'Tem certeza?'
     not_defined: 'Não definido'
+    edit_folder_title: 'Alterar nome da pasta'
+    open_folder: 'Abrir pasta'
+    download_file: 'Baixar arquivo'
+    remove_folder: 'Apagar pasta'
+    remove_file: 'Apagar arquivo'
   titles:
     create_folder: 'Criar pasta'
     send_file: 'Enviar arquivo'
     send: 'Enviar'
     create: 'Criar'
     root: 'root'
+    update: 'Atualizar'
   hello: "Hello world"

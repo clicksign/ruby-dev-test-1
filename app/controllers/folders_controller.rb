@@ -1,9 +1,13 @@
 class FoldersController < ApplicationController
   before_action :filter_current_folder, :build_new_app_folder, :build_new_app_file
+  before_action :fetch_folder, only: [:edit, :update, :destroy]
 
   def index
     @folders = params[:id].present? ? AppFolder.find(params[:id]).children : AppFolder.root_folders
     @files   = params[:id].present? ? AppFile.where(app_folder_id: params[:id]) : AppFile.root_files
+  end
+
+  def edit
   end
 
   def create
@@ -18,13 +22,21 @@ class FoldersController < ApplicationController
   end
 
   def destroy
-    app_folder    = AppFolder.find(params[:id])
-    redirect_path = app_folder.parent.present? ? root_path(id: app_folder.parent.id) : root_path
+    redirect_path = @app_folder.parent.present? ? root_path(id: @app_folder.parent.id) : root_path
       
-    if app_folder.destroy
+    if @app_folder.destroy
         redirect_to redirect_path
     else
-      redirect_to redirect_path, alert: app_folder.errors.full_messages.join(', ')
+      redirect_to redirect_path, alert: @app_folder.errors.full_messages.join(', ')
+    end
+  end
+
+  def update
+    redirect_path = @app_folder.parent.present? ? root_path(id: @app_folder.parent.id) : root_path
+    if @app_folder.update(app_folder_params)
+      redirect_to redirect_path
+    else
+      redirect_to redirect_path, alert: @app_folder.errors.full_messages.join(', ')
     end
   end
 
@@ -38,6 +50,10 @@ class FoldersController < ApplicationController
       all_records << @current_folder.id
 
     end
+  end
+
+  def fetch_folder
+    @app_folder = AppFolder.find(params[:id])
   end
 
   def build_new_app_folder

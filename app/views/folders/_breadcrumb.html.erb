@@ -1,6 +1,6 @@
 <% if @current_folder.present? %>
   <%= link_to t('titles.root'), root_path %> /
   <% @current_folder.parents.each do |id| %>
-    <%= link_to AppFolder.find(id).folder_name, root_path(id: id) %> /
+    <%= link_to_if id != @current_folder.id, AppFolder.find(id).folder_name, root_path(id: id) %> /
   <% end %>
 <% end %>

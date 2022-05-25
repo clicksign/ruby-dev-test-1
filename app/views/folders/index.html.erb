@@ -22,19 +22,27 @@
     </li>
   <% end %>
   <% @folders.each do |folder| %>
+    <% @app_folder = folder %>
     <li>
-      <%= link_to(image_tag('folder.png', height: 18, align: 'middle'), root_path(id: folder.id)) %>
-      <%= link_to(folder.folder_name || t('messages.not_defined'), root_path(id: folder.id)) %>
-      &nbsp;
-      <%= link_to(image_tag('remove.png', height: 16, align: 'middle'), folder_path(folder.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }) %>
+      <% frame_id = dom_id(@app_folder, 'folder_name_turbo_frame') %>
+      <%= form_for @app_folder, url: folder_path(@app_folder) do %>
+        <%= link_to(image_tag('folder.png', height: 18, align: 'top'), root_path(id: folder.id), title: t('messages.open_folder')) %>
+        <%= turbo_frame_tag frame_id do %>
+          <%= folder.folder_name || t('messages.not_defined') %>
+          &nbsp;
+          <%= link_to(image_tag('edit.png', height: 16, align: 'top'), edit_folder_path(folder), title: t('messages.edit_folder_title')) %>
+        <% end %>
+
+        <%= link_to(image_tag('delete.png', height: 16, align: 'top'), folder_path(folder.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }, title: t('messages.remove_folder')) %>
+      <% end %>
     </li>
   <% end %>
   <% @files.each do |file| %>
     <li>
-      <%= link_to(image_tag('file.png', height: 18, align: 'middle'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
-      <%= link_to(file.file_content.filename.to_s || t('messages.not_defined'), rails_blob_path(file.file_content, disposition: 'attachment')) %>
+      <%= link_to(image_tag('download.png', height: 18, align: 'top'), rails_blob_path(file.file_content, disposition: 'attachment'), title: t('messages.download_file')) %>
+      <%= file.file_content.filename.to_s || t('messages.not_defined') %>
       &nbsp;
-      <%= link_to(image_tag('remove.png', height: 16, align: 'middle'), app_file_path(file.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }) %>
+      <%= link_to(image_tag('delete.png', height: 16, align: 'top'), app_file_path(file.id), data: { 'turbo-method': :delete, turbo_confirm: t('messages.confirmation') }, title: t('messages.remove_file')) %>
     </li>
   <% end %>
 </ul>

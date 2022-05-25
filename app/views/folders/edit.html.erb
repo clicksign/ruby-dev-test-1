@@ -1,0 +1,10 @@
+<%= form_for @app_folder, url: folder_path(@app_folder) do |f| %>
+  <% frame_id = dom_id(@app_folder, 'folder_name_turbo_frame') %>
+    <%= turbo_frame_tag frame_id do %>
+      <%= f.text_field :folder_name %>
+      <%= f.submit('teste', type: :image, src: asset_path('save.png'), height: 14) %>
+      <%= link_to(image_tag('cancel.png', height: 14, align: 'top'), folders_path(@app_folder.parent.present? ? @app_folder.parent : nil)) %>
+    <% end %>
+  <%= f.hidden_field :parent_id, value: params[:id] %>
+  <%= f.submit t('titles.create'), class: 'btn btn-primary' %>
+<% end %>
