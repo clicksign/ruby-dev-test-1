@@ -1,0 +1,14 @@
+Started GET "/" for ::1 at 2022-05-31 17:29:14 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jafer/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jafer/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.6ms | Allocations: 645)
+Completed 200 OK in 23ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 4885)
+
+
+Started GET "/" for ::1 at 2022-06-01 08:35:23 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/jafer/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jafer/.asdf/installs/ruby/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 537)
+Completed 200 OK in 19ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 3545)
+
+
