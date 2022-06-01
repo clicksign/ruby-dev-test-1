@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+tmp
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -28,4 +29,6 @@
 
 # Datatabase files
 .data
+
+
 
