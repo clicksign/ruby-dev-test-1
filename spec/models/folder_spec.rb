@@ -39,7 +39,6 @@ RSpec.describe Folder, type: :model do
       expect(folder).to_not be_valid
     end
 
-
     it 'is not valid with a duplicate name' do
       FactoryBot.create(:folder, name: 'Test')
       expect(FactoryBot.build(:folder, name: 'Test')).to_not be_valid

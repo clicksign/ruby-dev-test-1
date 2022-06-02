@@ -5,4 +5,8 @@ FactoryBot.define do
     name { Faker::Name.unique.name }
     parent { nil }
   end
+
+  factory :folder_file do
+    association :folder
+  end
 end
