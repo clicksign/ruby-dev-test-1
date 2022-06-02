@@ -1,0 +1,26 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "node_modules/**/*"
+    - "bin/**/*"
+    - "config/**/*"
+    - "tmp/**/*"
+    - "db/**/*"
+    - "vendor/bundle/**/*"
+    - "Rakefile"
+    - "config.ru"
+  SuggestExtensions: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - Gemfile
+
+Style/Documentation:
+  Enabled: false
