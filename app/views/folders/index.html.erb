@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Folders</h1>
+
+<div id="folders">
+  <% @folders.each do |folder| %>
+		<%= folder.name%><br>
+    <p>
+      <%= link_to "Show this folder", folder %>
+      <%= link_to "Edit this folder",edit_folder_path(folder)%>
+      <%= link_to "Destroy this folder", folder, method: :delete %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New folder", new_folder_path %>

@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+<%= @folder.name%>
+<div>
+  <%= link_to "Edit this folder", edit_folder_path(@folder) %> |
+  <%= link_to "Back to folders", folders_path %>
+  <%= link_to "New", new_folder_path(parent_id: @folder.id) %>
+  <%= link_to "Upload", new_folder_file_path(@folder) %>
+
+  <p> arquivos </p>
+
+  <ul>
+   
+    <% @folder.files.each do |file| %>      
+      <%= link_to file.filename, url_for(file)%>
+    <% end %>
+    
+    <% @folder.children.each do |child| %>    
+      <%= link_to child.name, child%>   
+    <% end %>
+  </ul>
+
+
+</div>

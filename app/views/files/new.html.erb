@@ -1,0 +1,4 @@
+<%= form_with model: @remository, url: folder_files_path(@folder), method: :post, local: true do |f|%>
+	<%= f.file_field :files%>
+	<%= f.submit 'ok'%>
+<%end%>
