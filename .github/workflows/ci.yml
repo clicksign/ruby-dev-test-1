@@ -1,0 +1,42 @@
+name: Ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install system dependencies
+        run: sudo apt-get -yqq install libpq-dev
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Check code with Rubocop linter
+        run: |
+          gem install rubocop
+          bundle exec rubocop
+      - name: Run rails tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/ruby_dev_test_1_test
+          RAILS_ENV: test
+        run: |
+          bundle exec rails db:prepare
+          bundle exec rspec
