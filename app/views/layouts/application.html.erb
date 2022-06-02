@@ -8,9 +8,13 @@
 
     <%= stylesheet_link_tag "application" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css" integrity="sha512-0/rEDduZGrqo4riUlwqyuHDQzp2D1ZCgH/gFIfjMIL5az8so6ZiXyhf1Rg8i6xsjv+z/Ubc4tt1thLigEcu6Ug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container flex-grow-1 light-style container-p-y">
+      <%= render 'shared/header' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
