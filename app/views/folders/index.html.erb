@@ -1,16 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Folders</h1>
-
-<div id="folders">
-  <% @folders.each do |folder| %>
-		<%= folder.name%><br>
-    <p>
-      <%= link_to "Show this folder", folder %>
-      <%= link_to "Edit this folder",edit_folder_path(folder)%>
-      <%= link_to "Destroy this folder", folder, method: :delete %>
-    </p>
-  <% end %>
+<div class="container">
+	<h1>Folders</h1>
+	<div id="folders">
+		<% @folders.each do |folder| %>		
+			<p>
+				<%= link_to  folder, class: "text-secondary" do %>
+					<i class="fa-solid fa-folder-open"></i> <%= folder.name%>	
+				<%end%>
+				<%= link_to edit_folder_path(folder), class: "text-success" do %>
+					<i class="fa-solid fa-file-pen"></i> Editar
+				<%end%>			
+			</p>
+		<% end %>
+	</div>
+	<%= link_to new_folder_path, class: "text-primary" do %>
+		<i class="fa-solid fa-folder-plus"></i> Criar nova pasta
+	<%end%>		
 </div>
-
-<%= link_to "New folder", new_folder_path %>
