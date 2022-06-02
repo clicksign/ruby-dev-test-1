@@ -10,10 +10,10 @@ RSpec.describe FolderFile, type: :model do
       expect(folder_file.folder).to be_valid
     end
 
-    it 'should belong not to a valid folder' do
+    it 'is valid withou a folder' do
       folder_file = FactoryBot.build(:folder_file, folder: nil)
 
-      expect(folder_file).to_not be_valid
+      expect(folder_file).to be_valid
     end
   end
 end

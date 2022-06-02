@@ -8,6 +8,10 @@ class Folder < ApplicationRecord
   validate :parent_is_not_self, :parent_exists, if: proc { |folder| folder.parent_id.present? }
 
   scope :roots, -> { where(parent_id: nil) }
+  scope :children_of, ->(folder) { where(parent_id: folder.id) }
+  scope :ordered_by_name, ->(direction = :asc) { order(name: direction) }
+
+  delegate :name, to: :parent, prefix: true, allow_nil: true
 
   private
 
