@@ -1,0 +1,8 @@
+<%= form_with url: folders_url, method: :post, model: Folder.new, class: 'd-flex form-inline' do |f| %>
+  <div class="form-group mx-sm-3 mb-2">
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, placeholder: 'folder name...', required: true %>
+    <%= f.hidden_field :parent_id, value: @folder&.id %>
+  </div>
+  <%= f.submit class: "btn btn-primary mb-2" %>
+<% end %>

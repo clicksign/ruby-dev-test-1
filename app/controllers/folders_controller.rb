@@ -13,9 +13,22 @@ class FoldersController < ApplicationController
     @folder_files = @folder.folder_files
   end
 
+  def create
+    @folder = Folder.new(folder_params)
+    if @folder.save
+      redirect_to @folder, notice: 'Folder was successfully created.'
+    else
+      redirect_back fallback_location: root_path, alert: @folder.errors.full_messages.join(', ')
+    end
+  end
+
   private
 
   def set_folder
     @folder = Folder.find(params[:id])
+  end
+
+  def folder_params
+    params.require(:folder).permit(:name, :parent_id)
   end
 end

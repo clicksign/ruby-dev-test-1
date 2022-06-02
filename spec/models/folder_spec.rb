@@ -39,9 +39,18 @@ RSpec.describe Folder, type: :model do
       expect(folder).to_not be_valid
     end
 
-    it 'is not valid with a duplicate name' do
-      FactoryBot.create(:folder, name: 'Test')
-      expect(FactoryBot.build(:folder, name: 'Test')).to_not be_valid
+    it 'is not valid with a duplicate name from the same parent' do
+      folder = FactoryBot.create(:folder)
+      folder2 = FactoryBot.build(:folder, name: folder.name, parent: folder.parent)
+
+      expect(folder2).to_not be_valid
+    end
+
+    it 'is valid with a duplicate name from different parent' do
+      folder = FactoryBot.create(:folder)
+      folder2 = FactoryBot.build(:folder, name: folder.name, parent: folder)
+
+      expect(folder2).to be_valid
     end
 
     it 'is not valid with a duplicate name, regardless of case' do
