@@ -1,8 +1,9 @@
-<%= form_with url: folders_url, method: :post, model: Folder.new, class: 'd-flex form-inline align-items-center' do |f| %>
-  <div class="form-group mx-sm-3 mb-2">
-    <%= f.label :name, class: "sr-only" %>
-    <%= f.text_field :name, placeholder: 'folder name...', required: true %>
+<%= form_with url: folders_url, method: :post, model: Folder.new, class: 'row' do |f| %>
+  <div class="col-9">
+    <%= f.text_field :name, placeholder: 'folder name...', required: true, class: "form-control" %>
     <%= f.hidden_field :parent_id, value: @folder&.id %>
   </div>
-  <%= f.submit class: "btn btn-primary mb-2" %>
+  <div class="col-3">
+    <%= f.submit 'Create', class: "btn btn-primary mb-2" %>
+  </div>
 <% end %>

@@ -1,8 +1,9 @@
-<%= form_with url: folder_files_url, method: :post, model: FolderFile.new, class: 'd-flex form-inline align-items-center' do |f| %>
-  <div class="form-group mx-sm-3 mb-2">
-    <%= f.label :file, class: "sr-only" %>
-    <%= f.file_field :file, required: true %>
+<%= form_with url: folder_files_url, method: :post, model: FolderFile.new, class: 'row' do |f| %>
+  <div class="col-9">
+    <%= f.file_field :file, required: true, class: "form-control" %>
     <%= f.hidden_field :folder_id, value: @folder&.id %>
   </div>
-  <%= f.submit 'Upload', class: "btn btn-primary mb-2" %>
+  <div class="col-3">
+    <%= f.submit 'Upload', class: "btn btn-primary mb-2" %>
+  </div>
 <% end %>

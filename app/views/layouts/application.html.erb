@@ -14,18 +14,20 @@
   </head>
 
   <body data-flash-messages="<%= JSON.dump(flash.to_a) %>">
-    <%= render 'shared/header' %>
+    <div class="container-fluid d-flex d-column">
+      <%= render 'shared/header' %>
 
-    <main class="container flex-grow-1 light-style container-p-y">
-      <div class="file-manager-container file-manager-col-view">
-        <%= yield %>
-      </div>
-    </main>
+      <main class="content flex-grow-1 mt-6 mb-6 light-style">
+        <div class="file-manager-container file-manager-col-view">
+          <%= yield %>
+        </div>
+      </main>
 
-    <footer class="footer">
-      <%= link_to root_path do %>
-        <%= image_tag 'logo.png' %>
-      <% end %>
-    </footer>
+      <footer class="content fixed-bottom px-4 py-2 footer">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png' %>
+        <% end %>
+      </footer>
+    </div>
   </body>
 </html>
