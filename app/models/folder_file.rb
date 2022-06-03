@@ -8,6 +8,10 @@ class FolderFile < ApplicationRecord
 
   scope :roots, -> { where(folder_id: nil) }
 
+  def mime
+    file.attached? ? file.blob.content_type : nil
+  end
+
   private
 
   def file_name_is_unique_in_folder

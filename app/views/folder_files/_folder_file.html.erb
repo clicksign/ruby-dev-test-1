@@ -6,7 +6,7 @@
       <span class="custom-control-label"></span>
   </label>
 
-  <div class="file-item-icon far fa-folder text-secondary"></div>
+  <div class="file-item-icon <%= icon_for_mimetype(folder_file.mime) %> text-secondary"></div>
 
   <%= link_to folder_file.file.filename, rails_blob_path(folder_file.file, disposition: 'attachment') %>
 
