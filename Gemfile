@@ -62,3 +62,5 @@ group :development do
 
   gem 'solargraph', '~> 0.44.3'
 end
+
+gem 'cssbundling-rails'
