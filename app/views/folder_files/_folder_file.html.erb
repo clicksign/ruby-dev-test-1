@@ -14,10 +14,5 @@
       <%= l folder_file.updated_at %>
   </div>
 
-  <div class="file-item-actions btn-group">
-    <button type="button" class="btn btn-default btn-sm rounded-pill icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
-    <div class="dropdown-menu dropdown-menu-right">
-      <a class="dropdown-item" href="javascript:void(0)">Remove</a>
-    </div>
-  </div>
+  <%= render partial: 'shared/file_item_actions', locals: { item_path: folder_file_path(folder_file) } %>
 </div>

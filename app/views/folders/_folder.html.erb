@@ -14,14 +14,5 @@
       <%= l folder.updated_at %>
   </div>
 
-  <div class="file-item-actions btn-group">
-    <button class="btn btn-default btn-sm rounded-pill icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="ion ion-ios-more"></i>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li>
-        <%= button_to "Delete", folder_path(folder), method: :delete, class:"dropdown-item" %>
-      </li>
-    </ul>
-  </div>
+  <%= render partial: 'shared/file_item_actions', locals: { item_path: folder_path(folder) } %>
 </div>

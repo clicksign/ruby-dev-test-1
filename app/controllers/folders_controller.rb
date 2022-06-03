@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FoldersController < ApplicationController
-  before_action :set_folder, only: [:show, :destroy]
+  before_action :set_folder, only: %i[show destroy]
 
   def index
     @folders = Folder.roots.ordered_by_name
