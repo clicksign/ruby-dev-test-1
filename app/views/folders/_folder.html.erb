@@ -15,9 +15,13 @@
   </div>
 
   <div class="file-item-actions btn-group">
-    <button type="button" class="btn btn-default btn-sm rounded-pill icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
-    <div class="dropdown-menu dropdown-menu-right">
-      <a class="dropdown-item" href="javascript:void(0)">Remove</a>
-    </div>
+    <button class="btn btn-default btn-sm rounded-pill icon-btn borderless md-btn-flat hide-arrow dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="ion ion-ios-more"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <%= button_to "Delete", folder_path(folder), method: :delete, class:"dropdown-item" %>
+      </li>
+    </ul>
   </div>
 </div>

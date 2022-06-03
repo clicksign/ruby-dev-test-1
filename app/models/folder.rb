@@ -2,7 +2,9 @@
 
 class Folder < ApplicationRecord
   belongs_to :parent, class_name: 'Folder', optional: true
-  has_many :folder_files, dependent: :destroy
+
+  has_many :folder_files, dependent: :restrict_with_error
+  has_many :parents, class_name: 'Folder', foreign_key: 'parent_id', dependent: :restrict_with_error, inverse_of: :parent
 
   validates :name, presence: true, uniqueness: { scope: :parent_id, case_sensitive: false } # rubocop:disable Rails/UniqueValidationWithoutIndex
   validate :parent_is_not_self, :parent_exists, if: proc { |folder| folder.parent_id.present? }
