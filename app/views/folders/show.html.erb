@@ -1,35 +1,35 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="container">
-	<h4><%= @folder.name%></h4>	
-	<div>
-		<%= link_to new_folder_path(parent_id: @folder.id) do %>
-			<i class="fa-solid fa-folder-plus"></i> Criar sub-diretório
-		<%end%>
+  <h4><%= @folder.name%></h4>
+  <div>
+    <%= link_to new_folder_path(parent_id: @folder.id) do %>
+      <i class="fa-solid fa-folder-plus"></i> Criar sub-diretório
+    <%end%>
 
-		<%= link_to edit_folder_path(@folder), class: "text-success" do %> 
-			<i class="fa-solid fa-file-pen"></i> Editar
-		<%end%>
-		<%= link_to  new_folder_file_path(@folder), class: "text-secondary" do %>
-			<i class="fa-solid fa-file-arrow-up"></i> Upload de arquivo
-		<%end%>
+    <%= link_to edit_folder_path(@folder), class: "text-success" do %>
+      <i class="fa-solid fa-file-pen"></i> Editar
+    <%end%>
+    <%= link_to  new_folder_file_path(@folder), class: "text-secondary" do %>
+      <i class="fa-solid fa-file-arrow-up"></i> Upload de arquivo
+    <%end%>
 
-		<%= link_to folders_path, class: "text-danger" do %>
-			<i class="fa-solid fa-arrow-right-arrow-left"></i> Retornar Para a raíz		
-		<%end%>
-		<hr>
-		<h6>Arquivos e sub-diretórios</h6>
+    <%= link_to folders_path, class: "text-danger" do %>
+      <i class="fa-solid fa-arrow-right-arrow-left"></i> Retornar Para a raíz		
+    <%end%>
+    <hr>
+    <h6>Arquivos e sub-diretórios</h6>
 
-			<% @folder.files.each do |file| %>      
-				<%= link_to url_for(file),class: "d-block" do%>
-					<i class="fa-solid fa-file"></i>  <%= file.filename%>
-				<%end%>
-			<% end %>
-	
-			<% @folder.children.each do |child| %>    
-				<%= link_to child ,class: "d-block"  do%>   
-					<i class="fa-solid fa-folder-open"></i> <%=  child.name %>
-				<%end%>
-			<% end %>			
-	</div>
+    <% @folder.files.each do |file| %>
+      <%= link_to url_for(file),class: "d-block" do%>
+        <i class="fa-solid fa-file"></i>  <%= file.filename%>
+      <%end%>
+    <% end %>
+
+    <% @folder.children.each do |child| %>
+      <%= link_to child ,class: "d-block"  do%>
+        <i class="fa-solid fa-folder-open"></i> <%=  child.name %>
+      <%end%>
+    <% end %>
+  </div>
 </div>

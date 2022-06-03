@@ -1,10 +1,17 @@
-<h1>Editing folder</h1>
+<div class="container mt-3">
+  <h4>Editar diretório</h4>
 
-<%= render "form", folder: @folder %>
+  <%= render "form", folder: @folder %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this folder", @folder %> |
-  <%= link_to "Back to folders", folders_path %>
+  <div>
+    <%= link_to  @folder , class: "text-success" do%>
+      <i class="fa-solid fa-folder-open"></i> Acessar esse diretório
+    <%end%>
+
+    <%= link_to folders_path, class: "text-danger" do%>
+      <i class="fa-solid fa-arrow-right-arrow-left"></i> Retornar 
+    <%end%>
+  </div>
 </div>

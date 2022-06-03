@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-	<%= form.hidden_field :parent_id %>
+  <%= form.hidden_field :parent_id %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-control">
+    <%= form.label :name, style: "display: block", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="col-12 mt-3">
+    <%= form.button "Salvar", type: "submit", :class=> "btn btn-primary" %>
   </div>
 <% end %>

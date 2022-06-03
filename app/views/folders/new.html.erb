@@ -1,9 +1,12 @@
-<h1>New folder</h1>
+<div class="container mt-3">
+  <h4>Criar novo diretório</h4>
 
-<%= render "form", folder: @folder %>
+  <%= render "form", folder: @folder %>
 
-<br>
-
-<div>
-  <%= link_to "Back to folders", folders_path %>
+  <br>
+  <div>
+    <%= link_to  folders_path, class: "text-danger" do %>
+      <i class="fa-solid fa-arrow-right-arrow-left"></i> Retornar 
+    <%end%>
+  </div>
 </div>
