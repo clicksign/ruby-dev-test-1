@@ -12,7 +12,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/new
   def new
-    @folder = Folder.new(parent_id: params['parent_id'])
+    @folder = Folder.new(parent_id: params["parent_id"])
   end
 
   # GET /folders/1/edit
@@ -58,13 +58,14 @@ class FoldersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_folder
-      @folder = Folder.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def folder_params
-      params.require(:folder).permit(:name, :parent_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_folder
+    @folder = Folder.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def folder_params
+    params.require(:folder).permit(:name, :parent_id)
+  end
 end
