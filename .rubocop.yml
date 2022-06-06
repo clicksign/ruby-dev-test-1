@@ -1,0 +1,19 @@
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: enable
+  Exclude:
+    - "**/db/**/*"
+    - "**/Gemfile"
+    - "**/Gemfile.lock"
+    - "**/Rakefile"
+    - "**/rails"
+    - "**/lib/**/*"
+    - "**/bin/*"
+    - "**/migrate/**/*"
+    - "**/vendor/**/*"
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
