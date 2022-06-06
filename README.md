@@ -12,12 +12,13 @@ A parte desenvolvida para solucionar esse desafio está seguindo um padrão mín
 
 # Cobertura de testes - coverage 100%
 
-Esse projeto com seu código-fonte totalmente coberto por testes com RSpec.
+Esse projeto está com seu código-fonte totalmente coberto por testes com RSpec.
 
-Rodando o projeto
-Estamos utilizando o MySQL como banco de dados, portanto, antes que qualquer coisa, confira os dados de acesso ao banco de dados no arquivo config/database.yml.
+### Rodando o projeto
 
-Utilizando os comandos a abaixo você irá instalar as gems, criar o banco de dados e as tabelas.
+Foi utilizado o MySQL como banco de dados, portanto, antes que qualquer coisa, confira os dados de acesso ao banco de dados no arquivo config/database.yml.
+
+Utilizando os comandos a abaixo, você irá instalar as gems, criar o banco de dados e as tabelas.
 
 ```
 bundle install
