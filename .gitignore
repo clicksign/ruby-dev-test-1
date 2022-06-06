@@ -30,3 +30,4 @@
 
 # Other files
 /coverage
+.DS_Store
