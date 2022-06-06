@@ -1,6 +1,6 @@
-class CreateFolders < ActiveRecord::Migration[7.0]
+class CreateDocuments < ActiveRecord::Migration[7.0]
   def change
-    create_table :folders do |t|
+    create_table :documents do |t|
       t.references :folder, foreign_key: true
       t.string :name, null: false
 
