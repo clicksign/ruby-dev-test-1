@@ -26,11 +26,11 @@ Apitome.configure do |config|
   # We're using highlight.js (https://github.com/isagalaev/highlight.js) for code highlighting, and it comes with some
   # great themes. You can check [here for themes](http://softwaremaniacs.org/media/soft/highlight/test.html), and enter
   # the theme as lowercase/underscore.
-  config.code_theme = "default"
+  config.code_theme = "dark"
 
   # This allows you to override the css manually. You typically want to require `apitome/application` within the
   # override, but if you want to override it entirely you can do so.
-  config.css_override = nil
+  config.css_override = "apitome/application"
 
   # This allows you to override the javascript manually. You typically want to require `apitome/application` within the
   # override, but if you want to override it entirely you can do so.
@@ -46,7 +46,7 @@ Apitome.configure do |config|
 
   # You can specify how urls are formatted using a Proc or other callable object.  Your proc will be called with a
   # resource name or link, giving you the opportunity to modify it as necessary for in the documentation url.
-  config.url_formatter = -> (str) { str.gsub(/\.json$/, '').underscore.gsub(/[^[:word:]]/, '-') }
+  config.url_formatter = -> (str) { str.gsub(/\.json$/, '').underscore.gsub(/[^0-9a-z\:]+/i, '-') }
 
   # You can setup the docs to be loaded from a remote URL if they are not available in the application environment. This
   # URL is used as the base location and should be set to where the readme is located. If left nil, local is assumed.
