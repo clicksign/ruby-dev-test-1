@@ -30,7 +30,7 @@ O conteúdo dos arquivos são persistidos em disco, os mesmos são obtidos da WE
 
         ruby-dev-test-1$ rake db:setup
 
-7. Execute a aplicação 
+5. Execute a aplicação 
 
         ruby-dev-test-1$ rails s
 
