@@ -41,6 +41,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "factory_bot_rails", "~> 6.2"
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :test do

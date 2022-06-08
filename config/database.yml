@@ -11,6 +11,14 @@ development:
   host: 127.0.0.1
   port: 5432
 
+test:
+  <<: *default
+  database: rubydev_test
+  username: postgres
+  password: postgres
+  host: 127.0.0.1
+  port: 5432
+
   
 production:
   <<: *default
