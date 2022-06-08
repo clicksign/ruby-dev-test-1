@@ -31,7 +31,6 @@ class DirectorySaving
   end
   
   def save!
-    binding.pry
     save_record!(@directory)
     parent = @parent.child_binds.build(child_id: @directory.id)
     save_record!(parent)
