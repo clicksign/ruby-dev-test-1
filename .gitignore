@@ -30,5 +30,13 @@ tmp
 # Datatabase files
 .data
 
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# asdf
+.tool-versions
+
+
 
 
