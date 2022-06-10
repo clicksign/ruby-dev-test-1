@@ -12,20 +12,6 @@
           "method": "get"
         },
         {
-          "description": "Show",
-          "link": "folder/show.json",
-          "groups": "all",
-          "route": "api/v1/folders/:id",
-          "method": "get"
-        },
-        {
-          "description": "SubFolders",
-          "link": "folder/subfolders.json",
-          "groups": "all",
-          "route": "api/v1/folders/:id/sub_folders",
-          "method": "get"
-        },
-        {
           "description": "Create",
           "link": "folder/create.json",
           "groups": "all",
@@ -38,13 +24,6 @@
           "groups": "all",
           "route": "api/v1/folders/:id",
           "method": "put"
-        },
-        {
-          "description": "Destroy",
-          "link": "folder/destroy.json",
-          "groups": "all",
-          "route": "api/v1/folders/:id",
-          "method": "delete"
         }
       ]
     }
