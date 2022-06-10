@@ -9,7 +9,7 @@ resource "Folder" do
   header "Content-Type", "application/json"
   header "Host", "localhost:3000"
 
-  let(:folder) { create(:folder, :with_sub_folders, parent: parent.id) }
+  let(:folder) { create(:folder, :with_sub_folders, :with_files, parent: parent.id) }
   let(:parent) { create(:folder) }
 
   # data population
@@ -21,7 +21,7 @@ resource "Folder" do
 
   # example object for show, update and destroy
   let(:folder) do
-    create(:folder, :with_sub_folders, parent_id: parent.id)
+    create(:folder, :with_sub_folders, :with_files, parent_id: parent.id)
   end
 
   # object id alias
@@ -60,6 +60,7 @@ resource "Folder" do
     # list parameters
     parameter :name,        with_example: "Folder x", required: true,  type: :string
     parameter :permission,  with_example: 777,        required: true,  type: :integer
+    parameter :attach_files,  with_example: "",       required: false, type: :array
     parameter :parent_id,   with_example: 1,          required: false, type: :integer
 
     # set params to request simulation
@@ -83,6 +84,7 @@ resource "Folder" do
     # list parameters
     parameter :name,        with_example: "Folder x", required: true,  type: :string
     parameter :permission,  with_example: 777,        required: true,  type: :integer
+    parameter :attach_files,  with_example: "",       required: false, type: :array
     parameter :parent_id,   with_example: 1,          required: false, type: :integer
 
     # set params to request simulation
