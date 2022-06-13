@@ -15,7 +15,7 @@ resource "Folder" do
   # data population
   before do
     2.times do |t|
-      create(:folder, name: "Folder #{t}", parent: parent)
+      create(:folder, :with_files, name: "Folder #{t}", parent: parent)
     end
   end
 
@@ -67,7 +67,7 @@ resource "Folder" do
     let(:name) { folder.name }
     let(:permission) { folder.permission }
     let(:folder) { create(:folder) }
-
+    let(:attach_files) { create_list(:attach_file, 3, folder: folder) }
     # set request payload
     let(:raw_post) { { folder: params }.to_json }
 
@@ -91,6 +91,7 @@ resource "Folder" do
     let(:name) { folder.name }
     let(:permission) { folder.permission }
     let(:folder) { create(:folder) }
+    let(:attach_files) { create_list(:attach_file, 3, folder: folder) }
 
     # set request payload
     let(:raw_post) { { folder: params }.to_json }
