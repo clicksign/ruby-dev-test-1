@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :attach_files
+
   namespace :api do
     namespace :v1 do
+      resources :attach_files
       resources :folders do
         get :sub_folders, on: :member
       end

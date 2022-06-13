@@ -19,7 +19,7 @@ module Api
         @folder = Folder.new(folder_params)
 
         if @folder.save
-          render 'show', status: :created, locals: {folder: @folder}
+          render 'show', status: :created, locals: { folder: @folder }
         else
           render json: @folder.errors, status: :unprocessable_entity
         end
