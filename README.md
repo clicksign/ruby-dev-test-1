@@ -5,3 +5,22 @@ Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco
 A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
 
 Realizar um fork deste repositório.
+
+
+## Documentation
+
+After clone repository, run:
+
+`rake db:migrate`
+
+To update documentation, run:
+
+`rake docs:generate`
+
+To update coverage report, run:
+
+`bundle exec rspec`
+
+
+Start the server using `rails s` and view documentation in `localhost:3000/api/docs`
+
