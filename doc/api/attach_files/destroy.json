@@ -1,0 +1,35 @@
+{
+  "resource": "Attach Files",
+  "resource_explanation": "Files API",
+  "http_method": "DELETE",
+  "route": "api/v1/attach_files/:id",
+  "description": "Destroy",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "api/v1/attach_files/3",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "localhost:3000"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+      },
+      "response_content_type": null,
+      "curl": null
+    }
+  ]
+}

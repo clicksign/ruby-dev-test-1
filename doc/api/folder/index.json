@@ -1,0 +1,36 @@
+{
+  "resource": "Folder",
+  "resource_explanation": "Folder API",
+  "http_method": "GET",
+  "route": "api/v1/folders",
+  "description": "Index",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "api/v1/folders",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "localhost:3000"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 1,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.226Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.226Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/1.json\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Folder 0\",\n    \"permission\": 777,\n    \"parent_id\": 1,\n    \"created_at\": \"2022-06-13T15:09:31.228Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.228Z\",\n    \"attach_files\": [\n      {\n        \"id\": 1,\n        \"name\": \"My file\",\n        \"folder_id\": 2,\n        \"file\": {\n          \"name\": \"file\",\n          \"record\": {\n            \"id\": 1,\n            \"name\": \"My file\",\n            \"folder_id\": 2,\n            \"created_at\": \"2022-06-13T15:09:31.234Z\",\n            \"updated_at\": \"2022-06-13T15:09:31.295Z\"\n          }\n        },\n        \"url\": \"http://localhost:3000/api/v1/attach_files/1.json\"\n      },\n      {\n        \"id\": 2,\n        \"name\": \"My file\",\n        \"folder_id\": 2,\n        \"file\": {\n          \"name\": \"file\",\n          \"record\": {\n            \"id\": 2,\n            \"name\": \"My file\",\n            \"folder_id\": 2,\n            \"created_at\": \"2022-06-13T15:09:31.251Z\",\n            \"updated_at\": \"2022-06-13T15:09:31.297Z\"\n          }\n        },\n        \"url\": \"http://localhost:3000/api/v1/attach_files/2.json\"\n      },\n      {\n        \"id\": 3,\n        \"name\": \"My file\",\n        \"folder_id\": 2,\n        \"file\": {\n          \"name\": \"file\",\n          \"record\": {\n            \"id\": 3,\n            \"name\": \"My file\",\n            \"folder_id\": 2,\n            \"created_at\": \"2022-06-13T15:09:31.282Z\",\n            \"updated_at\": \"2022-06-13T15:09:31.298Z\"\n          }\n        },\n        \"url\": \"http://localhost:3000/api/v1/attach_files/3.json\"\n      }\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/2.json\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.230Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.230Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/3.json\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.247Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.247Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/4.json\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.279Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.279Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/5.json\"\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Folder 1\",\n    \"permission\": 777,\n    \"parent_id\": 1,\n    \"created_at\": \"2022-06-13T15:09:31.301Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.301Z\",\n    \"attach_files\": [\n      {\n        \"id\": 4,\n        \"name\": \"My file\",\n        \"folder_id\": 6,\n        \"file\": {\n          \"name\": \"file\",\n          \"record\": {\n            \"id\": 4,\n            \"name\": \"My file\",\n            \"folder_id\": 6,\n            \"created_at\": \"2022-06-13T15:09:31.307Z\",\n            \"updated_at\": \"2022-06-13T15:09:31.355Z\"\n          }\n        },\n        \"url\": \"http://localhost:3000/api/v1/attach_files/4.json\"\n      },\n      {\n        \"id\": 5,\n        \"name\": \"My file\",\n        \"folder_id\": 6,\n        \"file\": {\n          \"name\": \"file\",\n          \"record\": {\n            \"id\": 5,\n            \"name\": \"My file\",\n            \"folder_id\": 6,\n            \"created_at\": \"2022-06-13T15:09:31.323Z\",\n            \"updated_at\": \"2022-06-13T15:09:31.357Z\"\n          }\n        },\n        \"url\": \"http://localhost:3000/api/v1/attach_files/5.json\"\n      },\n      {\n        \"id\": 6,\n        \"name\": \"My file\",\n        \"folder_id\": 6,\n        \"file\": {\n          \"name\": \"file\",\n          \"record\": {\n            \"id\": 6,\n            \"name\": \"My file\",\n            \"folder_id\": 6,\n            \"created_at\": \"2022-06-13T15:09:31.343Z\",\n            \"updated_at\": \"2022-06-13T15:09:31.358Z\"\n          }\n        },\n        \"url\": \"http://localhost:3000/api/v1/attach_files/6.json\"\n      }\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/6.json\"\n  },\n  {\n    \"id\": 7,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.303Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.303Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/7.json\"\n  },\n  {\n    \"id\": 8,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.318Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.318Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/8.json\"\n  },\n  {\n    \"id\": 9,\n    \"name\": \"MyString\",\n    \"permission\": 777,\n    \"parent_id\": null,\n    \"created_at\": \"2022-06-13T15:09:31.339Z\",\n    \"updated_at\": \"2022-06-13T15:09:31.339Z\",\n    \"attach_files\": [\n\n    ],\n    \"url\": \"http://localhost:3000/api/v1/folders/9.json\"\n  }\n]",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
