@@ -1,0 +1,86 @@
+{
+  "resources": [
+    {
+      "name": "Attach Files",
+      "explanation": "Files API",
+      "examples": [
+        {
+          "description": "Show",
+          "link": "attach_files/show.json",
+          "groups": "all",
+          "route": "api/v1/attach_files/:id",
+          "method": "get"
+        },
+        {
+          "description": "Create",
+          "link": "attach_files/create.json",
+          "groups": "all",
+          "route": "api/v1/attach_files",
+          "method": "post"
+        },
+        {
+          "description": "Update",
+          "link": "attach_files/update.json",
+          "groups": "all",
+          "route": "api/v1/attach_files/:id",
+          "method": "put"
+        },
+        {
+          "description": "Destroy",
+          "link": "attach_files/destroy.json",
+          "groups": "all",
+          "route": "api/v1/attach_files/:id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Folder",
+      "explanation": "Folder API",
+      "examples": [
+        {
+          "description": "Index",
+          "link": "folder/index.json",
+          "groups": "all",
+          "route": "api/v1/folders",
+          "method": "get"
+        },
+        {
+          "description": "Show",
+          "link": "folder/show.json",
+          "groups": "all",
+          "route": "api/v1/folders/:id",
+          "method": "get"
+        },
+        {
+          "description": "SubFolders",
+          "link": "folder/subfolders.json",
+          "groups": "all",
+          "route": "api/v1/folders/:id/sub_folders",
+          "method": "get"
+        },
+        {
+          "description": "Create",
+          "link": "folder/create.json",
+          "groups": "all",
+          "route": "api/v1/folders",
+          "method": "post"
+        },
+        {
+          "description": "Update",
+          "link": "folder/update.json",
+          "groups": "all",
+          "route": "api/v1/folders/:id",
+          "method": "put"
+        },
+        {
+          "description": "Destroy",
+          "link": "folder/destroy.json",
+          "groups": "all",
+          "route": "api/v1/folders/:id",
+          "method": "delete"
+        }
+      ]
+    }
+  ]
+}
