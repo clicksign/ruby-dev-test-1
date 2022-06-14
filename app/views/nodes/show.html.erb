@@ -1,0 +1,22 @@
+<%- provide(:path, @node.path) %>
+
+<div class="flex wrap row">
+  <% @node.nodes.each do |node| %>
+    <div class="column px-1 my-1" id="node-<%= node.id %>" style="">
+      <% if node.file? %>
+        <button class="select card b-0" style="border-radius: 1rem" ondblclick="window.location = '<%= url_for node.content %>' ">
+      <% else %>
+        <button class="select card b-0" style="border-radius: 1rem" ondblclick="window.location = '/?node_id=<%= node.id %>' ">
+      <% end %>
+        <div class="header mb-0">
+          <% if node.directory? %>
+            <%= render 'folder' %>
+          <% else %>
+            <%= render 'file' %>
+          <% end %>
+        </div>
+        <div class="body text-center"><strong class="text-dark"><%= node.name %></strong></div>
+      </button>
+    </div>
+  <% end %>
+</div>

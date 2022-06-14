@@ -1,0 +1,21 @@
+<%= simple_form_for node, remote: true do |f| %>
+  <div class="d-none">
+    <%= f.input :node_id %>
+    <%= f.input :node_type, as: :string %>
+  </div>
+  <div class="flex column">
+    <div class="column-12">
+      <div class="form-group text-start">
+        <%= f.input :name %>
+      </div>
+    </div>
+    <% if f.object.file? %>
+      <div class="column-12">
+        <div class="form-group text-start">
+          <%= f.input :content, required: true %>
+        </div>
+      </div>
+    <% end %>
+    <button class="button success mt-2">Criar</button>
+  </div>
+<% end %>
