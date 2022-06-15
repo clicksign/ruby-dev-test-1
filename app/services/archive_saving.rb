@@ -1,7 +1,7 @@
 class ArchiveSaving
   class NotSavedArchiveError < StandardError; end
 
-  attr_reader :errors
+  attr_reader :errors, :archive
 
   def initialize(params)
     @name = params[:name]
@@ -23,7 +23,7 @@ class ArchiveSaving
   def build_archive
     @directory = find_directory
     @archive = Archive.new(name: @name, directory_id: @directory.id)
-    @archive.data.attach(@data)
+    @archive.datas.attach(@data)
   end
 
   def find_directory

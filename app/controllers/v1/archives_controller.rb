@@ -1,7 +1,10 @@
 module V1
     class ArchivesController < ApplicationController
         def create
-          ArchiveSaving.new(archive_params.to_h).call
+          saving_service = ArchiveSaving.new(archive_params.to_h)
+          saving_service.call
+          @archives = saving_service.archive
+          render json: @archive
         end
 
         private 
