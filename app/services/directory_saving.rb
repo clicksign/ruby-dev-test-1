@@ -1,7 +1,7 @@
 class DirectorySaving
   class NotSavedDirectoryError < StandardError; end
 
-  attr_reader :errors
+  attr_reader :errors, :directory
 
   def initialize(params)
     @parent_name = params[:parent]
@@ -22,7 +22,7 @@ class DirectorySaving
   
   def build_directory
     @directory.name = @name
-    @parent = find_parent
+    @parent = find_parent unless @parent_name.nil?
   end
   
   def find_parent
@@ -32,8 +32,10 @@ class DirectorySaving
   
   def save!
     save_record!(@directory)
-    parent = @parent.child_binds.build(child_id: @directory.id)
-    save_record!(parent)
+    unless @parent.nil?
+      parent = @parent.child_binds.build(child_id: @directory.id)
+      save_record!(parent)
+    end
     raise NotSavedDirectoryError if @errors.present?
   rescue => e
     raise NotSavedDirectoryError
