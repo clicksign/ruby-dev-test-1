@@ -4,7 +4,7 @@ class Node < ApplicationRecord
   has_one_attached :content
 
   belongs_to :node, optional: true
-  has_many :nodes
+  has_many :nodes, dependent: :destroy
 
   validates :name, :node_type, presence: true
   validates :content, presence: true, if: -> { file? }

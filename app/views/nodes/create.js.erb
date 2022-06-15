@@ -2,4 +2,5 @@
   Swal.fire({title: "Error", message: "<%= @node_new.errors.full_messages.join(', ') %>", icon: "error"})
 <% else %>
   Swal.fire({title: "Success", icon: "success"})
+  window.location.reload()
 <% end %>

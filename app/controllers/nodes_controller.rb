@@ -26,6 +26,13 @@ class NodesController < ApplicationController
     end
   end
 
+  def destroy
+    @node.destroy
+    respond_to do |format|
+      format.js { render :destroy, layout: false }
+    end
+  end
+
   private
 
   def set_node
