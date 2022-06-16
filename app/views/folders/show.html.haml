@@ -1,0 +1,23 @@
+
+%h4 Folders
+
+= link_to 'Home', folders_path
+%br
+
+- if @folder.folder
+  = link_to '..', @folder.folder
+  %br
+
+= link_to @folder.description, @folder
+%br
+
+- @folder.childrens.order(:description).each do |child|
+  &nbsp;&nbsp;
+  = link_to child.description, child
+  %br
+
+- @folder.files.each do |file|
+  &nbsp;&nbsp;
+  = link_to file.filename, file
+  %br
+
