@@ -1,6 +1,8 @@
 class Node < ApplicationRecord
     validates :name, presence: true 
     validate :nodes_cannot_be_duplicate_same_path 
+    has_many :children, class_name: "Node", foreign_key: "parent_id"
+    belongs_to :parent, class_name: "Node", optional: true, foreign_key: "parent_id"
     
     def nodes_cannot_be_duplicate_same_path
         if parent_id.present? && Node.where(name: name, parent_id: parent_id).exists?

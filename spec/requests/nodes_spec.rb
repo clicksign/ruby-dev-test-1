@@ -34,21 +34,21 @@ RSpec.describe "/nodes", type: :request do
     {}
   }
 
-  # describe "GET /index" do
-  #   it "renders a successful response" do
-  #     Node.create! valid_attributes
-  #     get nodes_url, headers: valid_headers, as: :json
-  #     expect(response).to be_successful
-  #   end
-  # end
+  describe "GET /index" do
+    it "renders a successful response" do
+      Node.create! valid_attributes
+      get nodes_url, headers: valid_headers, as: :json
+      expect(response).to be_successful
+    end
+  end
 
-  # describe "GET /show" do
-  #   it "renders a successful response" do
-  #     node = Node.create! valid_attributes
-  #     get node_url(node), as: :json
-  #     expect(response).to be_successful
-  #   end
-  # end
+  describe "GET /show" do
+    it "render node" do
+      node = Node.create! valid_attributes
+      get node_url(node), as: :json
+      expect(response).to be_successful
+    end
+  end
 
   describe "POST /create" do
       it "creates a new Node" do
