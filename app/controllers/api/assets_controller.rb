@@ -1,4 +1,4 @@
-class AssetsController < ApplicationController
+class Api::AssetsController < ApplicationController
   before_action :set_asset, only: %i[ show update destroy ]
 
   # # GET /assets/1
@@ -13,7 +13,7 @@ class AssetsController < ApplicationController
     if @asset.errors.any?
       render json: @asset.errors, status: :unprocessable_entity
     else
-      render json: @asset, status: :created, location: @asset
+      render json: @asset, status: :created
     end
   end
 

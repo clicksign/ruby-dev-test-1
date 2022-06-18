@@ -12,7 +12,7 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/assets", type: :request do
+RSpec.describe "/api/assets", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Asset. As you add validations to Asset, be sure to
   # adjust the attributes here as well.
@@ -33,17 +33,17 @@ RSpec.describe "/assets", type: :request do
     it "renders a successful response" do
       node = Node.create!({name: "test"})
       asset = Asset.create! valid_attributes
-      get asset_url(asset), as: :json
+      get api_asset_url(asset), as: :json
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     it "creates a new Asset" do
-      post nodes_url, params: { name: 'root node' }, as: :json
+      post api_nodes_url, params: { name: 'root node' }, as: :json
       parsed_root_body = JSON.parse(response.body)
 
-      post assets_url, params: valid_attributes, as: :json     
+      post api_assets_url, params: valid_attributes, as: :json     
       expect(response).to have_http_status(:created)
     end    
   end
@@ -52,7 +52,7 @@ RSpec.describe "/assets", type: :request do
     it "destroys the requested asset" do
       asset = Asset.create! valid_attributes
       expect {
-        delete asset_url(asset), as: :json
+        delete api_asset_url(asset), as: :json
       }.to change(Asset, :count).by(-1)
     end
   end

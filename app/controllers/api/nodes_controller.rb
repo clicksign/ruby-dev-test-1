@@ -1,4 +1,4 @@
-class NodesController < ApplicationController
+class Api::NodesController < ApplicationController
   before_action :set_node, only: %i[ show update destroy ]
 
   # GET /nodes
@@ -19,7 +19,7 @@ class NodesController < ApplicationController
     if @node.errors.any?
       render json: @node.errors, status: :unprocessable_entity                 
     else
-      render json: NodeSerializer.new(@node).serializable_hash, status: :created, location: @node   
+      render json: NodeSerializer.new(@node).serializable_hash, status: :created
     end
   end
 

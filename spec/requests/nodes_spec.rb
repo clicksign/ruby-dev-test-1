@@ -37,7 +37,7 @@ RSpec.describe "/nodes", type: :request do
   describe "GET /index" do
     it "renders a successful response" do
       Node.create! valid_attributes
-      get nodes_url, headers: valid_headers, as: :json
+      get api_nodes_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
@@ -45,30 +45,30 @@ RSpec.describe "/nodes", type: :request do
   describe "GET /show" do
     it "render node" do
       node = Node.create! valid_attributes
-      get node_url(node), as: :json
+      get api_node_url(node), as: :json
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
       it "creates a new Node" do
-        post nodes_url, params: valid_attributes, headers: valid_headers, as: :json
+        post api_nodes_url, params: valid_attributes, headers: valid_headers, as: :json
         
         expect(response).to have_http_status(:created)
       end
 
       it "cannot create two nodes same name in root" do
-        post nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
-        post nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
+        post api_nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
+        post api_nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
         
         expect(response).to have_http_status(:unprocessable_entity)
       end
 
       it "creates a new node inside parent" do
-        post nodes_url, params: { name: 'root node' }, headers: valid_headers, as: :json
+        post api_nodes_url, params: { name: 'root node' }, headers: valid_headers, as: :json
         parsed_root_body = JSON.parse(response.body)
 
-        post nodes_url, params: { name: 'child node', parent_id: parsed_root_body['id']}, headers: valid_headers, as: :json
+        post api_nodes_url, params: { name: 'child node', parent_id: parsed_root_body['id']}, headers: valid_headers, as: :json
         parsed_child_body = JSON.parse(response.body)        
         
         expect(parsed_child_body["parent_id"]).to eq(parsed_root_body['id'])
@@ -80,7 +80,7 @@ RSpec.describe "/nodes", type: :request do
     it "updated a Node" do
       node = Node.create! valid_attributes
       
-      patch node_url(node), params: { name: 'new root node [updated]' }, headers: valid_headers, as: :json
+      patch api_node_url(node), params: { name: 'new root node [updated]' }, headers: valid_headers, as: :json
       parsed_body = JSON.parse(response.body)
       
       expect(response).to have_http_status(:ok)
@@ -91,7 +91,7 @@ RSpec.describe "/nodes", type: :request do
       Node.create!({name: 'First Node'})
       node = Node.create!({name: 'Second Node'})
       
-      patch node_url(node), params: { name: 'First Node' }, headers: valid_headers, as: :json
+      patch api_node_url(node), params: { name: 'First Node' }, headers: valid_headers, as: :json
       parsed_body = JSON.parse(response.body)
 
       expect(response).to have_http_status(:unprocessable_entity)
@@ -102,7 +102,7 @@ RSpec.describe "/nodes", type: :request do
     it "destroys the requested node" do
       node = Node.create! valid_attributes
       expect {
-        delete node_url(node), headers: valid_headers, as: :json
+        delete api_node_url(node), headers: valid_headers, as: :json
       }.to change(Node, :count).by(-1)
     end
   end

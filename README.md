@@ -20,60 +20,30 @@ Abaixo estão os endpoints da API:
 
 ## Criando um novo diretório
 
-### Request
+`[POST] /api/node`
 
-`POST /api/node`
+`params: {name: "name"}`
 
-    curl -i -H 'Accept: application/json' -d 'name=Foo' http://localhost:3000/api/node
+### Criando um novo sub diretório
 
-### Response
+`[POST] /api/node`
 
-    HTTP/1.1 201 Created
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
-    Status: 201 Created
-    Connection: close
-    Content-Type: application/json
-    Location: /thing/1
-    Content-Length: 36
+`params: {name: "name", parent_id: "2"}`
 
-    {"id":1,"name":"Foo",children":[]}
+### Visualizando um diretório/sub diretório
 
-## Criando um novo sub diretório
+`[GET] /api/node/{id}`
 
-### Request
+### Criando um arquivo
 
-`POST /api/node`
+`[POST] /api/asset`
 
-    curl -i -H 'Accept: application/json' -d 'root_id=1&name=Bar' http://localhost:3000/api/node
+`params: {name: name, file: file, node_id: 1}`
 
-### Response
+### Visualizando um arquivo
 
-    HTTP/1.1 201 Created
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
-    Status: 201 Created
-    Connection: close
-    Content-Type: application/json
-    Location: /thing/1
-    Content-Length: 36
+`[GET] /api/asset/{id}`
 
-    {"id":1,"name":"Bar",parent:{id:1,name:"Foo"},children:[]}
+### Deletando arquivo
 
-## Visualizando um diretório/sub diretório
-
-### Request
-
-`GET /api/node/{id}`
-
-    curl -i -H 'Accept: application/json' -d 'root_id=1&name=Bar' http://localhost:3000/api/node/1
-
-### Response
-
-    HTTP/1.1 201 Created
-    Date: Thu, 24 Feb 2011 12:36:30 GMT
-    Status: 201 Created
-    Connection: close
-    Content-Type: application/json
-    Location: /thing/1
-    Content-Length: 36
-
-    {"id":1,"name":"Bar",parent:{id:1,name:"Foo"},children:[{id:1,name:"Ch1"}, {id:2,name:"Ch2"}]}
+`[DELETE] /api/asset/{id}`
