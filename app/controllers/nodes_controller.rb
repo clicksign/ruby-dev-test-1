@@ -19,7 +19,7 @@ class NodesController < ApplicationController
     if @node.errors.any?
       render json: @node.errors, status: :unprocessable_entity                 
     else
-      render json: @node, status: :created, location: @node   
+      render json: NodeSerializer.new(@node).serializable_hash, status: :created, location: @node   
     end
   end
 
@@ -29,7 +29,7 @@ class NodesController < ApplicationController
     if @node.errors.any?
       render json: @node.errors, status: :unprocessable_entity                 
     else
-      render json: @node
+      render json: NodeSerializer.new(@node).serializable_hash
     end        
   end
 

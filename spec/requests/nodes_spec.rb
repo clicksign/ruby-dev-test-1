@@ -82,9 +82,9 @@ RSpec.describe "/nodes", type: :request do
       
       patch node_url(node), params: { name: 'new root node [updated]' }, headers: valid_headers, as: :json
       parsed_body = JSON.parse(response.body)
-
+      
       expect(response).to have_http_status(:ok)
-      expect(parsed_body["name"]).to eq("new root node [updated]")
+      expect(parsed_body['data']['attributes']["name"]).to eq("new root node [updated]")
     end
 
     it "cannot update a node with same name" do
