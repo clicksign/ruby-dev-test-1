@@ -73,7 +73,29 @@ RSpec.describe "/nodes", type: :request do
         
         expect(parsed_child_body["parent_id"]).to eq(parsed_root_body['id'])
         expect(response).to have_http_status(:created)
-      end    
+      end
+  end
+
+  describe "POST /update" do
+    it "updated a Node" do
+      node = Node.create! valid_attributes
+      
+      patch node_url(node), params: { name: 'new root node [updated]' }, headers: valid_headers, as: :json
+      parsed_body = JSON.parse(response.body)
+
+      expect(response).to have_http_status(:ok)
+      expect(parsed_body["name"]).to eq("new root node [updated]")
+    end
+
+    it "cannot update a node with same name" do
+      Node.create!({name: 'First Node'})
+      node = Node.create!({name: 'Second Node'})
+      
+      patch node_url(node), params: { name: 'First Node' }, headers: valid_headers, as: :json
+      parsed_body = JSON.parse(response.body)
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
   end
 
   # describe "PATCH /update" do

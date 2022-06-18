@@ -26,11 +26,12 @@ class NodesController < ApplicationController
 
   # PATCH/PUT /nodes/1
   def update
-    if @node.update(node_params)
-      render json: @node
+    @node = NodeUpdater.new(@node, node_params).update_node  
+    if @node.errors.any?
+      render json: @node.errors, status: :unprocessable_entity                 
     else
-      render json: @node.errors, status: :unprocessable_entity
-    end
+      render json: @node
+    end        
   end
 
   # DELETE /nodes/1
