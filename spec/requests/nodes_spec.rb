@@ -51,22 +51,29 @@ RSpec.describe "/nodes", type: :request do
   # end
 
   describe "POST /create" do
-    context "with valid parameters" do
       it "creates a new Node" do
-        expect {
-          post nodes_url, params: valid_attributes, headers: valid_headers, as: :json
-        }.to change(Node, :count).by(1)
-      end      
-    end
-    
-    context "with invalid parameters" do
-      it "Cannot create two nodes same name in root" do
-        expect {
-          post nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
-          post nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
-        }.to change(Node, :count).by(1)
-      end      
-    end
+        post nodes_url, params: valid_attributes, headers: valid_headers, as: :json
+        
+        expect(response).to have_http_status(:created)
+      end
+
+      it "cannot create two nodes same name in root" do
+        post nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
+        post nodes_url, params: { name: 'new node' }, headers: valid_headers, as: :json
+        
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it "creates a new node inside parent" do
+        post nodes_url, params: { name: 'root node' }, headers: valid_headers, as: :json
+        parsed_root_body = JSON.parse(response.body)
+
+        post nodes_url, params: { name: 'child node', parent_id: parsed_root_body['id']}, headers: valid_headers, as: :json
+        parsed_child_body = JSON.parse(response.body)        
+        
+        expect(parsed_child_body["parent_id"]).to eq(parsed_root_body['id'])
+        expect(response).to have_http_status(:created)
+      end    
   end
 
   # describe "PATCH /update" do
