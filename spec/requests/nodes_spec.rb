@@ -98,46 +98,12 @@ RSpec.describe "/nodes", type: :request do
     end
   end
 
-  # describe "PATCH /update" do
-  #   context "with valid parameters" do
-  #     let(:new_attributes) {
-  #       skip("Add a hash of attributes valid for your model")
-  #     }
-
-  #     it "updates the requested node" do
-  #       node = Node.create! valid_attributes
-  #       patch node_url(node),
-  #             params: { node: new_attributes }, headers: valid_headers, as: :json
-  #       node.reload
-  #       skip("Add assertions for updated state")
-  #     end
-
-  #     it "renders a JSON response with the node" do
-  #       node = Node.create! valid_attributes
-  #       patch node_url(node),
-  #             params: { node: new_attributes }, headers: valid_headers, as: :json
-  #       expect(response).to have_http_status(:ok)
-  #       expect(response.content_type).to match(a_string_including("application/json"))
-  #     end
-  #   end
-
-  #   context "with invalid parameters" do
-  #     it "renders a JSON response with errors for the node" do
-  #       node = Node.create! valid_attributes
-  #       patch node_url(node),
-  #             params: { node: invalid_attributes }, headers: valid_headers, as: :json
-  #       expect(response).to have_http_status(:unprocessable_entity)
-  #       expect(response.content_type).to match(a_string_including("application/json"))
-  #     end
-  #   end
-  # end
-
-  # describe "DELETE /destroy" do
-  #   it "destroys the requested node" do
-  #     node = Node.create! valid_attributes
-  #     expect {
-  #       delete node_url(node), headers: valid_headers, as: :json
-  #     }.to change(Node, :count).by(-1)
-  #   end
-  # end
+  describe "DELETE /destroy" do
+    it "destroys the requested node" do
+      node = Node.create! valid_attributes
+      expect {
+        delete node_url(node), headers: valid_headers, as: :json
+      }.to change(Node, :count).by(-1)
+    end
+  end
 end
