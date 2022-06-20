@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    image: app
+    build:
+      context: .
+    environment:
+      - DATABASE_PASSWORD=aGq#rDY^6HNWjBDFGFD4GDF55DHFFDW2DSD
+      - DATABASE_USER=postgres
+      - DATABASE_HOST=db
+    volumes:
+      - ./:/app
+    ports:
+      - 3060:3000
+    command: bundle exec puma
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_PASSWORD=aGq#rDY^6HNWjBDFGFD4GDF55DHFFDW2DSD
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST=postgres
+    ports:
+      - 5436:5432
