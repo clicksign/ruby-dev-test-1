@@ -12,9 +12,9 @@ AllCops:
     - "docker/*"
     - "vendor/**/*"
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
-  IgnoredPatterns: ['(\A|\s)#']
+  AllowedPatterns: ['(\A|\s)#']
 
 Metrics/BlockLength:
   Exclude:
@@ -26,4 +26,7 @@ Lint/AmbiguousBlockAssociation:
     - spec/**/*
 
 Style/Documentation:
+  Enabled: false
+
+Rails/InverseOf:
   Enabled: false
