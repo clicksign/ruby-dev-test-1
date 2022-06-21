@@ -11,7 +11,7 @@ describe Folder do
     end
 
     it "is valid" do
-      expect(folder.name).to eq('Folder 01')
+      expect(folder).to be_valid
     end
 
     it "is invalid with duplicate name" do
