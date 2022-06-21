@@ -5,6 +5,8 @@ class Folder < ApplicationRecord
 
   scope :roots, -> { where(parent_id: nil) }
 
+ validates :name, presence: true
+
   def breadcrumbs
     path = []
     p = Proc.new do |parent|
