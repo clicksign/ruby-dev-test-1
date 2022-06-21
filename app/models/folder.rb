@@ -5,7 +5,10 @@ class Folder < ApplicationRecord
 
   scope :roots, -> { where(parent_id: nil) }
 
-  validates :name, presence: true
+  validates :name, {
+    presence: true,
+    uniqueness: {scope: :parent_id, case_sensitive: false}
+  }
 
   def breadcrumbs
     path = []

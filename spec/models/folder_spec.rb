@@ -13,6 +13,23 @@ describe Folder do
     it "is valid" do
       expect(folder.name).to eq('Folder 01')
     end
+
+    it "is invalid with duplicate name" do
+      dup = folder.dup
+      expect(dup).to be_invalid
+    end
+
+    it "is valid with lowercase name" do
+      dup = folder.dup
+      dup.name = dup.name.downcase
+      expect(folder).to be_valid
+    end
+
+    it "is valid with duplicate name and different parent" do
+      dup = folder.dup
+      dup.parent = Folder.create(name: 'Folder 02')
+      expect(dup).to be_valid
+    end
   end
 
   describe "relationships" do
