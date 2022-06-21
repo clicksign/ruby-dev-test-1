@@ -4,6 +4,17 @@ class Folder < ApplicationRecord
 
   scope :roots, -> { where(parent_id: nil) }
 
+
+  def breadcrumbs
+    path = []
+    p = Proc.new do |parent|
+      path.push(parent.name)
+      p.call(parent.parent) if parent.parent.present?
+    end
+    p.call(self)
+    path.reverse.join('/')
+  end
+
   def tree_data
     output = []
     Folder.roots.includes({
