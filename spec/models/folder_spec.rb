@@ -62,6 +62,32 @@ describe Folder do
       })
 
       expect(subfolder.tree_data).to eq({
+        name: 'Folder 01',
+        subfolders: [
+          {
+            name: 'Subfolder 01',
+            subfolders: [],
+            files: []
+          }
+        ],
+        files: []
+      })
+    end
+
+    it "show below nodes" do
+      expect(folder.below_nodes).to eq({
+        name: 'Folder 01',
+        subfolders: [
+          {
+            name: 'Subfolder 01',
+            subfolders: [],
+            files: []
+          }
+        ],
+        files: []
+      })
+
+      expect(subfolder.below_nodes).to eq({
         name: 'Subfolder 01',
         subfolders: [],
         files: []
@@ -79,7 +105,7 @@ describe Folder do
             name: 'Subfolder 01',
             subfolders: [],
             files: [
-              { name: 'File 01', path: file.path }
+              { name: 'File 01' }
             ]
           }
         ],

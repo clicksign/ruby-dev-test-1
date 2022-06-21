@@ -21,6 +21,14 @@ class Folder < ApplicationRecord
   end
 
   def tree_data
+    structure = {}
+    Folder.roots.each do |root|
+      structure.merge! build_tree_data(root)
+    end
+    structure
+  end
+
+  def below_nodes
     build_tree_data(self)
   end
 
@@ -36,7 +44,7 @@ class Folder < ApplicationRecord
     {
       name: folder.name,
       subfolders: subfolders,
-      files: folder.file_resources.map { |file| { name: file.name, path: file.path } }
+      files: folder.file_resources.map { |file| { name: file.name } }
     }
   end
 end
