@@ -1,0 +1,29 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: disable
+  Exclude:
+    - "bin/*"
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "docker/*"
+    - "vendor/**/*"
+
+Metrics/LineLength:
+  Max: 120
+  IgnoredPatterns: ['(\A|\s)#']
+
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+    - spec/**/*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: false
