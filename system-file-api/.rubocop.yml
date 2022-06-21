@@ -30,3 +30,9 @@ Style/Documentation:
 
 Rails/InverseOf:
   Enabled: false
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/MultipleExpectations:
+  Max: 5
