@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_230324) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_234334) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "file_resources", force: :cascade do |t|
+    t.string "name"
+    t.string "path"
+    t.bigint "folder_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_file_resources_on_folder_id"
+  end
 
   create_table "folders", force: :cascade do |t|
     t.string "name", null: false
@@ -20,4 +29,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_230324) do
     t.index ["parent_id"], name: "index_folders_on_parent_id"
   end
 
+  add_foreign_key "file_resources", "folders"
 end
