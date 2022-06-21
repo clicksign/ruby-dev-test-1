@@ -1,10 +1,9 @@
 class Folder < ApplicationRecord
   belongs_to :parent, :class_name => 'Folder', optional: true
   has_many :subfolders, :class_name => 'Folder', foreign_key: 'parent_id', dependent: :destroy
-  has_many :files, dependent: :destroy
+  has_many :file_resources, dependent: :destroy
 
   scope :roots, -> { where(parent_id: nil) }
-
 
   def breadcrumbs
     path = []
@@ -17,24 +16,22 @@ class Folder < ApplicationRecord
   end
 
   def tree_data
-    output = []
-    Folder.roots.includes({
-      subfolders: {subfolders: {
-        subfolders: subfolders
-      }}
-    }).each do |emp|
-      output << data(emp)
-    end
-    output.as_json
+    build_tree_data(self)
   end
 
-  def data(folder)
+  def build_tree_data(folder)
     subfolders = []
-    unless folder.subfolders.blank?
+
+    if folder.subfolders.present?
       folder.subfolders.each do |sub|
-        subfolders << data(sub)
+        subfolders << build_tree_data(sub)
       end
     end
-    {name: folder.name, subfolders: subfolders}
+
+    {
+      name: folder.name,
+      subfolders: subfolders,
+      files: folder.file_resources.map { |file| { name: file.name, path: file.path } }
+    }
   end
 end
