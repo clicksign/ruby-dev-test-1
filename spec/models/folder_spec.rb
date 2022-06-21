@@ -6,9 +6,8 @@ describe Folder do
 
   describe "validations" do
     it "is invalid without name" do
-      folder = Folder.new(name: nil)
-      folder.valid?
-      expect(folder.errors[:name]).to include("can't be blank")
+      invalid_folder.valid?
+      expect(invalid_folder.errors[:name]).to include("can't be blank")
     end
 
     it "is valid" do
