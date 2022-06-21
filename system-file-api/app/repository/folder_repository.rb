@@ -18,7 +18,7 @@ class FolderRepository
     end
 
     def find(id)
-      record = FolderRecord.find!(id)
+      record = FolderRecord.find(id)
       to_folder_model(record.attributes)
     end
 

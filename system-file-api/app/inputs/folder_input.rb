@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FolderCreateInput < Upgrow::Input
+class FolderInput < Upgrow::Input
   attribute :name
   attribute :folder_id
 
