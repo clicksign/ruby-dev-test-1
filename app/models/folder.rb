@@ -1,6 +1,6 @@
 class Folder < ApplicationRecord
-  belongs_to :parent, :class_name => 'Folder'
-  has_many :subfolders, :class_name => 'Folder', foreign_key: 'parent_id'
+  belongs_to :parent, :class_name => 'Folder', optional: true
+  has_many :subfolders, :class_name => 'Folder', foreign_key: 'parent_id', dependent: :destroy
 
   scope :roots, -> { where(parent_id: nil) }
 
