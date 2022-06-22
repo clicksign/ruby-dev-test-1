@@ -76,6 +76,33 @@ RSpec.describe Directory, type: :model do
                                     )
         end
       end
+
+      describe 'update achives full path' do
+        context 'when name is updated' do
+          let(:old_name) { Faker::Fantasy::Tolkien.character }
+          let(:new_name) { Faker::Fantasy::Tolkien.character }
+          let(:directory) { create(:directory, name: old_name, parent: nil) }
+          let(:archive1) { build(:archive) }
+          let(:archive2) { build(:archive) }
+          let(:update_name) { directory.update(name: new_name) }
+
+          before do
+            directory.archives << archive1
+            directory.archives << archive2
+          end
+
+          it do
+            expect { update_name }.to change { archive1.reload.full_path }
+                                      .from("/#{old_name}/#{archive1.name}")
+                                      .to("/#{new_name}/#{archive1.name}")
+                                      .and(
+                                        change { archive2.reload.full_path }
+                                        .from("/#{old_name}/#{archive2.name}")
+                                        .to("/#{new_name}/#{archive2.name}")
+                                      )
+          end
+        end
+      end
     end
   end
 end

@@ -16,6 +16,11 @@ class Archive < ApplicationRecord
     self.full_path = "#{parent.full_path}/#{name}"
   end
 
+  def update_full_path!
+    update_full_path
+    save!
+  end
+
   private
 
   def check_file_attached
