@@ -9,7 +9,7 @@ class Directory < ApplicationRecord
   belongs_to :parent, class_name: 'Directory', optional: true
 
   has_many :children, class_name: 'Directory', foreign_key: 'parent_id'
-  has_many :archives
+  has_many :archives, inverse_of: 'parent'
 
   before_validation :update_full_path
   after_update :update_children_full_path

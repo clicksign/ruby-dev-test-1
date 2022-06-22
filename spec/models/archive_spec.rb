@@ -6,27 +6,27 @@ RSpec.describe Archive, type: :model do
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).is_at_most(250) }
-    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:directory_id) }
+    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:parent_id) }
 
     describe "name cannot start with '/' or ' '" do
-      let(:directory) { build(:directory, name: name) }
+      let(:parent) { build(:directory, name: name) }
 
       context 'when name is valid' do
         let(:name) { 'some valid name' }
 
-        it { expect(directory).to be_valid }
+        it { expect(parent).to be_valid }
       end
 
       context "when name starts with '/'" do
         let(:name) { '/invalid name' }
 
-        it { expect(directory).not_to be_valid }
+        it { expect(parent).not_to be_valid }
       end
 
       context "when name starts with ' '" do
         let(:name) { ' invalid name' }
 
-        it { expect(directory).not_to be_valid }
+        it { expect(parent).not_to be_valid }
       end
     end
 
@@ -48,17 +48,17 @@ RSpec.describe Archive, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to belong_to(:directory) }
+    it { is_expected.to belong_to(:parent) }
     it { is_expected.to have_one_attached(:file) }
   end
 
   describe 'callbacks' do
     describe 'update full path' do
       context 'when parent is empty' do
-        let(:directory) { build(:directory, parent: nil) }
+        let(:parent) { build(:directory, parent: nil) }
         it do
-          expect { directory.save }.to change(directory, :full_path)
-                                       .from(nil).to("/#{directory.name}")
+          expect { parent.save }.to change(parent, :full_path)
+                                       .from(nil).to("/#{parent.name}")
         end
       end
 

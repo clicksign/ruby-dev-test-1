@@ -3,6 +3,6 @@ FactoryBot.define do
     name { Faker::Fantasy::Tolkien.character }
     file { fixture_file_upload('file.txt') }
 
-    association :directory
+    association :parent, factory: :directory
   end
 end
