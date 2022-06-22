@@ -54,35 +54,28 @@ RSpec.describe Archive, type: :model do
 
   describe 'callbacks' do
     describe 'update full path' do
-      context 'when parent is empty' do
-        let(:parent) { build(:directory, parent: nil) }
+      context 'when save new archive' do
+        let(:directory) { create(:directory) }
+        let(:archive) { build(:archive, parent: directory) }
         it do
-          expect { parent.save }.to change(parent, :full_path)
-                                       .from(nil).to("/#{parent.name}")
-        end
-      end
-
-      context 'when have parent' do
-        let(:parent) { create(:directory) }
-        let(:directory) { build(:directory, parent: parent) }
-
-        it do
-          expect { directory.save }.to change(directory, :full_path)
-                                       .from(nil).to("#{parent.full_path}/"\
-                                        "#{directory.name}")
+          expect { archive.save }.to change(archive, :full_path)
+                                       .from(nil)
+                                       .to("#{directory.full_path}/"\
+                                           "#{archive.name}")
         end
       end
 
       context 'when update name update full_path' do
         let(:old_name) { Faker::Fantasy::Tolkien.character }
         let(:new_name) { Faker::Fantasy::Tolkien.character }
-        let(:directory) { create(:directory, name: old_name, parent: nil) }
-        let(:update_name) { directory.update(name: new_name) }
+        let(:directory) { create(:directory) }
+        let(:archive) { create(:archive, name: old_name, parent: directory) }
+        let(:update_name) { archive.update(name: new_name) }
 
         it do
-          expect { update_name }.to change(directory, :full_path)
-                                    .from("/#{old_name}")
-                                    .to("/#{new_name}")
+          expect { update_name }.to change(archive, :full_path)
+                                    .from("#{directory.full_path}/#{old_name}")
+                                    .to("#{directory.full_path}/#{new_name}")
         end
       end
     end

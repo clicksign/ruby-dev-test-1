@@ -11,10 +11,12 @@ class Directory < ApplicationRecord
   has_many :children, class_name: 'Directory', foreign_key: 'parent_id'
   has_many :archives, inverse_of: 'parent'
 
-  before_validation :update_full_path
+  after_validation :update_full_path
   after_update :update_children_full_path
 
   def update_full_path
+    return unless name.present?
+
     self.full_path = if parent
                        "#{parent.full_path}/#{name}"
                      else

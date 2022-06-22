@@ -9,14 +9,12 @@ class Archive < ApplicationRecord
 
   has_one_attached :file
 
-  before_validation :update_full_path
+  after_validation :update_full_path
 
   def update_full_path
-    self.full_path = if parent
-                       "#{parent.full_path}/#{name}"
-                     else
-                       "/#{name}"
-                     end
+    return unless parent && name.present?
+
+    self.full_path = "#{parent.full_path}/#{name}"
   end
 
   private
