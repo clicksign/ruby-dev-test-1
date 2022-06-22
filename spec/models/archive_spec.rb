@@ -1,14 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Directory, type: :model do
+RSpec.describe Archive, type: :model do
   describe 'validations' do
-    subject { create(:directory) }
+    subject { create(:archive) }
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).is_at_most(250) }
-    it do
-      is_expected.to validate_uniqueness_of(:name).scoped_to(:parent_dir_id)
-    end
+    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:directory_id) }
 
     describe "name cannot start with '/' or ' '" do
       let(:directory) { build(:directory, name: name) }
@@ -31,17 +29,27 @@ RSpec.describe Directory, type: :model do
         it { expect(directory).not_to be_valid }
       end
     end
+
+    describe 'file needs to be attached' do
+      subject { build(:archive, file: file) }
+
+      context 'when file is attached' do
+        let(:file) { fixture_file_upload('file.txt') }
+
+        it { is_expected.to be_valid }
+      end
+
+      context 'when file is not attached' do
+        let(:file) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+    end
   end
 
   describe 'associations' do
-    it do
-      is_expected.to belong_to(:parent_dir).class_name('Directory').optional
-    end
-    it do
-      is_expected.to have_many(:child_dirs).class_name('Directory')
-                     .with_foreign_key('parent_dir_id')
-    end
-    it { is_expected.to have_many(:archives) }
+    it { is_expected.to belong_to(:directory) }
+    it { is_expected.to have_one_attached(:file) }
   end
 
   describe 'callbacks' do
@@ -75,33 +83,6 @@ RSpec.describe Directory, type: :model do
           expect { update_name }.to change(directory, :full_path)
                                     .from("/#{old_name}")
                                     .to("/#{new_name}")
-        end
-      end
-    end
-
-    describe 'update children full path' do
-      context 'when name is updated' do
-        let(:old_name) { Faker::Fantasy::Tolkien.character }
-        let(:new_name) { Faker::Fantasy::Tolkien.character }
-        let(:directory) { create(:directory, name: old_name, parent_dir: nil) }
-        let(:child1) { build(:directory) }
-        let(:child2) { build(:directory) }
-        let(:update_name) { directory.update(name: new_name) }
-
-        before do
-          directory.child_dirs << child1
-          directory.child_dirs << child2
-        end
-
-        it do
-          expect { update_name }.to change { child1.reload.full_path }
-                                    .from("/#{old_name}/#{child1.name}")
-                                    .to("/#{new_name}/#{child1.name}")
-                                    .and(
-                                      change { child2.reload.full_path }
-                                      .from("/#{old_name}/#{child2.name}")
-                                      .to("/#{new_name}/#{child2.name}")
-                                    )
         end
       end
     end

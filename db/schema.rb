@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_22_032655) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_22_035825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_22_032655) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "archives", force: :cascade do |t|
+    t.string "name", limit: 250, null: false
+    t.text "full_path", null: false
+    t.bigint "directory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["directory_id", "name"], name: "index_archives_on_directory_id_and_name", unique: true
+    t.index ["directory_id"], name: "index_archives_on_directory_id"
+    t.index ["full_path"], name: "index_archives_on_full_path", unique: true
+  end
+
   create_table "directories", force: :cascade do |t|
     t.string "name", limit: 250, null: false
     t.text "full_path", null: false
@@ -55,5 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_22_032655) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "archives", "directories"
   add_foreign_key "directories", "directories", column: "parent_dir_id"
 end

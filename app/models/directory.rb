@@ -6,9 +6,10 @@ class Directory < ApplicationRecord
   validates :name, uniqueness: { scope: 'parent_dir_id' }
   validates :name, format: { without: /\A[\/\s]/ }
 
-  belongs_to :parent_dir, class_name: 'Directory', optional: true, inverse_of: 'child_dirs'
+  belongs_to :parent_dir, class_name: 'Directory', optional: true
 
-  has_many :child_dirs, class_name: 'Directory', foreign_key: 'parent_dir_id', inverse_of: 'parent_dir'
+  has_many :child_dirs, class_name: 'Directory', foreign_key: 'parent_dir_id'
+  has_many :archives
 
   before_validation :update_full_path
   after_update :update_children_full_path
