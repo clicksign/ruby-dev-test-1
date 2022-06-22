@@ -1,0 +1,37 @@
+volumes:
+  postgres: {}
+
+networks:
+  ruby-test-net: {}
+
+services:
+  app:
+    build: .
+    networks:
+      - ruby-test-net
+    environment:
+      - SIDEKIQ_ENABLED=false
+      - DATABASE_URL=postgresql://postgres_user:postgres_pass@postgres:5432/ruby-test
+    volumes:
+      - ./:/app:delegated
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+  postgres:
+    image: postgres:14-alpine
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres_user -d ruby-test"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      - POSTGRES_DB=ruby-test
+      - POSTGRES_USER=postgres_user
+      - POSTGRES_PASSWORD=postgres_pass
+    ports:
+      - 5432:5432
+    networks:
+      - ruby-test-net
+    volumes:
+      - postgres:/var/lib/postgresql/data
