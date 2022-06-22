@@ -1,8 +1,7 @@
+# frozen_string_literal: true
+
 class Archive < ApplicationRecord
-  validates :name, presence: true
-  validates :name, length: { maximum: 250 }
-  validates :name, uniqueness: { scope: 'parent_id' }
-  validates :name, format: { without: /\A[\/\s]/ }
+  include Nameable
   validate :check_file_attached
 
   belongs_to :parent, class_name: 'Directory', inverse_of: 'archives'

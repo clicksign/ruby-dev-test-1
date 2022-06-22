@@ -1,35 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Archive, type: :model do
-  describe 'validations' do
+  it_behaves_like 'nameable' do
     subject { create(:archive) }
+  end
 
-    it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_length_of(:name).is_at_most(250) }
-    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:parent_id) }
-
-    describe "name cannot start with '/' or ' '" do
-      let(:parent) { build(:directory, name: name) }
-
-      context 'when name is valid' do
-        let(:name) { 'some valid name' }
-
-        it { expect(parent).to be_valid }
-      end
-
-      context "when name starts with '/'" do
-        let(:name) { '/invalid name' }
-
-        it { expect(parent).not_to be_valid }
-      end
-
-      context "when name starts with ' '" do
-        let(:name) { ' invalid name' }
-
-        it { expect(parent).not_to be_valid }
-      end
-    end
-
+  describe 'validations' do
     describe 'file needs to be attached' do
       subject { build(:archive, file: file) }
 

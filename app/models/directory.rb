@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 class Directory < ApplicationRecord
-  validates :name, presence: true
-  validates :name, length: { maximum: 250 }
-  validates :name, uniqueness: { scope: 'parent_id' }
-  validates :name, format: { without: /\A[\/\s]/ }
+  include Nameable
 
   belongs_to :parent, class_name: 'Directory', optional: true
 
