@@ -54,21 +54,21 @@ RSpec.describe Archive, type: :model do
 
   describe 'callbacks' do
     describe 'update full path' do
-      context 'when parent_dir is empty' do
-        let(:directory) { build(:directory, parent_dir: nil) }
+      context 'when parent is empty' do
+        let(:directory) { build(:directory, parent: nil) }
         it do
           expect { directory.save }.to change(directory, :full_path)
                                        .from(nil).to("/#{directory.name}")
         end
       end
 
-      context 'when have parent_dir' do
-        let(:parent_dir) { create(:directory) }
-        let(:directory) { build(:directory, parent_dir: parent_dir) }
+      context 'when have parent' do
+        let(:parent) { create(:directory) }
+        let(:directory) { build(:directory, parent: parent) }
 
         it do
           expect { directory.save }.to change(directory, :full_path)
-                                       .from(nil).to("#{parent_dir.full_path}/"\
+                                       .from(nil).to("#{parent.full_path}/"\
                                         "#{directory.name}")
         end
       end
@@ -76,7 +76,7 @@ RSpec.describe Archive, type: :model do
       context 'when update name update full_path' do
         let(:old_name) { Faker::Fantasy::Tolkien.character }
         let(:new_name) { Faker::Fantasy::Tolkien.character }
-        let(:directory) { create(:directory, name: old_name, parent_dir: nil) }
+        let(:directory) { create(:directory, name: old_name, parent: nil) }
         let(:update_name) { directory.update(name: new_name) }
 
         it do

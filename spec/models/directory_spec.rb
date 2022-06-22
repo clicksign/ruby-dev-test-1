@@ -7,7 +7,7 @@ RSpec.describe Directory, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).is_at_most(250) }
     it do
-      is_expected.to validate_uniqueness_of(:name).scoped_to(:parent_dir_id)
+      is_expected.to validate_uniqueness_of(:name).scoped_to(:parent_id)
     end
 
     describe "name cannot start with '/' or ' '" do
@@ -35,32 +35,32 @@ RSpec.describe Directory, type: :model do
 
   describe 'associations' do
     it do
-      is_expected.to belong_to(:parent_dir).class_name('Directory').optional
+      is_expected.to belong_to(:parent).class_name('Directory').optional
     end
     it do
-      is_expected.to have_many(:child_dirs).class_name('Directory')
-                     .with_foreign_key('parent_dir_id')
+      is_expected.to have_many(:children).class_name('Directory')
+                     .with_foreign_key('parent_id')
     end
     it { is_expected.to have_many(:archives) }
   end
 
   describe 'callbacks' do
     describe 'update full path' do
-      context 'when parent_dir is empty' do
-        let(:directory) { build(:directory, parent_dir: nil) }
+      context 'when parent is empty' do
+        let(:directory) { build(:directory, parent: nil) }
         it do
           expect { directory.save }.to change(directory, :full_path)
                                        .from(nil).to("/#{directory.name}")
         end
       end
 
-      context 'when have parent_dir' do
-        let(:parent_dir) { create(:directory) }
-        let(:directory) { build(:directory, parent_dir: parent_dir) }
+      context 'when have parent' do
+        let(:parent) { create(:directory) }
+        let(:directory) { build(:directory, parent: parent) }
 
         it do
           expect { directory.save }.to change(directory, :full_path)
-                                       .from(nil).to("#{parent_dir.full_path}/"\
+                                       .from(nil).to("#{parent.full_path}/"\
                                         "#{directory.name}")
         end
       end
@@ -68,7 +68,7 @@ RSpec.describe Directory, type: :model do
       context 'when update name update full_path' do
         let(:old_name) { Faker::Fantasy::Tolkien.character }
         let(:new_name) { Faker::Fantasy::Tolkien.character }
-        let(:directory) { create(:directory, name: old_name, parent_dir: nil) }
+        let(:directory) { create(:directory, name: old_name, parent: nil) }
         let(:update_name) { directory.update(name: new_name) }
 
         it do
@@ -83,14 +83,14 @@ RSpec.describe Directory, type: :model do
       context 'when name is updated' do
         let(:old_name) { Faker::Fantasy::Tolkien.character }
         let(:new_name) { Faker::Fantasy::Tolkien.character }
-        let(:directory) { create(:directory, name: old_name, parent_dir: nil) }
+        let(:directory) { create(:directory, name: old_name, parent: nil) }
         let(:child1) { build(:directory) }
         let(:child2) { build(:directory) }
         let(:update_name) { directory.update(name: new_name) }
 
         before do
-          directory.child_dirs << child1
-          directory.child_dirs << child2
+          directory.children << child1
+          directory.children << child2
         end
 
         it do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_22_035825) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_22_100032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,16 +56,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_22_035825) do
   create_table "directories", force: :cascade do |t|
     t.string "name", limit: 250, null: false
     t.text "full_path", null: false
-    t.bigint "parent_dir_id"
+    t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["full_path"], name: "index_directories_on_full_path", unique: true
-    t.index ["parent_dir_id", "name"], name: "index_directories_on_parent_dir_id_and_name", unique: true
-    t.index ["parent_dir_id"], name: "index_directories_on_parent_dir_id"
+    t.index ["parent_id", "name"], name: "index_directories_on_parent_id_and_name", unique: true
+    t.index ["parent_id"], name: "index_directories_on_parent_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "archives", "directories"
-  add_foreign_key "directories", "directories", column: "parent_dir_id"
+  add_foreign_key "directories", "directories", column: "parent_id"
 end
