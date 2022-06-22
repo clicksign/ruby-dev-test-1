@@ -1,0 +1,72 @@
+# config
+inherit_gem:
+  rubocop-github:
+    - config/default_edge.yml
+    - config/rails_edge.yml
+
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+
+# custom styles
+GitHub/RailsViewRenderLiteral:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: true
+  Max: 100
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/SymbolArray:
+  Enabled: false
+  MinSize: 3
+
+# disabled for awhile
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# vanilla additions that were not defined in the github rubocop
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: false
+
+Lint/StructNewOverride:
+  Enabled: false
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: false
+
+Style/ExponentialNotation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+# Not good with common_actions_concern index
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
