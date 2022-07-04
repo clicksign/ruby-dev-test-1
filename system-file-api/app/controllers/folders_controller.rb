@@ -13,6 +13,11 @@ class FoldersController < ApplicationController
                       .or_else { |errors| render json: { errors: errors }, status: :unprocessable_entity }
   end
 
+  def destroy
+    FolderDeleteAction.new.perform(params[:id])
+    head :no_content
+  end
+
   private
 
   def folder_params

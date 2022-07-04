@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'folders', type: :request do
-  context 'POST /folders' do
+  context 'when POST /folders' do
     context 'when create new folder without parent' do
       it 'returns successfully' do
         post '/folders', params: { folder: attributes_for(:folder) }
@@ -33,7 +33,7 @@ RSpec.describe 'folders', type: :request do
     end
   end
 
-  context 'PUT /folders/:id' do
+  context 'when PUT /folders/:id' do
     let(:folder) { create(:folder) }
 
     context 'when update folder successfully' do
@@ -67,6 +67,31 @@ RSpec.describe 'folders', type: :request do
     context 'when folder not exists' do
       it do
         put '/folders/0', params: { folder: attributes_for(:folder, name: nil) }
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:not_found)
+        expect(body.symbolize_keys!).to include(
+          error: be_an(String),
+          message: be_an(String)
+        )
+      end
+    end
+  end
+
+  context 'when DELETE /folders/:id' do
+    let(:folder) { create(:folder) }
+
+    context 'when update folder successfully' do
+      it do
+        delete "/folders/#{folder.id}"
+
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+
+    context 'when folder not exists' do
+      it do
+        delete '/folders/0'
 
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:not_found)
