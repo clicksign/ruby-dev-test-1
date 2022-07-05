@@ -9,8 +9,11 @@ class FileItemRepository
     end
 
     def create(input)
-      record = FileItemRecord.create!(input.to_hash)
-      to_file_item_model(record.attributes)
+      record = FileItemRecord.new(input.to_hash)
+      record.content.attach(input.content)
+      record.save!
+
+      to_file_item_model(record.attributes.merge(content: record.content.key))
     end
 
     def find(id)
@@ -21,7 +24,7 @@ class FileItemRepository
     def list_by_folder(folder_id)
       records = FileItemRecord.where(folder_id: folder_id).order(:name)
       records.map do |item|
-        to_file_item_model(item.attributes)
+        to_file_item_model(item.attributes.merge(content: item.content.key))
       end
     end
 
