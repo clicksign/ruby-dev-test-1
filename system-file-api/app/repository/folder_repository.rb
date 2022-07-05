@@ -22,16 +22,15 @@ class FolderRepository
       to_folder_model(record.attributes)
     end
 
-    def find_with_childrens_and_files(id)
-      record = FolderRecord.find(id)
-      childrens = childrens(id)
-      file_items = FileItemRepository.list_by_folder(id)
-
-      to_folder_model(record.attributes.merge(childrens: childrens, file_items: file_items))
-    end
-
     def childrens(id)
       records = FolderRecord.where(folder_id: id).order(:name)
+      records.map do |item|
+        to_folder_model(item.attributes)
+      end
+    end
+
+    def list_parent_folders
+      records = FolderRecord.where(folder_id: nil).order(:name)
       records.map do |item|
         to_folder_model(item.attributes)
       end

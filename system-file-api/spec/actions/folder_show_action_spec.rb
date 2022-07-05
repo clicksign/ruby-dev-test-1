@@ -18,18 +18,5 @@ describe FolderShowAction, type: :class do
       result = described_class.new.perform(folder.id)
       expect(result[:folder].id).to eq(folder.id)
     end
-
-    context 'when has childrens' do
-      before do
-        create(:folder, folder_id: folder.id)
-        create(:file_item, folder: folder)
-      end
-
-      it do
-        result = described_class.new.perform(folder.id)
-        expect(result[:folder].childrens.length).to eq(1)
-        expect(result[:folder].file_items.length).to eq(1)
-      end
-    end
   end
 end

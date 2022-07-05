@@ -15,8 +15,6 @@ RSpec.describe 'folders', type: :request do
         expect(body.symbolize_keys!).to include(
           name: be_an(String),
           folder_id: anything,
-          file_items: be_an(Array),
-          childrens: be_an(Array),
           id: be_an(Integer)
         )
       end
@@ -49,8 +47,6 @@ RSpec.describe 'folders', type: :request do
         expect(body.symbolize_keys!).to include(
           name: be_an(String),
           folder_id: nil,
-          file_items: be_an(Array),
-          childrens: be_an(Array),
           id: be_an(Integer)
         )
       end
@@ -121,8 +117,6 @@ RSpec.describe 'folders', type: :request do
         expect(body.symbolize_keys!).to include(
           name: be_an(String),
           folder_id: nil,
-          file_items: be_an(Array),
-          childrens: be_an(Array),
           id: be_an(Integer)
         )
       end
@@ -138,6 +132,53 @@ RSpec.describe 'folders', type: :request do
           error: be_an(String),
           message: be_an(String)
         )
+      end
+    end
+  end
+
+  context 'when GET /folders/:folder_id/childrens' do
+    let(:folder) { create(:folder) }
+
+    context 'when returns childrens of folder successfully' do
+      before do
+        create_list(:folder, 5, folder_id: folder.id)
+      end
+
+      it do
+        get "/folders/#{folder.id}/childrens"
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(body).to be_a_kind_of(Array)
+        expect(body.map(&:symbolize_keys!)).to include(include(
+                                                         id: be_an(Integer),
+                                                         name: be_an(String),
+                                                         folder_id: be_an(Integer)
+                                                       ))
+      end
+    end
+  end
+
+  context 'when GET /folders' do
+    let(:folder) { create(:folder) }
+
+    context 'when returns parent folders successfully' do
+      before do
+        create_list(:folder, 5, folder_id: folder.id)
+      end
+
+      it do
+        get '/folders'
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(body).to be_a_kind_of(Array)
+        expect(body.length).to eq(1)
+        expect(body.map(&:symbolize_keys!)).to include(include(
+                                                         id: be_an(Integer),
+                                                         name: be_an(String),
+                                                         folder_id: nil
+                                                       ))
       end
     end
   end

@@ -4,7 +4,7 @@ class FolderShowAction < Upgrow::Action
   result :folder
 
   def perform(id)
-    folder = FolderRepository.find_with_childrens_and_files(id)
+    folder = FolderRepository.find(id)
 
     result.success(folder: folder)
   end

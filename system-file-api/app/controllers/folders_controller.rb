@@ -24,6 +24,18 @@ class FoldersController < ApplicationController
     end
   end
 
+  def childrens
+    FolderListChildrensAction.new.perform(params[:id]).and_then do |folders:|
+      render json: FolderSerializer.render_as_hash(folders)
+    end
+  end
+
+  def index
+    FolderListParentsAction.new.perform.and_then do |folders:|
+      render json: FolderSerializer.render_as_hash(folders)
+    end
+  end
+
   private
 
   def folder_params
