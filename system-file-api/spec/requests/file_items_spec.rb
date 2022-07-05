@@ -89,4 +89,32 @@ RSpec.describe 'file_items', type: :request do
       end
     end
   end
+
+  context 'when DELETE /folders/:folder_id/file_items/:id' do
+    let(:folder) { create(:folder) }
+    let(:file_item) { create(:file_item, folder: folder) }
+
+    context 'when delete file_item successfully' do
+      it do
+        expect do
+          delete "/folders/#{folder.id}/file_items/#{file_item.id}"
+        end.to change(FileItemRecord, :count).by(0)
+
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+
+    context 'when file_item not exists' do
+      it do
+        delete "/folders/#{folder.id}/file_items/0"
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:not_found)
+        expect(body.symbolize_keys!).to include(
+          error: be_an(String),
+          message: be_an(String)
+        )
+      end
+    end
+  end
 end

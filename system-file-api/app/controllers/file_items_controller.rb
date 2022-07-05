@@ -13,6 +13,11 @@ class FileItemsController < ApplicationController
                         .or_else { |errors| render json: { errors: errors }, status: :unprocessable_entity }
   end
 
+  def destroy
+    FileItemDeleteAction.new.perform(params[:id])
+    head :no_content
+  end
+
   private
 
   def file_item_params
