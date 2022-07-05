@@ -18,6 +18,12 @@ class FileItemsController < ApplicationController
     head :no_content
   end
 
+  def index
+    FileItemListAction.new.perform(params[:folder_id]).and_then do |file_items:|
+      render json: FileItemSerializer.render_as_hash(file_items)
+    end
+  end
+
   private
 
   def file_item_params

@@ -117,4 +117,28 @@ RSpec.describe 'file_items', type: :request do
       end
     end
   end
+
+  context 'when GET /folders/:folder_id/file_items' do
+    let(:folder) { create(:folder) }
+
+    context 'when returns file_items of folder successfully' do
+      before do
+        create_list(:file_item, 5, folder: folder)
+      end
+
+      it do
+        get "/folders/#{folder.id}/file_items"
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(body).to be_a_kind_of(Array)
+        expect(body.map(&:symbolize_keys!)).to include(include(
+                                                         id: be_an(Integer),
+                                                         name: be_an(String),
+                                                         folder_id: be_an(Integer),
+                                                         content: be_an(String)
+                                                       ))
+      end
+    end
+  end
 end

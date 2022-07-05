@@ -4,7 +4,7 @@ class FileItemRepository
   class << self
     def all
       FileItemRecord.all.map do |record|
-        to_file_item_model(record.attributes)
+        to_file_item_model(record.attributes, record.content)
       end
     end
 
@@ -13,18 +13,18 @@ class FileItemRepository
       record.content.attach(input.content)
       record.save!
 
-      to_file_item_model(record.attributes.merge(content: record.content.key))
+      to_file_item_model(record.attributes, record.content)
     end
 
     def find(id)
       record = FileItemRecord.find(id)
-      to_file_item_model(record.attributes)
+      to_file_item_model(record.attributes, record.content)
     end
 
     def list_by_folder(folder_id)
       records = FileItemRecord.where(folder_id: folder_id).order(:name)
       records.map do |item|
-        to_file_item_model(item.attributes.merge(content: item.content.key))
+        to_file_item_model(item.attributes, item.content)
       end
     end
 
@@ -37,7 +37,7 @@ class FileItemRepository
 
       record.update!(input.to_hash)
 
-      to_file_item_model(record.attributes.merge(content: record.content.key))
+      to_file_item_model(record.attributes, record.content)
     end
 
     def delete(id)
@@ -45,8 +45,8 @@ class FileItemRepository
       record.destroy!
     end
 
-    def to_file_item_model(attributes)
-      FileItem.new(**attributes.symbolize_keys)
+    def to_file_item_model(attributes, content)
+      FileItem.new(**attributes.merge(content: content.key).symbolize_keys)
     end
   end
 end
