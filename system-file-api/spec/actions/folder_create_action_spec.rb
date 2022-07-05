@@ -11,7 +11,7 @@ describe FolderCreateAction, type: :class do
 
     it 'with invalid folder_id' do
       result = described_class.new.perform(attributes_for(:folder, folder_id: 99))
-      expect(result[:errors]).to eq('Parent folder not exists')
+      expect(result[:errors][:folder_id]).to include('is invalid')
     end
   end
 

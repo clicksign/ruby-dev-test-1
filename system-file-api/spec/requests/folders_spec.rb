@@ -7,7 +7,7 @@ RSpec.describe 'folders', type: :request do
     context 'when create new folder without parent' do
       it 'returns successfully' do
         expect do
-          post '/folders', params: { folder: attributes_for(:folder) }
+          post '/folders', params: attributes_for(:folder)
         end.to change(FolderRecord, :count)
 
         body = JSON.parse(response.body)
@@ -20,9 +20,9 @@ RSpec.describe 'folders', type: :request do
       end
     end
 
-    context 'when send invalid input' do
+    context 'when send invalid folder' do
       it do
-        post '/folders', params: { folder: attributes_for(:folder, name: nil) }
+        post '/folders', params: attributes_for(:folder, name: nil)
 
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:unprocessable_entity)
@@ -39,7 +39,7 @@ RSpec.describe 'folders', type: :request do
     context 'when update folder successfully' do
       it do
         expect do
-          put "/folders/#{folder.id}", params: { folder: attributes_for(:folder) }
+          put "/folders/#{folder.id}", params: attributes_for(:folder)
           folder.reload
         end.to change(folder, :name)
         body = JSON.parse(response.body)
@@ -54,7 +54,7 @@ RSpec.describe 'folders', type: :request do
 
     context 'when send invalid params' do
       it do
-        put "/folders/#{folder.id}", params: { folder: attributes_for(:folder, name: nil) }
+        put "/folders/#{folder.id}", params: attributes_for(:folder, name: nil)
 
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:unprocessable_entity)
@@ -66,7 +66,7 @@ RSpec.describe 'folders', type: :request do
 
     context 'when folder not exists' do
       it do
-        put '/folders/0', params: { folder: attributes_for(:folder, name: nil) }
+        put '/folders/0', params: attributes_for(:folder, name: nil)
 
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:not_found)

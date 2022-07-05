@@ -22,7 +22,7 @@ describe FolderUpdateAction, type: :class do
 
       it 'with invalid folder_id' do
         result = described_class.new.perform(folder.id, attributes_for(:folder, folder_id: 99))
-        expect(result[:errors]).to eq('Parent folder not exists')
+        expect(result[:errors][:folder_id]).to include('is invalid')
       end
     end
 
