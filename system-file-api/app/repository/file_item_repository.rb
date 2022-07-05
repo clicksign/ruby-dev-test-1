@@ -30,8 +30,14 @@ class FileItemRepository
 
     def update(id, input)
       record = FileItemRecord.find(id)
-      record.update!(input)
-      to_file_item_model(record.attributes)
+      if input.content
+        record.content.purge
+        record.content.attach(input.content)
+      end
+
+      record.update!(input.to_hash)
+
+      to_file_item_model(record.attributes.merge(content: record.content.key))
     end
 
     def delete(id)

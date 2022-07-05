@@ -6,7 +6,9 @@ RSpec.describe 'folders', type: :request do
   context 'when POST /folders' do
     context 'when create new folder without parent' do
       it 'returns successfully' do
-        post '/folders', params: { folder: attributes_for(:folder) }
+        expect do
+          post '/folders', params: { folder: attributes_for(:folder) }
+        end.to change(FolderRecord, :count)
 
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:created)
@@ -38,8 +40,10 @@ RSpec.describe 'folders', type: :request do
 
     context 'when update folder successfully' do
       it do
-        put "/folders/#{folder.id}", params: { folder: attributes_for(:folder) }
-
+        expect do
+          put "/folders/#{folder.id}", params: { folder: attributes_for(:folder) }
+          folder.reload
+        end.to change(folder, :name)
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
         expect(body.symbolize_keys!).to include(
@@ -83,7 +87,9 @@ RSpec.describe 'folders', type: :request do
 
     context 'when delete folder successfully' do
       it do
-        delete "/folders/#{folder.id}"
+        expect do
+          delete "/folders/#{folder.id}"
+        end.to change(FolderRecord, :count).by(0)
 
         expect(response).to have_http_status(:no_content)
       end
