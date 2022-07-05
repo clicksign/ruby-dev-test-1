@@ -18,6 +18,13 @@ class FileItemRepository
       to_file_item_model(record.attributes)
     end
 
+    def list_by_folder(folder_id)
+      records = FileItemRecord.where(folder_id: folder_id).order(:name)
+      records.map do |item|
+        to_file_item_model(item.attributes)
+      end
+    end
+
     def update(id, input)
       record = FileItemRecord.find(id)
       record.update!(input)

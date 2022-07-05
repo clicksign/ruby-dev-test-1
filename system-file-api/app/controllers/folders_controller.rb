@@ -18,6 +18,12 @@ class FoldersController < ApplicationController
     head :no_content
   end
 
+  def show
+    FolderShowAction.new.perform(params[:id]).and_then do |folder:|
+      render json: FolderSerializer.render_as_hash(folder)
+    end
+  end
+
   private
 
   def folder_params

@@ -81,7 +81,7 @@ RSpec.describe 'folders', type: :request do
   context 'when DELETE /folders/:id' do
     let(:folder) { create(:folder) }
 
-    context 'when update folder successfully' do
+    context 'when delete folder successfully' do
       it do
         delete "/folders/#{folder.id}"
 
@@ -92,6 +92,39 @@ RSpec.describe 'folders', type: :request do
     context 'when folder not exists' do
       it do
         delete '/folders/0'
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:not_found)
+        expect(body.symbolize_keys!).to include(
+          error: be_an(String),
+          message: be_an(String)
+        )
+      end
+    end
+  end
+
+  context 'when GET /folders/:id' do
+    let(:folder) { create(:folder) }
+
+    context 'when returns folder details successfully' do
+      it do
+        get "/folders/#{folder.id}"
+
+        body = JSON.parse(response.body)
+        expect(response).to have_http_status(:ok)
+        expect(body.symbolize_keys!).to include(
+          name: be_an(String),
+          folder_id: nil,
+          file_items: be_an(Array),
+          childrens: be_an(Array),
+          id: be_an(Integer)
+        )
+      end
+    end
+
+    context 'when folder not exists' do
+      it do
+        get '/folders/0'
 
         body = JSON.parse(response.body)
         expect(response).to have_http_status(:not_found)
