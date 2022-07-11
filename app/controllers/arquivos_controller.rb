@@ -31,7 +31,12 @@ class ArquivosController < ApplicationController
     else
       render status: :created
     end
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { message: e.message }, status: :not_found
+  end
 
+  def destroy
+    DeletarArquivosService.new.deletar(params[:id])
   rescue ActiveRecord::RecordNotFound => e
     render json: { message: e.message }, status: :not_found
   end
