@@ -1,37 +1,52 @@
 class ArquivosServices
-  def buscar_todos_os_arquivos(sub_diretorios = false)
-    arquivos = Arquivo.diretorios_raiz
-    tratar_arquivos(arquivos, sub_diretorios)
+  def buscar_todos(sub_diretorios = false)
+    arquivos = Arquivo.diretorios_raiz.all
+    if sub_diretorios
+      tratar_arquivos_e_sub_arquivos(arquivos)
+    else
+      tratar_arquivos(arquivos)
+    end
+  end
+
+  def buscar(id, sub_diretorios = false)
+    arquivo = Arquivo.find(id)
+    if sub_diretorios
+      tratar_arquivos_e_sub_arquivos([arquivo])
+    else
+      tratar_arquivos([arquivo])
+    end
   end
 
   private
 
-  def tratar_arquivos(arquivos_brutos, sub_diretorios = false)
-    arquivos = []
-    arquivos_brutos.each do |arquivo|
-      if sub_diretorios
-        sub_arquivos = tratar_arquivos(arquivo.arquivos, sub_diretorios)
-        arquivo_simplificado = tratar_arquivo(arquivo, sub_arquivos)
-      else
-        arquivo_simplificado = tratar_arquivo(arquivo)
-      end
-      arquivos.push(arquivo_simplificado)
+  def tratar_arquivos(arquivos)
+    saida = []
+    arquivos&.each do |arquivo|
+      arquivo_simplificado = tratar_arquivo(arquivo)
+      saida.push(arquivo_simplificado)
     end
-
-    arquivos
+    saida
   end
 
-  def tratar_arquivo(arquivo, subarquivos = [])
-    novo_arquivo = {
+  def tratar_arquivos_e_sub_arquivos(arquivos)
+    saida = []
+    arquivos&.each do |arquivo|
+      sub_arquivos = tratar_arquivos_e_sub_arquivos(arquivo.arquivos)
+      arquivo_simplificado = tratar_arquivo(arquivo, sub_arquivos)
+      saida.push(arquivo_simplificado)
+    end
+    saida
+  end
+
+  def tratar_arquivo(arquivo, sub_arquivos = [])
+    saida = {
       id: arquivo.id,
       path: arquivo.path,
       nome: arquivo.name,
     }
-
     if arquivo.pasta?
-      novo_arquivo[:arquivos] = subarquivos
+      saida[:arquivos] = sub_arquivos
     end
-
-    novo_arquivo
+    saida
   end
 end
