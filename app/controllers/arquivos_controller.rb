@@ -12,25 +12,37 @@ class ArquivosController < ApplicationController
   end
 
   def create
-    @enemy = @criar_arquivo_service.create(create_arquivo_params)
+    @criar_arquivo_service = CriarArquivoService.new
+    @arquivo = @criar_arquivo_service.create(create_params)
 
-    if !@enemy.errors.empty?
-      render json: { errors: @enemy.errors }, status: :unprocessable_entity
+    if !@arquivo.errors.empty?
+      render json: { errors: @arquivo.errors }, status: :unprocessable_entity
     else
       render status: :created
     end
   end
 
-  def edit
+  def update
+    @atualizar_arquivo_service = AtualizarArquivoService.new
+    @arquivo = @atualizar_arquivo_service.mover(params[:id], update_params)
+
+    if !@arquivo.errors.empty?
+      render json: { errors: @arquivo.errors }, status: :unprocessable_entity
+    else
+      render status: :created
+    end
+
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { message: e.message }, status: :not_found
   end
 
   private
 
-  def create_arquivo_params
+  def create_params
     params.permit(:nome, :pasta, :conteudo, :diretorio)
   end
 
-  def update_arquivo_params
+  def update_params
     params.permit(:diretorio)
   end
 
@@ -40,10 +52,6 @@ class ArquivosController < ApplicationController
 
   def set_arquivos_services
     @arquivos_service = BuscarArquivosService.new
-  end
-
-  def set_criar_arquivo_service
-    @criar_arquivo_service = CriarArquivoService.new
   end
 
   def set_arquivo
