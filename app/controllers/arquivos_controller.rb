@@ -11,7 +11,14 @@ class ArquivosController < ApplicationController
     render json: @arquivo, status: :ok
   end
 
-  def new
+  def create
+    @enemy = @criar_arquivo_service.create(create_arquivo_params)
+
+    if !@enemy.errors.empty?
+      render json: { errors: @enemy.errors }, status: :unprocessable_entity
+    else
+      render status: :created
+    end
   end
 
   def edit
@@ -19,12 +26,24 @@ class ArquivosController < ApplicationController
 
   private
 
+  def create_arquivo_params
+    params.permit(:nome, :pasta, :conteudo, :diretorio)
+  end
+
+  def update_arquivo_params
+    params.permit(:diretorio)
+  end
+
   def carregar_sub_pastas?
     parse_boolean(params[:sub_pastas])
   end
 
   def set_arquivos_services
-    @arquivos_service = ArquivosServices.new
+    @arquivos_service = BuscarArquivosService.new
+  end
+
+  def set_criar_arquivo_service
+    @criar_arquivo_service = CriarArquivoService.new
   end
 
   def set_arquivo
