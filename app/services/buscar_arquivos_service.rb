@@ -1,4 +1,4 @@
-class ArquivosServices
+class BuscarArquivosService
   def buscar_todos(sub_diretorios = false)
     arquivos = Arquivo.diretorios_raiz.all
     if sub_diretorios
@@ -41,8 +41,8 @@ class ArquivosServices
   def tratar_arquivo(arquivo, sub_arquivos = [])
     saida = {
       id: arquivo.id,
-      path: arquivo.path,
-      nome: arquivo.name,
+      caminho: arquivo.caminho,
+      nome: arquivo.nome,
     }
     if arquivo.pasta?
       saida[:arquivos] = sub_arquivos

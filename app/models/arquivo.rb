@@ -6,4 +6,8 @@ class Arquivo < ActiveRecord::Base
   def pasta?
     pasta === true
   end
+
+  def full_caminho
+    "#{caminho}/#{nome}"
+  end
 end
