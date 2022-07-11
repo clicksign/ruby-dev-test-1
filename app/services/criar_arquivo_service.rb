@@ -1,6 +1,7 @@
 class CriarArquivoService
   def create(params)
-    arquivo = Arquivo.new({ nome: params[:nome], pasta: params[:pasta], diretorio_id: params[:diretorio] })
+    arquivo = Arquivo.new({ nome: params[:nome], pasta: params[:pasta]})
+    arquivo.diretorio = Arquivo.find_by_id(params[:diretorio])
 
     formatar_nome_arquivo(arquivo)
     montar_caminho(arquivo)
@@ -24,13 +25,10 @@ class CriarArquivoService
   end
 
   def montar_caminho(arquivo)
-    if arquivo.diretorio_id.nil?
+    if arquivo.diretorio.nil?
       arquivo.caminho = '/'
     else
-      diretorio = Arquivo.find(arquivo.diretorio_id)
-      caminho = diretorio.caminho_completo
-      arquivo.diretorio = diretorio
-      arquivo.caminho = caminho
+      arquivo.caminho = arquivo.diretorio.caminho_completo
     end
   end
 
