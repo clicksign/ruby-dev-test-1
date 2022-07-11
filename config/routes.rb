@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :arquivos, only: [:index, :show, :edit, :create]
+  resources :arquivos, only: [:index, :show, :update, :create]
 end
