@@ -43,6 +43,7 @@ class BuscarArquivosService
       id: arquivo.id,
       caminho: arquivo.caminho,
       nome: arquivo.nome,
+      url: arquivo.conteudo&.url
     }
     if arquivo.pasta?
       saida[:arquivos] = sub_arquivos
