@@ -9,7 +9,7 @@ class Arquivo < ActiveRecord::Base
     pasta === true
   end
 
-  def full_caminho
-    "#{caminho}/#{nome}"
+  def caminho_completo
+    caminho == '/' ? "/#{nome}" : caminho
   end
 end
