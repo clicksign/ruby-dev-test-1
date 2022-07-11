@@ -2,14 +2,12 @@ class ArquivosController < ApplicationController
   before_action :set_arquivos_services, only: [:index, :show]
 
   def index
-    sub_diretorios = parse_boolean(params[:sub_diretorios])
-    @arquivos = @arquivos_service.buscar_todos(sub_diretorios)
+    @arquivos = @arquivos_service.buscar_todos(carregar_sub_pastas?)
     render json: @arquivos, status: :ok
   end
 
   def show
-    sub_diretorios = parse_boolean(params[:sub_diretorios])
-    @arquivo =  @arquivos_service.buscar(params[:id].to_i, sub_diretorios)
+    @arquivo =  @arquivos_service.buscar(params[:id].to_i, carregar_sub_pastas?)
     render json: @arquivo, status: :ok
   end
 
@@ -20,6 +18,10 @@ class ArquivosController < ApplicationController
   end
 
   private
+
+  def carregar_sub_pastas?
+    parse_boolean(params[:sub_pastas])
+  end
 
   def set_arquivos_services
     @arquivos_service = ArquivosServices.new
