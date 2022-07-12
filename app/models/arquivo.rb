@@ -5,6 +5,7 @@ class Arquivo < ActiveRecord::Base
   belongs_to :diretorio, class_name: 'Arquivo', optional: true
   scope :diretorios_raiz, -> { where(diretorio_id: nil) }
 
+  validates :nome, presence: true, allow_blank: false
   validate :conteudo_obrigatorio, :conteudo_nao_obriigatorio, :diretorio_invalido
 
   def pasta?
