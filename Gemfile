@@ -16,7 +16,10 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 2.21'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
