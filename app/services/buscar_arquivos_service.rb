@@ -41,7 +41,6 @@ class BuscarArquivosService
   def tratar_arquivo(arquivo, sub_arquivos = [])
     saida = {
       id: arquivo.id,
-      caminho: arquivo.caminho,
       nome: arquivo.nome,
       url: arquivo.conteudo&.url
     }

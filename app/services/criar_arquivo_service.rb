@@ -4,7 +4,6 @@ class CriarArquivoService
     arquivo.diretorio = Arquivo.find_by_id(params[:diretorio])
 
     formatar_nome_arquivo(arquivo)
-    montar_caminho(arquivo)
     anexar_arquivo(arquivo, params[:conteudo])
 
     arquivo.save
@@ -22,14 +21,6 @@ class CriarArquivoService
 
     conteudo_decodificado = conteudo_decodificado(conteudo, arquivo.nome)
     arquivo.conteudo.attach(conteudo_decodificado)
-  end
-
-  def montar_caminho(arquivo)
-    if arquivo.diretorio.nil?
-      arquivo.caminho = '/'
-    else
-      arquivo.caminho = arquivo.diretorio.caminho_completo
-    end
   end
 
   def conteudo_decodificado(base_64, file_name)

@@ -11,10 +11,6 @@ class Arquivo < ActiveRecord::Base
     pasta === true
   end
 
-  def caminho_completo
-    caminho == '/' ? "/#{nome}" : "#{caminho}/#{nome}"
-  end
-
   private
 
   def conteudo_obrigatorio
@@ -31,7 +27,7 @@ class Arquivo < ActiveRecord::Base
 
   def diretorio_invalido
     if !diretorio.nil? && !diretorio.pasta?
-      errors.add(:conteudo, "O diretório informado não é uma pasta")
+      errors.add(:diretorio, "O diretório informado não é uma pasta")
     end
   end
 end
