@@ -1,16 +1,14 @@
 require 'rails_helper'
 
 class CriarArquivoServiceSpec < ActiveSupport::TestCase
-  RSpec.describe CriarArquivoService, type: :model do
+  RSpec.describe CriarArquivoService, type: :integration do
     before(:each) do
       @criar_arquivo_service = CriarArquivoService.new
       @conteudo = Base64.encode64(File.open("#{Rails.root}/spec/support/attachments/image.png").read)
     end
     it 'grava um arquivo válido' do
       arquivo_params = { nome: "Teste", pasta: false, conteudo: @conteudo, diretorio: "" }
-      @criar_arquivo_service.create(arquivo_params)
-
-      arquivo_criado = Arquivo.find(1)
+      arquivo_criado = @criar_arquivo_service.create(arquivo_params)
 
       expect(Arquivo.count).to eq(1)
       expect(arquivo_criado.nome).to eq("Teste")
@@ -19,9 +17,7 @@ class CriarArquivoServiceSpec < ActiveSupport::TestCase
     end
     it 'grava uma pasta válida' do
       arquivo_params = { nome: "Teste", pasta: true, diretorio: "" }
-      @criar_arquivo_service.create(arquivo_params)
-
-      arquivo_criado = Arquivo.find(1)
+      arquivo_criado = @criar_arquivo_service.create(arquivo_params)
 
       expect(Arquivo.count).to eq(1)
       expect(arquivo_criado.nome).to eq("Teste")
@@ -32,8 +28,7 @@ class CriarArquivoServiceSpec < ActiveSupport::TestCase
     it 'grava um arquivo dentro de um diretorio' do
       diretorio = create(:pasta_valida)
       arquivo_params = { nome: "Teste", pasta: false, conteudo: @conteudo, diretorio: diretorio.id }
-      @criar_arquivo_service.create(arquivo_params)
-      arquivo_criado = Arquivo.find(2)
+      arquivo_criado = @criar_arquivo_service.create(arquivo_params)
 
       expect(arquivo_criado.diretorio_id).to eq(diretorio.id)
       expect(Arquivo.count).to eq(2)
