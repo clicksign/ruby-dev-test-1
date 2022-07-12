@@ -30,5 +30,8 @@ class Arquivo < ActiveRecord::Base
     if !diretorio.nil? && !diretorio.pasta?
       errors.add(:diretorio, "O diretório informado não é uma pasta")
     end
+    if !diretorio_id.nil? && diretorio_id == id
+      errors.add(:diretorio, "O arquivo não ter ele mesmo como diretorio")
+    end
   end
 end
