@@ -20,7 +20,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
   config.include Requests::JsonHelpers, :type => :controller
-  config.before(:suite) do
+  config.before(:all) do
     DatabaseCleaner.allow_remote_database_url = true
     DatabaseCleaner.clean_with(:deletion)
     DatabaseCleaner.strategy = :transaction
@@ -29,6 +29,10 @@ RSpec.configure do |config|
     DatabaseCleaner.start
   end
   config.after(:each) do
+    ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
+    DatabaseCleaner.clean
+  end
+  config.after(:all) do
     ActiveStorage::Attachment.all.each { |attachment| attachment.purge }
     DatabaseCleaner.clean
   end
