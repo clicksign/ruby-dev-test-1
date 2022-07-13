@@ -1,4 +1,4 @@
-# Seja bem bem vindo
+# Seja bem bem vindo 
 
 Este resositório contém parte do teste técnico que desenvolvi no processo seletivo da Clicksign, e consiste numa API para gerenciar arquivos, desenvolvida por mim usando Ruby On Rails.
 
@@ -22,47 +22,45 @@ O projeto assumiu algumas ideias, e focou nos recursos básicos para agilizar o 
 A API consiste em um crud simples, com os seguintes endpoints (que podem ser acessados via postman ou qualquer outro software de sua preferência):
 
 - ***GET /arquivos?sub_pastas=true***
-  Retorna as principais informações dos arquivos e pastas já gravados no banco de dados e sua URL para download (no caso dos arquivos). Há um paramêtro opcional (que caso não informado o sistema assume valor ***false***)  **sub_pastas**, que diz ao sistema se ele deve retornar ou não subdiretórios e subarquivos daquele registro, caso ele seja uma pasta.
+Retorna as principais informações dos arquivos e pastas já gravados no banco de dados e sua URL para download (no caso dos arquivos). Há um paramêtro opcional (que caso não informado o sistema assume valor ***false***)  **sub_pastas**, que diz ao sistema se ele deve retornar ou não subdiretórios e subarquivos daquele registro, caso ele seja uma pasta.
 
 - ***GET /arquivos/:id?sub_pastas=true***
-  Retorna as informações solicitadas do arquivo informado via **paramêtro :id**, incluindo sua URL para download (quando não é uma pasta). Há aqui também o paramêtro opcional (que caso não informado o sistema assume valor ***false***)   **sub_pastas**, que diz ao sistema se ele deve retornar ou não subdiretórios e subarquivos daquele registro, caso ele seja uma pasta.
+Retorna as informações solicitadas do arquivo informado via **paramêtro :id**, incluindo sua URL para download (quando não é uma pasta). Há aqui também o paramêtro opcional (que caso não informado o sistema assume valor ***false***)   **sub_pastas**, que diz ao sistema se ele deve retornar ou não subdiretórios e subarquivos daquele registro, caso ele seja uma pasta.
 
 - ***POST /arquivos***
-  Cadastra um arquivo com base no payload informado, que deve seguir a seguinte estrutura:
+Cadastra um arquivo com base no payload informado, que deve seguir a seguinte estrutura:
 
-  ```JSON
-   {
-      "nome": string, 
-      "pasta": boolean,
-      "conteudo": string,
-      "diretorio": string
-   }
-  ```
-  O atributo **nome** é obrigatório, e indica o nome do arquivo;
-  O atributo **pasta** é  opcional e possui valor defaut true, ele indica se o registro deve é pasta ou um arquivo;
-  O atributo **conteudo:** é obrigatório caso o registro seja um arquivo, e deve ser usado para enviar o conteúdo do arquivo, que deve está codificado em uma **string base64**.
-  O atributo **diretorio:** é opcional e deve conter o **id da pasta** onde ficará aninhado o registro;
-
-- ***PUT /arquivos/:id***
-  Move o arquivo informado via **paramêtro :id** de local, já que o sistema só permite alterar a pasta onde ele está localizado. O payload da requisição deve seguir a seguinte estrutura:
-  ```JSON
-   {
-      "diretorio": string
-   }
-  ```
-  O atributo **diretorio:** é obrigatorio e deve conter o **id da pasta** onde ficará aninhado o registro;
-
-- ***DELETE /arquivos/:id***
-  Deleta o arquivo informado via **paramêtro :id** e todo e qualquer registro filho.
+	```JSON
+	 {
+		"nome": string, 
+		"pasta": boolean,
+		"conteudo": string,
+		"diretorio": string
+	 }
+	```
+	 O atributo **nome** é obrigatório, e indica o nome do arquivo;
+	 O atributo **pasta** é  opcional e possui valor defaut true, ele indica se o registro deve é pasta ou um arquivo;
+	O atributo **conteudo:** é obrigatório caso o registro seja um arquivo, e deve ser usado para enviar o conteúdo do arquivo, que deve está codificado em uma **string base64**.
+	 O atributo **diretorio:** é opcional e deve conter o **id da pasta** onde ficará aninhado o registro;
+	 
+ - ***PUT /arquivos/:id***
+Move o arquivo informado via **paramêtro :id** de local, já que o sistema só permite alterar a pasta onde ele está localizado. O payload da requisição deve seguir a seguinte estrutura: 
+	```JSON
+	 {
+		"diretorio": string
+	 }
+	```
+	 O atributo **diretorio:** é obrigatorio e deve conter o **id da pasta** onde ficará aninhado o registro;
+	 
+ - ***DELETE /arquivos/:id***
+Deleta o arquivo informado via **paramêtro :id** e todo e qualquer registro filho.
 
 # Observações diversas
 * O projeto utiliza um banco de dados simples, afinal é para fim didático e do processo seletivo.
 * É utilizado o **AWS S3** para o armazenamento de arquivos, junto ao **active storage** que abstrai toda a lógica de uso do mesmo, simplificando e agilizando o desenvolvimento;
 * O projeto possui testes unitários de todos os principais métodos públicos, cobrindo os diversos cenários de cada classe desenvolvida: models, controllers e services;
-* Foi criada uma pasta extra onde adicionei meus **services**, que possuem finalidades especificas, a fim de isolar lógicas  complexas de **busca, criação, alteração e exclusão** de arquivos, deixando as controllers limpas;
-* Não retorno todos os dados dos arquivos nas buscas, apenas o mais necessário: **nome, URL e sub-diretórios/arquivos**. O tratamento e busca dos dados eu implementei utilizando recursividade;
+* Foi criada uma pasta extra onde adicionei meus **services**, que possuem finalidades especificas, a fim de isolar lógicas  complexas de **busca, criação, alteração e exclusão** de arquivos, deixando a controller limpa e facilitando a escrita dos **testes**;
+* Não retorno todos os dados dos arquivos nas buscas, apenas o mais necessário: **nome, URL e sub-diretórios/arquivos**. O tratamento e busca dos dados eu implementei utilizando **recursividade**;
 * Os testes são implementados com **RSpec** e contei com o auxilio da gem **factory_bot** para construir, criar e gravar registros fakes no banco de dados;
-* Nos testes utilizei sqlite e a cada bloco de testes executado ele é limpado. Cada teste é envolto em uma transação que não é commitada, a fim de manter seu estado inicial.
-* Nos teste o conteúdo dos arquivos é guardado no S3 também e é apagado ao final de cada teste;
-
-
+* Nos testes utilizei **sqlite** e a cada bloco de testes executado ele é recriado. Além disso cada teste é **envolto em uma transação** que não é commitada, a fim de manter  o banco em seu estado inicial, e não prejudicar os testes subjacentes. Isso é feito com o auxílio da gem **database_cleaner-active_record**;
+* Nos teste o conteúdo dos arquivos é guardado no S3 também e é apagado ao final de cada teste.
