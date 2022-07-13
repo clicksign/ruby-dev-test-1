@@ -55,6 +55,22 @@ describe Arquivo, type: :model do
     expect(Arquivo.count).to eq(0)
     expect(arquivo.errors[:conteudo]).to include("Pasta não pode ter conteúdo")
   end
+  it 'dar erro ao cadatrar arquivos com nomes iguais' do
+    arquivo1 = create(:arquivo_valido)
+    arquivo2 = build(:arquivo_valido, nome: arquivo1.nome)
+    arquivo2.save
+
+    expect(Arquivo.count).to eq(1)
+    expect(arquivo2.errors[:nome]).to include("O diretório informado já comtém um arquivo com esse nome")
+  end
+  it 'dar erro ao cadatrar pastas com nomes iguais' do
+    pasta1 = create(:pasta_valida)
+    pasta2 = build(:pasta_valida, nome: pasta1.nome)
+    pasta2.save
+
+    expect(Arquivo.count).to eq(1)
+    expect(pasta2.errors[:nome]).to include("O diretório informado já comtém um arquivo com esse nome")
+  end
   it 'deleta pasta, subpastas e sub arquivos com sucesso' do
     pasta1 = create(:pasta_valida)
     create(:pasta_valida, diretorio: pasta1)
