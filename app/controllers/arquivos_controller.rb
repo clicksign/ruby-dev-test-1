@@ -9,6 +9,8 @@ class ArquivosController < ApplicationController
   def show
     @arquivo =  @arquivos_service.buscar(params[:id].to_i, carregar_sub_pastas?)
     render json: @arquivo, status: :ok
+  rescue ActiveRecord::RecordNotFound => e
+    render json: { message: e.message }, status: :not_found
   end
 
   def create
