@@ -58,9 +58,9 @@ describe ArquivosController, type: :controller do
     expect(@pasta2.arquivos.count).to eq(total_arquivos_pasta_2 + 1)
   end
   it "deleta arquivo" do
-    expect {
-      delete :destroy, :params => { id: @pasta1.id }
-    }.to change(Arquivo, :count).by(-5)
+    expect(Arquivo.count).to be(5)
+    delete :destroy, :params => { id: @pasta1.id }
+    expect(Arquivo.count).to be(0)
   end
   it "retorna 404 ao deleta arquivo inexistente" do
     delete :destroy, :params => { id: 99 }
