@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-class DeletarArquivoServiceSpec < ActiveSupport::TestCase
-  RSpec.describe DeletarArquivosService, type: :integration do
+  describe DeletarArquivosService, type: :integration do
     before(:each) do
       @criar_arquivo_service = CriarArquivoService.new
       @deletar_arquivo_service = DeletarArquivosService.new
@@ -43,4 +42,3 @@ class DeletarArquivoServiceSpec < ActiveSupport::TestCase
       expect { @deletar_arquivo_service.deletar(2) }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
-end
