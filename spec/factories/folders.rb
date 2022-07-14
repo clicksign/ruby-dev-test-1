@@ -5,5 +5,6 @@ FactoryBot.define do
     name { Faker::Lorem.word }
     path { '/' }
     parent { nil }
+    archives { [] }
   end
 end

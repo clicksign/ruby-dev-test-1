@@ -4,7 +4,7 @@ class Folder < ApplicationRecord
   belongs_to :parent, class_name: 'Folder', optional: true
   has_many :children, class_name: 'Folder', inverse_of: :parent, dependent: :destroy,
                       foreign_key: :parent_id
-  # TODO: has_many with files
+  has_many :archives
 
   validates :name, presence: true
   validates :name, length: { maximum: 100 }
@@ -14,6 +14,7 @@ class Folder < ApplicationRecord
 
   after_validation :update_path
   after_update :update_children_path
+  after_update :update_archives_path
 
   def update_path
     self.path = '/'
@@ -24,6 +25,13 @@ class Folder < ApplicationRecord
     children.each do |child|
       child.update_path
       child.save!
+    end
+  end
+
+  def update_archives_path
+    archives.each do |archive|
+      archive.update_path
+      archive.save!
     end
   end
 end

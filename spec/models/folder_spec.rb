@@ -11,6 +11,7 @@ RSpec.describe Folder, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_many(:children) }
+    it { is_expected.to have_many(:archives) }
     it { is_expected.to belong_to(:parent).optional }
   end
 
@@ -38,7 +39,7 @@ RSpec.describe Folder, type: :model do
   describe 'callbacks' do
     let(:root) { create(:folder, name: 'root') }
     let(:folder) { described_class.create(name: 'folder') }
-    let(:subject) { described_class.roots }
+    let(:file) { create(:archive, name: 'file', folder:) }
 
     describe '#update_path' do
       it 'when the folder is root' do
@@ -83,6 +84,16 @@ RSpec.describe Folder, type: :model do
         expect(root.path).to eq('/')
         expect(other_root.path).to eq('/')
         expect(folder.path).to eq('/other_root/')
+      end
+    end
+
+    describe '#update_archives_path' do
+      it 'when the archive into folder' do
+        folder.update(parent: root)
+
+        expect(root.path).to eq('/')
+        expect(folder.path).to eq('/root/')
+        expect(file.path).to eq('/root/folder/')
       end
     end
   end
