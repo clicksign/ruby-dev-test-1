@@ -202,3 +202,35 @@ FOREIGN KEY ("blob_id")
 [36m  Disk Storage (0.3ms) [0m[32mUploaded file to key: j32n1amazrolke9agc71anhu2685 (checksum: 1beYvkJ/JyNvzpwrjaahRA==)[0m
 [ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: bef8ac45-0733-44f4-83e5-eefbc3f66e98) to Async(active_storage_analysis) with arguments: #<GlobalID:0x000055998ce63a18 @uri=#<URI::GID gid://ruby-test1/ActiveStorage::Blob/2>>
   [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArchive Create (1.9ms)[0m  [1m[32mINSERT INTO "archives" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "File"], ["created_at", "2022-07-15 12:49:45.487071"], ["updated_at", "2022-07-15 12:49:45.487071"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArchive Create (0.3ms)[0m  [1m[32mINSERT INTO "archives" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "File"], ["created_at", "2022-07-15 12:49:45.518145"], ["updated_at", "2022-07-15 12:49:45.518145"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArchive Create (0.2ms)[0m  [1m[32mINSERT INTO "archives" ("name", "created_at", "updated_at", "ancestry") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "File"], ["created_at", "2022-07-15 12:49:45.519800"], ["updated_at", "2022-07-15 12:49:45.519800"], ["ancestry", "27"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "archives" WHERE ("archives"."ancestry" LIKE '27/%' OR "archives"."ancestry" = '27')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArchive Create (0.2ms)[0m  [1m[32mINSERT INTO "archives" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "File"], ["created_at", "2022-07-15 12:49:45.524741"], ["updated_at", "2022-07-15 12:49:45.524741"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Blob Load (2.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 29], ["record_type", "Archive"], ["name", "files"]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 29], ["record_type", "Archive"], ["name", "files"]]
+  [1m[36mActiveStorage::Blob Create (1.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "4xm2p1labp9w4b8cecr9ar7hk8t1"], ["filename", "teste.pdf"], ["content_type", "application/pdf"], ["metadata", "{\"identified\":true}"], ["byte_size", 25834], ["checksum", "1beYvkJ/JyNvzpwrjaahRA=="], ["created_at", "2022-07-15 12:49:45.578699"]]
+  [1m[36mActiveStorage::Attachment Create (1.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "files"], ["record_type", "Archive"], ["record_id", 29], ["blob_id", 4], ["created_at", "2022-07-15 12:49:45.580537"]]
+  [1m[36mArchive Update (0.3ms)[0m  [1m[33mUPDATE "archives" SET "updated_at" = $1 WHERE "archives"."id" = $2[0m  [["updated_at", "2022-07-15 12:49:45.582497"], ["id", 29]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.3ms) [0m[32mUploaded file to key: 4xm2p1labp9w4b8cecr9ar7hk8t1 (checksum: 1beYvkJ/JyNvzpwrjaahRA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c70dec50-791a-4889-a102-2ec2a4551a9b) to Async(active_storage_analysis) with arguments: #<GlobalID:0x0000558e00d0e2b8 @uri=#<URI::GID gid://ruby-test1/ActiveStorage::Blob/4>>
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
