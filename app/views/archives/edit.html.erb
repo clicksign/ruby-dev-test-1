@@ -1,0 +1,9 @@
+<h1>Editando Arquivo</h1>
+
+<%= render 'form', archive: @archive %>
+
+<% if @archive.folder.present? %>
+  <%= link_to 'Voltar', folder_path(id: @archive.folder.id) %>
+<% else %>
+  <%= link_to 'Voltar', folders_path %>
+<% end %>

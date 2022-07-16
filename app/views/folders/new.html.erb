@@ -1,0 +1,9 @@
+<h1>Nova Pasta</h1>
+
+<%= render 'form', folder: @folder %>
+
+<% if @folder.parent.present? %>
+  <%= link_to 'Voltar', folder_path(id: @folder.parent.id) %>
+<% else %>
+  <%= link_to 'Voltar', folders_path %>
+<% end %>

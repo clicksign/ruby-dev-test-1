@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h2> Diretório: <h2>
+<div>
+  <%= @path_name %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @folder_with_content.children.present? %>
+      <% @folder_with_content.children.each do |folder| %>
+        <tr>
+          <td><%= link_to folder.name, folder_path(folder) %></td>
+          <td><%= link_to 'Editar', edit_folder_path(folder) %></td>
+          <td><%= link_to 'Deletar', folder, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if @folder_with_content.archives.present? %>
+      <% @folder_with_content.archives.each do |archive| %>
+        <tr>
+          <td><%= archive.name %></td>
+          <td><%= link_to 'Editar', edit_archive_path(archive) %></td>
+          <td><%= link_to 'Deletar', archive, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Pasta', new_folder_path(parent_id: @folder_with_content.id) %>
+<%= link_to 'Novo Arquivo', new_archive_path(folder_id: @folder_with_content.id)  %>
+
+
+<% if @folder_with_content.parent.present? %>
+  <%= link_to 'Voltar', folder_path(id: @folder_with_content.parent.id) %>
+<% else %>
+  <%= link_to 'Voltar', folders_path %>
+<% end %>

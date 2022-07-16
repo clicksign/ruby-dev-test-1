@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h2> Diretório: <h2>
+<div>
+  <%= '/' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @archives.present? %>
+      <% @folders.each do |folder| %>
+        <tr>
+          <td><%= link_to folder.name, folder_path(folder) %></td>
+          <td><%= link_to 'Editar', edit_folder_path(folder) %></td>
+          <td><%= link_to 'Deletar', folder, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if @archives.present? %>
+      <% @archives.each do |archive| %>
+        <tr>
+          <td><%= archive.name %></td>
+          <td><%= link_to 'Editar', edit_archive_path(archive) %></td>
+          <td><%= link_to 'Deletar', archive, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Pasta', new_folder_path %>
+<%= link_to 'Novo Arquivo', new_archive_path %>

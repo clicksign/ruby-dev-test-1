@@ -1,0 +1,32 @@
+<%= form_with(model: archive) do |form| %>
+  <% if archive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(archive.errors.count, "error") %> prohibited this archive from being saved:</h2>
+
+      <ul>
+        <% archive.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= link_to archive.file.filename, url_for(archive.file), target: :_blank %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :folder_id, value: form.object.folder_id  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
