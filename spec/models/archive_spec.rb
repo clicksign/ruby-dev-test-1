@@ -13,6 +13,27 @@ RSpec.describe Archive, type: :model do
     it { is_expected.to belong_to(:folder).optional }
   end
 
+  describe 'scopes' do
+    describe '.roots' do
+      let(:subject) { described_class.roots }
+      let(:file_1) { create(:archive, name: 'file_1') }
+      let(:file_2) { create(:archive, name: 'file_2') }
+
+      context 'return root archives' do
+        it { expect(subject).to eq([file_1, file_2]) }
+      end
+
+      context "doesn't return root archives" do
+        before do
+          file_1.destroy!
+          file_2.destroy!
+        end
+
+        it { expect(subject).to eq([]) }
+      end
+    end
+  end
+
   describe 'callbacks' do
     describe '#update_path' do
       let(:root) { create(:folder, name: 'root') }

@@ -8,6 +8,8 @@ class Archive < ApplicationRecord
   validates :name, length: { maximum: 100 }
   validates :name, uniqueness: { scope: :folder_id }
 
+  scope :roots, -> { where(folder_id: nil) }
+
   after_validation :update_path
 
   def update_path
