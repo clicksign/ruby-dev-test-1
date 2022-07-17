@@ -16,4 +16,14 @@ class DirectoryTest < ActiveSupport::TestCase
     sub01_01 = directories(:sub01_01)
     assert_equal sub01_01.parent.id, root01.id
   end
+
+  test "files" do
+    dir = directories(:sub01_01)
+    dir_files = dir.files.attachments
+    first_file = dir_files[0]
+
+    assert_equal 2, dir_files.size
+    assert dir.files.attached?
+    assert_not_nil first_file.download
+  end
 end
