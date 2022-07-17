@@ -1,0 +1,6 @@
+pt-BR:
+  archive:
+    form:
+      name: 'Nome'
+      archive: 'Arquivo'
+      save: 'Salvar'

@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class='d-flex mb-5'>
-  <h2 class='mt-4 ms-4'>Diretório:<h2>
+  <h2 class='mt-4 ms-4'>
+    <%= I18n.t('folder.index.directory') %>
+  <h2>
   <div class='mt-4 ms-2'>
-    <%= '/' %>
+    <%= I18n.t('folder.index.root') %>
   </div>
 </div>
 
@@ -16,7 +18,9 @@
   <table class='table table-bordered m-4'>
     <thead>
       <tr>
-        <th>Nome</th>
+        <th>
+          <%= I18n.t('folder.index.table.name') %>
+        </th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -33,7 +37,7 @@
               <%= link_to "<i class='bi bi-pencil'></i> Editar".html_safe, edit_folder_path(folder), class: 'btn btn-secondary text-white btn-sm' %>
             </td>
             <td class='align-middle text-center'>
-              <%= link_to "<i class='bi bi-trash'></i> Deletar".html_safe, folder, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger text-white btn-sm' %>
+              <%= link_to "<i class='bi bi-trash'></i> Deletar".html_safe, folder, method: :delete, data: { confirm: I18n.t('folder.index.table.delete_confirmation')  }, class: 'btn btn-danger text-white btn-sm' %>
             </td>
           </tr>
         <% end %>
@@ -49,7 +53,7 @@
               <%= link_to "<i class='bi bi-pencil'></i> Editar".html_safe, edit_archive_path(archive), class: 'btn btn-secondary text-white btn-sm' %>
             </td>
             <td class='align-middle text-center'>
-              <%= link_to "<i class='bi bi-trash'></i> Deletar".html_safe, archive, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-danger text-white btn-sm' %>
+              <%= link_to "<i class='bi bi-trash'></i> Deletar".html_safe, archive, method: :delete, data: { confirm: I18n.t('folder.index.table.delete_confirmation')  }, class: 'btn btn-danger text-white btn-sm' %>
             </td>
           </tr>
         <% end %>

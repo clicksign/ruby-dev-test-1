@@ -1,0 +1,12 @@
+pt-BR:
+  folder:
+    index:
+      directory: 'Diretório:'
+      root: '/'
+      new_folder: 'Nova Pasta'
+      new_archive: 'Novo Arquivo'
+      table:
+        name: 'Nome'
+        edit: 'Editar'
+        delete: 'Deletar'
+        delete_confirmation: 'Você tem certeza?'

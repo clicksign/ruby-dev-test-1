@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label 'Nome:' %>
+    <%= form.label I18n.t('archive.form.name') %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field mt-4">
-    <%= form.label 'Arquivo:' %>
+    <%= form.label I18n.t('archive.form.archive') %>
     <% if archive.file.present? %>
       <%= link_to archive.file.filename, url_for(archive.file), target: :_blank %>
     <% end %>
@@ -29,6 +29,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'Salvar', class: 'btn btn-success text-white btn-sm mt-2' %>
+    <%= form.submit I18n.t('archive.form.save'), class: 'btn btn-success text-white btn-sm mt-2' %>
   </div>
 <% end %>

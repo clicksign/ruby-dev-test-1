@@ -1,5 +1,7 @@
 <div class='d-flex m-4'>
-  <h1>Novo Arquivo<h1>
+  <h1>
+    <%= I18n.t('archive.new.title') %>
+  <h1>
 </div>
 
 <div class='d-flex m-4'>
@@ -8,8 +10,8 @@
 
 <div class='d-flex ms-4'>
   <% if @archive.folder.present? %>
-    <%= link_to 'Voltar', folder_path(id: @archive.folder.id), class: 'btn btn-secondary text-white' %>
+    <%= link_to I18n.t('archive.new.back'), folder_path(id: @archive.folder.id), class: 'btn btn-secondary text-white' %>
   <% else %>
-    <%= link_to 'Voltar', folders_path, class: 'btn btn-secondary text-white' %>
+    <%= link_to I18n.t('archive.new.back'), folders_path, class: 'btn btn-secondary text-white' %>
   <% end %>
 </div>
