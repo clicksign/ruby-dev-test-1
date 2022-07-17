@@ -1,9 +1,15 @@
-<h1>Editando Arquivo</h1>
+<div class='d-flex m-4'>
+  <h1>Editando Arquivo<h1>
+</div>
 
-<%= render 'form', archive: @archive %>
+<div class='d-flex m-4'>
+  <%= render 'form', archive: @archive %>
+</div>
 
-<% if @archive.folder.present? %>
-  <%= link_to 'Voltar', folder_path(id: @archive.folder.id) %>
-<% else %>
-  <%= link_to 'Voltar', folders_path %>
-<% end %>
+<div class='d-flex ms-4'>
+  <% if @archive.folder.present? %>
+    <%= link_to 'Voltar', folder_path(id: @archive.folder.id), class: 'btn btn-secondary text-white' %>
+  <% else %>
+    <%= link_to 'Voltar', folders_path, class: 'btn btn-secondary text-white' %>
+  <% end %>
+</div>

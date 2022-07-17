@@ -1,9 +1,15 @@
-<h1>Editando Pasta</h1>
+<div class='d-flex m-4'>
+  <h1>Editando Pasta<h1>
+</div>
 
-<%= render 'form', folder: @folder %>
+<div class='d-flex m-4'>
+  <%= render 'form', folder: @folder %>
+</div>
 
-<% if @folder.parent.present? %>
-  <%= link_to 'Voltar', folder_path(id: @folder.parent.id) %>
-<% else %>
-  <%= link_to 'Voltar', folders_path %>
-<% end %>
+<div class='d-flex ms-4'>
+  <% if @folder.parent.present? %>
+    <%= link_to 'Voltar', folder_path(id: @folder.parent.id), class: 'btn btn-secondary text-white' %>
+  <% else %>
+    <%= link_to 'Voltar', folders_path, class: 'btn btn-secondary text-white' %>
+  <% end %>
+</div>

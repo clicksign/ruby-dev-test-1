@@ -12,14 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label 'Nome:' %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= form.label :file %>
-    <%= link_to archive.file.filename, url_for(archive.file), target: :_blank %>
-    <%= form.file_field :file %>
+  <div class="field mt-4">
+    <%= form.label 'Arquivo:' %>
+    <% if archive.file.present? %>
+      <%= link_to archive.file.filename, url_for(archive.file), target: :_blank %>
+    <% end %>
+    <%= form.file_field :file, class: 'd-block mt-2'%>
   </div>
 
   <div class="field">
@@ -27,6 +29,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Salvar', class: 'btn btn-success text-white btn-sm mt-2' %>
   </div>
 <% end %>

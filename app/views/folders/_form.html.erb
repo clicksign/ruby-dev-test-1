@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label 'Nome:' %>
     <%= form.text_field :name %>
   </div>
 
@@ -21,6 +21,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Salvar', class: 'btn btn-success text-white btn-sm mt-2' %>
   </div>
 <% end %>
