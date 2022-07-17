@@ -8,7 +8,7 @@ Realizar um fork deste repositório.
 
 # The Challenge
 
-Toda a lógica da aplicação foi desenvolviva baseada em dois modelos **folder** e **archive**. As pastas (folder) tem um auto-relacionamento com seu mesmo modelo para que possam possuir subpastas e também possui um relacionamento com os arquivos para que que uma pasta possa possuir arquivos.
+Toda a lógica da aplicação foi desenvolviva baseada em dois modelos **folder** e **archive**. As pastas (folder) tem um auto-relacionamento com seu próprio modelo para que possam possuir subpastas e também possui um relacionamento com os arquivos (archive) para que uma pasta possa possuir arquivos.
 
 ## Versions
 Esse projeto utiliza Docker:
@@ -39,7 +39,7 @@ Para executar a aplicação basta executar o seguinte comando:
 
 `docker-compose up`
 
-O comando acima vai executar uma serie de comandos Rails `rails db:drop`, `rails db:create`, `rails db:migrate` e `rails db:seed` sempre nessa ordem. Após rodar os comandos de banco de dados, a aplicação já possuirá uma série de objetos persistidos no banco de dados para fins de testes. Para testar as funcionalidades basta acessar através do browser http://localhost:3000/.
+O comando acima vai executar uma série de comandos Rails, `rails db:drop`, `rails db:create`, `rails db:migrate` e `rails db:seed` sempre nessa ordem. Após rodar os comandos de banco de dados, a aplicação já possuirá uma série de objetos persistidos no banco para fins de testes. Para testar as funcionalidades basta acessar através do browser o servidor do Rails que estará disponível em http://localhost:3000/, a interface é bem intuitiva e representa um simples explorador de arquivos.
 
 
 A aplicação também possui testes para todas as regras de negócio entre os modelos. Para executar basta rodar no diretório raíz:
