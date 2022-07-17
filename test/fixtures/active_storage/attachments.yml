@@ -1,0 +1,9 @@
+file01:
+  name: files
+  record: sub01_01 (Directory)
+  blob: file01_blob
+
+file02:
+  name: files
+  record: sub01_01 (Directory)
+  blob: file02_blob

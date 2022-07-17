@@ -1,0 +1,5 @@
+file01_blob: <%= ActiveStorage::FixtureSet.blob(
+                   filename: "file01.png", service_name: "test_fixtures") %>
+
+file02_blob: <%= ActiveStorage::FixtureSet.blob(
+                   filename: "file02.png", service_name: "test_fixtures") %>
