@@ -4,7 +4,7 @@ class Folder < ApplicationRecord
   belongs_to :parent, class_name: 'Folder', optional: true
   has_many :children, class_name: 'Folder', inverse_of: :parent, dependent: :destroy,
                       foreign_key: :parent_id
-  has_many :archives
+  has_many :archives, dependent: :destroy
 
   validates :name, presence: true
   validates :name, length: { maximum: 100 }
