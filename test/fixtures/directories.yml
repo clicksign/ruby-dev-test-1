@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+root01:
+  name: 'root01'
+  parent: null
+
+sub01_01:
+  name: 'sub01_01'
+  parent: root01
+
+sub01_01_01:
+  name: 'sub01_01_01'
+  parent: sub01_01
+
+sub01_01_02:
+  name: 'sub01_01_02'
+  parent: sub01_01
+
+sub01_02:
+  name: 'sub01_02'
+  parent: root01
+
+root02:
+  name: 'root02'
+  parent: null
