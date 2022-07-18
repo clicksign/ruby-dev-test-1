@@ -1,3 +1,13 @@
+# install dependencies
+``` bundle install ```
+
+# run test with rspec
+``` bundle exec rspec ```
+
+# view result tests report
+
+Resultado dos testes serão gravados no arquivo rspec_results.html no diretório raiz da aplicação
+
 # ruby-dev-test-1
 
 Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
