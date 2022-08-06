@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+echo "[Running] Rubocop..."
+rubocop
+
+echo ""
+echo "[Running] Reek..."
+reek
+
+echo ""
+echo "[Running] Rails best practices..."
+rails_best_practices
+
+echo ""
+echo "[Running] Rails brakeman..."
+brakeman
