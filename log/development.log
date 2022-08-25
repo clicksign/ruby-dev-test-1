@@ -1,0 +1,628 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFolders (20220824163859)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "folders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824163859_create_folders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824163859"]]
+  ↳ bin/rails:9
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateArchives (20220824163954)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "archives" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824163954_create_archives.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824163954"]]
+  ↳ bin/rails:9
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-24 16:57:16.816431"], ["updated_at", "2022-08-24 16:57:16.816431"]]
+  ↳ bin/rails:9
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateArchives (20220824163954)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "archives"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20220824163954"]]
+  ↳ bin/rails:9
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFolders (20220824163859)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20220824163859"]]
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFolders (20220824163859)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220824163859_create_folders.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "folders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "ancestry" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824163859_create_folders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824163859"]]
+  ↳ bin/rails:9
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateArchives (20220824163954)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "archives" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ancestry" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824163954_create_archives.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824163954"]]
+  ↳ bin/rails:9
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateArchives (20220824163954)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "archives"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20220824163954"]]
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFolders (20220824163859)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20220824163859"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFolders (20220824163859)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20220824163859_create_folders.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "folders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ancestry" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824163859_create_folders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824163859"]]
+  ↳ bin/rails:9
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateArchives (20220824163954)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "archives" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ancestry" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824163954_create_archives.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824163954"]]
+  ↳ bin/rails:9
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.4ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "teste"], ["created_at", "2022-08-24 19:07:34.226608"], ["updated_at", "2022-08-24 19:07:34.226608"]]
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "teste/opa"], ["created_at", "2022-08-24 19:16:41.094944"], ["updated_at", "2022-08-24 19:16:41.094944"]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "pasta filha"], ["created_at", "2022-08-24 19:19:22.901444"], ["updated_at", "2022-08-24 19:19:22.901444"]]
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (3) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.4ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "bla"], ["created_at", "2022-08-24 19:23:35.384385"], ["updated_at", "2022-08-24 19:23:35.384385"]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.4ms)[0m  [1m[32mINSERT INTO "folders" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "bla"], ["ancestry", "2"], ["created_at", "2022-08-24 19:24:41.826641"], ["updated_at", "2022-08-24 19:24:41.826641"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '2' LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '2' LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '2' LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '2' ORDER BY "folders"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (2) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (3) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (2) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (2) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '1/%' OR "folders"."ancestry" = '1')[0m
+  [1m[36mFolder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 1]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '2/%' OR "folders"."ancestry" = '2')[0m
+  [1m[36mFolder Destroy (0.1ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 5]]
+  [1m[36mFolder Destroy (0.1ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 2]]
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '3/%' OR "folders"."ancestry" = '3')[0m
+  [1m[36mFolder Destroy (0.2ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 3]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '4/%' OR "folders"."ancestry" = '4')[0m
+  [1m[36mFolder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 4]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '2/5/%' OR "folders"."ancestry" = '2/5')[0m
+  [1m[36mFolder Destroy (0.1ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.4ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "pasta_pai"], ["created_at", "2022-08-24 19:31:42.207673"], ["updated_at", "2022-08-24 19:31:42.207673"]]
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "pasta_filha"], ["created_at", "2022-08-24 19:32:05.380879"], ["updated_at", "2022-08-24 19:32:05.380879"]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.4ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "pasta_filha_da_filha"], ["created_at", "2022-08-24 19:32:14.901935"], ["updated_at", "2022-08-24 19:32:14.901935"]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '8/%' OR "folders"."ancestry" = '8')[0m
+  [1m[36mFolder Update (0.3ms)[0m  [1m[33mUPDATE "folders" SET "ancestry" = ?, "updated_at" = ? WHERE "folders"."id" = ?[0m  [["ancestry", "7"], ["updated_at", "2022-08-24 19:33:44.054124"], ["id", 8]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (7) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '7/%' OR "folders"."ancestry" = '7')[0m
+  [1m[36mFolder Update (0.3ms)[0m  [1m[33mUPDATE "folders" SET "ancestry" = ?, "updated_at" = ? WHERE "folders"."id" = ?[0m  [["ancestry", "6/7"], ["updated_at", "2022-08-24 19:34:23.837989"], ["id", 8]]
+  [1m[36mFolder Update (0.1ms)[0m  [1m[33mUPDATE "folders" SET "ancestry" = ?, "updated_at" = ? WHERE "folders"."id" = ?[0m  [["ancestry", "6"], ["updated_at", "2022-08-24 19:34:23.839361"], ["id", 7]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (7) ORDER BY "folders"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "folders"."id" FROM "folders" WHERE ("folders"."ancestry" LIKE '7/8/%' OR "folders"."ancestry" = '7/8')[0m
+  [1m[36mFolder Load (0.5ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (7) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (7) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (7) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '7' LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '6' LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.5ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (6) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (7) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '7/8/%' OR "folders"."ancestry" = '7/8')[0m
+  [1m[36mFolder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 8]]
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '6/7/%' OR "folders"."ancestry" = '6/7')[0m
+  [1m[36mFolder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 7]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.4ms)[0m  [1m[32mINSERT INTO "folders" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "filha"], ["ancestry", "6"], ["created_at", "2022-08-24 19:45:49.196037"], ["updated_at", "2022-08-24 19:45:49.196037"]]
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."ancestry" = '6' LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "filha_da_filha"], ["ancestry", "6/9"], ["created_at", "2022-08-24 19:47:23.689735"], ["updated_at", "2022-08-24 19:47:23.689735"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" IN (6, 9) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.5ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry"[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders" WHERE "folders"."id" IN (6, 9, 10) ORDER BY "folders"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "opa/opa"], ["created_at", "2022-08-24 20:07:02.857465"], ["updated_at", "2022-08-24 20:07:02.857465"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE ("folders"."ancestry" LIKE '11/%' OR "folders"."ancestry" = '11')[0m
+  [1m[36mFolder Destroy (0.3ms)[0m  [1m[31mDELETE FROM "folders" WHERE "folders"."id" = ?[0m  [["id", 11]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "opaopa"], ["created_at", "2022-08-24 20:41:22.211094"], ["updated_at", "2022-08-24 20:41:22.211094"]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArchive Create (0.2ms)[0m  [1m[32mINSERT INTO "archives" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "arquivo1.pdf"], ["created_at", "2022-08-24 20:46:17.361325"], ["updated_at", "2022-08-24 20:46:17.361325"]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mArchive Load (0.2ms)[0m  [1m[34mSELECT  "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mArchive Load (0.2ms)[0m  [1m[34mSELECT  "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT  "folders".* FROM "folders" WHERE "folders"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFileSystemItems (20220824211349)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "file_system_items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "kind" integer NOT NULL, "ancestry" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824211349_create_file_system_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824211349"]]
+  ↳ bin/rails:9
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-24 21:30:38.203532"], ["updated_at", "2022-08-24 21:30:38.203532"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "pasta_pai"], ["kind", 0], ["created_at", "2022-08-24 21:32:32.781665"], ["updated_at", "2022-08-24 21:32:32.781665"]]
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mFileSystemItem Load (0.4ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.3ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filha"], ["kind", 0], ["ancestry", "1"], ["created_at", "2022-08-24 21:36:14.540819"], ["updated_at", "2022-08-24 21:36:14.540819"]]
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filha"], ["kind", 1], ["ancestry", "1"], ["created_at", "2022-08-24 21:36:41.987209"], ["updated_at", "2022-08-24 21:36:41.987209"]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filha"], ["kind", 1], ["ancestry", "1/3"], ["created_at", "2022-08-24 21:37:03.484904"], ["updated_at", "2022-08-24 21:37:03.484904"]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.4ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.4ms)[0m  [1m[34mSELECT "file_system_items".* FROM "file_system_items" WHERE ("file_system_items"."ancestry" LIKE '1/3/4/%' OR "file_system_items"."ancestry" = '1/3/4')[0m
+  [1m[36mFileSystemItem Destroy (0.3ms)[0m  [1m[31mDELETE FROM "file_system_items" WHERE "file_system_items"."id" = ?[0m  [["id", 4]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.6ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFileSystemItem Load (0.3ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mFileSystemItem Load (0.5ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[36mFileSystemItem Load (0.3ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" IN (NULL) ORDER BY "file_system_items"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (NULL) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.3ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arquivo teste1"], ["kind", 1], ["created_at", "2022-08-24 22:11:08.513966"], ["updated_at", "2022-08-24 22:11:08.513966"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (5) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (5) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.3ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arquivo teste1"], ["kind", 1], ["created_at", "2022-08-24 22:12:38.877787"], ["updated_at", "2022-08-24 22:12:38.877787"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (5) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (5) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (NULL) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (NULL) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arquivo teste1"], ["kind", 1], ["created_at", "2022-08-24 22:32:34.145322"], ["updated_at", "2022-08-24 22:32:34.145322"]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (5) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (5) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.6ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFileSystemItem Load (0.3ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Update (0.4ms)[0m  [1m[33mUPDATE "file_system_items" SET "kind" = ?, "updated_at" = ? WHERE "file_system_items"."id" = ?[0m  [["kind", 0], ["updated_at", "2022-08-24 22:47:17.821829"], ["id", 3]]
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pasta teste"], ["kind", 0], ["ancestry", "1/3"], ["created_at", "2022-08-24 22:47:32.028790"], ["updated_at", "2022-08-24 22:47:32.028790"]]
+  [1m[36mFileSystemItem Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 6) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 6) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.4ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3, 6) ORDER BY "file_system_items"."ancestry" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pasta_teste"], ["kind", 0], ["ancestry", "1/3"], ["created_at", "2022-08-24 22:49:29.412938"], ["updated_at", "2022-08-24 22:49:29.412938"]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 7) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 7) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pastaaaateste"], ["kind", 0], ["ancestry", "1/3"], ["created_at", "2022-08-24 22:50:26.654564"], ["updated_at", "2022-08-24 22:50:26.654564"]]
+  [1m[36mFileSystemItem Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 8) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 8) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pastaaaates te"], ["kind", 0], ["ancestry", "1/3"], ["created_at", "2022-08-24 22:50:30.753364"], ["updated_at", "2022-08-24 22:50:30.753364"]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 9) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 9) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pastaaaates te"], ["kind", 0], ["ancestry", "1/3"], ["created_at", "2022-08-24 22:56:19.038891"], ["updated_at", "2022-08-24 22:56:19.038891"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 10) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1/3' AND "file_system_items"."id" IN (1, 3, 10) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3, 10) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateFileSystemItems (20220824211349)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "file_system_items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "kind" integer NOT NULL, "ancestry" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20220824211349_create_file_system_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220824211349"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-08-24 22:59:16.546249"], ["updated_at", "2022-08-24 22:59:16.546249"]]
+  ↳ bin/rails:9
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "pasta1"], ["kind", 0], ["created_at", "2022-08-24 23:02:13.270593"], ["updated_at", "2022-08-24 23:02:13.270593"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (1) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.2ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pasta2"], ["kind", 0], ["ancestry", "1"], ["created_at", "2022-08-24 23:03:40.185066"], ["updated_at", "2022-08-24 23:03:40.185066"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1' AND "file_system_items"."id" IN (1, 2) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1' AND "file_system_items"."id" IN (1, 2) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "ancestry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pasta3"], ["kind", 0], ["ancestry", "1"], ["created_at", "2022-08-24 23:06:00.953658"], ["updated_at", "2022-08-24 23:06:00.953658"]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1' AND "file_system_items"."id" IN (1, 3) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."ancestry" = '1' AND "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.2ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" WHERE "file_system_items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (1, 3) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.3ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "pasta_adson"], ["kind", 0], ["created_at", "2022-08-24 23:17:50.302500"], ["updated_at", "2022-08-24 23:17:50.302500"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (4) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (4) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Load (0.3ms)[0m  [1m[34mSELECT "file_system_items".* FROM "file_system_items" WHERE ("file_system_items"."ancestry" LIKE '4/%' OR "file_system_items"."ancestry" = '4')[0m
+  [1m[36mFileSystemItem Destroy (0.3ms)[0m  [1m[31mDELETE FROM "file_system_items" WHERE "file_system_items"."id" = ?[0m  [["id", 4]]
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.3ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "pasta_adson"], ["kind", 0], ["created_at", "2022-08-24 23:19:28.035324"], ["updated_at", "2022-08-24 23:19:28.035324"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (5) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (5) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (5) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "pasta_adson"], ["kind", 0], ["created_at", "2022-08-24 23:20:38.439572"], ["updated_at", "2022-08-24 23:20:38.439572"]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (6) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (6) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (6) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFileSystemItem Load (0.1ms)[0m  [1m[34mSELECT  "file_system_items".* FROM "file_system_items" ORDER BY "file_system_items"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (6) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arq_1.txt"], ["kind", 1], ["created_at", "2022-08-24 23:25:39.772324"], ["updated_at", "2022-08-24 23:25:39.772324"]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (7) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (7) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (1.0ms)[0m  [1m[32mINSERT INTO "file_system_items" DEFAULT VALUES[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.8ms)[0m  [1m[32mINSERT INTO "file_system_items" DEFAULT VALUES[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arq_1.txt"], ["kind", 1], ["created_at", "2022-08-24 23:26:54.565155"], ["updated_at", "2022-08-24 23:26:54.565155"]]
+  [1m[36mFileSystemItem Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (7) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (7) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (NULL) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (NULL) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.4ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arq_1.txt"], ["kind", 1], ["created_at", "2022-08-24 23:30:12.924464"], ["updated_at", "2022-08-24 23:30:12.924464"]]
+  [1m[36mFileSystemItem Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (7) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFileSystemItem Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (7) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (7) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFileSystemItem Create (0.5ms)[0m  [1m[32mINSERT INTO "file_system_items" ("name", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "arq_1.txt"], ["kind", 1], ["created_at", "2022-08-24 23:31:34.688264"], ["updated_at", "2022-08-24 23:31:34.688264"]]
+  [1m[36mFileSystemItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "file_system_items" WHERE "file_system_items"."id" IN (7) LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "file_system_items"."name" FROM "file_system_items" WHERE "file_system_items"."id" IN (7) ORDER BY "file_system_items"."ancestry"[0m
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
