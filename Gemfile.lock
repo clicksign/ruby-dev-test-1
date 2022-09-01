@@ -146,6 +146,7 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    spring (4.0.0)
     strscan (3.0.4)
     thor (1.2.1)
     timeout (0.3.0)
@@ -165,7 +166,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
-  tzinfo-data
+  spring
 
 RUBY VERSION
    ruby 3.1.0p0
