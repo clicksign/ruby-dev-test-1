@@ -35,9 +35,5 @@ RSpec.configure do |config|
       with.library  :rails
     end
   end
-
-  config.after(:all) do
-    FFaker::UniqueUtils.clear
-  end
 end
 
