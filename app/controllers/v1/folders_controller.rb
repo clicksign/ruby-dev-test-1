@@ -1,53 +1,66 @@
 module V1
-  class FoldersController < ApplicationController  
-    include JSONAPI::Deserialization
-    include JSONAPI::Pagination    
-        
-    before_action :set_folder, only: %i[ show update destroy ]
+  class FoldersController < ApplicationController        
+    before_action :set_folder, only: %i[ show update destroy sub_folders parent]
 
-    # GET /folders
+    # GET /@folders
     def index
-      folders = Folder.ransack(params[:q]).includes(:parent, :sub_folders, :uploads).all
-      render json: folders
+      @folders = FolderManager::IndexFolderService.new(params[:q]).call
+      render json: @folders.page(params[:page])
     end
 
-    # GET /folders/1
+    # GET /@folders/1
     def show
-      render json: FolderSerializer.new(folder).serializable_hash.to_json
+      render json: @folder
     end
 
-    # POST /folders
-    def create      
-      folder = CreateFolderService.new(folder_params).call      
-      if folder.errors.any?
-        render json: folder.errors, status: :unprocessable_entity
+    # POST /@folders
+    def create
+      @folder = FolderManager::CreateFolderService.new(folder_params).call
+      if @folder.errors.any?
+        render json: ErrorSerializer.serialize(@folder.errors), status: :unprocessable_entity
       else
-        render json: FolderSerializer.new(folder).serializable_hash.to_json, status: :created
+        render json: @folder, status: :created
       end
     end
 
-    # PATCH/PUT /folders/1
+    # PATCH/PUT /@folders/1
     def update
-      if folder.update(folder_params)
-        render json: folder
+      @folder = FolderManager::UpdateFolderService.new(@folder, folder_params).call
+      if @folder.errors.any?
+        render json: ErrorSerializer.serialize(@folder.errors), status: :unprocessable_entity
       else
-        render json: folder.errors, status: :unprocessable_entity
-      end
+        render json: @folder
+      end      
     end
 
-    # DELETE /folders/1
+    # DELETE /@folders/1
     def destroy
-      folder.destroy
+      FolderManager::DeleteFolderService.new(@folder).call
+    end
+
+    def sub_folders
+      render json: @folder.sub_folders
+    end
+
+    def parent
+      render json: @folder.parent
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
+    
+    # Use callbacks to share common setup or constraints between actions.
+    
     def set_folder
-      folder = Folder.includes(parent, :sub_folders, :uploads).find(params[:id])
+      begin
+        id = params[:id].presence || params[:folder_id]
+        @folder = FolderManager::GetFolderService.new(id).call
+      rescue Exception => e
+        render json: {error: e.message}, status: :not_found
+      end
     end
 
-    def folder_params
-      jsonapi_deserialize(params, only: [:name, :parent_id])
+    def folder_params      
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: [:name, :parent_id])
     end
   end    
 end

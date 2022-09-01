@@ -48,6 +48,9 @@ group :development, :test do
 
   #A library for generating fake data such as names, addresses, and phone numbers.
   gem "faker"
+
+  #help to kill N+1 queries and unused eager loading
+  gem "bullet"
 end
 
 group :development do
@@ -58,7 +61,14 @@ end
 #The official AWS SDK for Ruby.
 gem "aws-sdk-s3", require: false
 
-#Lightweight, simple and maintained JSON:API support for your next Ruby HTTP API.
-gem "jsonapi.rb"
+#ActiveModel::Serializer implementation and Rails hooks
+gem "active_model_serializers"
 
+#A plugin for versioning Rails based RESTful APIs.
+gem "versionist"
+
+#Object-based searching.
 gem "ransack"
+
+#A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem "kaminari"
