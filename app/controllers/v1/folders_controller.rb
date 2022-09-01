@@ -60,7 +60,7 @@ module V1
     end
 
     def folder_params      
-      ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: [:name, :parent_id])
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: [:name, :parent_id, :uploads_attributes])
     end
   end    
 end
