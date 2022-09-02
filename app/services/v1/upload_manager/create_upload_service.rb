@@ -6,18 +6,13 @@ module V1
       end
 
       def call
-        Upload.create(folder_id: @upload[:folder_id], file: signature_decoded)
+        Upload.create(folder_id: @upload[:folder_id], file: ensured_file)
       end
 
       private
 
-      def signature_decoded
-        decoded_data = Base64.decode64(@upload[:file].split(',')[1])
-        {
-          io:           StringIO.new(decoded_data),
-          content_type: 'image/jpeg',
-          filename:     "upload-#{Time.current.to_i}.jpg"
-        }
+      def ensured_file        
+        ApplicationManager::GetEnsuredFileParamsService.new(@upload[:file]).call
       end
     end
   end

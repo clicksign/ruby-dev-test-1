@@ -1,5 +1,5 @@
 module V1
-  class UploadSerializer < ActiveModel::Serializer
+  class UploadSerializer < ActiveModel::Serializer 
     attributes :id, :file
   
     belongs_to :folder do 
@@ -10,7 +10,7 @@ module V1
 
     def attributes(*args)
       h = super(*args)  
-      h[:url] = object.file.url
+      h[:url] = Rails.env.test? ? object.file.name : object.file.url
       h
     end
   end

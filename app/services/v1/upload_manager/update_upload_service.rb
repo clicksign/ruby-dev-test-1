@@ -7,19 +7,14 @@ module V1
       end
 
       def call
-        @upload.update(file: signature_decoded)
+        @upload.update(file: ensured_file)
         @upload
       end
 
       private
 
-      def signature_decoded
-        decoded_data = Base64.decode64(@params[:file].split(',')[1])
-        {
-          io:           StringIO.new(decoded_data),
-          content_type: 'image/jpeg',
-          filename:     "upload-#{Time.current.to_i}.jpg"
-        }
+      def ensured_file
+        ApplicationManager::GetEnsuredFileParamsService.new(@params[:file]).call
       end
     end
   end
