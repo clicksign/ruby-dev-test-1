@@ -34,7 +34,7 @@ module V1
     end
 
     def sub_folders
-      render json: @folder.sub_folders
+      render json: @folder.sub_folders.includes(:uploads)
     end
 
     def parent
