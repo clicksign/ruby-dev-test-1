@@ -1,0 +1,19 @@
+defaults: &defaults
+  # Database settings
+  # --------------------------------------------------------------
+  DATABASE_USER: 'root'
+  DATABASE_PASS: 'pass'
+  DATABASE_HOST: '127.0.0.1'
+  RAILS_MAX_THREADS: 5
+
+development:
+  <<: *defaults
+  DATABASE_NAME_DEV: 'file_manager_development'
+
+test:
+  <<: *defaults
+  DATABASE_NAME_TEST: 'file_manager_test'
+
+production:
+  <<: *defaults
+  DATABASE_NAME_PROD: 'file_manager_production'

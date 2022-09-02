@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV['RAILS_MAX_THREADS'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASS'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+
+development:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME_DEV'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME_TEST'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['DATABASE_NAME_PROD'] %>
+  username: syste_file_manager
+  password: <%= ENV['DATABASE_PASS'] %>
