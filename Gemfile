@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
 gem 'figaro'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'rails-i18n'
