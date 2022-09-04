@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "/documents", type: :request do
+RSpec.describe DocumentsController, type: :controller do
   let(:document) { create(:document) }
 
   let(:valid_attributes) {
@@ -8,36 +8,41 @@ RSpec.describe "/documents", type: :request do
   }
 
   let(:invalid_attributes) {
-    { title: nil, description: nil, file: nil }
+    { title: nil, description: nil, file: file }
   }
 
   let(:file) { Rack::Test::UploadedFile.new("#{Rails.root}/spec/factories/files/file_mock.txt") }
 
   describe 'request' do
+    before do
+      user = create(:user)
+      sign_in user
+    end
+
     describe 'GET /index' do
       it 'renders a successful response' do
-        get documents_url
+        get :index
         expect(response).to be_successful
       end
     end
 
     describe 'GET /show' do
       it 'renders a successful response' do
-        get document_url(document)
+        get :show, params: { id: document.id }
         expect(response).to be_successful
       end
     end
 
     describe 'GET /new' do
       it 'renders a successful response' do
-        get new_document_url
+        get :new
         expect(response).to be_successful
       end
     end
 
     describe 'GET /edit' do
       it 'renders a successful response' do
-        get edit_document_url(document)
+        get :edit, params: { id: document.id }
         expect(response).to be_successful
       end
     end
@@ -45,25 +50,24 @@ RSpec.describe "/documents", type: :request do
     describe 'POST /create' do
       context 'with valid parameters' do
         it 'creates a new Document' do
-          expect { post documents_url, params: { document: valid_attributes } }
+          expect { post :create, params: { document: valid_attributes } }
             .to change(Document, :count).by(1)
         end
 
         it 'redirects to the created document' do
-          post documents_url, params: { document: valid_attributes }
+          post :create, params: { document: valid_attributes }
           expect(response).to redirect_to(document_url(Document.last))
         end
       end
 
       context 'with invalid parameters' do
         it 'does not create a new Document' do
-          expect { post documents_url, params: { document: invalid_attributes } }
+          expect { post :create, params: { document: invalid_attributes } }
             .to change(Document, :count).by(0)
         end
 
         it 'returns unprocessable entity status code' do
-          post documents_url, params: { document: invalid_attributes }
-
+          post :create, params: { document: invalid_attributes }
           expect(response.status).to eq(422)
         end
       end
@@ -75,11 +79,11 @@ RSpec.describe "/documents", type: :request do
       end
 
       it 'destroys the requested document' do
-        expect { delete document_url(Document.last.id) }.to change(Document, :count).by(-1)
+        expect { delete :destroy, params: { id: Document.last.id } }.to change(Document, :count).by(-1)
       end
 
       it 'redirects to the documents list' do
-        delete document_url(Document.last.id)
+        get :destroy, params: { id: Document.last.id }
         expect(response).to redirect_to(documents_url)
       end
     end

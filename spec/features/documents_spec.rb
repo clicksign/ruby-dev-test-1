@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'documents/new', type: :view do
+RSpec.feature 'Documents#new', type: :feature do
   let(:user) { create(:user) }
 
   before :each do
