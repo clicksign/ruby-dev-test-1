@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_09_04_190855) do
 
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title", null: false
-    t.text "description", null: false
+    t.text "description"
     t.bigint "folder_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
