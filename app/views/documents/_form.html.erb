@@ -1,32 +1,30 @@
-<%= form_with(model: document, local: true) do |form| %>
-  <% if document.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+<%= form_with(model: component_params[:document], local: true, url: component_params[:url], method: component_params[:method], class:"page-body list required", id:"form-new-docuemnt", multipart: true) do |form| %>
+  <div class="modal fade" id="<%=component_params[:form_id]%>" tabindex="-1" aria-labelledby="newDocumentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-white-50" style="background-color: #1a1a1a !important;">
+        <div class="modal-header" style="border-bottom: 1px solid #000000;">
+          <h5 class="modal-title" id="newDocumentModalLabel"><%=component_params[:title]%></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="background-color: #1a1a1a !important;">
+          <%= form.text_field :title, class:"form-control forms-inline", style: "background-color: #4d4d4d; border: 0px", placeholder:"Type file title", maxlength:"30", required:true %>
+        </div>
 
-      <ul>
-      <% document.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <div class="modal-body" style="background-color: #1a1a1a !important;">
+          <%= form.file_field :file, upload: '', class: "btn btn-success", target: 'blank', required: true %>
+        </div>
+
+        <div class="modal-body" style="background-color: #1a1a1a !important;">
+          <%= form.text_field :description, class:"form-control forms-inline", style: "background-color: #4d4d4d; border: 0px", placeholder:"Type description", maxlength:"30" %>
+        </div>
+
+        <%= form.hidden_field :folder_id, required: true, class: 'form-control', value: component_params[:folder_id]  %>
+
+        <div class="modal-footer" style="border-top: 1px solid #000000;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" id="folder-submit" >Save changes</button>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :file %>
-    <%= form.file_field :file, download: '', target: 'blank' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

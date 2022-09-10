@@ -1,0 +1,140 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-12">
+    <h1 class="text-white-50"><%= @folder.name.upcase%></h1>
+  </div>
+  <div class="col-12">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <% Folder.network_parents(@current_folder_child).each do |folder_instance| %>
+          <li class="breadcrumb-item"><%= link_to "#{folder_instance.name}", folder_path(folder_instance) %></li>
+        <% end %>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-2">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#form">
+      <i class="fs-5 bi-upload"></i> Upload File
+    </button>
+  </div>
+</div>
+
+<hr class="divider border-top">
+
+<div class="row">
+  <% @folder.documents.each do |document| %>
+    <div class="col-md-3 text-white">
+      <div class="card border-dark text-white bg-dark" style="min-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-file-earmark-check"></i> <%= document.title %>
+          </h5>
+          
+          <span class="d-inline-block text-truncate" style="max-width: 15rem;">
+            <%= document.file.blob.filename.to_s %>
+          </span>
+
+          <div class="card-footer bg-transparent border-secondary text-end">
+            <%= link_to '', document.file, download: '', class: "fs-5 bi-cloud-download" %>
+            <%= link_to '', document, method: :delete, data: { }, class: "fs-5 bi-trash" %>
+            <%= link_to '', document, "data-bs-toggle" => "modal", 'data-bs-target' => "#form#{document.id}", class: "fs-5 bi-wrench-adjustable" %>
+          </div>
+        </div>
+      </div>
+      <%= render "documents/form", component_params: 
+        { 
+          title: "Edit Document",
+          document: document, 
+          url: "/documents/#{document.id}",
+          method: 'patch'.to_sym,
+          folder_id: document.folder.id,
+          form_id: "form#{document.id}"
+        } 
+      %>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-2">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#folderForm">
+      <i class="fs-5 bi-folder-plus"></i> New Folder
+    </button>
+  </div>
+</div>
+
+<hr class="divider border-top">
+
+<div class="row mb-1">
+  <% @folders.each do |folder| %>
+    <div class="col-3">
+      <div class="card border-dark text-white bg-dark" style="min-width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to "#{folder.name}", folder_path(folder) %></h5>
+          
+          <hr class="divider border-secondary">
+
+          <% folder.documents.each do |document| %>
+            <p class="card-text">
+              <i class="fs-5 bi bi-file-earmark-check"></i> <span class="ms-1 d-none d-sm-inline"><%= document.file.blob.filename.to_s %></span>
+            </p>
+          <% end %>
+          
+          <% folder.children.each do |child| %>
+            <p class="card-text">
+              <i class="fs-5 bi-folder"></i> <span class="ms-1 d-none d-sm-inline"><%= link_to "#{child.name}", folder_path(child) %></span>
+            </p>
+          <% end %>
+          
+          <div class="card-footer bg-transparent border-secondary text-end">
+            <%= link_to '', folder, method: :delete, data: { }, class: "fs-5 bi-trash" %>
+            <%= link_to '', folder, "data-bs-toggle" => "modal", 'data-bs-target' => "#folderForm#{folder.id}", class: "fs-5 bi-wrench-adjustable" %>
+          </div>
+        </div>
+      </div>
+
+      <%= render "form", component_params: 
+        {
+          title: "Edit Folder",
+          folder: folder,
+          url: "/folders/#{folder.id}",
+          method: :patch,
+          form_id: "folderForm#{folder.id}",
+          parent_id: folder.parent.id
+        }
+      %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Modal New Folder -->
+<%= render "form", component_params: 
+  {
+    title: "New Folder",
+    folder: Folder.new,
+    url: "/folders/",
+    method: :post,
+    form_id: "folderForm",
+    parent_id: @folder.id
+  }
+%>
+
+<!-- Modal New Document -->
+<%= render "documents/form", component_params: 
+  { 
+    title: "New Document",
+    document: Document.new, 
+    url: "/documents/",
+    method: 'post'.to_sym,
+    folder_id: @folder.id,
+    form_id: "form"
+  }
+%>
