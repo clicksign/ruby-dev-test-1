@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe FoldersController, type: :controller do
-  #let(:document) { build(:document, file: file, folder: folder) }
-  #let(:document_created) { create(:document, file: file, folder: folder) }
-  #let(:document_created2) { create(:document, file: file, folder: folder) }
   let(:folder) { create(:folder, user: user) }
   let(:child_folder) { create(:folder, user: user, parent: folder) }
   let(:child_folder2) { create(:folder, user: user, parent: child_folder) }
@@ -18,102 +15,86 @@ RSpec.describe FoldersController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    { name: nil, parent: folder.id }
+    { name: nil, parent_id: folder.id }
   }
 
-  #let(:file) { Rack::Test::UploadedFile.new("#{Rails.root}/spec/factories/files/file_mock.txt") }
-
-  describe 'DocumentsController' do
+  context 'with valid response' do
     before do
       sign_in user
     end
 
-    context 'renders' do
-      describe 'GET /index' do
-        it 'renders a successful response' do
-          get :index
-          expect(response).to be_successful
-        end
+    describe 'GET /index' do
+      it 'renders a successful response' do
+        get :index
+        expect(response).to be_successful
       end
-
-      describe 'GET /show' do
-        it 'renders a successful response' do
-          get :show, params: { id: folder.id }
-          expect(response).to be_successful
-        end
-      end
-
-      describe 'GET /new' do
-        it 'renders a successful response' do
-          get :new
-          expect(response).to be_successful
-        end
-      end
-
-      describe 'GET /edit' do
-        it 'renders a successful response' do
-          get :edit, params: { id: folder.id }
-          expect(response).to be_successful
-        end
-      end
-
-
     end
 
-    context 'validate params' do
-      describe 'POST /create' do
-        context 'with valid parameters' do
-          it 'creates a new Folder' do
-            expect { post :create, params: { folder: valid_attributes } }
-              .to change(Folder, :count).by(2)
-          end
-
-          it 'redirects to the parent folder' do
-            post :create, params: { folder: valid_attributes }
-            expect(response).to redirect_to "/folders/#{folder.id}"
-          end
-        end
-
-        context 'with invalid parameters' do
-          it 'does not create a new Folder' do
-            expect { post :create, params: { folder: invalid_attributes } }
-              .to change(Folder, :count).by(1)
-          end
-
-          it 'returns unprocessable entity status code' do
-            post :create, params: { folder: invalid_attributes }
-            expect(response.status).to eq(422)
-          end
-        end
+    describe 'GET /show' do
+      it 'renders a successful response' do
+        get :show, params: { id: folder.id }
+        expect(response).to be_successful
       end
+    end
+  end
 
-      describe 'PUT /update' do
-        context 'with valid attributes' do
-          it 'redirects to the folder path' do
-            put :update, params: { id: child_folder2, folder: update_attributes }
-            expect(response).to redirect_to "/folders/#{folder.id}"
-          end
-        end
+  context 'validate parameters' do
+    before do
+      sign_in user
+    end
 
-        context 'with invalid attributes' do
-          it 'returns unprocessable entity status code' do
-            put :update, params: { id: child_folder2, folder: invalid_attributes }
-            expect(response.status).to eq(422)
-          end
-        end
-      end
-
-      describe 'DELETE /destroy' do
-        it 'destroys the requested folder' do
-          expect { delete :destroy, params: { id: child_folder2.id } }
+    describe 'POST /create' do
+      context 'with valid parameters' do
+        it 'creates a new Folder' do
+          expect { post :create, params: { folder: valid_attributes } }
             .to change(Folder, :count).by(2)
         end
 
-        it 'redirects to the folder path' do
-          get :destroy, params: { id: child_folder }
-
+        it 'redirects to the parent folder' do
+          post :create, params: { folder: valid_attributes }
           expect(response).to redirect_to "/folders/#{folder.id}"
         end
+      end
+
+      context 'with invalid parameters' do
+        it 'does not create a new Folder' do
+          expect { post :create, params: { folder: invalid_attributes } }
+            .to change(Folder, :count).by(1)
+        end
+
+        it 'returns unprocessable entity status code' do
+          post :create, params: { folder: invalid_attributes }
+          expect(response.status).to eq(422)
+        end
+      end
+    end
+
+    describe 'PUT /update' do
+      context 'with valid attributes' do
+        it 'redirects to the folder path' do
+          put :update, params: { id: child_folder2, folder: update_attributes }
+          expect(response).to redirect_to "/folders/#{folder.id}"
+        end
+      end
+
+      context 'with invalid attributes' do
+        it 'returns unprocessable entity status code' do
+          put :update, params: { id: child_folder2, folder: invalid_attributes }
+          expect(response.status).to eq(422)
+        end
+      end
+    end
+
+    describe 'DELETE /destroy' do
+      it 'destroys the requested folder' do
+        expect { delete :destroy, params: { id: child_folder2.id } }
+          .to change(Folder, :count).by(2)
+      end
+
+      it 'redirects to the folder path' do
+        get :destroy, params: { id: child_folder }
+
+        expect(response).to redirect_to "/folders/#{folder.id}"
       end
     end
   end
