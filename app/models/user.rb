@@ -9,6 +9,6 @@ class User < ApplicationRecord
   after_commit :create_root_folder, on: :create
 
   def create_root_folder
-    folders.create(name: 'root')
+    folders.create(name: 'Root')
   end
 end
