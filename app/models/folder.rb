@@ -1,6 +1,4 @@
 class Folder < ApplicationRecord
-  include Filterable
-
   belongs_to :user
   has_many :documents, dependent: :delete_all 
   has_many :children, class_name: 'Folder', foreign_key: 'parent_id', dependent: :destroy
