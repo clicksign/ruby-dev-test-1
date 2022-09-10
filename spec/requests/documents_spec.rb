@@ -16,99 +16,67 @@ RSpec.describe DocumentsController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    { title: nil, description: nil, file: file }
+    { title: nil, description: nil, file: file, folder_id: folder.id }
   }
 
   let(:file) { Rack::Test::UploadedFile.new("#{Rails.root}/spec/factories/files/file_mock.txt") }
 
-  describe 'DocumentsController' do
+  context 'validate parameters' do
     before do
       sign_in user
     end
 
-    context 'renders' do
-      describe 'GET /index' do
-        it 'renders a successful response' do
-          get :index
-          expect(response).to be_successful
+    describe 'POST /create' do
+      context 'with valid parameters' do
+        it 'creates a new Document' do
+          expect { post :create, params: { document: valid_attributes } }
+            .to change(Document, :count).by(1)
         end
-      end
-  
-      describe 'GET /show' do
-        it 'renders a successful response' do
-          get :show, params: { id: document_created.id }
-          expect(response).to be_successful
-        end
-      end
-  
-      describe 'GET /new' do
-        it 'renders a successful response' do
-          get :new
-          expect(response).to be_successful
+
+        it 'redirects to the created document' do
+          post :create, params: { document: valid_attributes }
+          expect(response).to redirect_to "/folders/#{document.folder_id}"
         end
       end
 
-      describe 'GET /edit' do
-        it 'renders a successful response' do
-          get :edit, params: { id: document_created.id }
-          expect(response).to be_successful
+      context 'with invalid parameters' do
+        it 'does not create a new Document' do
+          expect { post :create, params: { document: invalid_attributes } }
+            .to change(Document, :count).by(0)
+        end
+
+        it 'returns unprocessable entity status code' do
+          post :create, params: { document: invalid_attributes }
+          expect(response.status).to eq(422)
         end
       end
     end
 
-    context 'validate params' do
-      describe 'POST /create' do
-        context 'with valid parameters' do
-          it 'creates a new Document' do
-            expect { post :create, params: { document: valid_attributes } }
-              .to change(Document, :count).by(1)
-          end
-  
-          it 'redirects to the created document' do
-            post :create, params: { document: valid_attributes }
-            expect(response).to redirect_to "/folders/#{document.folder_id}"
-          end
-        end
-  
-        context 'with invalid parameters' do
-          it 'does not create a new Document' do
-            expect { post :create, params: { document: invalid_attributes } }
-              .to change(Document, :count).by(0)
-          end
-  
-          it 'returns unprocessable entity status code' do
-            post :create, params: { document: invalid_attributes }
-            expect(response.status).to eq(422)
-          end
-        end
-      end
-
-      describe 'PUT /update' do
-        context 'with valid attributes' do
-          it 'redirects to the folder path' do
-            put :update, params: { id: document_created.id, document: update_attributes }
-            expect(response).to redirect_to "/folders/#{folder.id}"
-          end
-        end
-  
-        context 'with invalid attributes' do
-          it 'returns unprocessable entity status code' do
-            put :update, params: { id: document_created.id, document: invalid_attributes }
-            expect(response.status).to eq(422)
-          end
-        end
-      end
-
-      describe 'DELETE /destroy' do
-        it 'destroys the requested document' do
-          expect { delete :destroy, params: { id: document_created.id } }
-            .to change(Document, :count).by(0)
-        end
-
+    describe 'PUT /update' do
+      context 'with valid attributes' do
         it 'redirects to the folder path' do
-          get :destroy, params: { id: document_created2 }
+          put :update, params: { id: document_created.id, document: update_attributes }
           expect(response).to redirect_to "/folders/#{folder.id}"
         end
+      end
+
+      context 'with invalid attributes' do
+        it 'returns unprocessable entity status code' do
+          put :update, params: { id: document_created.id, document: invalid_attributes }
+          expect(response.status).to eq(422)
+        end
+      end
+    end
+
+    describe 'DELETE /destroy' do
+      it 'destroys the requested document' do
+        expect { delete :destroy, params: { id: document_created.id } }
+          .to change(Document, :count).by(0)
+      end
+
+      it 'redirects to the folder path' do
+        get :destroy, params: { id: document_created2 }
+        expect(response).to redirect_to "/folders/#{folder.id}"
       end
     end
   end
