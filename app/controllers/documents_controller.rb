@@ -3,7 +3,7 @@
 # DocumentsController
 class DocumentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_document, only: %i[edit update destroy]
+  before_action :set_document, only: %i[edit update destroy show]
   before_action :file_purge, only: %i[destroy]
   before_action :set_folder_reference, only: %i[destroy]
 

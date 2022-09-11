@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
 
     it 'create root folder' do
       user = create(:user)
-      expect(user.folders.first.name).to eq('root')
+      expect(user.folders.first.name).to eq('Root')
     end
   end
 end
