@@ -8,7 +8,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <% Folder.network_parents(@current_folder_child).each do |folder_instance| %>
-          <li class="breadcrumb-item"><%= link_to "#{folder_instance.name}", folder_path(folder_instance) %></li>
+          <li class="breadcrumb-item"><%= link_to "#{folder_instance.name}", folder_path(folder_instance), class: 'breadcrumb-link' %></li>
         <% end %>
       </ol>
     </nav>
@@ -42,8 +42,8 @@
 
           <div class="card-footer bg-transparent border-secondary text-end">
             <%= link_to '', document.file, download: '', class: "fs-5 bi-cloud-download" %>
-            <%= link_to '', document, method: :delete, data: { }, class: "fs-5 bi-trash" %>
-            <%= link_to '', document, "data-bs-toggle" => "modal", 'data-bs-target' => "#form#{document.id}", class: "fs-5 bi-wrench-adjustable" %>
+            <%= link_to '', document, method: :delete, data: { }, class: "fs-5 bi-trash", id: "btn-doc-destroy#{document.id}" %>
+            <%= link_to '', document, "data-bs-toggle" => "modal", 'data-bs-target' => "#form#{document.id}", class: "fs-5 bi-wrench-adjustable", id: "update-document" %>
           </div>
         </div>
       </div>
@@ -52,9 +52,9 @@
           title: "Edit Document",
           document: document, 
           url: "/documents/#{document.id}",
-          method: 'patch'.to_sym,
+          method: :patch,
           folder_id: document.folder.id,
-          form_id: "form#{document.id}"
+          form_id: "form#{document.id}",
         } 
       %>
     </div>
@@ -95,7 +95,7 @@
           <% end %>
           
           <div class="card-footer bg-transparent border-secondary text-end">
-            <%= link_to '', folder, method: :delete, data: { }, class: "fs-5 bi-trash" %>
+            <%= link_to '', folder, method: :delete, data: { }, class: "fs-5 bi-trash", id: "btn-folder-destroy#{folder.id}" %>
             <%= link_to '', folder, "data-bs-toggle" => "modal", 'data-bs-target' => "#folderForm#{folder.id}", class: "fs-5 bi-wrench-adjustable" %>
           </div>
         </div>
@@ -123,7 +123,7 @@
     url: "/folders/",
     method: :post,
     form_id: "folderForm",
-    parent_id: @folder.id
+    parent_id: @folder.id,
   }
 %>
 
@@ -135,6 +135,6 @@
     url: "/documents/",
     method: 'post'.to_sym,
     folder_id: @folder.id,
-    form_id: "form"
+    form_id: "form",
   }
 %>
