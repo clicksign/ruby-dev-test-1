@@ -1,0 +1,5 @@
+one_attachment:
+  name: 'image'
+  record_type: 'Photo'
+  record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:png) %>

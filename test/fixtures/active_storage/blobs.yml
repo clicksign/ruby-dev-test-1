@@ -1,0 +1,9 @@
+png:
+  key: '12345'
+  filename: 'logo.png'
+  content_type: 'image/png'
+  byte_size: 373
+  service_name: 'local'
+  checksum: "eSMAQ6qXKc7+UO8oxx19dw=="
+
+logo_blob: <%= ActiveStorage::FixtureSet.blob filename: "logo.png" %>

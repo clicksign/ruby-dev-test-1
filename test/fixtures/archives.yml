@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: name_of_file
+  file: one_attachment
+
+two:
+  name: name_of_file
+  file: one_attachment

@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  document: name_to_folder
+
+two:
+  id: 2
+  parent_id: 1
+  document: name_to_folder
