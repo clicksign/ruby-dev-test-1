@@ -1,0 +1,69 @@
+version: '3.9'
+
+networks:
+  internal:
+    driver: bridge
+    name: internal
+
+volumes:
+  db-data:
+  gems-data:
+
+services:
+  db:
+    image: postgres:13-alpine
+    restart: always
+    container_name: "${SERVICE_NAME}-db"
+    hostname: "${SERVICE_NAME}-db"
+    networks:
+      - internal
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app: &app
+    container_name: app
+    hostname: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - .:/home/app/web
+      - gems-data:/usr/local/bundle/gems
+    stdin_open: true
+    tty: true
+    command: bundle exec rails server -p 3005 -b 0.0.0.0
+    ports:
+      - 3005:3005
+    networks:
+      - internal
+    env_file: .env
+    environment: &env
+      DATABASE_URL: "postgres://postgres:postgres@${SERVICE_NAME}-db:5432/app_dev"
+      RACK_ENV: development
+      RAILS_ENV: development
+      WEB_CONCURRENCY: 1
+      MAX_THREADS: 4
+      PORT: 3005
+      RAILS_SERVE_STATIC_FILES: null
+      RAILS_LOG_TO_STDOUT: 'true'
+    depends_on:
+      - db
+
+  specs:
+    <<: *app
+    command: /bin/ash -c "bundle exec rails db:test:prepare && bundle exec rspec spec"
+    environment:
+      <<: *env
+      DATABASE_URL: "postgres://postgres:postgres@${SERVICE_NAME}-db:5432/app_test"
+      RACK_ENV: test
+      RAILS_ENV: test
