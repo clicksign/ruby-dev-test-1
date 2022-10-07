@@ -14,3 +14,33 @@ require:
   - rubocop-rails
   - rubocop-performance
   - rubocop-rake
+
+AllCops:
+  DisplayCopNames: true
+  EnabledByDefault: true
+  TargetRubyVersion: 3.1.2
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+
+Rails:
+  Enabled: true
+
+Bundler/GemVersion:
+  Enabled: false
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/InlineComment:
+  Enabled: false
+
+Style/MissingElse:
+  Exclude:
+    - 'config/**/*'
