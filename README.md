@@ -5,3 +5,31 @@ Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco
 A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
 
 Realizar um fork deste repositório e abrir o PR ao finalizar.
+
+Folder
+    - parent_id
+        - default nil
+    - name
+
+File
+    - path
+    - folder_id
+    - type
+        - blob, s3, localStorage
+
+FolderService
+    - create
+        - parent_id
+        - name
+    - update
+        - name only
+    - delete
+        - delete sub folders and files
+
+FileService
+    - create
+        - type
+            - strategy to create
+        - file
+        - folder_id
+    - delete
