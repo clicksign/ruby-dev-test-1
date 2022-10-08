@@ -43,6 +43,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   # Listen to file modifications (https://github.com/guard/listen)
   gem 'listen', '~> 3.3'
   # factory_bot provides a framework and DSL for defining and using model instance factories. (https://github.com/thoughtbot/factory_bot)
