@@ -3,7 +3,7 @@ FROM ruby:3.1 as base
 # Arguments
 ARG APP_PATH=/home/app/web
 ARG PORT=3005
-ARG BUNDLE_PATH="/usr/local/bundle/gems"
+ARG BUNDLE_PATH="/usr/local/bundle"
 ARG BUILD_PACKAGES="postgresql-client"
 ARG DEV_PACKAGES=""
 ARG RUNTIME_PACKAGES="tzdata"
@@ -11,6 +11,7 @@ ARG RUNTIME_PACKAGES="tzdata"
 # Environment
 ENV PORT=${PORT} \
     APP_PATH=${APP_PATH} \
+    BUNDLE_PATH=${BUNDLE_PATH} \
     BUILD_PACKAGES=${BUILD_PACKAGES} \
     DEV_PACKAGES=${DEV_PACKAGES} \
     RUNTIME_PACKAGES=${RUNTIME_PACKAGES}

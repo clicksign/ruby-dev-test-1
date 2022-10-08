@@ -38,7 +38,7 @@ services:
       target: development
     volumes:
       - .:/home/app/web
-      - gems-data:/usr/local/bundle/gems
+      - gems-data:/usr/local/bundle
     stdin_open: true
     tty: true
     command: bundle exec rails server -p 3005 -b 0.0.0.0
