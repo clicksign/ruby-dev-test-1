@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  folder: one
 
 two:
   name: MyString
-  folder: two
