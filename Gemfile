@@ -40,14 +40,16 @@ group :development, :test do
   gem 'rspec-mocks'
   # RSpec for Rails (https://github.com/rspec/rspec-rails)
   gem 'rspec-rails', '~> 5'
+  # factory_bot provides a framework and DSL for defining and using model instance factories. (https://github.com/thoughtbot/factory_bot)
+  gem 'factory_bot'
+
+  gem 'awesome_print'
 end
 
 group :development do
   gem 'annotate'
   # Listen to file modifications (https://github.com/guard/listen)
   gem 'listen', '~> 3.3'
-  # factory_bot provides a framework and DSL for defining and using model instance factories. (https://github.com/thoughtbot/factory_bot)
-  gem 'factory_bot'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # Rails application preloader (https://github.com/rails/spring)
   gem 'spring'
