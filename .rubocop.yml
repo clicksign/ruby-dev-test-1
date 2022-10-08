@@ -42,5 +42,22 @@ Style/InlineComment:
   Enabled: false
 
 Style/MissingElse:
-  Exclude:
-    - 'config/**/*'
+  Enabled: false
+
+Layout/RedundantLineBreak:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Layout/SingleLineBlockChain:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Layout/MultilineAssignmentLayout:
+  Enabled: false
