@@ -40,16 +40,7 @@ class BucketService
     end
 
     def file_name(file)
-      case file.class.to_s
-      when 'ActionDispatch::Http::UploadedFile'
-        file.original_filename
-      when 'File'
-        File.basename(file)
-      when 'Pathname'
-        file.basename.to_s
-      else
-        file
-      end
+      Utils.file_name(file)
     end
   end
 end

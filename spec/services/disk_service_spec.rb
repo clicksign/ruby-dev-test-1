@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+RSpec.describe(DiskService, type: :service) do
+  describe '.get_file' do
+    let(:example_file) { 'spec/support/files/example.txt' }
+    let(:path) { Rails.root.join(example_file) }
+    let(:result) { described_class.get_file(example_file) }
+
+    it 'return correct path' do
+      expect(result).to(eq(path))
+    end
+
+    it 'return same file' do
+      expect(FileUtils.compare_file(result, path))
+    end
+  end
+
+  describe '.create_file' do
+    let(:example_file) { Rails.root.join('spec/support/files/example.txt') }
+    let(:result) { described_class.create_file!(example_file) }
+
+    it 'return correct path' do
+      expect(result).to(be_a(File))
+    end
+
+    it 'return correct path' do
+      expect(result.path).to(match(/_example.txt/))
+    end
+  end
+end
