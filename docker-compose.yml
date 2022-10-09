@@ -8,6 +8,7 @@ networks:
 volumes:
   db-data:
   gems-data:
+  localstack-data:
 
 services:
   db:
@@ -28,6 +29,24 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  localstack:
+    image: localstack/localstack:latest
+    hostname: localstack
+    networks:
+      - internal
+    ports:
+    - '4566:4566'
+    environment:
+    - EDGE_PORT=4566
+    - HOSTNAME=localhost
+    - HOSTNAME_EXTERNAL=localhost
+    - SERVICES=s3
+    - DEBUG=1
+    - DATA_DIR=/tmp/localstack/data
+    volumes:
+    - localstack-data:/tmp/localstack
+    - '/var/run/docker.sock:/var/run/docker.sock'
 
   app: &app
     container_name: app
@@ -56,8 +75,14 @@ services:
       PORT: 3005
       RAILS_SERVE_STATIC_FILES: null
       RAILS_LOG_TO_STDOUT: 'true'
+      AWS_REGION: 'us-east-1'
+      AWS_ACCESS_KEY_ID: 'example-access-key'
+      AWS_SECRET_ACCESS_KEY: 'example-secret-access-key'
+      AWS_S3_BUCKET: 'test'
+      LOCALSTACK_ENDPOINT_URL: http://172.17.0.1:4566
     depends_on:
       - db
+      - localstack
 
   specs:
     <<: *app
