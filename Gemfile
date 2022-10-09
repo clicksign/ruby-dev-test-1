@@ -47,6 +47,8 @@ group :development, :test do
   gem 'factory_bot'
 
   gem 'awesome_print'
+
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
