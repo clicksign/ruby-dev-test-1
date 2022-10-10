@@ -32,7 +32,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+# AWS SDK for Ruby on Rails Plugin (https://github.com/aws/aws-sdk-rails)
 gem 'aws-sdk-rails', '~> 3'
+# AWS SDK for Ruby - Amazon S3 (https://github.com/aws/aws-sdk-ruby)
 gem 'aws-sdk-s3', '~> 1'
 
 group :development, :test do
@@ -45,13 +47,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 5'
   # factory_bot provides a framework and DSL for defining and using model instance factories. (https://github.com/thoughtbot/factory_bot)
   gem 'factory_bot'
-
+  # Pretty print Ruby objects with proper indentation and colors (https://github.com/awesome-print/awesome_print)
   gem 'awesome_print'
-
+  # Simple one-liner tests for common Rails functionality (https://matchers.shoulda.io/)
   gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
+  # Annotates Rails Models, routes, fixtures, and others based on the database schema. (https://github.com/ctran/annotate_models)
   gem 'annotate'
   # Listen to file modifications (https://github.com/guard/listen)
   gem 'listen', '~> 3.3'
