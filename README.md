@@ -1,7 +1,36 @@
 # ruby-dev-test-1
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+Implementação de sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos.
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+Os arquivos podem ser salvos no banco de dados, em disco ou na cloud.
 
-Realizar um fork deste repositório e abrir o PR ao finalizar.
+A estrutura de diretórios utiliza estrutura de [Adjacency List](https://en.wikipedia.org/wiki/Adjacency_list).
+
+A melhor escolha para implementação seria utilizar o ActiveStorage para lidar com arquivos, mas por ele não ter um suporte nativo a BLOB, ele não foi utilizado.
+
+## Execução local
+
+Requisitos:
+
+- [Docker](https://docs.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+Execute os comandos abaixo:
+
+```bash
+env.example cp .env
+
+docker-compose build app
+
+docker-compose up app
+```
+
+A aplicação vai estar sendo executada em `localhost:3005`.
+
+### Testes
+
+Para executar os testes execute o comando abaixo.
+
+```bash
+docker-compose specs
+```
