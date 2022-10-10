@@ -21,11 +21,11 @@ RSpec.describe(DiskService, type: :service) do
       let(:result) { described_class.create_file!(example_file) }
 
       it 'return type' do
-        expect(result).to(be_a(File))
+        expect(result).to(be_a(Pathname))
       end
 
       it 'return correct path' do
-        expect(result.path).to(match(/_example.txt/))
+        expect(result.to_s).to(match(/_example.txt/))
       end
     end
 
@@ -34,11 +34,11 @@ RSpec.describe(DiskService, type: :service) do
       let(:result) { described_class.create_file!(example_file) }
 
       it 'return type' do
-        expect(result).to(be_a(File))
+        expect(result).to(be_a(Pathname))
       end
 
       it 'return correct path' do
-        expect(result.path).to(match(/_example.txt/))
+        expect(result.to_s).to(match(/_example.txt/))
       end
     end
   end
