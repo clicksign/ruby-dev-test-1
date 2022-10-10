@@ -18,7 +18,7 @@ RSpec.describe(BucketService, type: :service) do
     end
 
     it 'return same file' do
-      expect(FileUtils.compare_file(result, temp_path))
+      expect(FileUtils.compare_file(result, temp_path)).to(ne(true))
     end
   end
 

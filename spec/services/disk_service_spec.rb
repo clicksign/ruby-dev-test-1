@@ -30,7 +30,7 @@ RSpec.describe(DiskService, type: :service) do
     end
 
     context 'when receiving File' do
-      let(:example_file) { File.open(Rails.root.join('spec/support/files/example.txt')) }
+      let(:example_file) { Rails.root.join('spec/support/files/example.txt').open }
       let(:result) { described_class.create_file!(example_file) }
 
       it 'return type' do

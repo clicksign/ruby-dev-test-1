@@ -7,7 +7,7 @@ RSpec.describe('Directories', type: :request) do
     let(:endpoint) { directory_arquives_path(directory_id: root_directory.id) }
     let(:arquives) { create_list(:arquive, 2, directory: root_directory, persistence: :local) }
     let(:expected) do
-      HashWithIndifferentAccess.new(
+      ActiveSupport::HashWithIndifferentAccess.new(
         {
           id: be_a(Numeric),
           name: be_a(String),
@@ -38,7 +38,7 @@ RSpec.describe('Directories', type: :request) do
   describe 'POST /create' do
     let(:endpoint) { arquives_path }
     let(:expected) do
-      HashWithIndifferentAccess.new(
+      ActiveSupport::HashWithIndifferentAccess.new(
         {
           id: be_a(Numeric),
           name: be_a(String),
@@ -103,7 +103,7 @@ RSpec.describe('Directories', type: :request) do
 
     context 'with database persistance' do
       let(:expected) do
-        HashWithIndifferentAccess.new(
+        ActiveSupport::HashWithIndifferentAccess.new(
           {
             id: be_a(Numeric),
             name: be_a(String),

@@ -7,7 +7,7 @@ RSpec.describe('Directories', type: :request) do
     let(:endpoint) { directories_path }
     let(:directories) { create_list(:directory, 2, parent: root_directory) }
     let(:expected) do
-      HashWithIndifferentAccess.new(
+      ActiveSupport::HashWithIndifferentAccess.new(
         {
           id: be_a(Numeric),
           name: be_a(String),
@@ -36,7 +36,7 @@ RSpec.describe('Directories', type: :request) do
   describe 'POST /create' do
     let(:endpoint) { directories_path }
     let(:expected) do
-      HashWithIndifferentAccess.new(
+      ActiveSupport::HashWithIndifferentAccess.new(
         {
           id: be_a(Numeric),
           name: payload[:name],

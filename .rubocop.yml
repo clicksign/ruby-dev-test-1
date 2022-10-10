@@ -61,3 +61,31 @@ RSpec/MultipleExpectations:
 
 Layout/MultilineAssignmentLayout:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Rails/SaveBang:
+  Exclude:  
+    - 'config/*/**'
+
+RSpec/AlignRightLetBrace:
+  Enabled: false
+
+RSpec/AlignLeftLetBrace:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: false
+
+Rails/EnvironmentVariableAccess:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
