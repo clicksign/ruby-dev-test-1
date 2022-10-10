@@ -11,20 +11,35 @@ RSpec.describe(DiskService, type: :service) do
     end
 
     it 'return same file' do
-      expect(FileUtils.compare_file(result, path))
+      expect(FileUtils.compare_file(result, path)).to(be(true))
     end
   end
 
   describe '.create_file' do
-    let(:example_file) { Rails.root.join('spec/support/files/example.txt') }
-    let(:result) { described_class.create_file!(example_file) }
+    context 'when receiving Pathname' do
+      let(:example_file) { Rails.root.join('spec/support/files/example.txt') }
+      let(:result) { described_class.create_file!(example_file) }
 
-    it 'return correct path' do
-      expect(result).to(be_a(File))
+      it 'return type' do
+        expect(result).to(be_a(File))
+      end
+
+      it 'return correct path' do
+        expect(result.path).to(match(/_example.txt/))
+      end
     end
 
-    it 'return correct path' do
-      expect(result.path).to(match(/_example.txt/))
+    context 'when receiving File' do
+      let(:example_file) { File.open(Rails.root.join('spec/support/files/example.txt')) }
+      let(:result) { described_class.create_file!(example_file) }
+
+      it 'return type' do
+        expect(result).to(be_a(File))
+      end
+
+      it 'return correct path' do
+        expect(result.path).to(match(/_example.txt/))
+      end
     end
   end
 end

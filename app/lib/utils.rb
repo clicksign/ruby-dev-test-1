@@ -10,7 +10,7 @@ module Utils
     when 'Pathname'
       file.basename.to_s
     else
-      file
+      'generic_file'
     end
   end
 end
