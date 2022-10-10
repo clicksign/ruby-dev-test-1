@@ -4,9 +4,9 @@ Implementação de sistema de arquivos persistido em um banco de dados SQL onde 
 
 Os arquivos podem ser salvos no banco de dados, em disco ou na cloud.
 
-A estrutura de diretórios utiliza estrutura de [Adjacency List](https://en.wikipedia.org/wiki/Adjacency_list).
+A estrutura de diretórios utiliza a estrutura de [Adjacency List](https://en.wikipedia.org/wiki/Adjacency_list).
 
-A melhor escolha para implementação seria utilizar o ActiveStorage para lidar com arquivos, mas por ele não ter um suporte nativo a BLOB, ele não foi utilizado.
+A melhor escolha para implementação para lidar com arquivos seria utilizar o ActiveStorage , mas por ele não ter um suporte nativo a BLOB, ele não foi utilizado.
 
 ## Execução local
 
