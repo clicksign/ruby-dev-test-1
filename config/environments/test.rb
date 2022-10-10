@@ -50,4 +50,10 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # Enable stdout logger
+  config.logger = Logger.new($stdout)
+
+  # Set log level
+  config.log_level = :ERROR
 end
