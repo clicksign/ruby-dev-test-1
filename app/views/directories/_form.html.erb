@@ -1,0 +1,10 @@
+<%= form_with(model: directory) do |f| %>
+  <div class="form-group">
+    <%= f.label 'Nome', class: "form-label" %><br/>
+    <%= f.text_field :name, class: "form-control mt-2" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Salvar", class: "btn btn-secondary button-card my-4" %>
+  </div>
+<% end %>

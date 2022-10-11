@@ -1,0 +1,9 @@
+<header>
+  <div class="header-row" style="width: 100%;">
+    <h1><%= link_to "Uploader", directories_path, class: "index_header_link" %></h1>
+  </div>
+</header>
+
+<% flash.each do |name, message| %>
+  <%= content_tag :div, message, class: "alert alert-#{name}" %>
+<% end %>

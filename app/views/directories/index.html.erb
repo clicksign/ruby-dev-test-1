@@ -1,0 +1,46 @@
+<%= render 'header' %>
+
+<main>
+  <div class="card card-materials-index container">
+    <div class="card-header">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-sm-12 col-md-4 mt-2 d-flex">
+            <h2 class="material-index-table-title">Diretórios</h2>
+            <%= button_to '+', add_new_directory_path(parent_directory_id: 0), class: 'btn btn-secondary search-button-materials-index text-white', method: :get %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-materials-index" style='padding-left: 28px'>
+      <tr>
+        <th style="width: 20%; padding-left: 28px;">Nome</th>
+        <th style="width: 40%;">Conteúdo</th>
+        <th class='text-center' style="width: 50%;">Ações</th>
+      </tr>
+
+      <% if @directories.any? %>
+        <% @directories.each do |directory| %>
+          <tr>
+            <td style='padding-left: 28px;'><%= directory.name %></td>
+            <td><%= directory.directory_informations %></td>
+            <td class='text-center' style='padding-left: 28px;'>
+              <div class="btn-group flex-wrap" style="padding-right: 28px;">
+                <%= button_to 'Visualizar', directory_path(directory.id), class: 'btn btn-secondary text-white', method: :get %>
+                <%= button_to 'Editar', edit_directory_path(directory.id), class: 'btn btn-primary', method: :get %>
+                <%= button_to 'Adicionar Arquivo', add_new_image_file_path(directory_id: directory.id), class: 'btn btn-warning', method: :get %>
+                <%= button_to 'Excluir', directory_destroy_path(directory.id), class: 'btn btn-danger', method: :delete %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+
+      <% else %>
+        <tr>
+          <td style="padding-left: 28px">Nenhum diretório encontrado.</td>
+          <td></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</main>

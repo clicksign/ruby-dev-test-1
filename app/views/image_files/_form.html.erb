@@ -1,0 +1,12 @@
+<%= form_with model: @image_file do |f| %>
+  <div class='form-group'>
+    <%= f.file_field :image, class: 'form-control mt-2' %>
+    <%= f.label 'Nome do arquivo', required: true, class: 'form-label mt-4' %>
+    <%= f.text_field :name, class: 'form-control mt-2' %>
+    <%= f.hidden_field :directory_id, value: f.object.directory_id, class: 'form-control mt-2' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.submit 'Salvar', class: 'btn btn-secondary button-card my-4' %>
+  </div>
+<% end %>

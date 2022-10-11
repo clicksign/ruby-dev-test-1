@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    build: .
+    tty: true
+    stdin_open: true
+    command: bash -c "bundle install &&
+                     bundle exec rails db:create &&
+                     bundle exec rails db:migrate &&
+                     bundle exec rails db:seed &&
+                     rm -f tmp/pids/server.pid &&
+                     rails active_storage:install &&
+                     rails db:migrate &&
+                     rails s -p 8000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

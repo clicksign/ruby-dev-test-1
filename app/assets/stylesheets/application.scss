@@ -1,0 +1,49 @@
+$primary: #E8E8E8;
+$secondary: #266EFF;
+$pagination-color: #0e1111;
+$pagination-border-color: $primary;
+$pagination-hover-bg: $secondary;
+$pagination-active-bg: $secondary;
+
+.root {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FFFFFF;
+  color: #0e1111;
+}
+
+header {
+  background-color: $primary;
+  padding: 3vh 3vh;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-materials-index {
+  padding: 0 !important;
+  margin-top: 5vh;
+}
+
+.material-index-table-title {
+  margin-right: 2vh;
+}
+
+.index_header_link {
+  color: #0e1111;
+  text-decoration: none;
+}
+
+.index_header_link:hover {
+  color: $secondary;
+}
+
+.button-card {
+  width: 100%;
+  color: white !important;
+  font-weight: 700 !important;
+}
+
+@import "bootstrap";

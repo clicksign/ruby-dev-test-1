@@ -1,0 +1,75 @@
+<%= render 'header' %>
+
+<main>
+  <div class="card card-materials-index container">
+    <div class="card-header">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-sm-12 mt-1 mb-2 d-flex align-items-center">
+            <% if @directory.parent_directory_id.nil? %>
+              <%= link_to raw("<img src='/arrow-left.svg'>"), directories_path, class: 'btn btn-primary', method: :get %>
+
+            <% else %>
+              <%= link_to raw("<img src='/arrow-left.svg'>"), directory_path(@directory.parent_directory_id), class: 'btn btn-primary', method: :get %>
+            <% end %>
+
+            <h2 class="material-index-table-title" style='margin: 0 30px;'><%= @directory.name %></h2>
+            <%= button_to '+ Diretório', add_new_directory_path(parent_directory_id: @directory.id), class: 'btn btn-secondary text-white d-flex', method: :get %>
+            <%= button_to '+ Arquivo', add_new_image_file_path(directory_id: @directory.id), class: 'btn btn-warning', style: 'margin-left: 15px', method: :get %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-materials-index" style='padding-left: 28px'>
+      <tr>
+        <th style='padding-left: 28px'>Arquivos</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <tr>
+        <th style="width: 20%; padding-left: 28px;">Nome</th>
+        <th style="width: 40%;">Conteúdo</th>
+        <th class='text-center' style="width: 50%;">Ações</th>
+      </tr>
+
+      <% if @informations.any? %>
+        <% @informations.each do |information| %>
+          <tr>
+            <td style='padding-left: 28px;'><%= information.name.present? ? information.name : information.alternative_name %></td>
+
+            <% if information.class == Directory %>
+              <td><%= information.directory_informations %></td>
+              
+            <% else %>
+              <td> Arquivo </td>
+            <% end %>
+
+            <td class='text-center' style='padding-left: 28px;'>
+              <div class="btn-group flex-wrap" style="padding-right: 28px;">
+
+                <% if information.class == Directory %>
+                  <%= button_to 'Visualizar', directory_path(information.id), class: 'btn btn-secondary text-white', method: :get %>
+                  <%= button_to 'Editar', edit_directory_path(information.id), class: 'btn btn-primary', method: :get %>
+                  <%= button_to 'Adicionar Arquivo', add_new_image_file_path(directory_id: information.id), class: 'btn btn-warning', method: :get %>
+                  <%= button_to 'Excluir', directory_destroy_path(information.id), class: 'btn btn-danger', method: :delete %>
+
+                <% else %>
+                  <%= button_to 'Visualizar', image_file_path(information.id), class: 'btn btn-secondary text-white', method: :get %>
+                  <%= button_to 'Excluir', image_file_destroy_path(information.id), class: 'btn btn-danger', method: :delete %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+
+      <% else %>
+        <tr>
+          <td style="padding-left: 28px">Nenhum arquivo encontrado.</td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</main>
