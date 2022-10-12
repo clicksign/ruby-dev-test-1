@@ -16,7 +16,14 @@
           </div>
           <div class="card-body form-card-body d-flex justify-content-center">
             <div style='max-width: 480px;'>
-              <%= image_tag(@image_file.image, style:"width: 100%; height: auto;") %>
+              <% if @image_file.pdf? %>
+                <div class='d-flex flex-column align-items-center'>
+                  <h4>PDF</h4>
+                  <%= link_to @document.filename, rails_blob_path(@document, disposition: 'preview') %>
+                </div>
+              <% else %>
+                <%= image_tag(@document, style:"width: 100%; height: auto;") %>
+              <% end %>
             </div>
           </div>
         </div>

@@ -42,7 +42,9 @@
               <td><%= information.directory_informations %></td>
               
             <% else %>
-              <td> Arquivo </td>
+              <td> 
+                <%= information.pdf? ? 'PDF' : 'Imagem' %>
+              </td>
             <% end %>
 
             <td class='text-center' style='padding-left: 28px;'>

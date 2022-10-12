@@ -24,6 +24,7 @@ class ImageFilesController < ApplicationController
 
   def show
     @image_file = image_file
+    @document = @image_file.document
   end
 
   def destroy
@@ -39,7 +40,7 @@ class ImageFilesController < ApplicationController
   private
 
   def image_file_params
-    params.require(:image_file).permit(:name, :directory_id, :image)
+    params.require(:image_file).permit(:name, :directory_id, :document)
   end
 
   def find_image_file!
