@@ -11,7 +11,7 @@ class ImageFilesController < ApplicationController
 
   def create
     @image_file = ImageFile.new(image_file_params)
-    
+
     if @image_file.save
       flash[:success] = 'Arquivo salvo.'
       redirect_to directory_path(@image_file.directory_id)

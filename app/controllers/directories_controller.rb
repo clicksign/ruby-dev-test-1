@@ -34,7 +34,7 @@ class DirectoriesController < ApplicationController
     else
       Directory.create!(parent_directory_id: params[:parent_directory_id])
     end
-    
+
     flash[:success] = 'Diretório criado.'
     redirect_back(fallback_location: root_path)
   end
