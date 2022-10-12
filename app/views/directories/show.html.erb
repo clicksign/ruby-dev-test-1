@@ -5,7 +5,7 @@
     <div class="card-header">
       <div class="container">
         <div class="row d-flex">
-          <div class="col-sm-12 mt-1 mb-2 d-flex align-items-center">
+          <div class="col-sm-12 mt-1 mb-1 d-flex align-items-center">
             <% if @directory.parent_directory_id.nil? %>
               <%= link_to raw("<img src='/arrow-left.svg'>"), directories_path, class: 'btn btn-primary', method: :get %>
 

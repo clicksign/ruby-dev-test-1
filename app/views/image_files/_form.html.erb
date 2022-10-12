@@ -7,6 +7,7 @@
   </div>
 
   <div class='form-group'>
-    <%= f.submit 'Salvar', class: 'btn btn-secondary button-card my-4' %>
+    <%= f.submit 'Salvar', class: 'btn btn-secondary button-card mt-4' %>
   </div>
 <% end %>
+<%= button_to 'Voltar', directory_path(@image_file.directory_id), class: 'btn btn-primary button-card mb-4 text-black', method: :get %>
