@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
   private
 
   def record_not_found(e)
-    render json: { error: e.to_s }, status: :not_found
+    render json: { error: 'resource not found' }, status: :not_found
   end
 
   def missing_param(e)
