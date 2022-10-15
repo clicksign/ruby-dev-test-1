@@ -1,0 +1,27 @@
+<div class="container">
+<% if !@document.errors.empty? %>
+   <div>
+
+      <ul>
+         <% @document.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+
+   </div>
+<% end %>
+
+<div>
+   <%= form_for @document, html: { multipart: true } do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <br><br>
+      <%= f.label :path %>
+      <%= f.file_field :path %>
+      <%= f.label :folder_id, 'Parent', style: "display: block" %>
+      <%= collection_select(:document, :folders_id, Folder.nameAsc, :id, :name, include_blank: true) %>
+      <br>
+      <%= f.submit "Save" %>
+   <% end %>
+</div>
+</div>

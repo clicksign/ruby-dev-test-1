@@ -1,0 +1,19 @@
+<div class="container">
+<% if !flash[:notice].blank? %>
+   <div>
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<h1>Folders</h1>
+
+<%= link_to "New Folder", new_folder_path %>
+
+<div id="folders">
+  <% @folders.each do |folder| %>
+    <%= render folder %>
+    <p>
+      <%= link_to "Show this folder", folder %>
+    </p>
+  <% end %>
+</div>

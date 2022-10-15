@@ -10,7 +10,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <header>
+    <%= link_to 'Documents', documents_path %>
+    <%= link_to 'Folders', folders_path %>
+    <hr>
+  </header>
+
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <br><hr>
+    <%= link_to 'Log out', destroy_user_session_path %>
+  </footer>
 </html>

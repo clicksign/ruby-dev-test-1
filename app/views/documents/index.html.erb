@@ -1,0 +1,19 @@
+<div class="container">
+<% if !flash[:notice].blank? %>
+   <div>
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<h1>Documents</h1>
+
+<%= link_to "New Document", new_document_path %>
+
+<div id="documents">
+  <% @documents.each do |document| %>
+    <%= render document %>
+    <p>
+      <%= link_to "Show this document", document %>
+    </p>
+  <% end %>
+</div>
