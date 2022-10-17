@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: ruby_dev_test_1_production
-  username: ruby_dev_test_1
-  password: <%= ENV["RUBY_DEV_TEST_1_DATABASE_PASSWORD"] %>
+  database: <%= ENV["RUBY_DATABASE_NAME"] %>
+  username: <%= ENV["RUBY_DATABASE_USERNAME"] %>
+  password: <%= ENV["RUBY_DATABASE_PASSWORD"] %>
