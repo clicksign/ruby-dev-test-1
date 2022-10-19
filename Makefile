@@ -13,9 +13,9 @@ migrate:
 seed:
 	docker exec -it $$(docker ps --filter name=web -q) rake db:seed
 console:
-	docker compose run web rails c
+	docker compose run --rm web rails c
 test:
-	docker exec -it $$(docker ps --filter name=web -q) rspec
+	docker compose run --rm web rspec
 rubocop:
 	docker exec -it $$(docker ps --filter name=web -q) rubocop
 rubocop_fix:

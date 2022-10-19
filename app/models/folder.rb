@@ -30,6 +30,8 @@ class Folder < ApplicationRecord
 
   private
 
+  # check_name is present here and in the Document model, therefore could be abstracted in its own Concern maybe,
+  # but since its not clear yet how this could be approached, it's safer to have them in both places for now
   def check_name
     return if same_name_and_parent_folders.empty?
 
@@ -79,8 +81,6 @@ class Folder < ApplicationRecord
 
   # update folder sizes values when parent has changed
   def update_sizes
-    ActiveRecord::Base.transaction do
-      UpdateSizeJob(id:, parent_id_was:)
-    end
+    UpdateSizeJob.perform_async(id, parent_id_was)
   end
 end

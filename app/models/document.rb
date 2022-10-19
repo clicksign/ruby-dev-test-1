@@ -6,6 +6,10 @@ class Document < ApplicationRecord
 
   private
 
+  def update_size_count
+    UpdateSizesJob.perform_async(folder.id)
+  end
+
   def check_name
     return if same_name_and_parent_documents.empty?
 
