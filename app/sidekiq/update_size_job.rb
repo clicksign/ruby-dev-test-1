@@ -2,12 +2,14 @@ class UpdateSizeJob
   include Sidekiq::Job
 
   def perform(id, parent_id_was = nil)
-    folders = Folder.where(id: Folder.find(id).path_ids)
-    folders << Folder.where(id: Folder.find(parent_id_was).path_ids) unless parent_id_was.nil?
+    folders_ids = Folder.find(id).path_ids
+    folders_ids << Folder.find(parent_id_was).path_ids unless parent_id_was.nil?
+    folders_ids.uniq!
+    folders = Folder.where(id: folders_ids)
+    folders.update_all(trusted_size: false)
 
     ActiveRecord::Base.transaction do
       folders.each do |folder|
-        folder.update_column(:trusted_sized, false)
         query_size(folder)
       end
     end
@@ -34,5 +36,3 @@ class UpdateSizeJob
     folder.update_columns(byte_size:, trusted_sized: true)
   end
 end
-
-
