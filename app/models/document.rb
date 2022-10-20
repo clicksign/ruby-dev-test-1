@@ -3,6 +3,7 @@ class Document < ApplicationRecord
   has_one_attached :file
 
   before_validation :check_name
+  after_create :update_size_count
 
   private
 
