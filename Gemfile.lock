@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    ancestry (4.2.0)
+      activerecord (>= 5.2.6)
     ast (2.4.2)
     backport (1.2.0)
     benchmark (0.2.0)
@@ -242,6 +244,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ancestry
   debug
   factory_bot_rails
   puma (~> 5.0)
