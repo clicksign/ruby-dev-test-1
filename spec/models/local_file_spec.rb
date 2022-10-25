@@ -6,6 +6,10 @@ RSpec.describe LocalFile, type: :model do
       specify { is_expected.to have_db_column(:name).of_type(:string).with_options(null: false) }
     end
 
+    describe '#attached' do
+      specify { is_expected.to have_db_column(:attached).of_type(:string).with_options(null: true) }
+    end
+
     describe '#created_at' do
       specify { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
     end

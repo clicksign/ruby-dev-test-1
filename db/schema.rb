@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_021522) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_024427) do
   create_table "folders", force: :cascade do |t|
     t.string "label", null: false
     t.datetime "created_at", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_021522) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "attached"
   end
 
   create_table "media", force: :cascade do |t|
