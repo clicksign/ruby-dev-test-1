@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Files::CreateLocalFile do
-
   describe '.save' do
     context 'when params are valid' do
       specify do
@@ -13,7 +12,7 @@ RSpec.describe Files::CreateLocalFile do
         expect do
           creator.save
         end.to change(LocalFile, :count).by(1)
-          .and change(Medium, :count).by(1)
+           .and change(Medium, :count).by(1)
       end
     end
 
@@ -28,8 +27,8 @@ RSpec.describe Files::CreateLocalFile do
         expect do
           creator.save
         end.to raise_error(ActiveRecord::RecordInvalid)
-          .and change(LocalFile, :count).by(0)
-          .and change(Medium, :count).by(0)
+           .and change(LocalFile, :count).by(0)
+           .and change(Medium, :count).by(0)
       end
     end
 
@@ -44,8 +43,8 @@ RSpec.describe Files::CreateLocalFile do
         expect do
           creator.save
         end.to raise_error(ActiveRecord::RecordInvalid)
-          .and change(LocalFile, :count).by(0)
-          .and change(Medium, :count).by(0)
+           .and change(LocalFile, :count).by(0)
+           .and change(Medium, :count).by(0)
       end
     end
   end

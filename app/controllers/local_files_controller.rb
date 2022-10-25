@@ -1,17 +1,16 @@
 class LocalFilesController < ApplicationController
   def create
-    local_file = LocalFile.new local_file_params
+    local_file_creator = Files::CreateLocalFile.new(params: local_file_params)
+    local_file_creator.save
 
-    if local_file.save
-      head :created
-    else
-      render json: local_file.errors, status: :unprocessable_entity
-    end
+    head :created
+  rescue StandardError => e
+    render json: e.message, status: :unprocessable_entity
   end
 
   private
 
   def local_file_params
-    params.require(:local_file).permit(:label, :attached).merge(folder_id: @params[:folder_id])
+    params.require(:local_file).permit(:name, :attached).merge(folder_id: params[:folder_id])
   end
 end
