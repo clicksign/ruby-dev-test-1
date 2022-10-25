@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_23_195135) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_021522) do
   create_table "folders", force: :cascade do |t|
     t.string "label", null: false
     t.datetime "created_at", null: false
@@ -21,4 +21,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_23_195135) do
     t.index ["label"], name: "index_folders_on_label", unique: true, where: "ancestry IS NULL"
   end
 
+  create_table "local_files", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.integer "folder_id", null: false
+    t.string "fileable_type", null: false
+    t.integer "fileable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fileable_type", "fileable_id"], name: "index_media_on_fileable"
+    t.index ["folder_id"], name: "index_media_on_folder_id"
+  end
+
+  add_foreign_key "media", "folders"
 end
