@@ -18,14 +18,14 @@ class FileObjectTest < ActiveSupport::TestCase
     assert_not file.valid?
   end
 
-  test 'FileObject - validate presence name' do
+  test 'validate presence name' do
     file = FileObject.new
 
     assert_not file.valid?
     assert_not_empty file.errors[:name]
   end
 
-  test 'FileObject - valid associations' do
+  test 'valid associations' do
     assert belong_to(:directory)
   end
 end

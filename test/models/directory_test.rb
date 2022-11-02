@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class FileObjectTest < ActiveSupport::TestCase
+class DirectoryTest < ActiveSupport::TestCase
   test 'valid Directory' do
     directory = Directory.new(name: 'Projects')
 
