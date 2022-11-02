@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: postgres
+  username: root
+  password: root123
+
+development:
+  <<: *default
+  database: ror_file_system_development
+
+test:
+  <<: *default
+  database: ror_file_system_test
+
+production:
+  <<: *default
+  database: ror_file_system_production
+  username: ror_file_system
+  password: <%= ENV["ROR_FILE_SYSTEM_DATABASE_PASSWORD"] %>
