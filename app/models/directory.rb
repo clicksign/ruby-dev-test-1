@@ -6,6 +6,7 @@ class Directory < ApplicationRecord
   has_many :file_objects, dependent: :destroy
   has_many :directories, foreign_key: :parent_directory_id
   belongs_to :parent_directory, class_name: 'Directory', optional: true
+  belongs_to :project
 
   def path
     return name if parent_directory.blank?
