@@ -14,12 +14,6 @@ Realizar um fork deste repositório e abrir o PR ao finalizar.
   - **🛠 Dependências**
     - docker
 
-
-## Baixar o Projeto
-```bash
-git clone git@github.com:NathaliaC/ruby-dev-test-1.git
-```
-
 ## Passo a passo para executar o projeto
 Depois de executado o `docker-compose up` será executada a task de db:prepare com alguns dados no seeds. 
 ```bash
