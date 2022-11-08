@@ -2,37 +2,33 @@
 
 require 'rails_helper'
 
-RSpec.describe Document, type: :model do
-  subject { create(:document) }
+RSpec.describe Document do
+  subject(:document) { create(:document) }
 
-  it { expect(subject).to(be_valid) }
+  it { expect(document).to(be_valid) }
 
   describe 'associations' do
-    it { expect(subject).to(belong_to(:directory).optional(false)) }
-    it { expect(subject).to(have_one_attached(:content)) }
-  end
-
-  describe 'validations' do
-    it { expect(subject).to(validate_presence_of(:directory)) }
+    it { expect(document).to(belong_to(:directory).optional(false)) }
+    it { expect(document).to(have_one_attached(:content)) }
   end
 
   describe 'getters' do
-    let(:file) { subject.content }
+    let(:file) { document.content }
 
-    context '#name' do
-      it { expect(subject.name).to(eq(file.filename.to_s)) }
+    describe '#name' do
+      it { expect(document.name).to(eq(file.filename.to_s)) }
     end
 
-    context '#content_type' do
-      it { expect(subject.content_type).to(eq(file.content_type.to_s)) }
+    describe '#content_type' do
+      it { expect(document.content_type).to(eq(file.content_type.to_s)) }
     end
 
-    context '#size' do
-      it { expect(subject.size).to(eq(file.byte_size)) }
+    describe '#size' do
+      it { expect(document.size).to(eq(file.byte_size)) }
     end
 
-    context '#path' do
-      it { expect(subject.path).to(eq("#{subject.directory.path}/#{file.filename}")) }
+    describe '#path' do
+      it { expect(document.path).to(eq("#{document.directory.path}/#{file.filename}")) }
     end
   end
 end
