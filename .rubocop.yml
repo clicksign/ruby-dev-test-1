@@ -1,0 +1,17 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/**/*'
