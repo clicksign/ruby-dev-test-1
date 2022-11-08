@@ -78,4 +78,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  # Simple one-liner tests for common Rails functionality
+  gem 'shoulda-matchers', '~> 5.0'
 end
