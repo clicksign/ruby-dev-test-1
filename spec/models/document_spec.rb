@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Document, type: :model do
@@ -30,7 +32,7 @@ RSpec.describe Document, type: :model do
     end
 
     context '#path' do
-      it { expect(subject.path).to(eq("#{subject.directory.path}/#{file.filename.to_s}")) }
+      it { expect(subject.path).to(eq("#{subject.directory.path}/#{file.filename}")) }
     end
   end
 end

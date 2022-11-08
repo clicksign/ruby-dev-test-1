@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :directory do
     name { Faker::File.dir(segment_count: 1) }
-    
+
     after :create do |directory|
-      create_list :document, 2, directory: directory
+      create_list :document, 2, directory:
     end
 
     trait :with_parent do
