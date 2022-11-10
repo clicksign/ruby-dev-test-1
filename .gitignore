@@ -7,6 +7,7 @@
 # Ignore directory file system
 .DS_Store
 /.idea
+.env
 
 # Ignore bundler config.
 /.bundle
