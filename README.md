@@ -1,18 +1,22 @@
 # Sistema de Arquivos - ruby-dev-test-1
+
 > Criação da camada de modelos de um sistema de arquivos persistido em um banco de dados SQL. É possível criar diretórios e arquivos. Os diretórios podem conter sub-diretórios e arquivos. O conteúdo dos arquivos podem ser persistidos como blob, S3 ou em disco.
 
 > O sistema foi criado em Ruby utilizando o framework Ruby on Rails com o banco de dados PostgreSQL. Aplicação desenvolvida dentro de um contâiner Docker. Gems RSpec, Shoulda Matchers e FactoryBot utilizadas para criação de testes.
 
-### Tecnologias
-- Ruby
-- Ruby on Rails
+## Tecnologias
+- Ruby 3.1.2
+- Ruby on Rails 7.0.4
 - PostgreSQL
+- RSpec
+- Shoulda Matchers
+- FactoryBot
 - Docker
 
 ### Depêndencias
 - Docker
 
-### Como usar
+## Como usar
 - Baixe e instale o Docker ``https://www.docker.com/``
 - No seu terminal, insira o comando:
 ```docker compose run web bundle install```
