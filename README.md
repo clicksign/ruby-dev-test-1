@@ -17,12 +17,31 @@
 - Docker
 
 ## Como usar
-- Baixe e instale o Docker ``https://www.docker.com/``
-- No seu terminal, insira o comando:
-```docker compose run web bundle install```
-- Após a instalação das gems, insira:
-```docker compose up --build```
+- Baixe e instale o Docker:
+```
+https://www.docker.com/
+```
+- No seu terminal, na raíz da pasta ``ruby-dev-test-1``, execute:
+```
+docker compose run web bundle install
+```
+- Após a instalação das gems, execute:
+```
+docker compose up --build
+```
 - Pronto, a aplicação já está rodando e conectada ao banco de dados.
 
 Caso você esteja usando o Docker em um sistema Linux, os arquivos podem precisar de permissão do "root user". Insira o comando a seguir para possibilitar a edição dos arquivos:
-```sudo chown -R $USER:$USER .```
+```
+sudo chown -R $USER:$USER .
+```
+
+### Migrações
+```
+docker compose run web rake db:migrate
+```
+
+### Testes
+```
+docker compose run web rspec
+```
