@@ -59,7 +59,8 @@ class UploadService
   private
 
   def send_files(signed_objects)
-    puts "at send_files #{signed_objects}"
+    UploadJob.perform_later(signed_objects: signed_objects)
+    puts "at send_files crating job"
   end
 
 end
