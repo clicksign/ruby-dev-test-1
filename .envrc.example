@@ -1,0 +1,11 @@
+export dev_db_username=root
+export dev_db_password=12345678
+export test_db_username=root
+export test_db_password=12345678
+export MYSQL_HOST=127.0.0.1
+export MYSQL_PORT=3306
+
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export S3_BUCKET=
+export AWS_REGION=

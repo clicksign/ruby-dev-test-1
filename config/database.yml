@@ -1,24 +1,23 @@
-default: &common
-  adapter: mysql2
-  encoding: utf8
-  reconnect: true
-  database: ruby_test
-  host: localhost
-  pool: 5
-
 development:
-  <<: *common
-  username: <%= ENV["dev_db_username"] %>
-  password: <%= ENV["dev_db_password"] %>
-  host: <%= ENV["MYSQL_HOST"] %>
-  port: <%= ENV["MYSQL_PORT"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: morphy_development
+  pool: 5
+  username: eduardovrocha
+  password:
 
 test:
-  <<: *common
-  database: ruby_test_test
-  username: <%= ENV["test_db_username"] %>
-  password: <%= ENV["test_db_password"] %>
-  host: <%= ENV["MYSQL_HOST"] %>
-  port: <%= ENV["MYSQL_PORT"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: morphy_test
+  pool: 5
+  username: eduardovrocha
+  password:
 
-############ Other envs
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: morphy_production
+  pool: 5
+  username: eduardovrocha
+  password:
