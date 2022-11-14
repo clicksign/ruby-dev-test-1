@@ -1,3 +1,13 @@
 #fileUpload {
     display: none;
 }
+
+.upload-body  {
+    width: 100%;
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}

@@ -1,8 +1,8 @@
 import * as ReactDOM from 'react-dom'
 import * as React from 'react'
-import { serialize } from 'object-to-formdata';
+import {serialize} from 'object-to-formdata';
 import md5 from "md5";
-import { useState } from 'react';
+import {useState} from 'react';
 
 const MAX_COUNT = 5;
 const Upload = () => {
@@ -21,7 +21,7 @@ const Upload = () => {
           console.log('aqui!')
         })
 
-        uploaded.push({ file: file, checksum: md5(file.name) });
+        uploaded.push({file: file, checksum: md5(file.name)});
         console.log(uploaded)
         if (uploaded.length === MAX_COUNT) setFileLimit(true);
         if (uploaded.length > MAX_COUNT) {
@@ -58,7 +58,7 @@ const Upload = () => {
 
   const formatUpload = () => {
     let uploadList = []
-    for ( var key in uploadedFiles ) {
+    for (var key in uploadedFiles) {
       let data_info = uploadedFiles[key]
       uploadList.push({
         file: data_info.file.content,
@@ -66,7 +66,7 @@ const Upload = () => {
         byte_size: data_info.file.size,
         content_type: data_info.file.type,
         checksum: data_info.checksum,
-        metadata: { message: "active_storage_test" }
+        metadata: {message: "active_storage_test"}
       })
     }
 
@@ -76,35 +76,44 @@ const Upload = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    const options = { indices: true, nullsAsUndefineds: false, booleansAsIntegers: false, allowEmptyArrays: false,
-      noFilesWithArrayNotation: false, dotsForObjectNotation: false};
+    const options = {
+      indices: true, nullsAsUndefineds: false, booleansAsIntegers: false, allowEmptyArrays: false,
+      noFilesWithArrayNotation: false, dotsForObjectNotation: false
+    };
 
     const body = serialize(formatUpload(), options)
     // console.log(formatUpload())
-    const config = { headers: {
+    const config = {
+      headers: {
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
-      } };
+      }
+    };
 
-    fetch(`http://localhost:3000/uploads`, { method: "POST", body: body, config })
+    fetch(`http://localhost:3000/uploads`, {method: "POST", body: body, config})
   }
 
   return (
     <div className="Upload">
       <form onSubmit={onSubmit}>
-        <input id='fileUpload' type='file' multiple accept='application/pdf, image/png' onChange={handleFileEvent}
-               disabled={fileLimit}/>
-        <label htmlFor='fileUpload'>
-          <a className={`btn btn-primary ${!fileLimit ? '' : 'disabled'} `}>Upload Files</a>
-        </label>
-        <div className="uploaded-files-list">
-          {uploadedFiles.map(file => (
-            <div key={file.file.name}>
-              {file.file.name}
-            </div>
-          ))}
-        </div>
-        <button>Send</button>
+        <fieldset>
+          <legend>Add Files</legend>
+          <input id='fileUpload' type='file' multiple accept='application/pdf, image/png' onChange={handleFileEvent}
+                 disabled={fileLimit}/>
+          <label htmlFor='fileUpload'>
+            <a className={`upload-body btn btn-primary ${!fileLimit ? '' : 'disabled'} `}>Upload Files</a>
+          </label>
+          <div className="uploaded-files-list">
+            <ul>
+              {uploadedFiles.map(file => (
+                <li key={file.file.name}>
+                  {file.file.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <button>Send</button>
+        </fieldset>
       </form>
     </div>
   );

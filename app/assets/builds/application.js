@@ -29814,17 +29814,19 @@
         dotsForObjectNotation: false
       };
       const body = (0, import_object_to_formdata.serialize)(formatUpload(), options);
-      const config = { headers: {
-        Accept: "application/json",
-        "Content-Type": "multipart/form-data"
-      } };
+      const config = {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data"
+        }
+      };
       fetch(`http://localhost:3000/uploads`, { method: "POST", body, config });
     };
     return /* @__PURE__ */ React2.createElement("div", {
       className: "Upload"
     }, /* @__PURE__ */ React2.createElement("form", {
       onSubmit
-    }, /* @__PURE__ */ React2.createElement("input", {
+    }, /* @__PURE__ */ React2.createElement("fieldset", null, /* @__PURE__ */ React2.createElement("legend", null, "Add Files"), /* @__PURE__ */ React2.createElement("input", {
       id: "fileUpload",
       type: "file",
       multiple: true,
@@ -29834,12 +29836,12 @@
     }), /* @__PURE__ */ React2.createElement("label", {
       htmlFor: "fileUpload"
     }, /* @__PURE__ */ React2.createElement("a", {
-      className: `btn btn-primary ${!fileLimit ? "" : "disabled"} `
+      className: `upload-body btn btn-primary ${!fileLimit ? "" : "disabled"} `
     }, "Upload Files")), /* @__PURE__ */ React2.createElement("div", {
       className: "uploaded-files-list"
-    }, uploadedFiles.map((file) => /* @__PURE__ */ React2.createElement("div", {
+    }, /* @__PURE__ */ React2.createElement("ul", null, uploadedFiles.map((file) => /* @__PURE__ */ React2.createElement("li", {
       key: file.file.name
-    }, file.file.name))), /* @__PURE__ */ React2.createElement("button", null, "Send")));
+    }, file.file.name)))), /* @__PURE__ */ React2.createElement("button", null, "Send"))));
   };
   var Upload_default = Upload;
 
