@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem 'aws-sdk-s3'
 gem 'faker'
 gem 'sidekiq'
+gem 'foreman'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

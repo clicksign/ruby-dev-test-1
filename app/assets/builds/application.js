@@ -29826,7 +29826,13 @@
       className: "Upload"
     }, /* @__PURE__ */ React2.createElement("form", {
       onSubmit
-    }, /* @__PURE__ */ React2.createElement("fieldset", null, /* @__PURE__ */ React2.createElement("legend", null, "Add Files"), /* @__PURE__ */ React2.createElement("input", {
+    }, /* @__PURE__ */ React2.createElement("fieldset", null, /* @__PURE__ */ React2.createElement("legend", null, "Add Files"), /* @__PURE__ */ React2.createElement("div", null, /* @__PURE__ */ React2.createElement("label", {
+      htmlFor: "title"
+    }, "title for this upload"), /* @__PURE__ */ React2.createElement("input", {
+      id: "title",
+      type: "text",
+      name: "title"
+    })), /* @__PURE__ */ React2.createElement("hr", null), /* @__PURE__ */ React2.createElement("div", null, /* @__PURE__ */ React2.createElement("input", {
       id: "fileUpload",
       type: "file",
       multiple: true,
@@ -29837,7 +29843,7 @@
       htmlFor: "fileUpload"
     }, /* @__PURE__ */ React2.createElement("a", {
       className: `upload-body btn btn-primary ${!fileLimit ? "" : "disabled"} `
-    }, "Upload Files")), /* @__PURE__ */ React2.createElement("div", {
+    }, "Upload Files"))), /* @__PURE__ */ React2.createElement("div", {
       className: "uploaded-files-list"
     }, /* @__PURE__ */ React2.createElement("ul", null, uploadedFiles.map((file) => /* @__PURE__ */ React2.createElement("li", {
       key: file.file.name

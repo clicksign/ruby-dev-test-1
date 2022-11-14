@@ -82,7 +82,6 @@ const Upload = () => {
     };
 
     const body = serialize(formatUpload(), options)
-    // console.log(formatUpload())
     const config = {
       headers: {
         Accept: 'application/json',
@@ -98,11 +97,24 @@ const Upload = () => {
       <form onSubmit={onSubmit}>
         <fieldset>
           <legend>Add Files</legend>
-          <input id='fileUpload' type='file' multiple accept='application/pdf, image/png' onChange={handleFileEvent}
-                 disabled={fileLimit}/>
-          <label htmlFor='fileUpload'>
-            <a className={`upload-body btn btn-primary ${!fileLimit ? '' : 'disabled'} `}>Upload Files</a>
-          </label>
+
+          <div>
+            <label htmlFor='title'>
+              title for this upload
+            </label>
+            <input id='title' type='text' name='title'/>
+          </div>
+
+          <hr/>
+
+          <div>
+            <input id='fileUpload' type='file' multiple accept='application/pdf, image/png' onChange={handleFileEvent}
+                   disabled={fileLimit}/>
+            <label htmlFor='fileUpload'>
+              <a className={`upload-body btn btn-primary ${!fileLimit ? '' : 'disabled'} `}>Upload Files</a>
+            </label>
+          </div>
+
           <div className="uploaded-files-list">
             <ul>
               {uploadedFiles.map(file => (

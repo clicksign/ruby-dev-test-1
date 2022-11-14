@@ -1,10 +1,13 @@
 class Upload < ApplicationRecord
   include ActiveModel::Validations
 
-  validates_with UploadListValidation
-  validates :title, presence: true
   has_many_attached :file
+  validates :title, presence: true
+  before_save :attach_file
+  # validates_with UploadListValidation
 
-  # scope :just_now , -> { where() }
+  def attach_file
+    puts "model before save"
+  end
 
 end
