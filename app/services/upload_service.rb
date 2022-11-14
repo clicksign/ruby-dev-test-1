@@ -26,6 +26,8 @@ class UploadService
         content_type: file['content_type']
       )
 
+      create_upload('fooo title')
+
       file_id = SecureRandom.uuid
       blob_object.update_attribute(:key, "uploads/#{file_id}/")
       @blob_list.push({ blob_object: blob_object, file: file['file'] })
@@ -68,6 +70,14 @@ class UploadService
   def send_files(signed_objects)
     UploadJob.perform_later(signed_objects)
     puts "\n\n[√] creating job"
+  end
+
+  def create_upload(title)
+    upload = Upload.create!(title: title, info: { })
+    if upload.save!
+      puts 'upload saved'
+      # upload.file.attach()
+    end
   end
 
 end

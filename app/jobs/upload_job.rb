@@ -26,6 +26,7 @@ class UploadJob < ApplicationJob
       Net::HTTP.start(url.host, :use_ssl => true) do |http|
         result = http.send_request('PUT', url, file_info[:file], headers)
         puts "\n---> #{result.response} - #{result.code} - #{result.message}"
+        puts "\n---> #{result.body}"
       end
     }
 

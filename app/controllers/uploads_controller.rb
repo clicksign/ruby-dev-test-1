@@ -6,12 +6,6 @@ class UploadsController < ApplicationController
 
   def create
     response = UploadService.new(params)
-    upload = Upload.new(title: Faker::Ancient.titan, info: response).save!
-
-    # upload.files.attach(io: File.open("../../Downloads/me.jpg"), filename: "something")
-    # attach uid
-    
-    upload.files.attach(io: File.open("../../Downloads/me.jpg"), filename: "something")
 
     respond_to do |format|
       format.json { render json: response, status: :ok }
