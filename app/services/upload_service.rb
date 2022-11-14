@@ -26,8 +26,6 @@ class UploadService
         content_type: file['content_type']
       )
 
-      create_upload('fooo title')
-
       file_id = SecureRandom.uuid
       blob_object.update_attribute(:key, "uploads/#{file_id}/")
       @blob_list.push({ blob_object: blob_object, file: file['file'] })
@@ -46,12 +44,12 @@ class UploadService
         headers: blob[:blob_object].service_headers_for_direct_upload
       )
 
-      @response_signed_list.push({
-          file: blob[:file],
-          signed_object: sign_object,
-          blob_signed_id: blob[:blob_object].signed_id,
-          content_type: blob[:blob_object][:content_type]
+      @response_signed_list.push({ file: blob[:file], signed_object: sign_object,
+          blob_signed_id: blob[:blob_object].signed_id, content_type: blob[:blob_object][:content_type]
         })
+
+      create_upload('fooo title', { content_type: blob[:blob_object][:content_type], file_name: 'nonone',
+          uid: blob[:blob_object].signed_id, file: blob[:file] })
     end
 
     @response_signed_list
@@ -72,12 +70,8 @@ class UploadService
     puts "\n\n[√] creating job"
   end
 
-  def create_upload(title)
-    upload = Upload.create!(title: title, info: { })
-    if upload.save!
-      puts 'upload saved'
-      # upload.file.attach()
-    end
+  def create_upload(title, to_attach)
+    Upload.create!(title: title, info: to_attach)
   end
 
 end
