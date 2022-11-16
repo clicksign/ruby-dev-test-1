@@ -1,42 +1,19 @@
-import * as ReactDOM from 'react-dom'
 import * as React from 'react'
 import {serialize} from 'object-to-formdata';
-import md5 from "md5";
 import {useState} from 'react';
 
-const MAX_COUNT = 5;
 const Upload = () => {
 
-  const [uploadedFiles, setUploadedFiles] = useState([])
-  const [fileLimit, setFileLimit] = useState(false);
+  let [uploadContent, setUploadedFiles] = useState({ title: '', info: { path: '', files: [] }})
 
-  const handleUploadFiles = files => {
-    const uploaded = [...uploadedFiles];
-    let limitExceeded = false;
-
-    files.some((file) => {
-      if (uploaded.findIndex((f) => f.name === file.name) === -1) {
-        readFile(file).then((result) => {
-          file["content"] = result;
-          console.log('aqui!')
-        })
-
-        uploaded.push({file: file, checksum: md5(file.name)});
-        console.log(uploaded)
-        if (uploaded.length === MAX_COUNT) setFileLimit(true);
-        if (uploaded.length > MAX_COUNT) {
-          alert(`You can only add a maximum of ${MAX_COUNT} files`);
-          setFileLimit(false);
-          limitExceeded = true;
-          return true;
-        }
-      }
+  const handleUploadFiles = (uploadFiles) => {
+    uploadFiles.info.files.some((file) => {
+      readFile(file).then((result) => {
+        file['data'] = result;
+      })
     })
 
-    if (!limitExceeded) {
-      console.log(uploaded)
-      setUploadedFiles(uploaded)
-    }
+    setUploadedFiles(uploadFiles)
   }
 
   const readFile = async (eFile) => {
@@ -47,41 +24,26 @@ const Upload = () => {
       };
       fileReader.onerror = reject;
       fileReader.readAsDataURL(eFile);
-
     });
   }
 
   const handleFileEvent = (e) => {
-    const chosenFiles = Array.prototype.slice.call(e.target.files)
-    handleUploadFiles(chosenFiles);
-  }
-
-  const formatUpload = () => {
-    let uploadList = []
-    for (var key in uploadedFiles) {
-      let data_info = uploadedFiles[key]
-      uploadList.push({
-        file: data_info.file.content,
-        file_name: data_info.file.name,
-        byte_size: data_info.file.size,
-        content_type: data_info.file.type,
-        checksum: data_info.checksum,
-        metadata: {message: "active_storage_test"}
-      })
-    }
-
-
-    return uploadList
+    uploadContent = {title: '', info: { path: '', files: Array.prototype.slice.call(e.target.files) }}
+    handleUploadFiles(uploadContent);
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
+
+    uploadContent.title = e.target[1].value
+    uploadContent.info.path = e.target[2].value
+
     const options = {
       indices: true, nullsAsUndefineds: false, booleansAsIntegers: false, allowEmptyArrays: false,
       noFilesWithArrayNotation: false, dotsForObjectNotation: false
     };
 
-    const body = serialize(formatUpload(), options)
+    const body = serialize({ upload: uploadContent, options })
     const config = {
       headers: {
         Accept: 'application/json',
@@ -89,7 +51,8 @@ const Upload = () => {
       }
     };
 
-    fetch(`http://localhost:3000/uploads`, {method: "POST", body: body, config})
+    console.log(uploadContent);
+    fetch(`http://localhost:3000/uploads`, { method: "POST", body: body, config })
   }
 
   return (
@@ -102,26 +65,41 @@ const Upload = () => {
             <label htmlFor='title'>
               title for this upload
             </label>
-            <input id='title' type='text' name='title'/>
+            <input id='title' type='text' name='title' required/>
           </div>
 
           <hr/>
 
           <div>
-            <input id='fileUpload' type='file' multiple accept='application/pdf, image/png' onChange={handleFileEvent}
-                   disabled={fileLimit}/>
+            <label htmlFor='title'>
+              select a path to upload
+            </label>
+            <select id='path_upload' name='path upload' required>
+              <option value="">choose</option>
+              <option value="/foo/path/one">path one</option>
+              <option value="/foo/path/two">path two</option>
+              <option value="/foo/path/three">path three</option>
+            </select>
+          </div>
+
+          <hr/>
+
+          <div>
+            <input id='fileUpload' type='file' multiple accept='application/pdf, image/png' onChange={handleFileEvent}/>
             <label htmlFor='fileUpload'>
-              <a className={`upload-body btn btn-primary ${!fileLimit ? '' : 'disabled'} `}>Upload Files</a>
+              <a className='upload-body btn btn-primary'>Upload Files</a>
             </label>
           </div>
 
           <div className="uploaded-files-list">
             <ul>
-              {uploadedFiles.map(file => (
-                <li key={file.file.name}>
-                  {file.file.name}
-                </li>
-              ))}
+              {
+                uploadContent.info.files.map(file => (
+                  <li key={file.name}>
+                    {file.name}
+                  </li>
+                ))
+              }
             </ul>
           </div>
           <button>Send</button>

@@ -2,10 +2,16 @@
     display: none;
 }
 
+#path_upload {
+    margin-left: 15px;
+    padding: 5px;
+}
+
 #title {
     margin-left: 15px;
     padding: 5px;
 }
+
 .upload-body  {
     width: 100%;
     float: left;

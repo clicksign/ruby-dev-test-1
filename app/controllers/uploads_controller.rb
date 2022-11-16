@@ -5,7 +5,7 @@ class UploadsController < ApplicationController
   end
 
   def create
-    response = UploadService.new(params)
+    response = UploadService.new(uploads_params)
 
     respond_to do |format|
       format.json { render json: response, status: :ok }

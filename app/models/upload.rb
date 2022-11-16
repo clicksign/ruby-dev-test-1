@@ -3,16 +3,12 @@ class Upload < ApplicationRecord
 
   has_many_attached :file
   validates :title, presence: true
-  before_save :attach_file
-
-  # validates_with UploadListValidation
+  after_save :attach_file
 
   def attach_file
-    self.file.attach(
-      io: StringIO.new(self.info['file']),
-      filename: 'placeholder_image.png',
-      content_type: self.info['content_type']
-    )
+    self.info['files'].map do |file|
+      self.file.attach(key: self.info['path'], io: StringIO.new(file['io']), filename: file['filename'], content_type: file['content_type'])
+    end
   end
 
 end
