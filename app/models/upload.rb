@@ -1,14 +1,22 @@
 class Upload < ApplicationRecord
   include ActiveModel::Validations
 
-  has_many_attached :file
+  has_many_attached :files
   validates :title, presence: true
-  after_save :attach_file
+  before_save :attach_file
 
   def attach_file
+    attachment_files = []
     self.info['files'].map do |file|
-      self.file.attach(key: self.info['path'], io: StringIO.new(file['io']), filename: file['filename'], content_type: file['content_type'])
+      attachment_files << {
+        key: "upload/#{self.id}/#{self.info['path']}/#{SecureRandom.uuid}",
+        io: StringIO.new(file['io']),
+        filename: file['filename'],
+        content_type: file['content_type']
+      }
     end
+
+    self.files.attach(attachment_files)
   end
 
 end

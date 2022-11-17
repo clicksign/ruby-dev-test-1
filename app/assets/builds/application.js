@@ -29548,7 +29548,16 @@
         }
       };
       console.log(uploadContent);
-      fetch(`http://localhost:3000/uploads`, { method: "POST", body, config });
+      fetch(
+        `http://localhost:3000/uploads`,
+        {
+          method: "POST",
+          body,
+          config
+        }
+      ).then((result) => {
+        setUploadedFiles({ title: "", info: { path: "", files: [] } });
+      });
     };
     return /* @__PURE__ */ React2.createElement("div", {
       className: "Upload"
@@ -29570,11 +29579,11 @@
     }, /* @__PURE__ */ React2.createElement("option", {
       value: ""
     }, "choose"), /* @__PURE__ */ React2.createElement("option", {
-      value: "/foo/path/one"
+      value: "foo/path/one"
     }, "path one"), /* @__PURE__ */ React2.createElement("option", {
-      value: "/foo/path/two"
+      value: "foo/path/two"
     }, "path two"), /* @__PURE__ */ React2.createElement("option", {
-      value: "/foo/path/three"
+      value: "foo/path/three"
     }, "path three"))), /* @__PURE__ */ React2.createElement("hr", null), /* @__PURE__ */ React2.createElement("div", null, /* @__PURE__ */ React2.createElement("input", {
       id: "fileUpload",
       type: "file",

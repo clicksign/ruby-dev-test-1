@@ -52,7 +52,11 @@ const Upload = () => {
     };
 
     console.log(uploadContent);
-    fetch(`http://localhost:3000/uploads`, { method: "POST", body: body, config })
+    fetch(`http://localhost:3000/uploads`,
+      { method: "POST", body: body, config
+      }).then((result) => {
+      setUploadedFiles({ title: '', info: { path: '', files: [] }})
+    })
   }
 
   return (
@@ -76,9 +80,9 @@ const Upload = () => {
             </label>
             <select id='path_upload' name='path upload' required>
               <option value="">choose</option>
-              <option value="/foo/path/one">path one</option>
-              <option value="/foo/path/two">path two</option>
-              <option value="/foo/path/three">path three</option>
+              <option value="foo/path/one">path one</option>
+              <option value="foo/path/two">path two</option>
+              <option value="foo/path/three">path three</option>
             </select>
           </div>
 

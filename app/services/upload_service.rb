@@ -2,6 +2,8 @@ class UploadService
 
   def initialize(options = {})
     create_upload(options)
+
+    response_upload
   end
 
   private
@@ -11,7 +13,7 @@ class UploadService
       files.map { |file| {io: file.path, filename: file.original_filename, content_type: file.content_type} }
     }
 
-    object_upload = {
+    @object_upload = {
       title: upload[:title],
       info: {
         path: upload[:info][:path],
@@ -19,7 +21,13 @@ class UploadService
       }
     }
 
-    UploadJob.perform_later(object_upload)
+    UploadJob.perform_later(@object_upload)
+  end
+
+  def response_upload
+    {
+      direct_upload: @object_upload.except(:files)
+    }
   end
 
 end
