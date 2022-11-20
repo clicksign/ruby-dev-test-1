@@ -56,4 +56,8 @@ group :development do
   gem "annotate", "~> 3.2"
 end
 
+group :test do
+  gem "shoulda-matchers", "~> 5.2"
+end
+
 gem "strong_migrations", "~> 1.4"

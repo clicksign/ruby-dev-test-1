@@ -32,7 +32,7 @@ services:
 
   test:
     build: .
-    command: /bin/sh -c "bundle exec rails db:drop && bundle exec rails db:create && bundle exec rails db:schema:load"
+    command: /bin/sh -c "bundle exec rails db:setup"
     volumes:
       - .:/project
       - bundle:/.bundle
