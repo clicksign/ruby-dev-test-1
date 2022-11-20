@@ -66,6 +66,9 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     ast (2.4.2)
     bootsnap (1.14.0)
       msgpack (~> 1.2)
@@ -195,6 +198,8 @@ GEM
     rubocop-rspec (2.15.0)
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
+    strong_migrations (1.4.0)
+      activerecord (>= 5.2)
     thor (1.2.1)
     timeout (0.3.0)
     tzinfo (2.0.5)
@@ -210,6 +215,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  annotate (~> 3.2)
   bootsnap
   debug
   pg (~> 1.1)
@@ -222,6 +228,7 @@ DEPENDENCIES
   rubocop-performance (~> 1.15)
   rubocop-rails (~> 2.17)
   rubocop-rspec (~> 2.15)
+  strong_migrations (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
