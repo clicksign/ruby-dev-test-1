@@ -3,7 +3,8 @@ name: Styleguide & Test
 on: [push]
 
 jobs:
-  rubocop:
+  linting:
+    name: Rubocop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,38 +17,13 @@ jobs:
         run: rubocop
 
   test:
-
+    name: RSpec
+    timeout-minutes: 10
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:15.1-alpine
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Set up Ruby 3.1.2
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 3.1.2
-      - name: Setup cache key and directory for gems cache
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-use-ruby-${{ hashFiles('**/Gemfile.lock') }}
-      - name: Bundle install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-      - name: Test with RSpec
-        env:
-          RAILS_ENV: "test"
-        run: |
-          bundle exec rails db:setup
-          bundle exec rspec
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Run tests
+      run: docker-compose -f "docker-compose.yml" run test bundle exec rspec

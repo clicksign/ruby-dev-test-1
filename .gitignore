@@ -33,3 +33,6 @@
 
 # Ignore mac files
 .DS_Store
+
+# Ignore coverage files
+coverage/
