@@ -17,35 +17,35 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 
 ### 🔧 Instalação
 
-Com o docker-compose devidamento instalado e configurado, basta executar os comandos abaixo:
+Com o docker compose devidamento instalado e configurado, basta executar os comandos abaixo:
 
 Para abrir o terminal do container
 ```
-$ docker-compose run app sh
+$ docker compose run app sh
 ```
 
 Caso prefira não trabalhar dentro do terminal do container, pode utilizar os comandos abaixo:
 
 Abrir o console
 ```
-$ docker-compose run app sh
+$ docker compose run app sh
 ```
 
 Executar o projeto
 ```
-$ docker-compose run app rails s
+$ docker compose run app rails s
 ```
 
 ## ⚙️ Executando os testes
 
-Com o docker-compose devidamento instalado e configurado, basta executar os comandos abaixo:
+Com o docker compose devidamento instalado e configurado, basta executar os comandos abaixo:
 ```
-$ docker-compose run test bundle exec rspec
+$ docker compose run test bundle exec rspec
 ```
 
 Para execução de testes de um único arquivo ou diretório
 ```
-$ docker-compose run test bundle exec rspec spec/{diretório}/{arquivo}_spec.rb
+$ docker compose run test bundle exec rspec spec/{diretório}/{arquivo}_spec.rb
 ```
 
 ### 🔩 Análise dos Testes

@@ -26,4 +26,4 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Run tests
-      run: docker-compose -f "docker-compose.yml" run test bundle exec rspec
+      run: docker compose -f "docker-compose.yml" run test bundle exec rspec
