@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_20_010447) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -43,11 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_20_010447) do
   end
 
   create_table "storables", force: :cascade do |t|
-    t.string "name"
+    t.citext "name"
     t.string "type"
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name", "parent_id"], name: "index_storables_on_name_and_parent_id", unique: true
+    t.index ["name"], name: "index_storables_on_name", unique: true, where: "(parent_id IS NULL)"
     t.index ["parent_id"], name: "index_storables_on_parent_id"
     t.index ["type"], name: "index_storables_on_type"
   end

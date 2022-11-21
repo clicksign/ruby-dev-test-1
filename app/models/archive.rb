@@ -5,11 +5,18 @@
 # Table name: storables
 #
 #  id         :bigint           not null, primary key
-#  name       :string
+#  name       :citext
 #  type       :string
-#  parent_id  :bigint
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  parent_id  :bigint
+#
+# Indexes
+#
+#  index_storables_on_name                (name) UNIQUE WHERE (parent_id IS NULL)
+#  index_storables_on_name_and_parent_id  (name,parent_id) UNIQUE
+#  index_storables_on_parent_id           (parent_id)
+#  index_storables_on_type                (type)
 #
 class Archive < Storable
   has_one_attached :file
