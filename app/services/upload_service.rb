@@ -9,15 +9,22 @@ class UploadService
   private
 
   def create_upload(upload)
-    serialize_files = -> (files) {
-      files.map { |file| {io: file.path, filename: file.original_filename, content_type: file.content_type} }
+    serialize_files = -> (uc) {
+      # files.map { |file| {io: file, filename: file.original_filename, content_type: file.content_type} }
+      uc['info']['files'].map { |file| ActiveStorage::Blob.create_before_direct_upload!(
+        key: "uploads/#{uc['info']['path']}/#{SecureRandom.uuid}/",
+        filename: file['file_name'],
+        content_type: file['content_type'],
+        checksum: nil,
+        byte_size: nil
+      ) }
     }
 
     @object_upload = {
       title: upload[:title],
       info: {
         path: upload[:info][:path],
-        files: serialize_files.call(upload[:info][:files])
+        files: serialize_files.call(upload)
       }
     }
 

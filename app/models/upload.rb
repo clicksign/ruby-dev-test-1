@@ -3,7 +3,9 @@ class Upload < ApplicationRecord
 
   has_many_attached :files
   validates :title, presence: true
-  before_save :attach_file
+  after_save :attach_file
+
+  belongs_to :directory, class_name: 'Directory'
 
   def attach_file
     attachment_files = []
