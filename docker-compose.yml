@@ -41,7 +41,6 @@ services:
     tty: true
     stdin_open: true
     environment:
-      - PORT=3000
       - RAILS_ENV=test
       - DATABASE_HOST=database
 
