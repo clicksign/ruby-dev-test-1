@@ -17,21 +17,40 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 
 ### 🔧 Instalação
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
+Com o docker-compose devidamento instalado e configurado, basta executar os comandos abaixo:
 
-Diga como essa etapa será:
-
+Para abrir o terminal do container
 ```
-Dar exemplos
-```
-
-E repita:
-
-```
-Até finalizar
+$ docker-compose run app sh
 ```
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+Caso prefira não trabalhar dentro do terminal do container, pode utilizar os comandos abaixo:
+
+Abrir o console
+```
+$ docker-compose run app sh
+```
+
+Executar o projeto
+```
+$ docker-compose run app rails s
+```
+
+## ⚙️ Executando os testes
+
+Com o docker-compose devidamento instalado e configurado, basta executar os comandos abaixo:
+```
+$ docker-compose run test bundle exec rspec
+```
+
+Para execução de testes de um único arquivo ou diretório
+```
+$ docker-compose run test bundle exec rspec spec/{diretório}/{arquivo}_spec.rb
+```
+
+### 🔩 Análise dos Testes
+
+É possível analisar a cobertura de testes detalhadamente acessando o arquivo `coverage/index.html` que é gerado após a execução dos testes.
 ## 🛠️ Construído com
 
 * [Ruby on Rails](https://rubyonrails.org/) - Framework Web
