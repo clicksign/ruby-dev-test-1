@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: file_system_clicksign_development
+
+
+test:
+  <<: *default
+  database: file_system_clicksign_test
+
+production:
+  <<: *default
+  database: file_system_clicksign_production
+  username: file_system_clicksign
+  password: <%= ENV["FILE_SYSTEM_CLICKSIGN_DATABASE_PASSWORD"] %>

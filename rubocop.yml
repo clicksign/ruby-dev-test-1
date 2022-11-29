@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/{rails,rake}'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'bin/bundle'
+    - 'bin/setup'
+    - 'bin/update'
+  NewCops: disable
+  SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/BlockLength:
+  AllowedMethods: ['describe', 'context', 'shared_examples']
