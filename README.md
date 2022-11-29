@@ -15,8 +15,8 @@ Install docker in your local machine:
 ## Running the project
 
 ```bash
--> docker-compose build
--> docker-compose up
+docker-compose build
+docker-compose up
 ```
 
 ## Running tests
