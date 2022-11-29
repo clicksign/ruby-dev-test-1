@@ -5,3 +5,24 @@ Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco
 A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
 
 Realizar um fork deste repositório e abrir o PR ao finalizar.
+
+## First Setup
+
+Install docker in your local machine:
+
+[Docker](https://docs.docker.com/engine/install/ubuntu/)
+
+## Running the project
+
+```bash
+-> docker-compose build
+-> docker-compose up
+```
+
+## Running tests
+
+```bash
+docker-compose run --rm app bundle exec rspec
+```
+
+
