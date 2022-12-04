@@ -3,5 +3,5 @@
 class FileUpload < ApplicationRecord
   # Validates
   validates :description, presence: true, uniqueness: { case_sensitive: false }
-  has_one_attached :files
+  has_many_attached :files
 end

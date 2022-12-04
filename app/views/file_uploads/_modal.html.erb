@@ -1,0 +1,8 @@
+<div class="modal-header">
+  <h5 class="modal-title mx-auto" id="ModalLabel">
+    <%= action_name == "new" ? "Novo" : "Editar"%>
+  </h5>
+</div>
+<div class="modal-body">
+  <%= render 'form', file_upload: @file_upload %>
+</div>
