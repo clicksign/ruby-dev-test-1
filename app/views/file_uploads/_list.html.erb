@@ -1,0 +1,32 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="heading_<%= file_upload.id %>">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_<%= file_upload.id %>" aria-expanded="false">
+      <%= file_upload.description %>
+    </button>
+    <div>
+      <% if file_upload.parent? %>
+        <%= link_to new_file_upload_path(parent_id: file_upload.id), remote: true, class:"btn btn-success mb-2", data: {bs_toggle:"modal", bs_target:"#modal"} do %>
+          + Sub-Pasta
+        <% end %>
+      <% end %>
+    </div>
+  </h2>
+  <div id="collapse_<%= file_upload.id %>" class="accordion-collapse collapse">
+    <div class="accordion-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Download</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% file_upload.files.blobs.each do |file|%>
+            <tr>
+              <td><%= link_to file.filename, rails_blob_path(file, disposition: 'attachment'), target: '_blank' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

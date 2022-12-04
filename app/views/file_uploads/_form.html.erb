@@ -1,4 +1,7 @@
 <%= form_with(model: file_upload) do |f| %>
+  <%= f.hidden_field :parent_id,
+    value: file_upload.parent_id || params[:parent_id] %>
+    <% byebug %>
   <div class="form-group">
     <%= f.label :description %>
     <%= f.text_field :description, class: "form-control", required: true %>
@@ -8,6 +11,6 @@
     <%= f.file_field :files, class: "form-control", multiple: true %>
   </div>
   <div class="mt-5">
-    <%= f.submit class: "btn btn-primary" %>  
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

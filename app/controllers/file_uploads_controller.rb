@@ -1,6 +1,6 @@
 class FileUploadsController < ApplicationController
   def index
-    @file_uploads = FileUpload.order(created_at: :desc)
+    @file_uploads = FileUpload.only_parents.order(created_at: :desc)
   end
 
   def new
@@ -19,6 +19,6 @@ class FileUploadsController < ApplicationController
   private
 
   def file_upload_params
-    params.require(:file_upload).permit(:description, files: [])
+    params.require(:file_upload).permit(:description, :parent_id, files: [])
   end
 end

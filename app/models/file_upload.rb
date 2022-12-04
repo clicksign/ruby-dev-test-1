@@ -9,4 +9,14 @@ class FileUpload < ApplicationRecord
 
   has_many :sub_directories, class_name: 'FileUpload',
                              foreign_key: :parent_id, dependent: :destroy
+
+  scope :only_parents, -> { where(parent_id: nil) }
+
+  def parent?
+    parent_id.nil?
+  end
+
+  def sub_directories?
+    !parent?
+  end
 end
