@@ -25,7 +25,7 @@
               <tbody>
                 <% file_upload.files.blobs.each do |file|%>
                   <tr>
-                    <td><%= link_to file.filename, rails_blob_path(file, disposition: 'attachment') %></td>
+                    <td><%= link_to file.filename, rails_blob_path(file, disposition: 'attachment'), target: '_blank' %></td>
                   </tr>
                 <% end %>
               </tbody>
