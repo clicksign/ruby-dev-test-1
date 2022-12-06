@@ -1,0 +1,17 @@
+# Editor integration: https://solargraph.org/guides/getting-started
+---
+include:
+  - "**/*.rb"
+exclude:
+  - db/**/*
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+require: []
+domains: []
+reporters:
+  - rubocop
+require_paths: []
+plugins: []
+max_files: 5000

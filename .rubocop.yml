@@ -1,0 +1,54 @@
+# Find an integration for your editor of choice: https://github.com/bbatsov/rubocop#editor-integration
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+    - '**/*.rake'
+
+  Exclude:
+    - 'app/assets/**/*'
+    - 'bin/*'
+    - 'coverage/**/*'
+    - 'db/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+Layout/LineLength:
+  Max: 100
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/**/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/features/**/*'
