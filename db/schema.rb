@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_120850) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_122219) do
   create_table "directories", force: :cascade do |t|
     t.integer "directory_id"
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["directory_id"], name: "index_directories_on_directory_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.integer "directory_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["directory_id"], name: "index_documents_on_directory_id"
+  end
+
   add_foreign_key "directories", "directories"
+  add_foreign_key "documents", "directories"
 end
