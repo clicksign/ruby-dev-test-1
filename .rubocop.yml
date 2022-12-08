@@ -1,0 +1,28 @@
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*'
+    - 'config/environments/*'
+
+Metrics/ModuleLength:
+  Max: 75
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/AbcSize:
+  Max: 25
+
+Style/Documentation:
+  Enabled: false
