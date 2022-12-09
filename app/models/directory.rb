@@ -1,2 +1,11 @@
+# frozen_string_literal: true
+
 class Directory < ApplicationRecord
+  belongs_to :parent, class_name: 'Directory', optional: true
+
+  has_many :directories, class_name: 'Directory', foreign_key: :parent_id, dependent: :destroy
+
+  has_many :archives, dependent: :destroy
+
+  validates :dirname, presence: true, uniqueness: { scope: :parent_id }
 end

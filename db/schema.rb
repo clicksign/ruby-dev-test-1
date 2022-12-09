@@ -16,7 +16,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_183709) do
   enable_extension "plpgsql"
 
   create_table "archives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "filename"
     t.uuid "directory_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
