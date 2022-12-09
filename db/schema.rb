@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_09_130407) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_183709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "archives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "filename"
+    t.uuid "directory_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["directory_id"], name: "index_archives_on_directory_id"
+  end
 
   create_table "directories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "dirname", null: false
@@ -24,5 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_130407) do
     t.index ["parent_id"], name: "index_directories_on_parent_id"
   end
 
+  add_foreign_key "archives", "directories"
   add_foreign_key "directories", "directories", column: "parent_id"
 end
