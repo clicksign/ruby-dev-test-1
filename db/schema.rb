@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_08_231354) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_130407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
+  create_table "directories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "dirname", null: false
+    t.uuid "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dirname", "parent_id"], name: "index_directories_on_dirname_and_parent_id", unique: true
+    t.index ["parent_id"], name: "index_directories_on_parent_id"
+  end
+
+  add_foreign_key "directories", "directories", column: "parent_id"
 end
