@@ -1,7 +1,10 @@
 FactoryBot.define do
   factory :folder do
     name { Faker::Lorem.word }
-    parent_id { 1 }
+
+    trait :with_parent do
+      parent { create(:folder) }
+    end
 
     trait :with_documents do
       documents do

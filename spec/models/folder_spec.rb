@@ -19,7 +19,7 @@ RSpec.describe Folder, type: :model do
     end
 
     it "When parent is present" do
-      folder = build(:folder, parent: create(:folder))
+      folder = build(:folder, :with_parent)
       expect(folder).to be_valid
     end
 
