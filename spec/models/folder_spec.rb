@@ -1,6 +1,8 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe Folder, type: :model do
+require "rails_helper"
+
+RSpec.describe Folder do
   describe "associations" do
     it { is_expected.to have_many_attached(:documents) }
     it { is_expected.to belong_to(:parent).class_name("Folder").optional }
