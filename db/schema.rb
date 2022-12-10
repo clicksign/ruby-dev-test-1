@@ -43,10 +43,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_212520) do
   end
 
   create_table "folders", force: :cascade do |t|
+    t.string "name"
+    t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name", "parent_id"], name: "index_folders_on_name_and_parent_id", unique: true
+    t.index ["parent_id"], name: "index_folders_on_parent_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "folders", "folders", column: "parent_id"
 end
