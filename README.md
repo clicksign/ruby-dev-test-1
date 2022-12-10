@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Este projeto foi criado com o objetivo de criar uma camada de modelos utilizando banco de dados SQL para criar um sistema de diretórios e subdiretórios de arquivos utilizando a linguagem Ruby e o framework Rails.
+Este projeto foi criado com o objetivo de criar uma camada de modelos utilizando banco de dados SQL para um sistema de diretórios e subdiretórios de arquivos utilizando a linguagem Ruby e o framework Rails.
 
 ## Configuração
 
@@ -21,13 +21,13 @@ $ bin/rails server
 Para testes foi utilizado o RSpec e a gem shoulda-matchers, caso queiram executar os testes da aplicação utilize o comando abaixo:
 
 ```console
-  bundle exec rspec
+$ bundle exec rspec
 ```
 
 Para qualidade de código e linter foi utilizado as gems rubocop, rubocop-rails, rubocop-rspec e rubocop-performance. Você pode executar utilizando o comando abaixo:
 
 ```console
-  bundle exec rubocop
+$ bundle exec rubocop
 ```
 
 OBS: Foi feito algumas configurações personalizadas elas estão em [.rubocop.yml](.rubocop.yml)
