@@ -51,11 +51,41 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  
+  # use byebug for debugging 
+  gem "byebug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Use awesome_print for debugging
+  gem "awesome_print"
+
+  # Use factory_bot_rails for test data
+  gem "factory_bot_rails"
+
+  # Use faker for test data
+  gem "faker"
+
+  # Use rubocop for linting
+  gem "rubocop", require: false
+
+  # Use rubocop-rails for linting
+  gem "rubocop-rails", require: false
+
+  # Use rubocop-rspec for linting
+  gem "rubocop-rspec", require: false
+
+  # Use rubocop-performance for linting
+  gem "rubocop-performance", require: false
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Use rspec-rails for testing
+  gem "rspec-rails"
+
+  # Use shoulda-matchers for testing
+  gem "shoulda-matchers"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
