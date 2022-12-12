@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "d7c75ddc-cb8a-4df0-b419-1951bb91a7f0",
+		"name": "ClickSign - Directories and Archives",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20353765"
+	},
+	"item": [
+		{
+			"name": "Archive",
+			"item": [
+				{
+					"name": "POST/Create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document",
+									"type": "file",
+									"src": "/Users/biodevs/Sites/data.csv"
+								},
+								{
+									"key": "directory_id",
+									"value": "91c1992d-0714-465f-ba96-f7870025612d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/archives",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"archives"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET/Show",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"archive_id\", \"ea52712d-467f-47f8-9fb3-2d2d54aa2fa8\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/archives/{{archive_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"archives",
+								"{{archive_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET/List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/archives",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"archives"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Directory",
+			"item": [
+				{
+					"name": "POST/Create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"dirname\", \"SGUNDO DIR\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dirname\": \"{{dirname}}\",\n    \"directory_id\": \"91c1992d-0714-465f-ba96-f7870025612e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/directories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"directories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET/Show",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"directory_id\", \"0aa36c58-43b4-426b-8bd4-6faad3846275\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/directories/{{directory_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"directories",
+								"{{directory_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET/List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/directories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"directories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}
