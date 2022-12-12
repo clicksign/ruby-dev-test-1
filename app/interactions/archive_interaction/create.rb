@@ -5,6 +5,8 @@ module ArchiveInteraction
     file :document
     string :directory_id
 
+    validate :content_size_invalid, if: -> { document.size > Documentable::CONTENT_SIZE }
+
     def execute
       create_archive
     end
@@ -23,6 +25,10 @@ module ArchiveInteraction
         filename: File.basename(document.path, '.*'),
         content_type: File.extname(document.path)
       )
+    end
+
+    def content_size_invalid
+      errors.add(:base, :content_size_invalid, content_size: Documentable::CONTENT_SIZE / 1_000_000)
     end
   end
 end

@@ -17,6 +17,7 @@ RSpec.describe ArchiveInteraction::Create do
 
   context 'when trying to create a archive without a directory' do
     let(:directory_id) { nil }
+
     it 'return error' do
       expect { archive_interaction }.to raise_error(ActiveInteraction::InvalidInteractionError)
     end
@@ -24,6 +25,15 @@ RSpec.describe ArchiveInteraction::Create do
 
   context 'when trying to create a archive without a document' do
     let(:document) { nil }
+
+    it 'return error' do
+      expect { archive_interaction }.to raise_error(ActiveInteraction::InvalidInteractionError)
+    end
+  end
+
+  context 'when trying to create a archive content size invalid' do
+    let(:document) { File.open(Rails.root.join('spec/files/lorem_ipsum.txt')) }
+
     it 'return error' do
       expect { archive_interaction }.to raise_error(ActiveInteraction::InvalidInteractionError)
     end

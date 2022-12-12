@@ -228,7 +228,12 @@ pt-BR:
       short: "%d de %B, %H:%M"
     pm: ''
   active_interaction:
+    field:
+      parent_id: ID do sub diretório
     errors:
       messages:
+        directory_not_found: Diretório não encontrado
         invalid: é inválido
+        invalid_type: '%{field} é inválido'
         missing: é obrigatório
+        content_size_invalid: 'Tamanho do arquivo deve ser de até %{content_size}MB.'

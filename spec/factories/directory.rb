@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :directory do
-    dirname { Faker::File.dir(segment_count: 1) }
+    dirname { Faker::Name.name.parameterize.underscore }
     parent_id { nil }
 
     trait :with_document do
@@ -13,7 +13,7 @@ FactoryBot.define do
 
     trait :with_subdirectories do
       after :create do |dir|
-        create_list(:directory, 3, parent: dir)
+        create_list(:directory, 3, parent_id: dir.id)
       end
     end
   end

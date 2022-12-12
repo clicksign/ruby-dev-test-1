@@ -5,8 +5,9 @@ module DirectoryInteraction
     string :dirname
     string :directory_id, default: nil
 
-    validate :dirname_missing, unless: -> { dirname.present? }
-    validate :parent_missing, if: -> { directory_id.present? }
+    validate :directory_not_found, if: -> { directory_id_valid? && directory.blank? }
+    validate :dirname_missing, if: -> { dirname.blank? }
+    validate :directory_id_invalid, if: -> { directory_id.present? }
 
     def execute
       create_directory
@@ -24,12 +25,27 @@ module DirectoryInteraction
       errors.add(:dirname, :missing)
     end
 
-    def parent_missing
-      errors.add(:directory_id, :invalid) unless parent_id_invalid?
+    def directory_id_invalid
+      return if directory_id_valid?
+
+      errors.add(
+        :base,
+        :invalid_type,
+        field: I18n.t('active_interaction.field.parent_id')
+      )
     end
 
-    def parent_id_invalid?
+    def directory_not_found
+      raise ActiveInteraction::InvalidInteractionError,
+            I18n.t('active_interaction.errors.messages.directory_not_found')
+    end
+
+    def directory_id_valid?
       UUIDV4.match?(directory_id)
+    end
+
+    def directory
+      @directory ||= Directory.find(directory_id)
     end
   end
 end

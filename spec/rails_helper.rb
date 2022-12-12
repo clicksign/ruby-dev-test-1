@@ -14,6 +14,8 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -23,6 +25,8 @@ end
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
+  config.include Support::ControllerHelper
+
   config.use_transactional_fixtures = false
 
   config.before(:suite) do

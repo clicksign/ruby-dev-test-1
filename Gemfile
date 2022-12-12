@@ -20,6 +20,10 @@ gem 'bootsnap', require: false
 
 gem 'active_interaction', '~> 5.2'
 
+gem 'kaminari'
+
+gem 'blueprinter'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'

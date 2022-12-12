@@ -3,6 +3,8 @@
 module Documentable
   extend ActiveSupport::Concern
 
+  CONTENT_SIZE = 5.megabytes
+
   included do
     belongs_to :directory
     has_one_attached :document
