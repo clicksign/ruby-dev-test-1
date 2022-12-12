@@ -20,6 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: /bin/bash -c "bundle exec rails server -b 0.0.0.0"
     depends_on:
       - 'db'
     ports:
@@ -31,24 +32,6 @@ services:
     environment:
       - RAILS_ENV=development
     entrypoint: ./entrypoints/app_entrypoint.sh
-
-  test:
-    container_name: test
-    build:
-      context: .
-      dockerfile: Dockerfile
-    tty: true
-    stdin_open: true
-    depends_on:
-      - 'db'
-    volumes:
-      - '.:/file-storage'
-      - gem_cache:/usr/local/bundle/gems
-    env_file: .env.test
-    environment:
-      - RAILS_ENV=test
-      - DATABASE_HOST=db
-    entrypoint: ./entrypoints/test_entrypoint.sh
 
 volumes:
   postgres_db:
