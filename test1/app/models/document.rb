@@ -31,7 +31,17 @@ class Document < ApplicationRecord
     !key.blank? && storage.content_stored?(key)
   end
 
+  def name=(document_name)
+    formatted_name = format_name(document_name)
+    super(formatted_name)
+  end
+
   private
+    def format_name(document_name)
+      ascii_name = I18n.transliterate(document_name)
+      ascii_name.delete('^a-zA-Z0-9_-')
+    end
+
     def storage
       @storage ||= storage_method.constantize.new
     end

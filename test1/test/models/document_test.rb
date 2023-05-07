@@ -4,44 +4,79 @@ class DocumentTest < ActiveSupport::TestCase
   include ActionDispatch::TestProcess::FixtureFile
 
   test 'fail to save document without folder' do
+    document_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name)
-    assert_not(document.upload(file_content), 'The document should not be uploaded')
+    document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name)
+    assert_not(document.upload(file_content), 'The document should not be uploaded without folder')
   end
 
   test 'fail to save document without name' do
+    folder_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
-    assert_not(document.upload(file_content), 'The document should not be uploaded')
+    document = Document.new(storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert_not(document.upload(file_content), 'The document should not be uploaded without name')
   end
 
   test 'fail to save document with blank name' do
+    folder_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(name: '', storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
-    assert_not(document.upload(file_content), 'The document should not be uploaded')
+    document = Document.new(name: '', storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert_not(document.upload(file_content), 'The document should not be uploaded with blank name')
   end
 
-  test 'fail to save document without storage_method' do
+  test 'fail to save document with invalid name' do
+    folder_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(name: 'mydoc', folder: Folder.path('test/folder'))
-    assert_not(document.upload(file_content), 'The document should not be uploaded')
+    document = Document.new(name: '*(=+)', storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert_not(document.upload(file_content), 'The document should not be uploaded with invalid name')
   end
 
-  test 'fail to save document with blank storage_method' do
+  test 'successfully save document with formatted name' do
+    folder_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(name: 'mydoc', storage_method: '', folder: Folder.path('test/folder'))
-    assert_not(document.upload(file_content), 'The document should not be uploaded')
+    document = Document.new(name: '(a*b=+)c\ -/|d,e.f_1;2:3', storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert(document.upload(file_content), 'The document should be uploaded with success')
+    assert_equal('abc-def_123', document.name, 'The document should be uploaded with formatted name')
   end
 
-  test 'fail to save document without file' do
+  test 'fail to save document without storage method' do
+    document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
+    file_content = fixture_file_upload('1.megabyte', nil, :binary)
+    document = Document.new(name: document_name, folder: Folder.path!(folder_name))
+    assert_not(document.upload(file_content), 'The document should not be uploaded without storage method')
+  end
+
+  test 'fail to save document with blank storage method' do
+    document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
+    file_content = fixture_file_upload('1.megabyte', nil, :binary)
+    document = Document.new(name: document_name, storage_method: '', folder: Folder.path!(folder_name))
+    assert_not(document.upload(file_content), 'The document should not be uploaded with blank storage method')
+  end
+
+  test 'fail to save document without content' do
+    document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
     file_content = nil
-    document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
-    assert_not(document.upload(file_content), 'The document should not be uploaded')
+    document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert_not(document.upload(file_content), 'The document should not be uploaded without content')
   end
 
   test 'save document of 1 megabyte stored in database on blob format and deleted after' do
+    document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
+    document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
     assert(document.upload(file_content), 'Document should be uploaded')
     assert(document.persisted?, 'Document should be persisted')
 
@@ -57,8 +92,11 @@ class DocumentTest < ActiveSupport::TestCase
   end
 
   test 'save document of 1 megabyte stored in hard drive and deleted after' do
+    document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
     file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    document = Document.new(name: 'mydoc', storage_method: StorageMethods::HardDrive.name, folder: Folder.path('test/folder'))
+    document = Document.new(name: document_name, storage_method: StorageMethods::HardDrive.name, folder: Folder.path!(folder_name))
     assert(document.upload(file_content), 'Document should be uploaded')
     assert(document.persisted?, 'Document should be persisted')
 
@@ -73,9 +111,12 @@ class DocumentTest < ActiveSupport::TestCase
     assert_nil(deleted_file, 'The file should not exist anymore and must be returned nil')
   end
 
-  test 'successfully save first document and fail to save the second document with the equal folder and name' do
+  test 'successfully save first document and fail to save the second document with equal folder and name' do
+    document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
     first_file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    first_document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
+    first_document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
     assert(first_document.upload(first_file_content), 'The first document should be uploaded')
     assert(first_document.persisted?, 'The first document should be persisted')
 
@@ -83,16 +124,20 @@ class DocumentTest < ActiveSupport::TestCase
     assert_equal(1.megabyte, File.size(uploaded_document.download), 'The file size returned should have 1 megabyte')
 
     second_file_content = fixture_file_upload('512.kilobytes', nil, :binary)
-    second_document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
+    second_document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
     assert_not(second_document.upload(second_file_content), 'The second document should not be saved')
     
     second_document_file = StorageMethods::Blob.new.download(second_document.key)
     assert_nil(second_document_file, 'The file should not exist and must be returned nil')
   end
 
-  test 'successfully save two documents with the equal name and different folders' do
+  test 'successfully save two documents with equal name and different folders' do
+    document_name = SecureRandom.uuid
+    first_folder_name = "#{SecureRandom.uuid}/folder"
+    second_folder_name = "folder/#{SecureRandom.uuid}"
+
     first_file_content = fixture_file_upload('1.megabyte', nil, :binary)
-    first_document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name, folder: Folder.path('test/folder'))
+    first_document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(first_folder_name))
     assert(first_document.upload(first_file_content), 'The first document should be uploaded')
     assert(first_document.persisted?, 'The first document should be persisted')
 
@@ -100,12 +145,42 @@ class DocumentTest < ActiveSupport::TestCase
     assert_equal(1.megabyte, File.size(uploaded_first_document.download), 'The file size returned should have 1 megabyte')
 
     second_file_content = fixture_file_upload('512.kilobytes', nil, :binary)
-    second_document = Document.new(name: 'mydoc', storage_method: StorageMethods::Blob.name, folder: Folder.path('folder/test'))
+    second_document = Document.new(name: document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(second_folder_name))
     assert(second_document.upload(second_file_content), 'The second document should be uploaded')
     assert(second_document.persisted?, 'The second document should be persisted')
 
     uploaded_second_document = Document.find(second_document.id)
     assert_equal(512.kilobytes, File.size(uploaded_second_document.download), 'The file size returned should have 512 kilobytes')
+
+    assert_equal(1, Folder.path(first_folder_name).documents.count, 'The counting of documents in first folder should be one')
+    assert_equal(1, Folder.path(second_folder_name).documents.count, 'The counting of documents in second folder should be one')
+
+    assert(uploaded_first_document.destroy, 'The first document should be deleted')
+    assert(uploaded_second_document.destroy, 'The second document should be deleted')
+  end
+
+  test 'successfully save two documents with different names and equal folder' do
+    first_document_name = SecureRandom.uuid
+    second_document_name = SecureRandom.uuid
+    folder_name = SecureRandom.uuid
+
+    first_file_content = fixture_file_upload('1.megabyte', nil, :binary)
+    first_document = Document.new(name: first_document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert(first_document.upload(first_file_content), 'The first document should be uploaded')
+    assert(first_document.persisted?, 'The first document should be persisted')
+
+    uploaded_first_document = Document.find(first_document.id)
+    assert_equal(1.megabyte, File.size(uploaded_first_document.download), 'The file size returned should have 1 megabyte')
+
+    second_file_content = fixture_file_upload('512.kilobytes', nil, :binary)
+    second_document = Document.new(name: second_document_name, storage_method: StorageMethods::Blob.name, folder: Folder.path!(folder_name))
+    assert(second_document.upload(second_file_content), 'The second document should be uploaded')
+    assert(second_document.persisted?, 'The second document should be persisted')
+
+    uploaded_second_document = Document.find(second_document.id)
+    assert_equal(512.kilobytes, File.size(uploaded_second_document.download), 'The file size returned should have 512 kilobytes')
+
+    assert_equal(2, Folder.path(folder_name).documents.count, 'The counting of documents in folder should be two')
 
     assert(uploaded_first_document.destroy, 'The first document should be deleted')
     assert(uploaded_second_document.destroy, 'The second document should be deleted')
