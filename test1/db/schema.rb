@@ -15,12 +15,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_191636) do
   enable_extension "plpgsql"
 
   create_table "documents", force: :cascade do |t|
-    t.string "name"
-    t.string "storage_method"
-    t.string "key"
+    t.string "name", null: false
+    t.string "storage_method", null: false
+    t.string "key", null: false
     t.bigint "folder_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["folder_id", "name"], name: "folder_name_idx", unique: true
     t.index ["folder_id"], name: "index_documents_on_folder_id"
   end
 
@@ -33,14 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_191636) do
   end
 
   create_table "folders", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "folder_parent_idx"
   end
 
   create_table "storage_methods_blobs", force: :cascade do |t|
-    t.binary "content"
+    t.binary "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

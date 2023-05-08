@@ -36,6 +36,16 @@ class Document < ApplicationRecord
     super(formatted_name)
   end
 
+  def storage_method=(document_storage_method)
+    super(document_storage_method.to_s)
+  end
+
+  def path
+    folder_path = folder.self_and_ancestors.reverse.map(&:name)
+    folder_path << name
+    folder_path.join('/')
+  end
+
   private
     def format_name(document_name)
       ascii_name = I18n.transliterate(document_name)

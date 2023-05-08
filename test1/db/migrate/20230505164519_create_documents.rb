@@ -8,5 +8,9 @@ class CreateDocuments < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :documents, [:folder_id, :name],
+      unique: true,
+      name: "folder_name_idx"
   end
 end
