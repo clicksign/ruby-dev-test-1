@@ -8,11 +8,11 @@ Realizar um fork deste repositório e abrir o PR ao finalizar.
 
 ---
 
-William Lopes -> Entrega:
+# William Lopes -> Entrega:
 
 ---
 
-# Definições da aplicação
+## Definições da aplicação
 ### Versões utilizadas
 * Ruby: 3.2.2
 * Rails: 7.0.4
@@ -28,6 +28,13 @@ William Lopes -> Entrega:
 1. Copie o arquivo `.env.copy` renomeando para `.env`:
     ```
     cp .env.copy .env
+    ```
+1. Configure as propriedades de acesso ao S3 presentes no arquivo `.env`:
+    ```
+    AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY
+    AWS_REGION
+    S3_STORAGE_BUCKET
     ```
 1. Faça o build inicial do docker:
    ```
@@ -67,7 +74,7 @@ William Lopes -> Entrega:
     docker compose down
     ```
 
-# Uso básico do modelo de dados
+## Uso básico do modelo de dados
 1. Cria estrutura de diretório ou retorna se já existente:
     ```ruby
     Folder.path!('caminho/para/o/destino')
