@@ -21,10 +21,6 @@ Realizar um fork deste repositório e abrir o PR ao finalizar.
 * gem `aws-sdk-s3`: 1.122
 
 ### Configuração do ambiente via Docker
-1. Entre na pasta do projeto:
-    ```
-    cd test1
-    ```
 1. Copie o arquivo `.env.copy` renomeando para `.env`:
     ```
     cp .env.copy .env
