@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:15.2
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./tmp/db1:/var/lib/postgresql/data
     env_file:
       - '.env'
     ports:
