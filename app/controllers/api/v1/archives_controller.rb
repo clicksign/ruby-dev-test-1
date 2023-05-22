@@ -3,8 +3,7 @@ class Api::V1::ArchivesController < Api::V1::ApiController
 
   # POST /api/v1/archives
   def create
-    @archive = Archive.new(product_params)
-
+    @archive = Archive.new(archive_params)
     if @archive.save
       render json: @archive, status: :created
     else
@@ -32,8 +31,8 @@ class Api::V1::ArchivesController < Api::V1::ApiController
 
   # DELETE /api/v1/archives/:id
   def destroy
-    if @archive.destroy
-      render json: @archive, status: :ok
+    if @archive.destroy && @archive.id == archive_delete_params[:archive_id].to_i
+      render json: { deleted: @archive.id }, status: :ok
     else
       render json: @archive.errors, status: :unprocessable_entity
     end
@@ -42,11 +41,15 @@ class Api::V1::ArchivesController < Api::V1::ApiController
   private
 
   def set_archive
-    @archive = Archive.find(params[:id])
+    @archive = Archive.where(id: params[:id])&.first
   end
 
   # Only allow a trusted parameter "white list" through.
   def archive_params
-    params.permit(:name, :id, :folder_id)
+    params.permit(:name, :id, :folder_id, files: [])
+  end
+
+  def archive_delete_params
+    params.permit(:id, :archive_id)
   end
 end

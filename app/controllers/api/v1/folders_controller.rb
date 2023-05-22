@@ -3,8 +3,7 @@ class Api::V1::FoldersController < Api::V1::ApiController
 
   # POST /api/v1/folders
   def create
-    @folder = Folder.new(product_params)
-
+    @folder = Folder.new(folder_params)
     if @folder.save
       render json: @folder, status: :created
     else
@@ -32,8 +31,8 @@ class Api::V1::FoldersController < Api::V1::ApiController
 
   # DELETE /api/v1/folders/:id
   def destroy
-    if @folder.destroy
-      render json: @folder, status: :ok
+    if @folder.destroy && @folder.id == folder_delete_params[:folder_id].to_i
+      render json: { deleted: @folder.id }, status: :ok
     else
       render json: @folder.errors, status: :unprocessable_entity
     end
@@ -42,11 +41,15 @@ class Api::V1::FoldersController < Api::V1::ApiController
   private
 
   def set_folder
-    @folder = Folder.find(params[:id])
+    @folder = Folder.where(id: params[:id])&.first
   end
 
   # Only allow a trusted parameter "white list" through.
   def folder_params
     params.permit(:name, :id, :parent_id)
+  end
+
+  def folder_delete_params
+    params.permit(:id, :folder_id)
   end
 end
