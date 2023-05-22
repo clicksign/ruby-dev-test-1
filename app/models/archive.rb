@@ -2,5 +2,5 @@
 
 class Archive < ApplicationRecord
   belongs_to :folder
-  has_many_attached :files
+  has_many_attached :files, dependent: :destroy
 end
