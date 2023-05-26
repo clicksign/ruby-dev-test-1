@@ -1,7 +1,24 @@
-# ruby-dev-test-1
+# README
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+Things you may want to cover:
 
-Realizar um fork deste repositório e abrir o PR ao finalizar.
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
