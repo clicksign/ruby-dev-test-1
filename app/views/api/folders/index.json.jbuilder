@@ -1,0 +1,1 @@
+json.array! @folders, partial: 'api/folders/folder', as: :folder

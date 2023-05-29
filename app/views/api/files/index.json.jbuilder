@@ -1,0 +1,1 @@
+ json.array! @files, partial: 'api/files/file', as: :file

@@ -1,0 +1,1 @@
+json.partial! 'api/files/file', file: @file
