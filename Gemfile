@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
-git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
+git_source(:github) { |_repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.0'
 
@@ -49,9 +51,10 @@ gem 'aws-sdk-s3'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
-  gem 'byebug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop'
+  gem 'rubocop-rails'
   gem 'rubocop-rspec', require: false
 end
 
@@ -67,11 +70,11 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

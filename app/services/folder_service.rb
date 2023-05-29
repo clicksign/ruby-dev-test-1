@@ -8,11 +8,11 @@ class FolderService
   def create
     folder = Folder.find_or_initialize_by(path: @params[:path])
 
-    if folder.new_record?    
+    if folder.new_record?
       folders = FolderService.create_parent_folders(@params[:path])
       folder_name = File.basename(@params[:path])
 
-      folder.name =folder_name
+      folder.name = folder_name
       folder.parent_folder = folders.last
       folder.save!
     end
@@ -20,13 +20,15 @@ class FolderService
   end
 
   def self.create_parent_folders(full_path)
-    folder_name = File.basename(full_path)
+    File.basename(full_path)
     path = File.dirname(full_path)
-    folders = [Folder.find_by(path: path)]
+    folders = [Folder.find_by(path:)]
 
-    path.split('/').each do |folder|
-      folders << Folder.create(name: folder, parent_folder: folders.last)
-    end unless folders.last    
+    unless folders.last
+      path.split('/').each do |folder|
+        folders << Folder.create(name: folder, parent_folder: folders.last)
+      end
+    end
     folders
   end
 end

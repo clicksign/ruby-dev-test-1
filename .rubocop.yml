@@ -1,7 +1,9 @@
 require: rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 3.2
+  Exclude:
+    - 'db/**/*'
 
 Style/StringLiterals:
   Enabled: false
@@ -14,6 +16,9 @@ Style/StringLiteralsInInterpolation:
 Layout/LineLength:
   Max: 120
 
+Style/Documentation:
+  Enabled: false
+
 Metrics/BlockLength:
   IgnoredMethods: ['describe', 'context']
 
@@ -22,3 +27,15 @@ Metrics/MethodLength:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 15
+
+RSpec/MultipleExpectations:
+  Max: 15
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/MessageSpies:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false

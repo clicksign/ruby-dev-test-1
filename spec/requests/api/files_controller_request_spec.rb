@@ -18,8 +18,7 @@ describe Api::FilesController, type: :request do
       end
 
       it 'creates file' do
-        headers = { 'ACCEPT' => 'application/json' }
-        expect{ post '/api/files.json', params: params }.to change{ File::Local.last }.to(
+        expect { post '/api/files.json', params: }.to change(File::Local, :last).to(
           have_attributes(
             name: 'file.txt',
             file_data: nil,
@@ -28,9 +27,10 @@ describe Api::FilesController, type: :request do
         )
       end
     end
+
     context 'when given invalid params' do
       it 'returns error' do
-        post '/api/files.json', params: {type: 'invalid'}
+        post '/api/files.json', params: { type: 'invalid' }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -46,7 +46,7 @@ describe Api::FilesController, type: :request do
     context 'when file exists' do
       it 'returns files' do
         create(:storage, name: 'file.txt')
-        get '/api/files.json', params: params
+        get('/api/files.json', params:)
         expect(response).to have_http_status(:ok)
         expect(response.body).to include('file.txt')
       end
@@ -54,7 +54,7 @@ describe Api::FilesController, type: :request do
 
     context 'when file does not exist' do
       it 'returns empty array' do
-        get '/api/files.json', params: {folder: 'spec/fixtures/invalid'}
+        get '/api/files.json', params: { folder: 'spec/fixtures/invalid' }
         expect(response).to have_http_status(:ok)
         expect(response.body).to eq('[]')
       end

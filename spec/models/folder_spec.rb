@@ -4,16 +4,16 @@ require 'rails_helper'
 
 RSpec.describe Folder, type: :model do
   describe 'associations' do
-    it { should belong_to(:parent_folder).optional }
-    it { should have_many(:sub_folders) }
-    it { should have_many(:files) }
+    it { is_expected.to belong_to(:parent_folder).optional }
+    it { is_expected.to have_many(:sub_folders) }
+    it { is_expected.to have_many(:files) }
   end
 
   describe 'validations' do
     subject { build(:folder) }
 
-    it { should validate_presence_of(:name) }
-    it { should validate_uniqueness_of(:name).scoped_to(:parent_folder_id) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_uniqueness_of(:name).scoped_to(:parent_folder_id) }
   end
 
   describe 'callbacks' do
