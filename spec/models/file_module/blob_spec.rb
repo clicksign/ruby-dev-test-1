@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe File::Blob, type: :model do
+RSpec.describe FileModule::Blob do
   describe 'associations' do
     it { is_expected.to belong_to(:folder) }
   end

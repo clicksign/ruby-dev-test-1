@@ -25,4 +25,4 @@
 10 - adicionado o **rubocop** para validar o código
 
 ex.:
-File::Local.new(name: 'historico.md', attachment: {io: File.open('/Users/regisleandro/Projetos/rails7-demo/ruby-dev-test-1/historico.md'), filename: 'historico.md'}).save
+FileModule::Local.new(name: 'historico.md', attachment: {io: File.open('/Users/regisleandro/Projetos/rails7-demo/ruby-dev-test-1/historico.md'), filename: 'historico.md'}).save

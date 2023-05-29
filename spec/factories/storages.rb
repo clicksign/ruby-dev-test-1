@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   factory :storage do
-    association :folder
+    folder
     sequence(:name) { |n| "file_#{n}" }
 
-    factory :file_s3, class: 'File::S3' do
-      association :folder
+    factory :file_s3, class: 'FileModule::S3' do
+      folder
       sequence(:name) { |n| "file_#{n}" }
       after(:build) do |file_s3|
         file_s3.attachment.attach(
@@ -17,8 +17,8 @@ FactoryBot.define do
       end
     end
 
-    factory :file_local, class: 'File::Local' do
-      association :folder
+    factory :file_local, class: 'FileModule::Local' do
+      folder
       sequence(:name) { |n| "file_#{n}" }
       after(:build) do |file_local|
         file_local.attachment.attach(
@@ -29,8 +29,8 @@ FactoryBot.define do
       end
     end
 
-    factory :file_blob, class: 'File::Blob' do
-      association :folder
+    factory :file_blob, class: 'FileModule::Blob' do
+      folder
       sequence(:name) { |n| "file_#{n}" }
       file_data { 'bla bla bla bla bla' }
     end

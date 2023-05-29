@@ -2,9 +2,9 @@
 
 class FileService
   FILE_TYPES = {
-    local: File::Local,
-    s3: File::S3,
-    blob: File::Blob
+    local: FileModule::Local,
+    s3: FileModule::S3,
+    blob: FileModule::Blob
   }.freeze
 
   def initialize(params)

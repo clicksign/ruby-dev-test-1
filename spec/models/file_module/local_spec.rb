@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe File::S3, type: :model do
+RSpec.describe FileModule::Local do
   describe 'associations' do
     it { is_expected.to belong_to(:folder) }
   end

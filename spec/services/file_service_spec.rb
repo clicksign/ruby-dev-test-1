@@ -28,7 +28,7 @@ RSpec.describe FileService do
       end
 
       it 'creates Blob file' do
-        expect { file_service.create }.to change(File::Blob, :last).to(
+        expect { file_service.create }.to change(FileModule::Blob, :last).to(
           have_attributes(name: file_name, file_data: 'io_object', folder:)
         )
       end
@@ -38,7 +38,7 @@ RSpec.describe FileService do
       let(:type) { 's3' }
 
       it 'creates s3 file' do
-        expect { file_service.create }.to change(File::S3, :last).to(
+        expect { file_service.create }.to change(FileModule::S3, :last).to(
           have_attributes(name: file_name, file_data: nil, attachment: have_attributes(service_name: 'amazon'),
                           folder:)
         )
@@ -49,7 +49,7 @@ RSpec.describe FileService do
       let(:type) { 'local' }
 
       it 'creates local file' do
-        expect { file_service.create }.to change(File::Local, :last).to(
+        expect { file_service.create }.to change(FileModule::Local, :last).to(
           have_attributes(name: file_name, file_data: nil, attachment: have_attributes(service_name: 'local'),
                           folder:)
         )

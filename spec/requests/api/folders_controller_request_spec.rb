@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::FoldersController, type: :request do
+describe Api::FoldersController do
   describe 'POST /api/folders' do
     context 'when folder does not exist' do
       let(:params) do

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::FilesController, type: :request do
+describe Api::FilesController do
   describe 'POST /api/files' do
     let(:params) do
       {
@@ -18,7 +18,7 @@ describe Api::FilesController, type: :request do
       end
 
       it 'creates file' do
-        expect { post '/api/files.json', params: }.to change(File::Local, :last).to(
+        expect { post '/api/files.json', params: }.to change(FileModule::Local, :last).to(
           have_attributes(
             name: 'file.txt',
             file_data: nil,
