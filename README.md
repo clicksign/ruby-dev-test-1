@@ -6,3 +6,23 @@ A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on 
 
 Realizar um fork deste repositório e abrir o PR ao finalizar.
 
+# Histórico de desenvolvimento
+[Histórico de desenvilvomento](historico.md)
+
+# Para executar o projeto:
+ - Rodar o build da imagem
+  ```docker build -t ruby-dev-test1 .```
+ - Executar a imagem
+  ```docker run --platform=linux/amd64 -p 3000:3000 ruby-dev-test1```
+
+# Rotas
+## Diretórios
+  - ```POST /folders``` - Cria um diretório
+  - ```GET /folders?name=``` - Lista todos os diretórios por nome
+  - ```GET /folders?path``` - Lista os diretórios por path
+  - ```GET /folders/:id``` - Retorna um diretório
+## Arquivos
+ - ```POST /files``` - Cria um arquivo
+ - ```GET /files?name=``` - Lista todos os arquivos por nome
+ - ```GET /files/:id``` - Retorna um arquivo
+
