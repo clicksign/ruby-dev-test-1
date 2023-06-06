@@ -54,6 +54,8 @@ group :development, :test do
 
   #  It is a testing framework for Rails 5+
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  # Easily generate fake data
+  gem 'faker', '~> 3.2'
 end
 
 group :development do
