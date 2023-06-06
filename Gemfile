@@ -74,5 +74,7 @@ end
 group :test do
   # Strategies for cleaning databases using ActiveRecord. Can be used to ensure a clean state for testing.
   gem 'database_cleaner-active_record', '~> 2.1'
+  # Simple one-liner tests for common Rails functionality
+  gem 'shoulda-matchers', '~> 5.3'
 end
 
