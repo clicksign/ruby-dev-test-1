@@ -56,6 +56,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
   # Easily generate fake data
   gem 'faker', '~> 3.2'
+  # Provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
 group :development do
