@@ -72,6 +72,10 @@ GEM
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -210,6 +214,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  database_cleaner-active_record (~> 2.1)
   debug
   factory_bot_rails (~> 6.2)
   faker (~> 3.2)
