@@ -76,5 +76,7 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   # Simple one-liner tests for common Rails functionality
   gem 'shoulda-matchers', '~> 5.3'
+  # Code coverage for Ruby
+  gem 'simplecov', '~> 0.21.2'
 end
 
