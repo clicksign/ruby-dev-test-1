@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :folder do
     name { 'MyString' }
-    folder { nil }
+    parent { nil }
   end
 end
