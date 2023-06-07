@@ -18,5 +18,19 @@ RSpec.describe Archive, type: :model do
       subject { create(:archive) }
       it { should validate_uniqueness_of(:name).scoped_to(:folder_id) }
     end
+
+    it { should have_one_attached(:file) }
+  end
+
+  describe 'upload file' do
+    before(:each) do
+      @archive = FactoryBot.create(:archive)
+      @archive.file.attach(io: File.open("./spec/fixtures/files/file_example.txt"), filename: 'file_example.txt')
+      @archive.save!
+    end
+
+    it "has attached the file" do
+      expect(@archive.file).to be_attached
+    end
   end
 end
