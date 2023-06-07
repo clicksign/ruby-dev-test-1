@@ -77,6 +77,6 @@ group :test do
   # Simple one-liner tests for common Rails functionality
   gem 'shoulda-matchers', '~> 5.3'
   # Code coverage for Ruby
-  gem 'simplecov', '~> 0.21.2'
+  gem 'simplecov', '~> 0.22.0'
 end
 
