@@ -1,0 +1,39 @@
+version: "2"
+
+services:
+  app:
+    build:
+      context: .
+    image: ruby_dev_test_1
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - rails-docker_bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    networks:
+      - rails_network
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.2-alpine
+    container_name: ruby_dev_test_1_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - rails_network
+
+volumes:
+  rails-docker_bundle:
+  pg_data:
+
+networks:
+  rails_network:
