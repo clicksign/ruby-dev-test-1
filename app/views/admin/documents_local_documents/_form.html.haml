@@ -1,0 +1,6 @@
+= semantic_form_for [:admin, @documents_local_document], builder: ActiveAdmin::FormBuilder do |f|
+  = f.inputs do
+    = f.input :name
+    = f.input :directory
+    = f.input :file, as: :file
+    = f.actions

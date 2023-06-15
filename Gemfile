@@ -50,6 +50,7 @@ gem "aws-sdk-s3", require: false
 
 # Active Admin is a framework for creating administration style interfaces
 gem 'activeadmin'
+gem "haml-rails"
 
 # Devise is a flexible authentication solution for Rails
 gem 'devise'

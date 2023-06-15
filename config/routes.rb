@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  namespace :api do
+    namespace :v1 do
+      resources :documents, only: %i[show create destroy]
+      resources :directories, only: %i[show create destroy]
+    end
+  end
 end

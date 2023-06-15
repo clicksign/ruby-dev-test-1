@@ -1,0 +1,10 @@
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr class="row row-file">
+    <th>File</th>
+    <td>
+      <%= link_to rails_blob_path(file, disposition: "attachment") do %>
+        <%= image_tag "doc_icon.png", alt: "Download File", style: 'height:30px;width:30px;' %>
+      <% end %>
+    </td>
+  </tr>
+</table>
