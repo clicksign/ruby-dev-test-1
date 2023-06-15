@@ -5,6 +5,7 @@ services:
     build: .
     ports:
       - "3000:3000"
+    command: bash -c "bundle && rails db:setup && rails s -b 0.0.0.0"
     volumes:
       - ./:/app
   postgres:
