@@ -2,13 +2,14 @@ module Documents
   class DestroyService < DocumentsBaseService
     attr_reader :document_id
 
-    def initialize(document_id:, provider:)
-      @document_id = document_id
-      @provider = provider
+    def initialize(params)
+      @document_id = params[:document_id]
+      @provider = params[:provider]
     end
 
     def call
-      provider_class.destroy!
+      document.destroy!
+      document
     end
 
     private

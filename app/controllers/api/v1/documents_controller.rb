@@ -2,15 +2,15 @@ module Api
   module V1
     class DocumentsController < ApplicationController
       def create
-        Documents::CreateService.call(document_params)
+        render json: Documents::CreateService.call(document_params)
       end
       
       def update
-        Documents::UpdateService.call(document_params)
+        render json: Documents::UpdateService.call(document_params)
       end
 
       def destroy
-        Documents::DestroyService.call(document_params)
+        render json: Documents::DestroyService.call(document_params)
       end
 
       private

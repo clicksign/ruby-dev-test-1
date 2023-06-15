@@ -2,7 +2,7 @@ module Documents
   class CreateService < DocumentsBaseService
     attr_reader :document_params
 
-    def initialize(**params)
+    def initialize(params)
       @provider = params.delete(:provider)
       @document_params = params
     end

@@ -2,7 +2,7 @@ module Documents
   class UpdateService < DocumentsBaseService
     attr_reader :document_params
 
-    def initialize(**params)
+    def initialize(params)
       @document_id = params.delete(:document_id)
       @provider = params.delete(:provider)
       @document_params = params
@@ -10,6 +10,7 @@ module Documents
 
     def call
       document.update(**document_params)
+      document
     end
 
     private
