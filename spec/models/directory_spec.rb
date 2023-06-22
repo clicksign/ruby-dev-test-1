@@ -16,4 +16,13 @@ RSpec.describe Directory, type: :model do
     expect(directory.subdirectories).to include(subdirectory)
     expect(subdirectory.parent).to eq(directory)
   end
+
+  it 'attaches a file' do
+    directory = Directory.new(name: 'Test Directory')
+    file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'test_file.txt'))
+
+    directory.attach_file(file)
+
+    expect(directory.files).to be_attached
+  end
 end
