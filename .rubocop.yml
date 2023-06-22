@@ -1,0 +1,16 @@
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - 'bin/*'
+
+Style/Documentation:
+  Enabled: false
+
+BlockLength:
+  Max: 90
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never

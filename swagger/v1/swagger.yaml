@@ -1,0 +1,435 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/v1/archives":
+    get:
+      summary: list
+      tags:
+      - Archives
+      security:
+      - basicAuth: {}
+      responses:
+        '200':
+          description: list archives
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                  - id: 7ac779a2-de8e-41b7-b419-5d5faaad8b32
+                    name: ducimus.odp
+                    folder_id: 
+                    path: ducimus.odp
+                    url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiWFl4Ym5kcWVIa3laRGg1WVhCcGNtMW5jWE0xYTNBellqRmtad1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjBaWE4wTG5SNGRDSTdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25kR1Z6ZEM1MGVIUUdPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzkwWlhoMEwzQnNZV2x1QmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dsMFpYTjAiLCJleHAiOiIyMDIzLTA2LTIyVDE1OjA4OjQ0LjQ0NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f2eb7f555ca395a1fb6a3d6ba991ce4b4c523126/test.txt
+                  - id: c8efe6d9-450e-4766-b76f-6145972067db
+                    name: et.csv
+                    folder_id: 27a80d51-c0b0-4192-abee-68c59f2cd608
+                    path: relationship_outside/et.csv
+                    url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhhV1ZsZUdnNWJuTnNaM0ZuTUhWM1pqUTRjVGN3WVdocE56azJiQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjBaWE4wTG5SNGRDSTdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25kR1Z6ZEM1MGVIUUdPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzkwWlhoMEwzQnNZV2x1QmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dsMFpYTjAiLCJleHAiOiIyMDIzLTA2LTIyVDE1OjA4OjQ0LjQ0OFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--4065eae9ef3fc7ac737c88bb5884e428a24516bf/test.txt
+    post:
+      summary: create
+      tags:
+      - Archives
+      security:
+      - basicAuth: {}
+      parameters: []
+      responses:
+        '201':
+          description: create new archive
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 498d652c-34c6-4100-afbd-5f5267c9e4a3
+                    name: sed.png
+                    folder_id: bd94d4f2-01c0-4c09-96a8-726408b73e03
+                    path: sed.png
+                    url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjbmczYjNGNU56VTVlbVZyY25wM2VEaDZkblY0ZHpsMloyMTJhUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpT1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW5ObFpDNXdibWNpT3lCbWFXeGxibUZ0WlNvOVZWUkdMVGduSjNObFpDNXdibWNHT3daVU9oRmpiMjUwWlc1MFgzUjVjR1VpRG1sdFlXZGxMM0J1WnpvUmMyVnlkbWxqWlY5dVlXMWxPZ2wwWlhOMCIsImV4cCI6IjIwMjMtMDYtMjJUMTU6MDg6NDQuNDcxWiIsInB1ciI6ImJsb2Jfa2V5In19--7d2d043638bad48eb89d34a1387a01a0ff96a20f/sed.png
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                folder_id:
+                  type: string
+                  format: uuid
+                file:
+                  type: string
+                  format: byte
+                  example: dXNlZCBpbiByYWlscyB0ZXN0Cg==
+              required:
+              - name
+              - file
+  "/v1/archives/{id}":
+    get:
+      summary: show
+      tags:
+      - Archives
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: show archive
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 9aa9fe4b-c0ba-4bb6-900d-b624fb95ae9a
+                    name: iure.pages
+                    folder_id: 35510695-039b-40b0-a839-880ff9f4eb27
+                    path: publish-branch/iure.pages
+                    url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhjakZ4WTI5cmIyYzNjbXh5ZFhBeGJXa3lZVEk1WW5semQzY3paZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjBaWE4wTG5SNGRDSTdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25kR1Z6ZEM1MGVIUUdPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzkwWlhoMEwzQnNZV2x1QmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dsMFpYTjAiLCJleHAiOiIyMDIzLTA2LTIyVDE1OjA4OjQ0LjQ5NloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0a9e0fcb0682b4ff90fd0e8a9556aa532e0e61a0/test.txt
+    patch:
+      summary: update
+      tags:
+      - Archives
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: update archive
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 1f0bd242-1df5-425c-b2ba-b773662d7560
+                    name: aut.odp
+                    folder_id: bc70b2a1-163d-46d3-b94b-6708e9586161
+                    path: transfer-copy/aut.odp
+                    url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhPRFpqWldVM2VtRmhkRGw2WVc0M2FERXliVGsxYlc0NWQzSXhjUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjBaWE4wTG5SNGRDSTdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25kR1Z6ZEM1MGVIUUdPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzkwWlhoMEwzQnNZV2x1QmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dsMFpYTjAiLCJleHAiOiIyMDIzLTA2LTIyVDE1OjA4OjQ0LjUxNFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--214408ac2c549a017a48decea69e216d0bb529b2/test.txt
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                folder_id:
+                  type: string
+                  format: uuid
+              required:
+              - name
+    delete:
+      summary: destroy
+      tags:
+      - Archives
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '204':
+          description: destroy archive
+  "/v1/folders":
+    get:
+      summary: list
+      tags:
+      - Folders
+      security:
+      - basicAuth: {}
+      responses:
+        '200':
+          description: list folders
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                  - id: 3f21d392-00f4-4dd1-a9d4-be418667edfd
+                    parent_folder_id: 
+                    name: widen_minister
+                    path: widen_minister
+                    archives:
+                    - id: b5d51220-e375-48c2-bddd-7146f2886af3
+                      name: qui.ppt
+                      folder_id: 3f21d392-00f4-4dd1-a9d4-be418667edfd
+                      path: widen_minister/qui.ppt
+                      url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiM1IzTnprMmIzRmllbmswYkhGamFYQjRNV0ZpZFRKemRXcDBkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjBaWE4wTG5SNGRDSTdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25kR1Z6ZEM1MGVIUUdPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzkwWlhoMEwzQnNZV2x1QmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dsMFpYTjAiLCJleHAiOiIyMDIzLTA2LTIyVDE1OjA4OjQ0LjU2MVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--51b43bea19fb765058fc86205b4a41246e77bba6/test.txt
+                  - id: 30788400-74db-4895-9146-76662235b62d
+                    parent_folder_id: 3f21d392-00f4-4dd1-a9d4-be418667edfd
+                    name: linger-relationship
+                    path: widen_minister/linger-relationship
+                    archives: []
+    post:
+      summary: create
+      tags:
+      - Folders
+      security:
+      - basicAuth: {}
+      parameters: []
+      responses:
+        '201':
+          description: create new folder
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: c8b3f3ae-4b78-4d45-88a0-af50f82f65bf
+                    parent_folder_id: 006b145b-83ae-4ca1-b256-df8ae55d6772
+                    name: theorist-copy
+                    path: theorist-copy
+                    archives: []
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                parent_folder_id:
+                  type: string
+                  format: uuid
+              required:
+              - name
+  "/v1/folders/{id}":
+    get:
+      summary: show
+      tags:
+      - Folders
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: show folder
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: a20b3c23-b569-4c38-9abf-cfc01b2652c2
+                    parent_folder_id: ce40ebf6-f7e9-4fed-bb5e-a815d260c468
+                    name: branch-introduction
+                    path: premium_copy/branch-introduction
+                    archives:
+                    - id: c8269397-1861-495c-950d-ae0175d543f0
+                      name: facilis.jpeg
+                      folder_id: a20b3c23-b569-4c38-9abf-cfc01b2652c2
+                      path: premium_copy/branch-introduction/facilis.jpeg
+                      url: http://example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhiMjQzYm1jMmVteHRlRGx4YnpsMU5EVjZaVE0yYkRKbGNuSnNlQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSjBaWE4wTG5SNGRDSTdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25kR1Z6ZEM1MGVIUUdPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzkwWlhoMEwzQnNZV2x1QmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dsMFpYTjAiLCJleHAiOiIyMDIzLTA2LTIyVDE1OjA4OjQ0LjU5OVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--d16a4f13eebd75083676025ff65762abc2587829/test.txt
+    patch:
+      summary: update
+      tags:
+      - Folders
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: update folder
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: f5d68f75-7914-40e0-a7d7-c7f5103f58d1
+                    parent_folder_id: 85adf276-96bf-4970-967d-6d36692b1dc9
+                    name: ample_arena
+                    path: patience-kidnap/ample_arena
+                    archives: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                parent_folder_id:
+                  type: string
+                  format: uuid
+              required:
+              - name
+    delete:
+      summary: destroy
+      tags:
+      - Folders
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '204':
+          description: destroy folder
+  "/v1/users":
+    get:
+      summary: list
+      tags:
+      - Users
+      security:
+      - basicAuth: {}
+      responses:
+        '200':
+          description: list users
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                  - id: df06d9c3-32bd-43ce-a73a-523b018f0d80
+                    name: ricky
+    post:
+      summary: create
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: create new user
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: beca1cac-4008-4e45-aa82-fe6c0e76906c
+                    name: delora_schumm
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - name
+              - password
+              - password_confirmation
+  "/v1/users/{id}":
+    get:
+      summary: show
+      tags:
+      - Users
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: show user
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 6fdba71a-e4c5-4128-bdbf-9d913c12b20d
+                    name: anastacia_barrows
+    patch:
+      summary: update
+      tags:
+      - Users
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: update user
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: c3870145-5dae-4585-8274-598c6f9709ca
+                    name: javier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+              required:
+              - name
+              - password
+              - password_confirmation
+    delete:
+      summary: destroy
+      tags:
+      - Users
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '204':
+          description: destroy user
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

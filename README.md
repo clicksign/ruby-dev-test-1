@@ -1,7 +1,28 @@
-# ruby-dev-test-1
+# README
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+### Subir a aplicação
+```sh
+./run.sh
+```
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+Caso ocorra erro de permissão:
+```sh
+sudo chmod +x run.sh
+```
 
-Realizar um fork deste repositório e abrir o PR ao finalizar.
+### Autenticação
+```
+O endpoint de criação de usuários é aberto, os demais utilizam BasicAuth;
+Necessário criar um usuário novo e se autenticar com ele em cada requisição;
+```
+
+### Multitenancy
+```
+O usuário é o escopo ("tenant"), se autenticando com o devido usuário, apenas serão vistos/criados registros nesse tenant
+```
+
+### Documentação
+
+```
+{...}/api-docs
+```

@@ -1,0 +1,27 @@
+  version: "3.9"
+
+  services:
+    api: 
+      build: .
+      environment:
+        DB_HOST: db
+        DB_USER: postgres
+        DB_PWD: db_password
+        DB_PORT: 5431
+      command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+      tty: true
+      volumes:
+       - .:/file-manager
+      ports:
+        - 3000:3000
+      depends_on:
+        - db
+    db:
+      image: postgres:alpine
+      volumes: 
+        - ./tmp/db:/var/lib/postgresql/data
+      environment:
+        POSTGRES_PASSWORD: db_password
+      ports:
+        - 5431:5431
+      command: -p 5431
