@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_005900) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_23_010411) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,12 +39,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_005900) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.integer "folder_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_documents_on_folder_id"
+    t.index ["name", "folder_id"], name: "index_documents_on_name_and_folder_id", unique: true
+  end
+
   create_table "folders", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "parent_id"], name: "index_folders_on_name_and_parent_id", unique: true, where: "parent_id IS NULL OR parent_id IS NOT NULL"
+    t.index ["name", "parent_id"], name: "index_folders_on_name_and_parent_id", unique: true
     t.index ["parent_id"], name: "index_folders_on_parent_id"
   end
 
