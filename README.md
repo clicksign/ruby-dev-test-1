@@ -1,5 +1,7 @@
 # README
 
+[Video sistema rodando](https://www.loom.com/share/cdc4bdac00d849f38bac650e0d0f9cea?sid=64174ce3-fa76-4fdc-84b6-d17337c465c2)
+
 ### Subir a aplicação
 ```sh
 ./run.sh
