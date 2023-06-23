@@ -5,11 +5,13 @@ class DocumentTest < ActiveSupport::TestCase
     @folder = Folder.create(name: 'Test Folder')
   end
 
-  test 'should be valid with unique name within folder' do
-    Document.create(name: 'Existing Document', folder: @folder)
+  test 'should be valid with unique name within folder and attached file' do
     document = Document.new(name: 'New Document', folder: @folder)
+    document.file.attach(io: File.open(Rails.root.join('test', 'fixtures', 'files', 'test_file.txt')),
+                         filename: 'test_file.txt')
 
     assert document.valid?
+    assert document.file.attached?
   end
 
   test 'should be invalid with duplicate name within folder' do
