@@ -69,6 +69,10 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+
+  # A library for setting up Ruby objects as test data.
+  gem "factory_bot_rails"
+
   gem "selenium-webdriver"
   gem "webdrivers"
 end
