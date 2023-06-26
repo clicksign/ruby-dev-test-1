@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Directory, type: :model do
   context "factories" do
@@ -14,8 +14,8 @@ RSpec.describe Directory, type: :model do
   end
 
   context "associations" do
-    it { is_expected.to belong_to(:parent).class_name('Directory').optional  }
-    it { is_expected.to have_many(:sub_dirs).class_name('Directory').with_foreign_key("parent_id").dependent(:destroy) }
+    it { is_expected.to belong_to(:parent).class_name("Directory").optional }
+    it { is_expected.to have_many(:sub_dirs).class_name("Directory").with_foreign_key("parent_id").dependent(:destroy) }
     it { is_expected.to have_many(:archives).dependent(:destroy) }
   end
 
@@ -23,6 +23,6 @@ RSpec.describe Directory, type: :model do
     subject { build :directory }
 
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_uniqueness_of(:name).scoped_to([:parent_id, :user_id]) }
+    it { is_expected.to validate_uniqueness_of(:name).scoped_to(%i[parent_id user_id]) }
   end
 end

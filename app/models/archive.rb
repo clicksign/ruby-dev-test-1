@@ -43,7 +43,7 @@ class Archive < ApplicationRecord
 
   # Validations
   # ---
-  validates :name, presence: true, uniqueness: { scope: [:directory_id, :user_id] }
+  validates :name, presence: true, uniqueness: { scope: %i[directory_id user_id] }
   validates :file, presence: true
 
   # Associations
@@ -56,7 +56,7 @@ class Archive < ApplicationRecord
   def path
     return name unless directory
 
-    [directory.path, name].join('/')
+    [directory.path, name].join("/")
   end
 
   def url

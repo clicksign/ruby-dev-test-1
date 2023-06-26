@@ -1,0 +1,165 @@
+# This is the configuration used to check the rubocop source code.
+# ref: https://docs.rubocop.org
+---
+
+# inherit_from: .rubocop_todo.yml
+
+AllCops:
+#   Exclude:
+#     - "spec/fixtures/**/*"
+#     - "tmp/**/*"
+#     - "vendor/**/*"
+#     - "node_modules/**/*"
+  TargetRubyVersion: 2.7
+
+Bundler/OrderedGems:
+  Enabled: false
+
+
+Layout/ArgumentAlignment:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/CommentIndentation:
+  Enabled: false
+
+Layout/EmptyLines:
+  Enabled: false
+
+Layout/EmptyLineBetweenDefs:
+  NumberOfEmptyLines: [1, 2] # min: 1, max: 2
+
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+  AllowBeforeTrailingComments: true
+  # ForceEqualSignAlignment: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 110
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Lint/AmbiguousOperator:
+  Enabled: false
+
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/StringLiterals:
+  # crystal <3
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  # crystal <3
+  EnforcedStyle: double_quotes
+
+Style/RedundantPercentQ:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - "db/**/*"
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+# XXX: usamos comentários após `end` em diversos blocos do..end de DSL.
+Style/CommentedKeyword:
+  Enabled: false
+  # Exclude:
+  #   - "spec/**/*.rb"
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+# Style/Encoding:
+#   Enabled: true
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/ModuleFunction:
+  Enabled: false # there area differences between `module_function` and `extend self` (e.g. private methods)
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+# Layout/IndentArray:
+#   EnforcedStyle: consistent
+
+# Layout/IndentHeredoc:
+#   EnforcedStyle: powerpack
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+  # EnforcedStyle: indented
+  # EnforcedStyle: indented_relative_to_receiver
+
+# Lint/AmbiguousBlockAssociation:
+#   Exclude:
+#     - "spec/**/*.rb"
+
+# Lint/UselessAccessModifier:
+#   MethodCreatingMethods:
+#     - "def_matcher"
+#     - "def_node_matcher"
+
+Metrics/BlockLength:
+  Exclude:
+    - "Guardfile"
+    - "Rakefile"
+    - "*.gemspec"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/MethodLength:
+  Max: 14
+  Exclude:
+    - "db/migrate/**/*.rb"
+
+Metrics/LineLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/ModuleLength:
+  Exclude:
+    - "spec/**/*.rb"
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+
+Naming/MethodParameterName:
+  MinNameLength: 2

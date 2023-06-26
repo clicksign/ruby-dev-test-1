@@ -4,4 +4,3 @@ namespace :api do
     resources :archives
   end
 end
-

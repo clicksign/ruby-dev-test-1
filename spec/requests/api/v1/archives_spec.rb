@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Api::V1::ArchivesController, type: :request do
   let(:data) { JSON.parse(response.body, symbolize_names: true) }

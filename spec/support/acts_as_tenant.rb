@@ -1,5 +1,5 @@
 RSpec.configure do |config|
-  config.before(:suite) do |example|
+  config.before(:suite) do |_example|
     # Make the default tenant globally available to the tests
     $default_account = User.first
   end
@@ -14,7 +14,7 @@ RSpec.configure do |config|
     end
   end
 
-  config.after(:each) do |example|
+  config.after(:each) do |_example|
     # Clear any tenancy that might have been set
     ActsAsTenant.current_tenant = nil
     ActsAsTenant.test_tenant = nil

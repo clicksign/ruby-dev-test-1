@@ -40,7 +40,7 @@ class Directory < ApplicationRecord
 
   # Validations
   # ---
-  validates :name, presence: true, uniqueness: { scope: [:parent_id, :user_id] }
+  validates :name, presence: true, uniqueness: { scope: %i[parent_id user_id] }
 
   # Associations
   # ---
@@ -54,6 +54,6 @@ class Directory < ApplicationRecord
   def path
     return name unless parent
 
-    [parent.path, name].join('/')
+    [parent.path, name].join("/")
   end
 end

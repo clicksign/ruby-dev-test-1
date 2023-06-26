@@ -10,9 +10,8 @@ RSpec.describe ArchiveSerializer, type: :serializer do
     it { is_expected.to include "id"            => object.id }
     it { is_expected.to include "name"          => object.name }
     it { is_expected.to include "directory_id"  => object.directory_id }
-    #pending "url"
-    it { is_expected.to include "url"         => object.url }
-    it { is_expected.to include "path"          => object.path }
+    # pending "url"
+    it { is_expected.to include "url" => object.url }
+    it { is_expected.to include "path" => object.path }
   end
 end
-

@@ -7,6 +7,6 @@ class CreateArchives < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :archives, [:name, :directory_id], unique: true
+    add_index :archives, %i[name directory_id], unique: true
   end
 end

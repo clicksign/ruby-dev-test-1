@@ -22,7 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_111610) do
     t.uuid "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+    t.index %w[record_type record_id name blob_id], name: "index_active_storage_attachments_uniqueness",
+unique: true
   end
 
   create_table "active_storage_blobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -40,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_111610) do
   create_table "active_storage_variant_records", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "blob_id", null: false
     t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+    t.index %w[blob_id variation_digest], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "archives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -50,8 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_111610) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["directory_id"], name: "index_archives_on_directory_id"
-    t.index ["name", "directory_id", "user_id"], name: "index_archives_on_name_and_directory_id_and_user_id", unique: true
-    t.index ["name", "directory_id"], name: "index_archives_on_name_and_directory_id", unique: true
+    t.index %w[name directory_id user_id], name: "index_archives_on_name_and_directory_id_and_user_id",
+unique: true
+    t.index %w[name directory_id], name: "index_archives_on_name_and_directory_id", unique: true
     t.index ["user_id"], name: "index_archives_on_user_id"
   end
 
@@ -61,8 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_24_111610) do
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "parent_id", "user_id"], name: "index_directories_on_name_and_parent_id_and_user_id", unique: true
-    t.index ["name", "parent_id"], name: "index_directories_on_name_and_parent_id", unique: true
+    t.index %w[name parent_id user_id], name: "index_directories_on_name_and_parent_id_and_user_id", unique: true
+    t.index %w[name parent_id], name: "index_directories_on_name_and_parent_id", unique: true
     t.index ["parent_id"], name: "index_directories_on_parent_id"
     t.index ["user_id"], name: "index_directories_on_user_id"
   end

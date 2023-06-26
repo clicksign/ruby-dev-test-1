@@ -64,7 +64,7 @@ module AuthenticationGuard
     def authenticate_user!
       @current_user = authenticate_with_http_basic { |u, p| User.find_by(email: u)&.authenticate(p) }
 
-      return raise ::AuthenticationGuard::UnauthorizedError.new unless @current_user
+      return raise ::AuthenticationGuard::UnauthorizedError unless @current_user
 
       set_current_tenant(@current_user)
 

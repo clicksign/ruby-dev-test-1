@@ -15,7 +15,7 @@ class DirectoryShowSerializer < ApplicationSerializer
   def archives
     return [] if object&.archives&.empty?
 
-    object&.archives.map do |archive|
+    object&.archives&.map do |archive|
       ArchiveSerializer.new.serialize(archive)
     end
   end
@@ -23,7 +23,7 @@ class DirectoryShowSerializer < ApplicationSerializer
   def sub_dirs
     return [] if object&.sub_dirs&.empty?
 
-    object&.sub_dirs.map do |sub_dir|
+    object&.sub_dirs&.map do |sub_dir|
       DirectoryParentSerializer.new.serialize(sub_dir)
     end
   end

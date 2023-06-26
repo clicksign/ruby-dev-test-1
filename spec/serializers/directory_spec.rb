@@ -15,4 +15,3 @@ RSpec.describe DirectorySerializer, type: :serializer do
     it { is_expected.to include "path"      => object.path }
   end
 end
-

@@ -14,15 +14,15 @@ RSpec.describe DirectoryShowSerializer, type: :serializer do
   end
 
   let(:serialized_archives) do
-    object&.archives.map do |archive|
+    object&.archives&.map do |archive|
       ArchiveSerializer.new.serialize(archive)
-    end.as_json
+    end&.as_json
   end
 
   let(:serialized_sub_dirs) do
-    object&.sub_dirs.map do |sub_dir|
+    object&.sub_dirs&.map do |sub_dir|
       DirectoryParentSerializer.new.serialize(sub_dir)
-    end.as_json
+    end&.as_json
   end
 
   describe "attributes" do
@@ -34,4 +34,3 @@ RSpec.describe DirectoryShowSerializer, type: :serializer do
     it { is_expected.to include "sub_dirs"  => serialized_sub_dirs }
   end
 end
-
