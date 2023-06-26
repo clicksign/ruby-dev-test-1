@@ -1,7 +1,25 @@
 require "test_helper"
 
 class FolderTest < ActiveSupport::TestCase
-  test "should belongs to a filesystem" do
+  # associations
+
+  test ".documents association should return associated documents" do
+    folder = create(:folder, documents: create_list(:document, 3))
+
+    assert_equal 3, folder.documents.count
+  end
+
+  # validations
+
+  test ".valid? should returns error if no name" do
+    folder = Folder.new
+
+    folder.valid?
+
+    assert_includes folder.errors.details[:name], { error: :blank }
+  end
+
+  test ".valid? should returns error if no filesystem associated" do
     folder = Folder.new
 
     folder.valid?
@@ -9,13 +27,7 @@ class FolderTest < ActiveSupport::TestCase
     assert_includes folder.errors.details[:file_system], { error: :blank }
   end
 
-  test "should have a name" do
-    folder = Folder.new
-
-    folder.valid?
-
-    assert_includes folder.errors.details[:name], { error: :blank }
-  end
+  # methods
 
   test ".parent should returns the parent folder" do
     parent = create(:folder, name: "Rebels")

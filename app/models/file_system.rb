@@ -2,4 +2,5 @@
 # May be associated with a user/organization in the future
 class FileSystem < ApplicationRecord
   has_many :folders
+  has_many :documents
 end
