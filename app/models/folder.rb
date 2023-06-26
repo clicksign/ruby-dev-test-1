@@ -4,7 +4,7 @@ class Folder < ApplicationRecord
   # associations
 
   belongs_to :file_system
-  has_many :documents
+  has_many :documents, dependent: :destroy
 
   # validations
 
