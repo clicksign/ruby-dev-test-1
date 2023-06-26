@@ -1,0 +1,7 @@
+inherit_gem:
+  rubocop-github:
+    - config/default.yml # generic Ruby rules and cops
+    - config/rails.yml # Rails-specific rules and cops
+
+Style/FrozenStringLiteralComment:
+  Enabled: false # this is a test project
