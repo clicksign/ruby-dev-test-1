@@ -68,6 +68,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    ancestry (4.3.3)
+      activerecord (>= 5.2.6)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -255,6 +257,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ancestry
   bootsnap
   capybara
   debug
