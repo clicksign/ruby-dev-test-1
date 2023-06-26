@@ -1,0 +1,45 @@
+# This is development purpose docker-compose file to fire up the rails app and all its dependencies,
+# such as:
+# - database (postgres)
+# - cache (redis)
+# - ...
+##
+
+---
+version: "3.9"
+
+networks:
+  default:
+    name: ruby-dev-test-1
+
+volumes:
+  backend_bundler_data:
+  db_data:
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER:        "ruby_dev_test_1"
+      POSTGRES_PASSWORD:    "ruby_dev_test_1"
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=pt_BR.UTF-8"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+
+  backend:
+    image: "ruby-dev-test-1:local"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${API_PORT:-3000}:3000"
+    volumes:
+      - backend_bundler_data:/app/vendor/
+      - .:/app
+    # xxx: discoment when use debug
+    # stdin_open: true
+    # tty: true
+    depends_on:
+      - db

@@ -1,0 +1,35 @@
+.git
+.gitignore
+.gitmodules
+.cache
+
+# Ignore docker config directory
+.docker/*
+!.docker/bin
+!.docker/.ssh
+!.docker/config
+
+.gcp/
+
+Jenkinsfile*
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+.env*
+!.env*.example
+!.env*.sample
+
+# bundler gems
+.bundle/
+vendor/
+
+# node modules
+node_modules/
+
+.ruby-version
+.ruby-gemset
+.tool-versions
+
+.idea
+cache

@@ -1,0 +1,330 @@
+openapi: 3.0.0
+servers:
+  - description: File Management System API
+    url: http://localhost:3000
+info:
+  version: "1.0.0"
+  title: File Management System API
+  description: The API for File Management System API
+paths:
+  /api/v1/directories:
+    get:
+      summary: list
+      tags:
+        - Directory
+      description: returns all registered directories
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+            format: char
+        - in: query
+          name: name
+          schema:
+            type: string
+            format: char
+        - in: query
+          name: parent_id
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: page
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: size
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: All the directories
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    - id: 6b19c4b4-d7a4-4fac-9c83-5a1a71787634
+                      name: images
+                      parent_id: b5a12f33-93ec-47cc-9479-0673c777b7c4
+                      path: /images
+
+    post:
+      summary: create
+      tags:
+        - Directory
+      description: create an directory
+      parameters: []
+      responses:
+        '201':
+          description: create new directory
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 498d652c-34c6-4100-afbd-5f5267c9e4a3
+                    name: images
+                    parent_id: bd94d4f2-01c0-4c09-96a8-726408b73e03
+                    path: /images
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                parent_id:
+                  type: string
+                  format: uuid
+              required:
+              - name
+
+  "/api/v1/directories/{id}":
+    get:
+      summary: show
+      tags:
+      - Directory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: show directory
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 9aa9fe4b-c0ba-4bb6-900d-b624fb95ae9a
+                    name: images
+                    path: /images
+
+    patch:
+      summary: update
+      tags:
+      - Directory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: uuid
+      responses:
+        '200':
+          description: update directory
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 1f0bd242-1df5-425c-b2ba-b773662d7560
+                    name: imagesss
+                    parent_id: bc70b2a1-163d-46d3-b94b-6708e9586161
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                parent_id:
+                  type: string
+                  format: uuid
+              required:
+                - name
+    delete:
+      summary: destroy
+      tags:
+      - Directory
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '204':
+          description: destroy directory
+
+  /api/v1/archives:
+    get:
+      summary: list
+      tags:
+        - Archive
+      description: returns all registered archives
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+            format: char
+        - in: query
+          name: name
+          schema:
+            type: string
+            format: char
+        - in: query
+          name: directory_id
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: page
+          schema:
+            type: integer
+            format: int32
+        - in: query
+          name: size
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: All the archives
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    - id: 6b19c4b4-d7a4-4fac-9c83-5a1a71787634
+                      name: image_test.png
+                      directory_id: b5a12f33-93ec-47cc-9479-0673c777b7c4
+                      path: images/image_test.png
+                      url: http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkM0psYjJoNU4yZzJjWGh5Y0RBeWFta3hZM3BoT1cxcE4zRmlaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxOamNtVmxibk5vYjNRZ1puSnZiU0F5TURJekxUQTJMVEl5SURBNUxUVXlMVEUzTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25VMk55WldWdWMyaHZkQ1V5TUdaeWIyMGxNakF5TURJekxUQTJMVEl5SlRJd01Ea3ROVEl0TVRjdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMy0wNi0yNVQyMDo0NzozNi40MzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--2e9d690397c674bf14fdb0d6f637f77ae41aee82/Screenshot%20from%202023-06-22%2009-52-17.png
+
+    post:
+      summary: create
+      tags:
+        - Archive
+      description: create an Archive
+      parameters: []
+      responses:
+        '201':
+          description: create new Archive
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 6b19c4b4-d7a4-4fac-9c83-5a1a71787634
+                    name: image_test.png
+                    directory_id: b5a12f33-93ec-47cc-9479-0673c777b7c4
+                    path: images/image_test.png
+                    url: http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkM0psYjJoNU4yZzJjWGh5Y0RBeWFta3hZM3BoT1cxcE4zRmlaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxOamNtVmxibk5vYjNRZ1puSnZiU0F5TURJekxUQTJMVEl5SURBNUxUVXlMVEUzTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25VMk55WldWdWMyaHZkQ1V5TUdaeWIyMGxNakF5TURJekxUQTJMVEl5SlRJd01Ea3ROVEl0TVRjdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMy0wNi0yNVQyMDo0NzozNi40MzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--2e9d690397c674bf14fdb0d6f637f77ae41aee82/Screenshot%20from%202023-06-22%2009-52-17.png
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                file:
+                  type: object
+                directory_id:
+                  type: string
+                  format: uuid
+              required:
+                - name
+                - file
+                - directory_id
+
+  "/api/v1/archives/{id}":
+    get:
+      summary: show
+      tags:
+      - Archive
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '200':
+          description: show Archive
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 6b19c4b4-d7a4-4fac-9c83-5a1a71787634
+                    name: image_test.png
+                    directory_id: b5a12f33-93ec-47cc-9479-0673c777b7c4
+                    path: images/image_test.png
+                    url: http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkM0psYjJoNU4yZzJjWGh5Y0RBeWFta3hZM3BoT1cxcE4zRmlaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxOamNtVmxibk5vYjNRZ1puSnZiU0F5TURJekxUQTJMVEl5SURBNUxUVXlMVEUzTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25VMk55WldWdWMyaHZkQ1V5TUdaeWIyMGxNakF5TURJekxUQTJMVEl5SlRJd01Ea3ROVEl0TVRjdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMy0wNi0yNVQyMDo0NzozNi40MzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--2e9d690397c674bf14fdb0d6f637f77ae41aee82/Screenshot%20from%202023-06-22%2009-52-17.png
+
+    patch:
+      summary: update
+      tags:
+      - Archive
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: uuid
+      responses:
+        '200':
+          description: update Archive
+          content:
+            application/json:
+              examples:
+                response:
+                  value:
+                    id: 6b19c4b4-d7a4-4fac-9c83-5a1a71787634
+                    name: image_test.png
+                    directory_id: b5a12f33-93ec-47cc-9479-0673c777b7c4
+                    path: images/image_test.png
+                    url: http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkM0psYjJoNU4yZzJjWGh5Y0RBeWFta3hZM3BoT1cxcE4zRmlaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpZjJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWxOamNtVmxibk5vYjNRZ1puSnZiU0F5TURJekxUQTJMVEl5SURBNUxUVXlMVEUzTG5CdVp5STdJR1pwYkdWdVlXMWxLajFWVkVZdE9DY25VMk55WldWdWMyaHZkQ1V5TUdaeWIyMGxNakF5TURJekxUQTJMVEl5SlRJd01Ea3ROVEl0TVRjdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMy0wNi0yNVQyMDo0NzozNi40MzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--2e9d690397c674bf14fdb0d6f637f77ae41aee82/Screenshot%20from%202023-06-22%2009-52-17.png
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                file:
+                  type: object
+                directory_id:
+                  type: string
+                  format: uuid
+              required:
+                - name
+                - file
+                - directory_id
+    delete:
+      summary: destroy
+      tags:
+      - Archive
+      security:
+      - basicAuth: {}
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: uuid
+      responses:
+        '204':
+          description: destroy Archive
+
+
+
+
+
+

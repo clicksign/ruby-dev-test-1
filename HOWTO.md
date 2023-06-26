@@ -29,14 +29,14 @@ bin/docker-up -d
 
 Será iniciada a aplicação na porta `:3000` enquanto o terminal exibirá os diversos logs dos processos(`rails`, `postgresql`). Para conferir o container e o caminho de execução você pode consultar através do comando `docker compose ps` ou revisar o arquivo `Dockerfile`.
 
-#### 3) Verificando os testes (opcional) - uma forma de validar todo o processo de setup é executando os testes, para isso use:
+#### 3) Verificando os testes - uma forma de validar todo o processo de setup é executando os testes, para isso use:
 ```
 bin/docker-rspec
 ```
 
 Obs: Para testes o docker da aplicação precisa estar inicializado.
 
-#### 4) Atualizando o projeto (opcional)
+#### 4) Atualizando o projeto
 Em casos de atualização de código é possivel realizar a atualização do docker com:
 ```
 bin/docker-sync
@@ -44,15 +44,6 @@ bin/docker-sync
 
 Esse script vai remontar todos os containeres necessários e reinstalar dependências.
 
-## Documentação da Aplicação
-Para verificar os recursos disponíveis da aplicação basta acessar esse [link de documentação](http://localhost:3000/api-docs/index.html) do Swagger.
-
-Todos os endpoint da aplicacão requerem um Basic Auth, portanto usar as credenciais abaixo:
-
-```
-username: user
-password: user@clicksign.com
-```
 
 ## Sugestões de uso dos containers
 

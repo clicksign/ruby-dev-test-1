@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
+realpath "$0"
+
+SCRIPT_REALPATH=$( realpath "$0"  )
+SCRIPT_DIR=$( dirname "$SCRIPT_REALPATH" )
+
+GIT_PRE_COMMIT_HOOK_FILE=$( realpath "${SCRIPT_DIR}/../.git/hooks/pre-commit" )
+
+__install-pre-commit() {
+  echo "installing git pre-commit hook..."
+
+  curl \
+    -fSL https://gist.githubusercontent.com/ppdeassis/48387d9f49b41af23e7d/raw/bfb0c8adb6fe57e965395dc2f4a6b3e6d0004128/pre-commit \
+    -o "${GIT_PRE_COMMIT_HOOK_FILE}" \
+  && chmod +x "${GIT_PRE_COMMIT_HOOK_FILE}"
+}
+
+[[ -f "${GIT_PRE_COMMIT_HOOK_FILE}" ]] || __install-pre-commit
+
+# git submodules
+git submodule update --init --recursive
+
+# making sure nothing is up and erasing all volumes
+docker compose down -v
+
+# setup backend
+docker compose build backend
+docker compose run --rm backend bin/setup
+docker compose run --rm backend bin/rails db:create RAILS_ENV=test
+
+# - seeding
+# docker compose run --rm backend bin/rails db:seed
+
+docker compose down
+
+echo "done! now fire it up with bin/docker-up"

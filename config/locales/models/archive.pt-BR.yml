@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      archive: "Arquivo"
+    attributes:
+      archive:
+        name: "Nome do Arquivo"

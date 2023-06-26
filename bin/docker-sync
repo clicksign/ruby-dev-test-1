@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+# git submodules
+git submodule update --init --recursive
+
+
+# making sure nothing is up
+docker compose down
+
+# syncing backend
+docker compose build backend
+docker compose run --rm backend bin/sync
+
+# syncing wrk
+docker compose build wrk
+docker compose run --rm wrk bin/bundle
+
+
+docker compose down
+
+echo "done! now fire it up with bin/docker-up"
