@@ -3,5 +3,8 @@ inherit_gem:
     - config/default.yml # generic Ruby rules and cops
     - config/rails.yml # Rails-specific rules and cops
 
+AllCops:
+  SuggestExtensions: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false # this is a test project

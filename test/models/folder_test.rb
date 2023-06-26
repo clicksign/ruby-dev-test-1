@@ -30,10 +30,10 @@ class FolderTest < ActiveSupport::TestCase
   # methods
 
   test ".parent should returns the parent folder" do
-    parent = create(:folder, name: "Rebels")
-    folder = create(:folder, name: "Luke Skywalker", parent: parent)
+    folder_a = create(:folder, name: "Rebels")
+    folder_b = create(:folder, name: "Luke Skywalker", parent: folder_a)
 
-    assert_equal parent, folder.parent
+    assert_equal folder_a, folder_b.parent
   end
 
   test ".pathname should returns the full name through the file system tree structure" do
