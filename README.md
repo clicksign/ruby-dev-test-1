@@ -1,7 +1,18 @@
-# ruby-dev-test-1
+# CS Teste 1
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+## Requisitos do Sistema
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+- RVM
+- Ruby 3.2.2
 
-Realizar um fork deste repositório e abrir o PR ao finalizar.
+## Notas
+
+### Solução
+
+Para solucionar o problema na camada de modelos, foi implementado três modelos: `FileSystem` (como
+entidade raiz que posteriormente poderá ser vinculado à um usuário/organização), `Folder` e
+`Document`. Um `FileSystem` pode conter `folders` e `documents`. `Folders` pode conter outras
+`Folders` (como uma árvore) e `documents`. `Documents` pertece à um `FileSystem` e pode (ou não)
+pertencer a uma `Folder`.
+
+Para persistir os arquivos foi utilizado o `ActiveStorage`, em uma associação ao modelo `Document`.
