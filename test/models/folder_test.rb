@@ -8,9 +8,9 @@ class FolderTest < ActiveSupport::TestCase
   # scopes
 
   test "#root scope should returns root folders only" do
-    parent = create(:folder, file_system: @fs)
+    folder = create(:folder, file_system: @fs)
 
-    create_list(:folder, 2, parent: parent)
+    create_list(:folder, 2, parent: folder)
 
     assert_equal 1, Folder.root.count
   end
@@ -18,10 +18,10 @@ class FolderTest < ActiveSupport::TestCase
   # associations
 
   test ".documents association should return associated documents" do
-    folder = create(:folder, file_system: @fs)
-    documents = create_list(:document, 3, folder: folder)
+    folder_a = create(:folder, file_system: @fs)
+    documents = create_list(:document, 3, folder: folder_a)
 
-    assert_equal 3, folder.documents.count
+    assert_equal 3, folder_a.documents.count
   end
 
   # validations
@@ -35,7 +35,7 @@ class FolderTest < ActiveSupport::TestCase
   end
 
   test ".valid? should returns error if name length is lower than 3" do
-    folder = build(:folder, name: 'IO')
+    folder = build(:folder, name: "IO")
 
     folder.valid?
 

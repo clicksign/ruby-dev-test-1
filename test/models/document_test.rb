@@ -9,8 +9,8 @@ class DocumentTest < ActiveSupport::TestCase
   # scopes
 
   test "#root scope should returns root documents only" do
-    create(:folder, file_system: @fs) do |folder|
-      create_list(:document, 2, folder: folder)
+    create(:folder, file_system: @fs) do |parent|
+      create_list(:document, 2, folder: parent)
     end
 
     create_list(:document, 3, file_system: @fs)
@@ -29,7 +29,7 @@ class DocumentTest < ActiveSupport::TestCase
   end
 
   test ".valid? should returns error if name length is lower than 3" do
-    document = build(:document, name: 'IO')
+    document = build(:document, name: "IO")
 
     document.valid?
 
@@ -67,8 +67,8 @@ class DocumentTest < ActiveSupport::TestCase
   end
 
   test ".valid? should returns error if the filesystem is not the same as folder's filesystem" do
-    folder = create(:folder, file_system: create(:file_system))
-    document = build(:document, file_system: @fs, folder: folder)
+    folder_a = create(:folder, file_system: create(:file_system))
+    document = build(:document, file_system: @fs, folder: folder_a)
 
     document.valid?
 

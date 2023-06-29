@@ -14,7 +14,7 @@ class Folder < ApplicationRecord
 
   # scopes
 
-  scope :root, -> { where(ancestry: '/') }
+  scope :root, -> { where(ancestry: "/") }
 
   # callbacks
 
