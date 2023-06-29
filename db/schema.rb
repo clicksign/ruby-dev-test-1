@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_26_022725) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_023104) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_022725) do
     t.datetime "updated_at", null: false
     t.index ["file_system_id"], name: "index_documents_on_file_system_id"
     t.index ["folder_id"], name: "index_documents_on_folder_id"
+    t.index ["name", "file_system_id", "folder_id"], name: "index_documents_on_name_and_file_system_id_and_folder_id", unique: true
   end
 
   create_table "file_systems", force: :cascade do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_022725) do
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_folders_on_ancestry"
     t.index ["file_system_id"], name: "index_folders_on_file_system_id"
+    t.index ["name", "file_system_id", "ancestry"], name: "index_folders_on_name_and_file_system_id_and_ancestry", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

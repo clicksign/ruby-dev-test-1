@@ -42,7 +42,7 @@ class FolderTest < ActiveSupport::TestCase
     assert_includes folder.errors.details[:name], { error: :too_short, count: 3 }
   end
 
-  test ".valid? should returns error if (name, parent) is not unique" do
+  test ".valid? should returns error if (name, file_system_id, ancestry) is not unique" do
     parent_a = create(:folder, file_system: @fs)
     parent_b = create(:folder, file_system: @fs)
 

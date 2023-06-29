@@ -9,7 +9,7 @@ class Folder < ApplicationRecord
   # validations
 
   validates :name, presence: true, length: { minimum: 3 }
-  validates :name, uniqueness: { scope: :ancestry }, if: :name_changed?
+  validates :name, uniqueness: { scope: [:file_system_id, :ancestry] }, if: :name_changed?
   validate :file_systems_should_match, if: :parent_id?
 
   # scopes

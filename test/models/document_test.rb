@@ -36,7 +36,7 @@ class DocumentTest < ActiveSupport::TestCase
     assert_includes document.errors.details[:name], { error: :too_short, count: 3 }
   end
 
-  test ".valid? should returns error if (name, folder) is not unique" do
+  test ".valid? should returns error if (name, file_system_id, folder_id) is not unique" do
     folder_a = create(:folder, file_system: @fs)
     folder_b = create(:folder, file_system: @fs)
 

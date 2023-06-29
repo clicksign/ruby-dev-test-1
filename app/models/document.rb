@@ -8,7 +8,7 @@ class Document < ApplicationRecord
   # validations
 
   validates :name, presence: true, length: { minimum: 3 }
-  validates :name, uniqueness: { scope: :folder }, if: :name_changed?
+  validates :name, uniqueness: { scope: [:file_system_id, :folder_id] }, if: :name_changed?
   validates :file, presence: true
   validate :file_systems_should_match, if: :folder_id?
 
