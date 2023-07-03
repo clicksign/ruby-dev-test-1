@@ -1,0 +1,49 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2.2
+  Exclude:
+    - db/**/*
+    - vendor/**/*
+    - log/**/*
+    - tmp/**/*
+    - storage/**/*
+    - lib/tasks/**/*
+    - bin/*
+
+Lint/MissingSuper:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+  Exclude:
+    - 'Gemfile'
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
+Metrics/BlockLength:
+  CountAsOne: ['array', 'hash']
+  Exclude:
+    - 'spec/**/*'
+Style/OpenStructUse:
+  Exclude:
+    - 'spec/**/*'
+Style/Documentation:
+  Enabled: false
+Style/MixinUsage:
+  Enabled: false
+Style/HashSyntax:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/Focus:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
