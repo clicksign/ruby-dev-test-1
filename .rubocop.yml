@@ -47,3 +47,5 @@ RSpec/MultipleExpectations:
   Enabled: false
 RSpec/VerifiedDoubles:
   Enabled: false
+Rails/InverseOf:
+  Enabled: false

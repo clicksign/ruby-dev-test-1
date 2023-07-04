@@ -1,0 +1,39 @@
+<h2 class="ui center aligned icon header">
+  <i class="folder icon"></i>
+  Directories
+</h2>
+<table class="ui celled table">
+  <thead>
+    <tr><th>Name</th>
+    <th>Files</th>
+    <th>Subdirectories</th>
+  </tr></thead>
+  <tbody>
+		<% @directories.each do |directory| %>
+			<tr>
+				<td data-label="Name"><%= directory.name %></td>
+				<td data-label="Files">
+					<% if directory.content.representable? %>
+						<%= image_tag directory.content.representation(resize_to_limit: [100, 100]) %>
+					<% else %>
+						<%= link_to directory.content.service_url do %>
+								<%= image_tag "clicksign.png", alt: "Download file", width: "50", height: "50" %>
+						<% end %>
+					<% end %>
+				</td>
+				<td data-label="Subdirectories Names">
+				<% if directory.subdirectories.present? %>
+					<% directory.subdirectories.each do |sub| %>
+						<%= sub.name %>
+					<% end %>
+				<% else %>
+					<i class="file excel icon">
+				<% end %>
+				</td>
+			</tr>
+		<% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Directory', new_directory_path, class: "ui button" %>
+

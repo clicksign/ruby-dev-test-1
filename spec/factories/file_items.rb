@@ -2,9 +2,7 @@
 
 FactoryBot.define do
   factory :file_item do
-    name { 'MyString' }
-    content_type { 'MyString' }
-    content { 'MyText' }
-    directory_id { 1 }
+    name { Faker::Science.science }
+    directory
   end
 end

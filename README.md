@@ -5,3 +5,8 @@ Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco
 A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
 
 Realizar um fork deste repositório e abrir o PR ao finalizar.
+
+# Configs
+
+Rails : 7.0.6
+Ruby : 3.2.2

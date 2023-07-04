@@ -1,0 +1,59 @@
+<div class="ui form">
+  <%= form_with(model: directory, local: true) do |form| %>
+    <% if directory.errors.any? %>
+			<div id="error_explanation" class="ui list">
+				<ul>
+					<% directory.errors.full_messages.each do |message| %>
+						<div class="item">
+							<button class="delete"></button>
+							<li><%= message %></li>
+						</div>
+					<% end %>
+				</ul>
+			</div>
+  	<% end %>
+    <div class="field">
+			<label>Name</label>
+			<%= form.text_field :name ,class: 'field-size', placeholder: 'Directory name'%>
+    </div>
+    <div class="field">
+			<label>File</label>
+			<%= form.file_field :content, class: 'field-size'%>
+    </div>
+		<h2 class="ui center aligned icon header">
+  		<i class="folder icon"></i>
+  		Subdirectories
+		</h2>
+		<%= form.fields_for :subdirectories do |sub| %>
+		  <div class="field">
+				<label>Name</label>
+				<%= sub.text_field :name ,class: 'field-size', placeholder: 'Subdirectory name'%>
+    	</div>
+			<div class="field">
+				<label>File</label>
+				<%= form.file_field :content, class: 'field-size'%>
+    	</div>
+   	<% end %>
+		<h2 class="ui center aligned icon header">
+  		<i class="folder icon"></i>
+  		Files
+		</h2>
+		<%= form.fields_for :file_items do |file_item| %>
+		  <div class="field">
+				<label>Name</label>
+				<%= file_item.text_field :name ,class: 'field-size', placeholder: 'File name'%>
+    	</div>
+			<div class="field">
+				<label>File</label>
+				<%= file_item.file_field :content, class: 'field-size'%>
+    	</div>
+   	<% end %>
+		 <%= form.submit 'Submit', class: 'ui primary button'%>
+    <% end %>
+</div>
+
+<style>
+ .field-size {
+    max-width: 50%
+ }
+</style>

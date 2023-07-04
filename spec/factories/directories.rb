@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :directory do
-    name { 'MyString' }
+    name { Faker::Science.science }
     parent_id { 1 }
   end
 end
