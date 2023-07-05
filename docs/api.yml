@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: Directories API Documentation
+  version: 1.0.0
+paths:
+  /directories:
+    get:
+      summary: Retrieve all directories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Directory'
+    post:
+      summary: Create a new directory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DirectoryInput'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Directory'
+        '400':
+          description: Bad Request
+components:
+  schemas:
+    Directory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        parent_id:
+          type: integer
+          format: int64
+      required:
+        - name
+    DirectoryInput:
+      type: object
+      properties:
+        name:
+          type: string
+        parent_id:
+          type: integer
+          format: int64
+      required:
+        - name

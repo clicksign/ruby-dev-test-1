@@ -1,0 +1,33 @@
+<h1>Directory: <%= @directory.name %></h1>
+
+<% if @directory.parent %>
+  <p>Parent Directory: <%= link_to @directory.parent.name, @directory.parent %></p>
+<% end %>
+
+<h2>Sub Directories</h2>
+<% if @directory.children.any? %>
+  <ul>
+    <% @directory.children.each do |subdirectory| %>
+      <li><%= link_to subdirectory.name, subdirectory %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No sub directory found.</p>
+<% end %>
+
+<h2>File</h2>
+<% if @directory.aws_files.any? %>
+  <ul>
+    <% @directory.aws_files.each do |aws_file| %>
+      <li><%= aws_file.name %> - <%= link_to 'Download', aws_file.download_url %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No file found.</p>
+<% end %>
+
+<h2>Upload File</h2>
+<%= render 'aws_files/form', aws_file: AwsFile.new(directory: @directory) %>
+
+<%= link_to 'Back', directories_path %>
+

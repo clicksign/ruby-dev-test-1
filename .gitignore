@@ -38,3 +38,6 @@
 
 # Ignore postgres data files
 /postgres-data/*
+
+# Ignore byebug historic
+.byebug_history

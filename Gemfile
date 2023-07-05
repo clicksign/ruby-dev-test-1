@@ -36,6 +36,9 @@ gem 'annotate', '~> 3.2'
 # The AWS SDK for integrate amazon S3 with Ruby on Rails
 gem 'aws-sdk-s3', '~> 1'
 
+# It exposes all the standard tree structure relations
+gem 'ancestry', '~> 2.1'
+
 # Shim to load environment variables from .env into ENV in development
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 
@@ -47,6 +50,10 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  # Ruby code style checking and code formatting tool
+  gem 'rubocop', require: false
+  # Automatic Rails code style checking tool
+  gem 'rubocop-rails', require: false
 end
 
 group :test do

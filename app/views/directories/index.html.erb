@@ -1,0 +1,24 @@
+<h1>Directories</h1>
+
+<ul>
+  <% @directories.each do |directory| %>
+    <li>
+      <%= directory.name %>
+      <%= link_to 'Delete', directory_path(directory), method: :delete %>
+      <%= link_to 'Show', directory_path(directory) %>
+    </li>
+    <ul>
+      <% directory.children.each do |subdirectory| %>
+        <li><%= subdirectory.name %></li>
+      <% end %>
+      <% directory.aws_files.each do |aws_file| %>
+        <li>
+          <%= aws_file.name %> - <%= link_to 'Download', aws_file.download_url %>
+          <%= link_to 'Delete File', directory_aws_files_path(aws_file), method: :delete, data: { confirm: 'Are you sure you want to delete this file?' } %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
+
+<%= link_to 'New Directory', new_directory_path %>
