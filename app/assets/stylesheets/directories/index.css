@@ -1,0 +1,64 @@
+.page-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.directory-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.directory-item {
+  margin-bottom: 10px;
+}
+
+.directory-info {
+  display: flex;
+  align-items: center;
+}
+
+.directory-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.delete-link {
+  color: red;
+  margin-right: 5px;
+}
+
+.show-link {
+  margin-right: 5px;
+}
+
+.subdirectory-list {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.subdirectory-item {
+  margin-bottom: 5px;
+}
+
+.aws-file-item {
+  margin-bottom: 5px;
+}
+
+.file-name {
+  margin-right: 5px;
+}
+
+.download-link {
+  margin-right: 5px;
+}
+
+.delete-file-link {
+  color: red;
+}
+
+.new-directory-link {
+  display: block;
+  margin-top: 10px;
+}

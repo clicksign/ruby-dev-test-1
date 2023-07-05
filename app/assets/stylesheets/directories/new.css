@@ -1,0 +1,26 @@
+.directory-form .form-field {
+  margin-bottom: 10px;
+}
+
+.directory-form .form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.directory-form .submit-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-link {
+  margin-top: 10px;
+  display: inline-block;
+  color: #007bff;
+  text-decoration: none;
+}

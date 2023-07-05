@@ -1,18 +1,17 @@
-<h1>New Directory</h1>
+<h1 class="page-title">New Directory</h1>
 
-<%= form_with(model: @directory, url: directories_path) do |form| %>
-  <div>
+<%= form_with(model: @directory, url: directories_path, class: "directory-form") do |form| %>
+  <div class="form-field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-input" %>
   </div>
 
-
-  <div>
+  <div class="form-field">
     <%= form.label :parent_id, 'Parent Directory' %>
-    <%= form.collection_select :parent_id, Directory.all, :id, :name, include_blank: true %>
+    <%= form.collection_select :parent_id, Directory.all, :id, :name, include_blank: true, class: "form-input" %>
   </div>
 
-  <%= form.submit 'Create Directory' %>
+  <%= form.submit 'Create Directory', class: "submit-button" %>
 <% end %>
 
-<%= link_to 'Back', directories_path %>
+<%= link_to 'Back', directories_path, class: "back-link" %>

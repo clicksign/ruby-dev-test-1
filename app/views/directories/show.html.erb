@@ -1,33 +1,35 @@
-<h1>Directory: <%= @directory.name %></h1>
+<h1 class="page-title">Directory: <%= @directory.name %></h1>
 
 <% if @directory.parent %>
-  <p>Parent Directory: <%= link_to @directory.parent.name, @directory.parent %></p>
+  <p class="parent-directory">Parent Directory: <%= link_to @directory.parent.name, @directory.parent %></p>
 <% end %>
 
-<h2>Sub Directories</h2>
+<h2 class="section-title">Sub Directories</h2>
 <% if @directory.children.any? %>
-  <ul>
+  <ul class="subdirectory-list">
     <% @directory.children.each do |subdirectory| %>
-      <li><%= link_to subdirectory.name, subdirectory %></li>
+      <li class="subdirectory-item"><%= link_to subdirectory.name, subdirectory %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>No sub directory found.</p>
+  <p>No subdirectories found.</p>
 <% end %>
 
-<h2>File</h2>
+<h2 class="section-title">Files</h2>
 <% if @directory.aws_files.any? %>
-  <ul>
+  <ul class="file-list">
     <% @directory.aws_files.each do |aws_file| %>
-      <li><%= aws_file.name %> - <%= link_to 'Download', aws_file.download_url %></li>
+      <li class="file-item">
+        <span class="file-name"><%= aws_file.name %></span>
+        <%= link_to 'Download', aws_file.download_url, class: "download-link" %>
+      </li>
     <% end %>
   </ul>
 <% else %>
-  <p>No file found.</p>
+  <p>No files found.</p>
 <% end %>
 
-<h2>Upload File</h2>
+<h2 class="section-title">Upload File</h2>
 <%= render 'aws_files/form', aws_file: AwsFile.new(directory: @directory) %>
 
-<%= link_to 'Back', directories_path %>
-
+<%= link_to 'Back', directories_path, class: "back-link" %>

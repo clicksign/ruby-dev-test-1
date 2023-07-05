@@ -1,7 +1,7 @@
-<%= form_with(model: @aws_file, url: directory_aws_files_path(@directory)) do |form| %>
+<%= form_with(model: @aws_file, url: directory_aws_files_path(@directory), class: "file-form") do |form| %>
   <% if @aws_file.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@aws_file.errors.count, "error") %>Prohibited this file from being saved:</h2>
+      <h2><%= pluralize(@aws_file.errors.count, "error") %> prohibited this file from being saved:</h2>
       <ul>
         <% @aws_file.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,20 +10,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-input" %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :url %>
-    <%= form.file_field :url %>
+    <%= form.file_field :url, class: "form-input" %>
   </div>
 
   <%= form.hidden_field :directory_id, value: @directory.id %>
   <%= form.hidden_field :path, value: @directory.parent_names(@directory.ancestor_ids).join('/') if @directory.ancestry? %>
 
   <div class="actions">
-    <%= form.submit 'Upload File' %>
+    <%= form.submit 'Upload File', class: "submit-button" %>
   </div>
 <% end %>

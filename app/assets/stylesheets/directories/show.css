@@ -1,0 +1,18 @@
+.parent-directory {
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.file-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.file-item {
+  margin-bottom: 5px;
+}
