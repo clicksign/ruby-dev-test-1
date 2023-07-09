@@ -1,0 +1,7 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
