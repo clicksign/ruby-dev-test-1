@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    models:
+      directory:
+        one: Directory
+        other: Directories
+    attributes:
+      directory:
+        # associations
+        parent: Parent directory
+        subdirectories: Subdirectories
+        files: Files
+        # attributes
+        parent_id: Parent directory
+        name: Name
+        subdirectories_count: Subdirectories count
+        created_at: Created at
+        updated_at: Updated at
+    errors:
+      models:
+        directory:
+          attributes:
+            parent_id:
+              self_referenced: invalid. Directory cannot be associated with itself
+              parent_is_a_subdirectory: invalid. Directory cannot be associated with one of its subdirectories

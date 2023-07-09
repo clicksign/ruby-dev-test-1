@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    models:
+      directory:
+        one: Diretório
+        other: Diretórios
+    attributes:
+      directory:
+        # associations
+        parent: Diretório pai
+        subdirectories: Subdiretórios
+        files: Arquivos
+        # attributes
+        parent_id: Diretório pai
+        name: Nome
+        subdirectories_count: Total de subdiretórios
+        created_at: Cadastrado em
+        updated_at: Atualizado em
+    errors:
+      models:
+        directory:
+          attributes:
+            parent_id:
+              self_referenced: inválido. O diretório não pode ser associado com ele mesmo
+              parent_is_a_subdirectory: inválido. O diretório não pode ser associado com um de seus subdiretórios
