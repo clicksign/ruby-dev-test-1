@@ -5,3 +5,12 @@ require:
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/NestedGroups:
+  Max: 6
+
+RSpec/ImplicitSubject:
+  EnforcedStyle: single_statement_only
