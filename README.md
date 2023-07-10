@@ -1,7 +1,51 @@
-# ruby-dev-test-1
+## The steps to start the project
 
-Desenvolver a camada de modelos de um sistema de arquivos persistido em um banco de dados SQL onde seja possível criar diretórios e arquivos. Os diretórios poderão conter sub-diretórios e arquivos. O conteúdo dos arquivos podem estar ser persistidos como blob, S3 ou mesmo em disco.
+- Prepare Database
+  ```sh
+  rails db:drop db:create db:migrate
+  ```
 
-A soluçãos deverá ser escrita majoritariamente em Ruby com framework Ruby on Rails.
+- Start Server
+  ```sh
+  rails s
+  ```
 
-Realizar um fork deste repositório e abrir o PR ao finalizar.
+## Usage
+### Creating Folder one by one
+
+```sh
+# In Rails Console
+params = { name: 'Areas da Empresa' }
+simple_folder = Folder.create(params)
+simple_folder.name # => 'Areas da Empresa'
+
+sub_folder = simple_folder.sub_folders.build(name: 'Financeiro')
+sub_folder.save
+sub_folder.name # => 'Financeiro'
+```
+
+### Creating more then one Folder
+
+```sh
+# In Rails Console
+params = {
+  name: 'Level 0',
+  sub_folders_attributes: [
+    {
+      name: 'Level 1',
+      sub_folders_attributes: [
+        {
+          name: 'Level 2',
+          sub_folders_attributes: [
+            { name: 'Level 3' }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+Folder.create!(params) # => Insert 4 Folder
+Folder.find_by(name: 'Level 3').full_path # => 'Level 0/Level 1/Level 2/Level 3
+
+```

@@ -10,8 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_05_210934) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
+  create_table "archives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.string "file", null: false
+    t.uuid "folder_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["folder_id"], name: "index_archives_on_folder_id"
+  end
+
+  create_table "folders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name", limit: 300, null: false
+    t.uuid "main_folder_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_folder_id"], name: "index_folders_on_main_folder_id"
+    t.index ["name"], name: "index_folders_on_name", unique: true
+  end
+
+  add_foreign_key "archives", "folders"
+  add_foreign_key "folders", "folders", column: "main_folder_id"
 end

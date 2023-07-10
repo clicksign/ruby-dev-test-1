@@ -1,21 +1,1347 @@
+Started GET "/" for ::1 at 2023-07-04 17:00:59 -0300
+  
+ActiveRecord::NoDatabaseError (We could not find your database: ruby_dev_test_1_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.6) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.6) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.6) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.6) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.6) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.6) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.6) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2023-07-04 17:01:00 -0300
+  
+ActiveRecord::NoDatabaseError (We could not find your database: ruby_dev_test_1_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.6) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.6) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.6) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.6) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.6) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.6) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.6) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.6) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.6) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.6) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.6) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.6) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.6) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.7) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.6) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.7) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.6) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.6) lib/rails/engine.rb:530:in `call'
+puma (5.6.6) lib/puma/configuration.rb:252:in `call'
+puma (5.6.6) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.6) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.6) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.6) lib/puma/server.rb:443:in `process_client'
+puma (5.6.6) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (87.7ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (45.3ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-07-04 17:01:26 -0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/gabriel-lima/.rvm/gems/ruby-3.2.0/gems/railties-7.0.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/gabriel-lima/.rvm/gems/ruby-3.2.0/gems/railties-7.0.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 490)
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 4662)
+
+
+  [1m[35m (41.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (17.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (69.8ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (49.0ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (22.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (17.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (39.8ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (22.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (17.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (47.6ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (46.3ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-04 20:20:42.535576"], ["updated_at", "2023-07-04 20:20:42.535576"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (53.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (19.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (47.8ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (54.9ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-04 20:21:07.889022"], ["updated_at", "2023-07-04 20:21:07.889022"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (20.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
-  [1m[35m (18.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
-  [1m[35m (81.8ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (13.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (12.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
   [1m[35m (39.0ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
-  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-10 19:09:01.854218"], ["updated_at", "2023-07-10 19:09:01.854218"]]
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-04 21:02:29.722412"], ["updated_at", "2023-07-04 21:02:29.722412"]]
   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mDROP EXTENSION IF EXISTS "pgcrypto" CASCADE[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Create (0.9ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Financeiro"], ["main_folder_id", nil], ["created_at", "2023-07-04 21:18:48.108797"], ["updated_at", "2023-07-04 21:18:48.108797"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Create (0.9ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Financeiro"], ["main_folder_id", nil], ["created_at", "2023-07-04 21:19:48.153011"], ["updated_at", "2023-07-04 21:19:48.153011"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Delete All (13.2ms)[0m  [1m[31mDELETE FROM "folders"[0m
+  [1m[36mFolder Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "folders"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Areas da Empresa"], ["main_folder_id", nil], ["created_at", "2023-07-04 21:25:03.480987"], ["updated_at", "2023-07-04 21:25:03.480987"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."main_folder_id" = $1[0m  [["main_folder_id", "349d0eb4-6b57-437a-a125-49c4775bb0b6"]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Financeiro"], ["main_folder_id", "349d0eb4-6b57-437a-a125-49c4775bb0b6"], ["created_at", "2023-07-04 21:26:20.762107"], ["updated_at", "2023-07-04 21:26:20.762107"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Areas da Empresa"], ["main_folder_id", nil], ["created_at", "2023-07-04 21:28:08.633868"], ["updated_at", "2023-07-04 21:28:08.633868"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Pluck (0.4ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "folders"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"], ["main_folder_id", nil], ["created_at", "2023-07-04 22:15:57.551248"], ["updated_at", "2023-07-04 22:15:57.551248"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Financeiro"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Juridico"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Recursos Humanos"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Areas da Empresa"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.9ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Areas da Empresa"], ["main_folder_id", nil], ["created_at", "2023-07-05 19:22:53.887282"], ["updated_at", "2023-07-05 19:22:53.887282"]]
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Financeiro"], ["main_folder_id", "5959146f-bdb4-4589-ab47-d906cb5093ba"], ["created_at", "2023-07-05 19:22:53.888935"], ["updated_at", "2023-07-05 19:22:53.888935"]]
+  [1m[36mFolder Create (0.1ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Juridico"], ["main_folder_id", "5959146f-bdb4-4589-ab47-d906cb5093ba"], ["created_at", "2023-07-05 19:22:53.889629"], ["updated_at", "2023-07-05 19:22:53.889629"]]
+  [1m[36mFolder Create (0.1ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Recursos Humanos"], ["main_folder_id", "5959146f-bdb4-4589-ab47-d906cb5093ba"], ["created_at", "2023-07-05 19:22:53.890081"], ["updated_at", "2023-07-05 19:22:53.890081"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (8.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameIndexToFolders (20230705192431)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1 - Second Child"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 0"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 0"], ["main_folder_id", nil], ["created_at", "2023-07-05 20:12:02.573732"], ["updated_at", "2023-07-05 20:12:02.573732"]]
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 1"], ["main_folder_id", "1da657d6-e04c-42bd-ba60-d0bdd44365cb"], ["created_at", "2023-07-05 20:12:02.575044"], ["updated_at", "2023-07-05 20:12:02.575044"]]
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 1 - Second Child"], ["main_folder_id", "73384a6d-3faf-482b-be3a-32bc26900d97"], ["created_at", "2023-07-05 20:12:02.575723"], ["updated_at", "2023-07-05 20:12:02.575723"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Pluck (0.6ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders"[0m
+  [1m[36mFolder Delete All (9.5ms)[0m  [1m[31mDELETE FROM "folders"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1 - Second Child"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 0"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.6ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 0"], ["main_folder_id", nil], ["created_at", "2023-07-05 20:12:44.277153"], ["updated_at", "2023-07-05 20:12:44.277153"]]
+  [1m[36mFolder Create (0.8ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 1"], ["main_folder_id", "ea03435b-4f3c-4750-8cb3-c2c3a628b409"], ["created_at", "2023-07-05 20:12:44.279044"], ["updated_at", "2023-07-05 20:12:44.279044"]]
+  [1m[36mFolder Create (0.6ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 1 - Second Child"], ["main_folder_id", "9b9d6957-d95e-4993-a7c5-36c296742c42"], ["created_at", "2023-07-05 20:12:44.281381"], ["updated_at", "2023-07-05 20:12:44.281381"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Pluck (0.6ms)[0m  [1m[34mSELECT "folders"."name" FROM "folders"[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.5ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (9.1ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = '5b751a1c-edfd-4baa-b7a3-6d387dc966c8'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 2"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 0"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mFolder Delete All (9.7ms)[0m  [1m[31mDELETE FROM "folders"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 2"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 0"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.9ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 0"], ["main_folder_id", nil], ["created_at", "2023-07-05 20:17:02.921989"], ["updated_at", "2023-07-05 20:17:02.921989"]]
+  [1m[36mFolder Create (0.8ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 1"], ["main_folder_id", "5c8d7580-33f2-4efc-81d6-59db516d0e44"], ["created_at", "2023-07-05 20:17:02.924224"], ["updated_at", "2023-07-05 20:17:02.924224"]]
+  [1m[36mFolder Create (0.7ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 2"], ["main_folder_id", "0d3cd618-a0f9-4ba6-9a5f-3fccf660a5da"], ["created_at", "2023-07-05 20:17:02.926453"], ["updated_at", "2023-07-05 20:17:02.926453"]]
+  [1m[36mFolder Create (0.7ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 3"], ["main_folder_id", "71c19ee9-93db-4c8c-834b-49157780d428"], ["created_at", "2023-07-05 20:17:02.928302"], ["updated_at", "2023-07-05 20:17:02.928302"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Count (12.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "folders"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "file" character varying NOT NULL, "folder_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "file" character varying NOT NULL, "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230705210934"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <main> at /home/gabriel-lima/interview-dev/ruby-dev-test-1/config/initializers/carrierwave.rb:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230706002954)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "archive_content" bytea, "archive_url" character varying(700), "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (46.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (19.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (49.6ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (43.7ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArchives (20230706002954)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "archive_content" bytea, "archive_url" character varying(700), "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (20.3ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230706002954"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-06 00:34:59.083292"], ["updated_at", "2023-07-06 00:34:59.083292"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mFolder Load (0.6ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Human IT Analyst"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.7ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Human IT Analyst"], ["main_folder_id", nil], ["created_at", "2023-07-06 00:36:36.656008"], ["updated_at", "2023-07-06 00:36:36.656008"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (1.4ms)[0m  [1m[32mINSERT INTO "archives" ("status", "archive_content", "archive_url", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["status", 0], ["archive_content", "<26 bytes of binary data>"], ["archive_url", nil], ["folder_id", "eaab1f3f-124e-4f26-9c06-96d744ae063a"], ["created_at", "2023-07-06 00:37:01.503226"], ["updated_at", "2023-07-06 00:37:01.503226"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (0.6ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230706002954)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "archives"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230706002954"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230706002954)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (35.3ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "file" character varying, "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230706002954"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mArchive Load (0.3ms)[0m  [1m[34mSELECT "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <main> at /home/gabriel-lima/interview-dev/ruby-dev-test-1/config/initializers/carrierwave.rb:4)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (26.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (14.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (47.0ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <main> at /home/gabriel-lima/interview-dev/ruby-dev-test-1/config/initializers/carrierwave.rb:4)
+  [1m[35m (33.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (15.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (51.5ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (37.9ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "file" character varying NOT NULL, "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230705210934"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-06 01:23:55.954186"], ["updated_at", "2023-07-06 01:23:55.954186"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: #fog_provider is deprecated and has no effect (called from block in <main> at /home/gabriel-lima/interview-dev/ruby-dev-test-1/config/initializers/carrierwave.rb:3)
+  [1m[36mArchive Load (0.9ms)[0m  [1m[34mSELECT "archives".* FROM "archives"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Customer Legal Executive"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.6ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Customer Legal Executive"], ["main_folder_id", nil], ["created_at", "2023-07-06 01:55:37.577060"], ["updated_at", "2023-07-06 01:55:37.577060"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Customer Planner"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Customer Planner"], ["main_folder_id", nil], ["created_at", "2023-07-06 01:56:19.823198"], ["updated_at", "2023-07-06 01:56:19.823198"]]
+  [1m[36mArchive Create (0.5ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "Customer Planner-example.png"], ["folder_id", "9eb31365-3065-4025-a019-e95122c4ac37"], ["created_at", "2023-07-06 01:56:19.824093"], ["updated_at", "2023-07-06 01:56:19.824093"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Corporate Consulting Producer"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Corporate Consulting Producer"], ["main_folder_id", nil], ["created_at", "2023-07-06 01:59:30.703573"], ["updated_at", "2023-07-06 01:59:30.703573"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (0.5ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "675b6909-374f-4af3-918a-5c8b58d013cb"], ["created_at", "2023-07-06 01:59:30.708134"], ["updated_at", "2023-07-06 01:59:30.708134"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (0.6ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (1.1ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = '9eb31365-3065-4025-a019-e95122c4ac37'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 2"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 1"], ["LIMIT", 1]]
+  [1m[36mFolder Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Level 0"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.3ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 0"], ["main_folder_id", nil], ["created_at", "2023-07-06 02:03:55.398195"], ["updated_at", "2023-07-06 02:03:55.398195"]]
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 1"], ["main_folder_id", "adcd9a0e-a73e-4e8c-b233-0492f67ddf5f"], ["created_at", "2023-07-06 02:03:55.399298"], ["updated_at", "2023-07-06 02:03:55.399298"]]
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 2"], ["main_folder_id", "1bed2670-d611-4fdf-b0e9-bf1f998d4c08"], ["created_at", "2023-07-06 02:03:55.400444"], ["updated_at", "2023-07-06 02:03:55.400444"]]
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Level 3"], ["main_folder_id", "7b803592-23e7-463e-a705-16ff0b5a756a"], ["created_at", "2023-07-06 02:03:55.401881"], ["updated_at", "2023-07-06 02:03:55.401881"]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (0.5ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."name" = $1 LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."name" = $1 LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (0.4ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "ffb353c2-a17b-45f1-aae4-881c632616b5"], ["created_at", "2023-07-06 02:04:41.952366"], ["updated_at", "2023-07-06 02:04:41.952366"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."name" = $1 LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mFolder Load (1.2ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."name" = $1 LIMIT $2[0m  [["name", "Level 3"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (0.7ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "ffb353c2-a17b-45f1-aae4-881c632616b5"], ["created_at", "2023-07-06 02:06:18.581832"], ["updated_at", "2023-07-06 02:06:18.581832"]]
+  [1m[36mFolder Load (0.6ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.3ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.2ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (1.2ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (1.3ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 3
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.8ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = '3'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (1.2ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (0.7ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "ffb353c2-a17b-45f1-aae4-881c632616b5"], ["created_at", "2023-07-06 02:09:34.048412"], ["updated_at", "2023-07-06 02:09:34.048412"]]
+  [1m[36mFolder Load (0.9ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.9ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mFolder Load (0.8ms)[0m  [1m[35m      WITH RECURSIVE folder_tree AS (
+        SELECT id, main_folder_id, name
+        FROM folders
+        WHERE id = 'ffb353c2-a17b-45f1-aae4-881c632616b5'
+        UNION ALL
+        SELECT f.id, f.main_folder_id, f.name
+        FROM folders f
+        INNER JOIN folder_tree ft ON f.id = ft.main_folder_id
+      )
+      SELECT *
+      FROM folder_tree
+      ORDER BY name ASC
+      LIMIT 50
+[0m
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Product Mining Engineer"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Product Mining Engineer"], ["main_folder_id", nil], ["created_at", "2023-07-06 02:14:18.578585"], ["updated_at", "2023-07-06 02:14:18.578585"]]
+  [1m[36mArchive Create (0.3ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "75aefde6-8402-466e-9d22-b2edfea99209"], ["created_at", "2023-07-06 02:14:18.579969"], ["updated_at", "2023-07-06 02:14:18.579969"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Investor Representative"], ["LIMIT", 1]]
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Investor Representative"], ["main_folder_id", nil], ["created_at", "2023-07-06 02:14:29.048818"], ["updated_at", "2023-07-06 02:14:29.048818"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (0.8ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "26d9a699-3188-4afe-8951-ef0530af7f9a"], ["created_at", "2023-07-06 02:14:29.055219"], ["updated_at", "2023-07-06 02:14:29.055219"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Load (1.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.7ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "ffb353c2-a17b-45f1-aae4-881c632616b5"]]
+  [1m[36mFolder Delete All (10.1ms)[0m  [1m[31mDELETE FROM "folders"[0m
+  [1m[36mArchive Delete All (8.6ms)[0m  [1m[31mDELETE FROM "archives"[0m
+  [1m[36mFolder Delete All (10.5ms)[0m  [1m[31mDELETE FROM "folders"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "Direct Manager"], ["LIMIT", 1]]
+  [1m[36mFolder Create (1.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Direct Manager"], ["main_folder_id", nil], ["created_at", "2023-07-10 17:53:12.500692"], ["updated_at", "2023-07-10 17:53:12.500692"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFolder Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "folders"[0m
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.6ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArchive Create (1.1ms)[0m  [1m[32mINSERT INTO "archives" ("status", "file", "folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["status", 0], ["file", "example.png"], ["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["created_at", "2023-07-10 17:59:23.667740"], ["updated_at", "2023-07-10 17:59:23.667740"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1" for ::1 at 2023-07-10 15:11:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1"):
+  
+Started GET "/api/v1" for ::1 at 2023-07-10 15:11:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1"):
+  
+Started GET "/api/v1" for ::1 at 2023-07-10 15:21:58 -0300
+Processing by Api::V1::HomeController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "home"=>{"email"=>"email-377@domain.com", "password"=>"[FILTERED]"}}
+Completed 200 OK in 105ms (Views: 0.1ms | Allocations: 279428)
+
+
+Started GET "/api/v1" for ::1 at 2023-07-10 15:24:11 -0300
+Processing by Api::V1::StatusController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "status"=>{"email"=>"email-377@domain.com", "password"=>"[FILTERED]"}}
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 195)
+
+
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:25:04 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 4.5ms | Allocations: 4343)
+
+
+  
+NoMethodError (undefined method `archive' for #<Folder id: "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3", name: "Direct Manager", main_folder_id: nil, created_at: "2023-07-10 17:53:12.500692000 +0000", updated_at: "2023-07-10 17:53:12.500692000 +0000">):
+  
+app/controllers/api/v1/folders_controller.rb:11:in `index'
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:25:24 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.2ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 3.6ms | Allocations: 9851)
+
+
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.6ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.2ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.5ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1 LIMIT $2[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.5ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1 LIMIT $2[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.6ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1 LIMIT $2[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" ORDER BY "folders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.6ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1 LIMIT $2[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:27:19 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 4.1ms | Allocations: 7148)
+
+
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:27:38 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.2ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 3.6ms | Allocations: 7022)
+
+
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:28:16 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.3ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.5ms | Allocations: 7026)
+
+
+  
+NoMethodError (undefined method `file_name' for #<Archive id: 8, status: "active", file: "example.png", folder_id: "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3", created_at: "2023-07-10 17:59:23.667740000 +0000", updated_at: "2023-07-10 17:59:23.667740000 +0000">):
+  
+app/controllers/api/v1/folders_controller.rb:11:in `index'
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:28:25 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.3ms | Allocations: 7018)
+
+
+  
+NoMethodError (undefined method `name' for #<Archive id: 8, status: "active", file: "example.png", folder_id: "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3", created_at: "2023-07-10 17:59:23.667740000 +0000", updated_at: "2023-07-10 17:59:23.667740000 +0000">):
+  
+app/controllers/api/v1/folders_controller.rb:11:in `index'
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:28:36 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 4.0ms | Allocations: 7147)
+
+
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 15:28:49 -0300
+Processing by Api::V1::FoldersController#index as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "folder"=>{}}
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 3.2ms | Allocations: 7103)
+
+
+Started GET "/api/v1/folders/7d3c4ade-169e-40a1-beb3-ff06f93c2ca3" for ::1 at 2023-07-10 15:29:35 -0300
+Processing by Api::V1::FoldersController#show as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "id"=>"7d3c4ade-169e-40a1-beb3-ff06f93c2ca3", "folder"=>{}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.9ms | Allocations: 176)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: folder):
+  
+app/controllers/api/v1/folders_controller.rb:57:in `folder_params'
+app/controllers/api/v1/folders_controller.rb:53:in `set_folder'
+Started GET "/api/v1/folders/7d3c4ade-169e-40a1-beb3-ff06f93c2ca3" for ::1 at 2023-07-10 15:29:59 -0300
+Processing by Api::V1::FoldersController#show as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "id"=>"7d3c4ade-169e-40a1-beb3-ff06f93c2ca3", "folder"=>{}}
+  [1m[36mFolder Load (0.1ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" = $1 LIMIT $2[0m  [["id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:53:in `set_folder'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2220)
+
+
+Started GET "/api/v1/folders/7d3c4ade-169e-40a1-beb3-ff06f93c2ca3" for ::1 at 2023-07-10 15:30:28 -0300
+Processing by Api::V1::FoldersController#show as */*
+  Parameters: {"email"=>"email-377@domain.com", "password"=>"[FILTERED]", "id"=>"7d3c4ade-169e-40a1-beb3-ff06f93c2ca3", "folder"=>{}}
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" = $1 LIMIT $2[0m  [["id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:59:in `set_folder'
+  [1m[36mArchive Load (0.4ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:22:in `show'
+Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 4.7ms | Allocations: 6978)
+
+
+Started POST "/api/v1/folders" for ::1 at 2023-07-10 15:33:50 -0300
+Processing by Api::V1::FoldersController#create as */*
+  Parameters: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}}
+[31mUnpermitted parameter: :sub_folders_attributes. Context: { controller: Api::V1::FoldersController, action: create, request: #<ActionDispatch::Request:0x00007fca103a78c0>, params: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}, "controller"=>"api/v1/folders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 376)
+
+
+  
+TypeError (no implicit conversion of ActiveSupport::HashWithIndifferentAccess into String):
+  
+app/controllers/api/v1/folders_controller.rb:33:in `initialize'
+app/controllers/api/v1/folders_controller.rb:33:in `new'
+app/controllers/api/v1/folders_controller.rb:33:in `create'
+Started POST "/api/v1/folders" for ::1 at 2023-07-10 15:35:13 -0300
+Processing by Api::V1::FoldersController#create as */*
+  Parameters: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}}
+[31mUnpermitted parameter: :sub_folders_attributes. Context: { controller: Api::V1::FoldersController, action: create, request: #<ActionDispatch::Request:0x00007fca10395288>, params: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}, "controller"=>"api/v1/folders", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :sub_folders_attributes. Context: { controller: Api::V1::FoldersController, action: create, request: #<ActionDispatch::Request:0x00007fca10395288>, params: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}, "controller"=>"api/v1/folders", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :sub_folders_attributes. Context: { controller: Api::V1::FoldersController, action: create, request: #<ActionDispatch::Request:0x00007fca10395288>, params: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}, "controller"=>"api/v1/folders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 286217ms (ActiveRecord: 0.0ms | Allocations: 21189)
+
+
+  
+TypeError (no implicit conversion of ActiveSupport::HashWithIndifferentAccess into String):
+  
+app/controllers/api/v1/folders_controller.rb:34:in `initialize'
+app/controllers/api/v1/folders_controller.rb:34:in `new'
+app/controllers/api/v1/folders_controller.rb:34:in `create'
+Started POST "/api/v1/folders" for ::1 at 2023-07-10 15:40:03 -0300
+Processing by Api::V1::FoldersController#create as */*
+  Parameters: {"folder"=>{"name"=>"My Folder", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:36:in `create'
+  [1m[36mFolder Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Other Folder"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:36:in `create'
+  [1m[36mFolder Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Folder"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:36:in `create'
+  [1m[36mFolder Create (1.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My Folder"], ["main_folder_id", nil], ["created_at", "2023-07-10 18:40:13.796933"], ["updated_at", "2023-07-10 18:40:13.796933"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:36:in `create'
+  [1m[36mFolder Create (0.7ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My Other Folder"], ["main_folder_id", "07ee297a-965a-4575-aafd-b12108c1738c"], ["created_at", "2023-07-10 18:40:13.800674"], ["updated_at", "2023-07-10 18:40:13.800674"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:36:in `create'
+  [1m[36mTRANSACTION (10.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:36:in `create'
+Completed 201 Created in 10250ms (Views: 0.3ms | ActiveRecord: 19.3ms | Allocations: 18916)
+
+
+Started POST "/api/v1/folders" for ::1 at 2023-07-10 15:42:45 -0300
+Processing by Api::V1::FoldersController#create as */*
+  Parameters: {"folder"=>{"name"=>"My Folder 2", "sub_folders_attributes"=>[{"name"=>"My Other Folder"}]}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Other Folder"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My Folder 2"], ["main_folder_id", nil], ["created_at", "2023-07-10 18:42:45.859951"], ["updated_at", "2023-07-10 18:42:45.859951"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Create (0.5ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My Other Folder"], ["main_folder_id", "f613cb23-ed24-481d-8bf9-50e5ab976624"], ["created_at", "2023-07-10 18:42:45.861007"], ["updated_at", "2023-07-10 18:42:45.861007"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.4ms | Allocations: 7631)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_folders_on_name"
+DETAIL:  Key (name)=(My Other Folder) already exists.
+):
+  
+app/controllers/api/v1/folders_controller.rb:29:in `create'
+Started POST "/api/v1/folders" for ::1 at 2023-07-10 15:43:28 -0300
+Processing by Api::V1::FoldersController#create as */*
+  Parameters: {"folder"=>{"name"=>"My Folder 2", "sub_folders_attributes"=>[{"name"=>"My Other Folder 2"}]}}
+  [1m[36mFolder Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Other Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mCACHE Folder Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Other Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mCACHE Folder Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My Folder 2"], ["main_folder_id", nil], ["created_at", "2023-07-10 18:43:28.445663"], ["updated_at", "2023-07-10 18:43:28.445663"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Create (0.2ms)[0m  [1m[32mINSERT INTO "folders" ("name", "main_folder_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "My Other Folder 2"], ["main_folder_id", "8303a40a-d6a2-40fe-9148-8abe97b67ec4"], ["created_at", "2023-07-10 18:43:28.447191"], ["updated_at", "2023-07-10 18:43:28.447191"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mArchive Load (0.1ms)[0m  [1m[34mSELECT "archives".* FROM "archives" WHERE "archives"."folder_id" = $1[0m  [["folder_id", "8303a40a-d6a2-40fe-9148-8abe97b67ec4"]]
+  ↳ app/controllers/api/v1/folders_controller.rb:62:in `render_folder'
+Completed 201 Created in 16ms (Views: 3.0ms | ActiveRecord: 4.1ms | Allocations: 12098)
+
+
+Started POST "/api/v1/folders" for ::1 at 2023-07-10 15:43:37 -0300
+Processing by Api::V1::FoldersController#create as */*
+  Parameters: {"folder"=>{"name"=>"My Folder 2", "sub_folders_attributes"=>[{"name"=>"My Other Folder 2"}]}}
+  [1m[36mFolder Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Other Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+  [1m[36mFolder Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "folders" WHERE "folders"."name" = $1 AND "folders"."main_folder_id" IS NULL LIMIT $2[0m  [["name", "My Folder 2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/folders_controller.rb:29:in `create'
+Completed 422 Unprocessable Entity in 4ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 2500)
+
+
+  [1m[36mArchive Load (0.2ms)[0m  [1m[34mSELECT "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mArchive Load (0.7ms)[0m  [1m[34mSELECT "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.7ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" = $1 LIMIT $2[0m  [["id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  [1m[36mArchive Load (0.7ms)[0m  [1m[34mSELECT "archives".* FROM "archives" ORDER BY "archives"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mFolder Load (0.8ms)[0m  [1m[34mSELECT "folders".* FROM "folders" WHERE "folders"."id" = $1 LIMIT $2[0m  [["id", "7d3c4ade-169e-40a1-beb3-ff06f93c2ca3"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (13.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (17.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (45.8ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (41.8ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "archives" ("id" bigserial primary key, "status" integer DEFAULT 0 NOT NULL, "file" character varying NOT NULL, "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230705210934"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-10 19:13:41.709746"], ["updated_at", "2023-07-10 19:13:41.709746"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "archives"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20230705210934"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "archives" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "status" integer DEFAULT 0 NOT NULL, "file" character varying NOT NULL, "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230705210934"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (25.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_development"[0m
+  [1m[35m (23.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ruby_dev_test_1_test"[0m
+  [1m[35m (48.6ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_development" ENCODING = 'unicode'[0m
+  [1m[35m (49.5ms)[0m  [1m[35mCREATE DATABASE "ruby_dev_test_1_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to EnableUuid (20230704194450)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704194450"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFolders (20230704204450)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "folders" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "name" character varying(300) NOT NULL, "main_folder_id" uuid, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dbe32bd04e"
+FOREIGN KEY ("main_folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE INDEX "index_folders_on_main_folder_id" ON "folders" ("main_folder_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_folders_on_name" ON "folders" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230704204450"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArchives (20230705210934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "archives" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "status" integer DEFAULT 0 NOT NULL, "file" character varying NOT NULL, "folder_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_30eac8ce9b"
+FOREIGN KEY ("folder_id")
+  REFERENCES "folders" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_archives_on_folder_id" ON "archives" ("folder_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230705210934"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-10 19:23:56.392103"], ["updated_at", "2023-07-10 19:23:56.392103"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3362382782644027380)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/status" for ::1 at 2023-07-10 17:33:03 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/status"):
+  
+Started GET "/favicon.ico" for ::1 at 2023-07-10 17:33:04 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1" for ::1 at 2023-07-10 17:33:06 -0300
+Processing by Api::V1::StatusController#index as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 395)
+
+
+Started GET "/api/v1/folders" for ::1 at 2023-07-10 17:33:11 -0300
+Processing by Api::V1::FoldersController#index as HTML
+  [1m[36mFolder Load (0.4ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 3518)
+
+
+Started GET "/api/v1/folders?locale=%27pt-BR%27" for ::1 at 2023-07-10 17:33:25 -0300
+Processing by Api::V1::FoldersController#index as HTML
+  Parameters: {"locale"=>"'pt-BR'"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 128)
+
+
+  
+NoMethodError (undefined method `to_sym' for true:TrueClass):
+  
+app/controllers/application_controller.rb:13:in `toggled_locale'
+Started GET "/api/v1/folders?locale=%27pt-BR%27" for ::1 at 2023-07-10 17:33:42 -0300
+Processing by Api::V1::FoldersController#index as HTML
+  Parameters: {"locale"=>"'pt-BR'"}
+  [1m[36mFolder Load (0.2ms)[0m  [1m[34mSELECT "folders".* FROM "folders"[0m
+  ↳ app/controllers/api/v1/folders_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 2390)
+
+
