@@ -49,6 +49,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 6.1.0'
   gem 'shoulda-matchers', '~> 5.0'
 end
