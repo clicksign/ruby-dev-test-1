@@ -31,3 +31,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/config/credentials/development.key
+
+# Ignore file to make massive tests
+k6_test.js

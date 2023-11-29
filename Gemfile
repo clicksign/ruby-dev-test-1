@@ -37,9 +37,32 @@ gem 'bootsnap', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 
+# The AWS SDK for Ruby is available from RubyGems. With V3 modularization, you should pick the specific
+# AWS service gems to install.
+gem 'aws-sdk-s3', require: false
+
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks
+# and ORMs
+gem 'kaminari'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  # RuboCop is a Ruby static code analyzer (a.k.a. linter) and code formatter.
+  gem 'rubocop', '~> 1.57', require: false
+  # rspec-rails brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default
+  # testing framework, Minitest.
+  gem 'rspec-rails', '~> 6.1.0'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common Rails functionality
+  # that, if written by hand, would be much longer, more complex, and error-prone.
+  gem 'shoulda-matchers', '~> 5.0'
+  # factory_bot is a fixtures replacement with a straightforward definition syntax, support for multiple
+  # build strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), and support for
+  # multiple factories for the same class (user, admin_user, and so on), including factory inheritance.
+  gem 'factory_bot_rails'
+  # Faker is a port of Perl's Data::Faker library. It's a library for generating fake data such as names, addresses,
+  # and phone numbers.
+  gem 'faker'
 end
 
 group :development do
