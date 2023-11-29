@@ -6,16 +6,9 @@ FactoryBot.define do
     association :directory, factory: :directory
 
     trait :with_file do
-      transient { file_path { Rails.root.join('spec', 'fixtures', 'files', 'image.png') } }
+      transient { file_path { Rails.root.join('spec', 'fixtures', 'files', 'image.png').to_s } }
 
-      after :build do |document, evaluator|
-        case document.storage_type.to_sym
-        when :database
-          document.content = File.read evaluator.file_path
-        when :disk
-        when :s3
-        end
-      end
+      after(:build) { |document, evaluator| document.assign_content(evaluator.file_path) }
     end
   end
 end
