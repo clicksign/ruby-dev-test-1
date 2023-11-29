@@ -111,6 +111,10 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -271,6 +275,7 @@ DEPENDENCIES
   bootsnap
   database_cleaner
   debug
+  dotenv-rails
   factory_bot_rails
   faker
   importmap-rails
