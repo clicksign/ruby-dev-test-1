@@ -5,10 +5,10 @@ disk:
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 s3:
   service: S3
-  access_key_id: <%= ENV['S3_ACCESS_KEY_ID'] %> # AKIAXUBYE7CDDXWH2QPX
-  secret_access_key: <%= ENV['S3_SECRET_ACCESS_KEY'] %> # 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
-  region: <%= ENV['S3_REGION'] %> # sa-east-1
-  bucket: <%= ENV['S3_BUCKET'] %> # cadore-clicksign
+  access_key_id: <%= ENV['S3_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['S3_SECRET_ACCESS_KEY'] %>
+  region: <%= ENV['S3_REGION'] %>
+  bucket: <%= ENV['S3_BUCKET'] %>
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
