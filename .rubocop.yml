@@ -1,0 +1,13 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions:
+    rubocop-rails: true
+    rubocop-rspec: true
+    Enabled: true
+  Exclude:
+    - db/**
+    - db/migrate/**
+    - spec/**/*.rb
+    - bin/**
+Documentation:
+  Enabled: false
